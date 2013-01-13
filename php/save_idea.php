@@ -1,8 +1,8 @@
 <?php 
 $ideaName = $_POST["ideaName"];
 $ideaDesc = $_POST["ideaDescription"];
-$skills = $_POST["pSkills"];
-$tags = $_POST["pTags"];
+$skills = $_POST["iSkills"];
+$tags = $_POST["iTags"];
 foreach ($_POST as $value)
 {
     if (!isset($value)) 
