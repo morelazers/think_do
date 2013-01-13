@@ -3,8 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" href="webfonts/stylesheet.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="https://c9.io/morelazers_1/think_do/workspace/html/css/style.css"/>
+	<link rel="stylesheet" href="webfonts/stylesheet.css" type="text/css" charset="utf-8" />
 	<link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" /> 
 	<script language="javascript" type="text/javascript">
 		var dateObject=new Date();
@@ -62,24 +62,12 @@
                         <?php }
                         else
                         { ?>
-                            <form method="post" action="#">
-                            <label for="idea_title">Name your idea:</label><br>
-                            <input type="text" name="ideaName" id="idea_title"><br>
-                            <label for="idea_desc">Describe your idea:</label><br>
-                            <input type="text" name="ideaDescription" id="idea_desc" size="50"><br>
-                            <label for="skills">Beneficial Skills:</label><br>
-                            <input type="text" name="pSkills" id="skills"><br>
-                            <label for="tags">Tags:</label><br>
-                            <input type="text" name="pTags" id="tags"><br>
-                            <input type="submit" name="submit" value="Submit">
-                            </form>
+                            
                         <?php }
                     }
-                } ?>
-                        
-            			</div>			
-            		</div>
-		
+                } ?>         
+            </div>			
+        </div>
 	</div>
 	<div id="footer">
 		<div id="copyright">

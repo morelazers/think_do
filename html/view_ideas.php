@@ -15,7 +15,7 @@
 	<div id="page-container">
 		<div id="header">
 			<div id="header-bottom-left">
-				<h1><a href="homepage.html">Think.Do</a></h1>
+				<h1><a href="home.html">Think.Do</a></h1>
 				<h2>Think. Share. Do.</h2>
 			</div>
 			
@@ -29,25 +29,15 @@
 			<ul>
 				<li>
                 <a href="homepage.html">Home</a>
-    			<a href="#">Submit an Idea</a>
-                <a href="view_ideas.html">View Ideas</a>
+    			<a href="submit_idea.html">Submit an Idea</a>
+                <a href="#">View Ideas</a>
 				</li>			
 			</ul>
 		</div>
 		<div class="clear"></div>
 		<div id="post-container">
 			<div class="post">
-				<form method="post" action="http://think_do.morelazers_1.c9.io/php/save_idea.php/php/save_idea.php">
-                    <label for="idea_title">Name your idea:</label><br>
-                    <input type="text" name="ideaName" id="idea_title"><br>
-                    <label for="idea_desc">Describe your idea:</label><br>
-                    <input type="text" name="ideaDescription" id="idea_desc" size="50"><br>
-                    <label for="skills">Beneficial Skills:</label><br>
-                    <input type="text" name="pSkills" id="skills"><br>
-                    <label for="tags">Tags:</label><br>
-                    <input type="text" name="pTags" id="tags"><br>
-                    <input type="submit" name="submit" value="Submit">
-        </form>
+				<p>ideas from the database</p>
 			</div>			
 		</div>
 		
