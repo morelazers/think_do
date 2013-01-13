@@ -21,7 +21,8 @@
 			
 			<div id="header-bottom-right">
 				<!--Login stuff not really sure what to do here-->
-
+                <h3><a href="login.html">Login</a></h3>
+                <h3><a href="register.html">Register</a></h3>
 			</div>
 		</div>
 		
@@ -37,35 +38,17 @@
 		<div class="clear"></div>
 		<div id="post-container">
 			<div class="post">
-                <?php 
-                $ideaName = $_POST["ideaName"];
-                $ideaDesc = $_POST["ideaDescription"];
-                $skills = $_POST["iSkills"];
-                $tags = $_POST["iTags"];
-                if (isset($_POST["submit"]))
-                {
-                    foreach ($_POST as $value)
-                    {
-                        if (!empty($value))
-                        { ?>
-                            <form method="post" action="#">
-                            <label for="idea_title">Name your idea:</label><br>
-                            <input type="text" name="ideaName" id="idea_title"><br>
-                            <label for="idea_desc">Describe your idea:</label><br>
-                            <input type="text" name="ideaDescription" id="idea_desc" size="50"><br>
-                            <label for="skills">Beneficial Skills:</label><br>
-                            <input type="text" name="pSkills" id="skills"><br>
-                            <label for="tags">Tags:</label><br>
-                            <input type="text" name="pTags" id="tags"><br>
-                            <input type="submit" name="submit" value="Submit">
-                            </form>
-                        <?php }
-                        else
-                        { ?>
-                            
-                        <?php }
-                    }
-                } ?>         
+                <form method="post" action="http://think_do.morelazers_1.c9.io/php/handle_idea.php/php/handle_idea.php">
+                <label for="idea_title">Name your idea:</label><br>
+                <input type="text" name="ideaName" id="idea_title"><br>
+                <label for="idea_desc">Describe your idea:</label><br>
+                <input type="text" name="ideaDescription" id="idea_desc" size="50"><br>
+                <label for="skills">Beneficial Skills:</label><br>
+                <input type="text" name="pSkills" id="skills"><br>
+                <label for="tags">Tags:</label><br>
+                <input type="text" name="pTags" id="tags"><br>
+                <input type="submit" name="submit" value="Submit">
+                </form>
             </div>			
         </div>
 	</div>
