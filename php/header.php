@@ -3,7 +3,7 @@
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="https://c9.io/morelazers_1/think_do/workspace/html/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" href="webfonts/stylesheet.css" type="text/css" charset="utf-8" />
     <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" /> 
 	<script language="javascript" type="text/javascript">
@@ -15,23 +15,23 @@
     <div id="page-container">
 		<div id="header">
 			<div id="header-bottom-left">
-				<h1><a href="https://c9.io/morelazers_1/think_do/workspace/html/homepage.html">Think.Do</a></h1>
+				<h1><a href="index.php">Think.Do</a></h1>
 				<h2>Think. Share. Do.</h2>
 			</div>
             			
 		<div id="header-bottom-right">
 				<!--Login stuff not really sure what to do here-->
-                <h3><a href="login.html">Login</a></h3>
-                <h3><a href="register.html">Register</a></h3>
+                <h3><a href="login.php">Login</a></h3>
+                <h3><a href="register.php">Register</a></h3>
 			</div>
 		</div>
             		
 		<div id="navcontainer">
 			<ul>
 				<li>
-                <a href="https://c9.io/morelazers_1/think_do/workspace/html/homepage.html">Home</a>
-    			<a href="#">Submit an Idea</a>
-                <a href="view_ideas.html">View Ideas</a>
+                <a href="index.php">Home</a>
+    			<a href="submit_idea.php">Submit an Idea</a>
+                <a href="view_ideas.php">View Ideas</a>
 				</li>			
 			</ul>
 		</div>';
