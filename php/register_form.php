@@ -62,42 +62,31 @@
         
         if ($unameInput == $unameValid)
         {
-           
+            $maxUnameLength = 15;
+            
             function checkPassword()
             {
                 return ($_POST["dPassword"] == $_POST["rPassword"]);
             }
             
-            function isValidLength()
+            function isValidLength($uname, $maxLen)
             {
-                $unameLength = (strlen($unameValid));
-                $maxLength = 15;
-                if ($unameLength > $maxLength)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true; 
-                }
+                return (strlen($uname) < (int)$maxLen);
             }
             
             if (!checkPassword())
             {
-                echo 'Passwords do not match';
+                echo 'Passwords do not match!';
             }
             
-            else if (isValidLength())
+            else if (isValidLength($unameInput, $maxUnameLength))
                 {
-                    echo 'submitted';
-                    echo strlen($unameValid);
+                    echo 'submitted to the database';
                 }
                 else
                 {
                     echo 'Username must not be more than 15 characters!</br>';
-                    echo strlen($unameValid);
                 }
-                
         }
         else
         {
