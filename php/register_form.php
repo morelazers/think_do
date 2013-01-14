@@ -5,6 +5,7 @@
     $secondPass = $_POST["rPassword"];
     
     $emptyFields = array();
+    
     if (isset($_POST["submit"]))
     {
         foreach ($_POST as $value)
@@ -16,32 +17,22 @@
         }
         if (empty($emptyFields))
         { 
+            if (isValidInput($_POST["dUsername"]))
+            {
             /*
             * php to add the idea into the database
             */
-            if (checkPassword())
-            {
-                echo 'User created!';
             }
-            else
-            {
-                echo 'Passwords do not match';
-            }
-            
         }
         else
         { 
             echo 'All forms must be filled in!';
         }
-    } 
-    
-    //this function should probably be in another function validateRegister()
-    //which should validate everything, including length, whether the username
-    //is already in use, etc.
-    function checkPassword()
-    {
-        return ($_POST["dPassword"] == $_POST["rPassword"]);
     }
+    else
+    {
+    }
+    
     
     function showForm() 
     {
@@ -57,4 +48,71 @@
               <input type="submit" name="submit" value="Submit">
               </form>';
     }
+    /*
+    *
+    * Validates the user input by first stripping any invalid punctuation values from
+    * the desired username, if there are none, the script checks for matching passwords
+    *
+    *
+    */
+    function isValidInput($unameInput)
+    {
+        
+        $unameValid = preg_replace("/[^a-zA-Z 0-9]+/", " ", $unameInput);
+        
+        if ($unameInput == $unameValid)
+        {
+           
+            function checkPassword()
+            {
+                return ($_POST["dPassword"] == $_POST["rPassword"]);
+            }
+            
+            function isValidLength()
+            {
+                $unameLength = (strlen($unameValid));
+                $maxLength = 15;
+                if ($unameLength > $maxLength)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true; 
+                }
+            }
+            
+            if (!checkPassword())
+            {
+                echo 'Passwords do not match';
+            }
+            
+            else if (isValidLength())
+                {
+                    echo 'submitted';
+                    echo strlen($unameValid);
+                }
+                else
+                {
+                    echo 'Username must not be more than 15 characters!</br>';
+                    echo strlen($unameValid);
+                }
+                
+        }
+        else
+        {
+            echo 'Username must be a combination of letters and numbers only!';
+        }
+    }
+    /*
+    *                {
+                    return FALSE;
+                    echo strlen($unameValid);
+                }
+                else
+                {
+                    return TRUE;
+                    echo strlen($unameValid);
+                }
+    */
 ?> 

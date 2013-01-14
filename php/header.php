@@ -9,13 +9,13 @@
 	<script language="javascript" type="text/javascript">
 		var dateObject=new Date();
 	</script>
-    <title>Think.Do</title>
+    <title>think.do</title>
     </head>
     <body>
     <div id="page-container">
 		<div id="header">
 			<div id="header-bottom-left">
-				<h1><a href="index.php">Think.Do</a></h1>
+				<h1><a href="index.php">think.do</a></h1>
 				<h2>Think. Share. Do.</h2>
 			</div>
             			
