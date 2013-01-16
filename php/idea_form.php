@@ -1,10 +1,20 @@
 <?php
+    error_reporting(0);
     showForm();
     $ideaName = $_POST["ideaName"];
     $ideaDesc = $_POST["ideaDescription"];
     $skills = $_POST["iSkills"];
     $tags = $_POST["iTags"];
     $emptyFields = array();
+    
+    $con = mysql_connect("192.168.0.13:3306","230admin","philosophersturd");
+    if (!$con)
+    {
+        die('Could not connect: ' . mysql_error());
+    }
+    
+    mysql_select_db("thinkdo", $con);
+    
     if (isset($_POST["submit"]))
     {
         foreach ($_POST as $value)
@@ -16,16 +26,24 @@
         }
         if (empty($emptyFields))
         { 
-            /*
-            * php to add the idea into the database
-            */
+            $iName = $_POST["ideaName"];
+            $iDesc = $_POST["ideaDescription"];
+            $sql="INSERT INTO projects (name, description) VALUES ('$iName', '$iDesc')";
+            if (!mysql_query($sql, $con))
+            {
+                echo 'failed to add record';
+                die('Error: ' . mysql_error());
+            }
+            
+            mysql_close($con);
             echo 'Idea submitted!';
         }
         else
         { 
             echo 'All forms must be filled in!';
         }
-    } 
+    }
+    
     function showForm() 
     {
         echo '<form method="post" action="'; echo $PHP_SELF; echo '">

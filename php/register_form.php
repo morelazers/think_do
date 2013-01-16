@@ -1,11 +1,12 @@
 <?php
+    error_reporting(0);
     showForm();
     $desiredName = $_POST["dUsername"];
     $pass = $_POST["dPassword"];
     $secondPass = $_POST["rPassword"];
     
 
-    $con = mysql_connect("localhost:3306","root","p");
+    $con = mysql_connect("192.168.0.13:3306","230admin","philosophersturd");
     if (!$con)
     {
         die('Could not connect: ' . mysql_error());
@@ -25,12 +26,22 @@
             }
         }
         if (empty($emptyFields))
-        { 
+        {
             if (isValidInput($_POST["dUsername"]))
             {
             /*
             * php to add the idea into the database
             */
+            $password = $_POST['dPassword'];
+            $username = $_POST['dUsername'];
+            echo 'submitted to the database';
+            $sql="INSERT INTO users (username, password) VALUES ('$username', '$password')";
+            if (!mysql_query($sql, $con))
+            {
+                die('Error: ' . mysql_error());
+                echo 'failed to add record';
+            }
+            mysql_close($con);
             }
         }
         else
@@ -72,7 +83,6 @@
         if ($unameInput == $unameValid)
         {
             $maxUnameLength = 20;
-            $password = $_POST['dPassword'];
             
             function checkPassword()
             {
@@ -91,16 +101,8 @@
             
             else if (isValidLength($unameInput, $maxUnameLength))
                 {
-                    echo 'submitted to the database';
-                    $sql="INSERT INTO user (uname, password)
-                    VALUES ('$unameInput', '$password')";
-                    if (!mysql_query($sql, $con))
-                    {
-                        die('Error: ' . mysql_error());
-                    }
-                    echo "1 record added";
-                    
-                    mysql_close($con);
+                    return true;
+                    echo 'valid input';
                 }
                 else
                 {
