@@ -13,14 +13,6 @@
     
     mysql_select_db("thinkdo", $con);
     
-    
-    
-    mysql_query("INSERT INTO Persons (FirstName, LastName, Age) 
-    VALUES ('Glenn', 'Quagmire',33)");
-    
-    mysql_close($con);
-
-    
     $emptyFields = array();
     
     if (isset($_POST["submit"]))
@@ -80,6 +72,7 @@
         if ($unameInput == $unameValid)
         {
             $maxUnameLength = 20;
+            $password = $_POST['dPassword'];
             
             function checkPassword()
             {
@@ -99,8 +92,15 @@
             else if (isValidLength($unameInput, $maxUnameLength))
                 {
                     echo 'submitted to the database';
-                    mysql_query("INSERT INTO user (uname, password)
-                    VALUES ('$unameInput', '$_POST["dPassword"]')");
+                    $sql="INSERT INTO user (uname, password)
+                    VALUES ('$unameInput', '$password')";
+                    if (!mysql_query($sql, $con))
+                    {
+                        die('Error: ' . mysql_error());
+                    }
+                    echo "1 record added";
+                    
+                    mysql_close($con);
                 }
                 else
                 {
