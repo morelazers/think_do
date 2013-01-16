@@ -6,7 +6,7 @@ body{
 	height:100%;
 	margin:0;
 	padding:0;
-	text-align:left;
+	text-align:center;
 
 	font-family:"Palatino Linotype","Book Antique", Palantino, serif;
 	font-size:12px; 
@@ -15,12 +15,13 @@ body{
 
 #page-container{
 	position:relative;
-	margin:0 auto;
+	margin:0 auto 0 auto;
 	overflow:hidden;
 	width:80%;
 	height: 100%;
 	background:#ffffff;
 	padding-bottom:50px;
+    text-align:left;
 }
 
 #header{
@@ -111,6 +112,11 @@ body p{
 	top:20px;
 }
 
+#links{
+    float:left;
+	position:relative;
+}
+
 
 #footer{
 	background:#ffffff;
@@ -133,7 +139,6 @@ body p{
 }
 
 #copyright{
-
 	float:right;
 	position:relative;
 	width:210px;

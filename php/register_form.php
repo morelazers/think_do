@@ -4,6 +4,23 @@
     $pass = $_POST["dPassword"];
     $secondPass = $_POST["rPassword"];
     
+
+    $con = mysql_connect("localhost:3306","root","p");
+    if (!$con)
+    {
+        die('Could not connect: ' . mysql_error());
+    }
+    
+    mysql_select_db("thinkdo", $con);
+    
+    
+    
+    mysql_query("INSERT INTO Persons (FirstName, LastName, Age) 
+    VALUES ('Glenn', 'Quagmire',33)");
+    
+    mysql_close($con);
+
+    
     $emptyFields = array();
     
     if (isset($_POST["submit"]))
@@ -62,7 +79,7 @@
         
         if ($unameInput == $unameValid)
         {
-            $maxUnameLength = 15;
+            $maxUnameLength = 20;
             
             function checkPassword()
             {
@@ -82,6 +99,8 @@
             else if (isValidLength($unameInput, $maxUnameLength))
                 {
                     echo 'submitted to the database';
+                    mysql_query("INSERT INTO user (uname, password)
+                    VALUES ('$unameInput', '$_POST["dPassword"]')");
                 }
                 else
                 {
