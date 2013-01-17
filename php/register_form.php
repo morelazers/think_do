@@ -6,7 +6,7 @@
     $secondPass = $_POST["rPassword"];
     
 
-    $con = mysql_connect("192.168.0.13:3306","230admin","philosophersturd");
+    $con = mysql_connect("127.0.0.1:3306","root","");
     if (!$con)
     {
         die('Could not connect: ' . mysql_error());
@@ -114,15 +114,4 @@
             echo 'Username must be a combination of letters and numbers only!';
         }
     }
-    /*
-    *                {
-                    return FALSE;
-                    echo strlen($unameValid);
-                }
-                else
-                {
-                    return TRUE;
-                    echo strlen($unameValid);
-                }
-    */
 ?> 

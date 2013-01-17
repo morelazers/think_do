@@ -7,7 +7,7 @@
     $tags = $_POST["iTags"];
     $emptyFields = array();
     
-    $con = mysql_connect("192.168.0.13:3306","230admin","philosophersturd");
+     $con = mysql_connect("127.0.0.1:3306","root","");
     if (!$con)
     {
         die('Could not connect: ' . mysql_error());
