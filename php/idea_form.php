@@ -6,17 +6,19 @@
     $skills = $_POST["iSkills"];
     $tags = $_POST["iTags"];
     $emptyFields = array();
-    
-     $con = mysql_connect("127.0.0.1:3306","root","");
+	
+    //Attempt database connection
+    $con = mysql_connect("127.0.0.1:3306","root","");
     if (!$con)
     {
         die('Could not connect: ' . mysql_error());
     }
-    
+    //Select thinkdo database
     mysql_select_db("thinkdo", $con);
     
     if (isset($_POST["submit"]))
     {
+		//Add all empty fields to an array
         foreach ($_POST as $value)
         {
             if (empty($value))
@@ -24,11 +26,12 @@
                 array_push($emptyFields, $value);
             }
         }
+		//If no fields are empty, add to database
         if (empty($emptyFields))
         { 
             $iName = $_POST["ideaName"];
             $iDesc = $_POST["ideaDescription"];
-            $sql="INSERT INTO projects (name, description) VALUES ('$iName', '$iDesc')";
+            $sql="INSERT INTO project (projectName, description) VALUES ('".$iName."', '".$iDesc."')";
             if (!mysql_query($sql, $con))
             {
                 echo 'failed to add record';
