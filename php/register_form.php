@@ -29,20 +29,24 @@
         {
             if (isValidInput($_POST["dUsername"]))
             {
-            /*
-            * php to add the idea into the database
-            */
-            $password = $_POST['dPassword'];
-            $username = $_POST['dUsername'];
-            echo 'submitted to the database';
-            $sql="INSERT INTO users (username, password) VALUES ('$username', '$password')";
-            if (!mysql_query($sql, $con))
-            {
-                die('Error: ' . mysql_error());
-                echo 'failed to add record';
-            }
-            mysql_close($con);
-            }
+				//Query database to check if username is taken
+				$sql = "SELECT username FROM user WHERE user ='".$username."'";
+				$userTaken = mysql_query($sql, $con);
+				//If username is not taken, add new user to database
+				if($userTaken==null)
+				{
+					$password = $_POST['dPassword'];
+					$username = $_POST['dUsername'];
+					echo 'submitted to the database';
+					$sql="INSERT INTO user (username, password) VALUES ('$username', '$password')";
+					if (!mysql_query($sql, $con))
+					{
+						die('Error: ' . mysql_error());
+						echo 'failed to add record';
+					}
+					mysql_close($con);
+				}
+			}
         }
         else
         { 
