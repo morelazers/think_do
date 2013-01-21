@@ -32,8 +32,13 @@ function getIdea(){
 		$pSkills = $projectArray['skillsRequired'];
 		$pTags = $projectArray['tags'];
 		//Output project information with appropriate markup
-		echo "<h2>".$pName."</h2>";
-		echo "<p>".$pDesc."</p>";
+		echo '<h2>'.$pName.'</h2><br>';
+		echo '<h3>Project Description:</h3><br>';
+		echo '<p>'.$pDesc.'</p><br>';
+		echo '<h3>Skills Needed:</h3><br>';
+		echo '<p>'.$pSkills.'</p><br>';
+		echo '<h3>Project Tags:</h3><br>';
+		echo '<p>'.$pTags.'</p>';
 	}
 }
 ?>
