@@ -31,7 +31,8 @@
 				<li>
                 <a href="index.php">Home</a>
     			<a href="submit_idea.php">Submit an Idea</a>
-                <a href="view_ideas.php">View Ideas</a>
+                <a href="view_ideas.php">View Idea</a>
+				<a href="list_ideas.php">List Ideas</a>
 				</li>			
 			</ul>
 		</div>';
