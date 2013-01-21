@@ -173,7 +173,7 @@ body p{
 	position:relative;
 	float:left;
 	width:50%;
-	height:260px;
+	height:460px;
 	padding: 0px;
 	margin:10px 0px 0px 0px;
 	overflow:hidden;
@@ -184,7 +184,15 @@ body p{
 
 	display:table;
 }
+.post h3{
+	margin: 0px;
+	padding: 0px;
+}
 
+.post p{
+	top: 0px;
+
+}
 a:hover{
 	text-decoration:none;
 	color:#b81900;
