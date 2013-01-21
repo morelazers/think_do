@@ -1,4 +1,8 @@
-<?php include 'header.php'; ?>
+<?php 
+/**
+	Author: Tom Nash
+*/
+include 'header.php'; ?>
     <div class="clear"></div>
     	<div id="post-container">
 			<div class="post">

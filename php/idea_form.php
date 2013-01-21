@@ -1,4 +1,7 @@
 <?php
+/**
+	Author: Tom Nash
+*/
     error_reporting(0);
     showForm();
     $ideaName = $_POST["ideaName"];
@@ -34,7 +37,6 @@
 			$iSkills = $_POST["iSkills"];
 			$iTags = $_POST["iTags"];
 			$iDate = date("Y-m-d H:i:s");
-			//Convert radio button value to integer representation of boolean
 			if($_POST["iPrivacy"]=="public")
 			{
 				$iOpen = 1;
@@ -43,7 +45,6 @@
 			{
 				$iOpen = 0;
 			}
-			//Execute query to insert new tuple
             $sql="INSERT INTO project (projectName, description, skillsRequired, tags, dateCreated, isOpen) VALUES ('".$iName."', '".$iDesc."', '".$iSkills."', '".$iTags."', '".$iDate."', '".$iOpen."')";
             if (!mysql_query($sql, $con))
 			//If error durying query execution report error
@@ -63,11 +64,6 @@
     
     function showForm() 
     {
-		/*
-		This function echos the idea input form to the page. If a value was previously entered into an input
-		it is echoed back into that input to remove the need to reenter data in the case of a field being
-		invalid.
-		*/
         echo '<form method="post" action="'; echo $PHP_SELF; echo '">
               <label for="idea_title">Name your idea:</label><br>
               <input type="text" name="ideaName" id="idea_title" value="';
@@ -85,7 +81,6 @@
               <input type="text" name="iTags" id="tags" value="';
             echo $_POST["iTags"];
 			echo '"><br><label for="Privacy">Privacy:</label><br>';
-			//This if is responsible for preselecting a one of the radio buttons for privacy
 			if(array_key_exists("iPrivacy", $_POST))
 			{
 				if($_POST["iPrivacy"] == "public")

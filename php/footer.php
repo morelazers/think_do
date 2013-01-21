@@ -1,3 +1,8 @@
+<?php
+	/**
+		Author: Mingkit Wong
+	*/
+?>
 <div id="footer">
     <div id="links">
         <o><a href="about.php">About</a></p>

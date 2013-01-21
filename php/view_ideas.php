@@ -1,4 +1,8 @@
-<?php include 'header.php'; ?>
+<?php
+/**
+	Author: Nathan Emery
+*/
+ include 'header.php'; ?>
     <div class="clear"></div>
         <div id="post-container">
         	<div class="post">

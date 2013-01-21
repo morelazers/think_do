@@ -1,4 +1,7 @@
 <?php
+/**
+	Author: Tom Nash
+*/
     error_reporting(0);
     showForm();
     $desiredName = $_POST["dUsername"];

@@ -1,4 +1,8 @@
-<?php echo '
+<?php
+/**
+	Author: Mingkit Wong
+*/
+ echo '
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -30,9 +34,8 @@
 			<ul>
 				<li>
                 <a href="index.php">Home</a>
-    			<a href="submit_idea.php">Submit an Idea</a>
-                <a href="view_ideas.php">View Idea</a>
-				<a href="list_ideas.php">List Ideas</a>
+    			<a href="submit_idea.php"> | Submit an Idea | </a>
+				<a href="list_ideas.php">View a List of Ideas</a>
 				</li>			
 			</ul>
 		</div>';
