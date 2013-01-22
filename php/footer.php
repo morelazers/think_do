@@ -1,6 +1,6 @@
 <?php
 	/**
-		Author: Mingkit Wong
+		Author: Mingkitty Wong
 	*/
 ?>
 <div id="footer">
