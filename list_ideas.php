@@ -17,7 +17,7 @@
 function getIdeas()
 {
 	//Connect to mysql
-	$con = mysql_connect("127.0.0.1:3306","root","");
+	$con = mysql_connect("http://scc230-4.lancs.ac.uk:3306","root","comicsans");
 	//If connection failed, report error
 	if (!$con)
 	{

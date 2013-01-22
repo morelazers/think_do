@@ -11,7 +11,7 @@
     $emptyFields = array();
 	
     //Attempt database connection
-    $con = mysql_connect("127.0.0.1:3306","root","");
+    $con = mysql_connect("http://scc230-4.lancs.ac.uk:3306","root","comicsans");
     if (!$con)
     {
         die('Could not connect: ' . mysql_error());
