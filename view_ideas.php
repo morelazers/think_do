@@ -19,8 +19,6 @@ function getIdea(){
 	//Check for 'pid' parameter in URL
 	if(array_key_exists("pid", $_GET))
 	{
-		//If present, select thinkdo database
-		mysql_select_db("thinkdo", $con);
 		$projectID = $_GET["pid"];
 		$project = mysql_query("SELECT * FROM project WHERE projectID=" . $projectID);
 		//Get project data for the project from the database

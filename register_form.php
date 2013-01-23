@@ -9,9 +9,7 @@
     $secondPass = $_POST["rPassword"];
     
 	include 'connect.php';
-    
-    mysql_select_db("thinkdo", $con);
-    
+	
     $emptyFields = array();
     
     if (isset($_POST["submit"]))

@@ -12,8 +12,6 @@
 	
     //Attempt database connection
     include 'connect.php';
-    //Select thinkdo database
-    mysql_select_db("thinkdo", $con);
     
     if (isset($_POST["submit"]))
     {

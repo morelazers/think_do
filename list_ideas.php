@@ -14,9 +14,8 @@ include 'header.php'; ?>
 <?php include 'footer.php'; ?>
 
 <?php
-function outputIdeas($projects)
+function outputIdeas(&$projects)
 {
-
 	echo '<table>';
 	//Create a table and output the project creator, created date and project name to table. The project name is linked to the project page
 	while($projectsArray = mysql_fetch_array($projects))
@@ -37,8 +36,6 @@ function getIdeas()
 {
 	//Connect to mysql
 	include 'connect.php';
-	//Select thinkdo database
-	mysql_select_db("thinkdo", $con);
 	//Check if start parameter present in URL
 	if(array_key_exists("page", $_GET))
 	{
