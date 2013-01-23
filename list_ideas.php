@@ -17,12 +17,7 @@
 function getIdeas()
 {
 	//Connect to mysql
-	$con = mysql_connect("scc230-4.lancs.ac.uk:3306","root","comicsans");
-	//If connection failed, report error
-	if (!$con)
-	{
-		die('Could not connect to mysql: ' . mysql_error());
-	}
+	include 'connect.php';
 	//Select thinkdo database
 	mysql_select_db("thinkdo", $con);
 	//Check if start parameter present in URL

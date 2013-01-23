@@ -8,12 +8,7 @@
     $pass = $_POST["dPassword"];
     $secondPass = $_POST["rPassword"];
     
-
-    $con = mysql_connect("scc230-4.lancs.ac.uk:3306","root","comicsans");
-    if (!$con)
-    {
-        die('Could not connect: ' . mysql_error());
-    }
+	include 'connect.php';
     
     mysql_select_db("thinkdo", $con);
     

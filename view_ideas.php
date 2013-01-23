@@ -15,12 +15,7 @@
 <?php
 function getIdea(){
 	//Connect to mysql
-	$con = mysql_connect("scc230-4.lancs.ac.uk:3306","root","comicsans");
-	//If connection failed, report error
-	if (!$con)
-	{
-		die('Could not connect to mysql: ' . mysql_error());
-	}
+	include 'connect.php';
 	//Check for 'pid' parameter in URL
 	if(array_key_exists("pid", $_GET))
 	{
