@@ -3,6 +3,9 @@
     $uName = $_POST["username"];
     $pass = $_POST["password"];
     $emptyFields = array();
+    
+    include 'connect.php';
+    
     if (isset($_POST["submit"]))
     {
         foreach ($_POST as $value)
