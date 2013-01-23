@@ -15,6 +15,10 @@
         if (empty($emptyFields))
         {
             //validate login
+            if (isValidInput($uName))
+            {
+                validateLogin($uName);
+            }
         }
         else
         {   
@@ -35,4 +39,23 @@
             <input type="submit" name="submit" value="Login">
             </form>';
     }
+    
+    function isValidInput($unameInput)
+    {
+        $unameValid = preg_replace("/[^a-zA-Z 0-9]+/", " ", $unameInput);
+        return ($unameValid == $unameInput);
+    }
+    
+    function validateLogin($u)
+    {
+        //Query database to check if passwords are equal
+    	$sql = "SELECT password FROM user WHERE user ='".$username."'";
+        $storedPass = mysql_query($sql, $con);
+        return ($storedPass == $pass);
+        /*
+        * incomplete, needs encryption
+        */
+    }
+    
+    
 ?> 

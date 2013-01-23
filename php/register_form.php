@@ -17,49 +17,29 @@
     
     mysql_select_db("thinkdo", $con);
     
-    $emptyFields = array();
-    
     if (isset($_POST["submit"]))
     {
-        foreach ($_POST as $value)
-        {
-            if (empty($value))
-            { 
-                array_push($emptyFields, $value);
-            }
-        }
-        if (empty($emptyFields))
+        if (inputIsComplete())
         {
             if (isValidInput($_POST["dUsername"]))
             {
-				//Query database to check if username is taken
-				$sql = "SELECT username FROM user WHERE user ='".$username."'";
-				$userTaken = mysql_query($sql, $con);
-				//If username is not taken, add new user to database
-				if($userTaken==null)
-				{
-					$password = $_POST['dPassword'];
-					$username = $_POST['dUsername'];
-					echo 'submitted to the database';
-					$sql="INSERT INTO user (username, password) VALUES ('$username', '$password')";
-					if (!mysql_query($sql, $con))
-					{
-						die('Error: ' . mysql_error());
-						echo 'failed to add record';
-					}
-					mysql_close($con);
-				}
+                if (userIsNotTaken())
+                {
+                    $password = encryptPassword($_POST['dPassword']);
+    				$username = $_POST['dUsername'];
+                    insertIntoDB($username, $password);
+    			}
 			}
-        }
+		}
         else
-        { 
+        {
             echo 'All forms must be filled in!';
         }
     }
     else
     {
+        
     }
-    
     
     function showForm() 
     {
@@ -75,6 +55,66 @@
               <input type="submit" name="submit" value="Submit">
               </form>';
     }
+    
+    function insertIntoDB($u, $p)
+    {
+        $sql="INSERT INTO user (username, password) VALUES ('$u', '$p')";
+        if (!mysql_query($sql, $con))
+        {
+    		die('Error: ' . mysql_error());
+    		echo 'failed to add record';
+    	}
+        else
+        {
+            echo 'You are registered!<br>Please login';
+            header( 'Location: http://www.yoursite.com/new_page.html' ) ;
+        }
+        mysql_close($con);
+    }
+    
+    function encryptPassword($p)
+    {
+        //Encrypt password!
+        $p = hash("sha512", $p);
+        return $p;
+    }
+    
+    function inputIsComplete()
+    {  
+        $emptyFields = array();
+        foreach ($_POST as $value)
+        {
+            if (empty($value))
+            { 
+                array_push($emptyFields, $value);
+            }
+        }
+        if (empty($emptyFields))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    function userIsNotTaken($u)
+    {
+        //Query database to check if username is taken
+        $sql = "SELECT username FROM user WHERE user ='".$username."'";
+    	$userTaken = mysql_query($sql, $con);
+    	//If username is not taken, add new user to database
+    	if($userTaken==null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
     /*
     *
     * Validates the user input by first stripping any invalid punctuation values from
@@ -89,7 +129,7 @@
         
         if ($unameInput == $unameValid)
         {
-            $maxUnameLength = 20;
+            $maxUnameLength = 100;
             
             function checkPassword()
             {
@@ -105,16 +145,15 @@
             {
                 echo 'Passwords do not match!';
             }
-            
             else if (isValidLength($unameInput, $maxUnameLength))
-                {
-                    return true;
-                    echo 'valid input';
-                }
-                else
-                {
-                    echo 'Username must not be more than 15 characters!</br>';
-                }
+            {
+                return true;
+                echo 'valid input';
+            }
+            else
+            {
+                echo 'Username must not be more than 15 characters!</br>';
+            }
         }
         else
         {
