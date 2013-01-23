@@ -3,7 +3,7 @@
 		Author: Nathan Emery
 	*/
 
- include 'header.php'; ?>
+include 'header.php'; ?>
     <div class="clear"></div>
         <div id="post-container">
         	<div class="post">
@@ -14,6 +14,25 @@
 <?php include 'footer.php'; ?>
 
 <?php
+function outputIdeas($projects)
+{
+
+	echo '<table>';
+	//Create a table and output the project creator, created date and project name to table. The project name is linked to the project page
+	while($projectsArray = mysql_fetch_array($projects))
+	{
+		$pName = $projectsArray['projectName'];
+		$createdBy = $projectsArray['createdBy'];
+		$dateCreated = $projectsArray['dateCreated'];
+		$pID = $projectsArray['projectID'];
+		echo '<tr>';
+		echo '<td><h2><a href="./view_ideas.php?pid='.$pID.'">'.$pName.'</a></h2></td>';
+		echo '<td>'.$createdBy.'</td>';
+		echo '<td>'.$dateCreated.'</td>';
+		echo '</tr>';
+	}
+	echo '</table><br>';
+}
 function getIdeas()
 {
 	//Connect to mysql
@@ -29,24 +48,11 @@ function getIdeas()
 		$endID = $startID + 9;
 		//Query database for data for all projects to be displayed on this page
 		$projects = mysql_query("SELECT createdBy, projectName, dateCreated, projectID FROM project WHERE projectID BETWEEN " . $startID . " AND " . $endID);
+		$projectAmount = mysql_query("SELECT COUNT(*) FROM project");
 		//If query returns projects
 		if($projects!=null)
 		{
-			echo '<table>';
-			//Create a table and output the project creator, created date and project name to table. The project name is linked to the project page
-			while($projectsArray = mysql_fetch_array($projects))
-			{
-				$pName = $projectsArray['projectName'];
-				$createdBy = $projectsArray['createdBy'];
-				$dateCreated = $projectsArray['dateCreated'];
-				$pID = $projectsArray['projectID'];
-				echo '<tr>';
-				echo '<td><h2><a href="./view_ideas.php?pid='.$pID.'">'.$pName.'</a></h2></td>';
-				echo '<td>'.$createdBy.'</td>';
-				echo '<td>'.$dateCreated.'</td>';
-				echo '</tr>';
-			}
-			echo '</table>';
+			outputIdeas($projects);
 		}
 	}
 	else
@@ -59,21 +65,7 @@ function getIdeas()
 		//If query returns projects
 		if($projects!=null)
 		{
-			echo '<table>';
-			//Create a table and output the project creator, created date and project name to table. The project name is linked to the project page
-			while($projectsArray = mysql_fetch_array($projects))
-			{
-				$pName = $projectsArray['projectName'];
-				$createdBy = $projectsArray['createdBy'];
-				$dateCreated = $projectsArray['dateCreated'];
-				$pID = $projectsArray['projectID'];
-				echo '<tr>';
-				echo '<td><h2><a href="./view_ideas.php?pid='.$pID.'">'.$pName.'</a></h2></td>';
-				echo '<td>'.$createdBy.'</td>';
-				echo '<td>'.$dateCreated.'</td>';
-				echo '</tr>';
-			}
-			echo '</table>';
+			outputIdeas($projects);
 		}
 	}
 	
