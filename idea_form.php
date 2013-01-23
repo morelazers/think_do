@@ -11,13 +11,7 @@
     $emptyFields = array();
 	
     //Attempt database connection
-    $con = mysql_connect("127.0.0.1:3306","root","");
-    if (!$con)
-    {
-        die('Could not connect: ' . mysql_error());
-    }
-    //Select thinkdo database
-    mysql_select_db("thinkdo", $con);
+    include 'connect.php';
     
     if (isset($_POST["submit"]))
     {

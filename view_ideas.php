@@ -15,17 +15,10 @@
 <?php
 function getIdea(){
 	//Connect to mysql
-	$con = mysql_connect("127.0.0.1:3306","root","");
-	//If connection failed, report error
-	if (!$con)
-	{
-		die('Could not connect to mysql: ' . mysql_error());
-	}
+	include 'connect.php';
 	//Check for 'pid' parameter in URL
 	if(array_key_exists("pid", $_GET))
 	{
-		//If present, select thinkdo database
-		mysql_select_db("thinkdo", $con);
 		$projectID = $_GET["pid"];
 		$project = mysql_query("SELECT * FROM project WHERE projectID=" . $projectID);
 		//Get project data for the project from the database

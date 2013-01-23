@@ -1,13 +1,8 @@
 <?php
-    $con = mysql_connect("127.0.0.1:3306","root","");
+    $con = mysql_connect("localhost:3306","root","comicsans");
     if (!$con)
     {
         die('Could not connect: ' . mysql_error());
     }
-    else
-    {
-        echo 'connected to the database';
-    }
-    
     mysql_select_db("thinkdo", $con);
 ?>
