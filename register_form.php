@@ -9,13 +9,7 @@
     $secondPass = $_POST["rPassword"];
     
 
-    $con = mysql_connect("127.0.0.1:3306","root","");
-    if (!$con)
-    {
-        die('Could not connect: ' . mysql_error());
-    }
-    
-    mysql_select_db("thinkdo", $con);
+    include 'connect.php';
     
     if (isset($_POST["submit"]))
     {
