@@ -20,14 +20,20 @@
             //validate login
             if (isValidInput($uName))
             {
-                validateLogin($uName);
+                if (validateLogin($uName, $pass))
+                {
+                    /*
+                    * Log the user in for the current session
+                    */
+                }
             }
         }
         else
         {   
             echo 'All fields must be filled in!';
         }
-    } 
+    }
+    
      function showForm() 
     {
         echo '<form method="post" action="'; 
@@ -49,16 +55,13 @@
         return ($unameValid == $unameInput);
     }
     
-    function validateLogin($u)
+    function validateLogin($u, $p)
     {
         //Query database to check if passwords are equal
-    	$sql = "SELECT password FROM user WHERE user ='".$username."'";
+        $sql = "SELECT password FROM user WHERE user ='".$u."'";
         $storedPass = mysql_query($sql, $con);
-        return ($storedPass == $pass);
-        /*
-        * incomplete, needs encryption
-        */
+        //Hash the inputted password and check if it is equal to the one stored in the DB
+        $encryptedPass = hash("sha512", $p);
+        return ($encryptedPass == $storedPass);
     }
-    
-    
 ?> 
