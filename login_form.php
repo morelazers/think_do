@@ -84,6 +84,8 @@
         $sP = $user['password'];
         //Hash the inputted password and check if it is equal to the one stored in the DB
         $encryptedPass = hash("sha512", $p);
+        echo $sql;
+        echo '<br>';
         echo $sP;
         echo '<br>';
         echo $encryptedPass;
