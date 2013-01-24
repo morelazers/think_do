@@ -8,6 +8,7 @@
     $pass = $_POST["dPassword"];
     $secondPass = $_POST["rPassword"];
     $emailAddress = $_POST["email"];
+    $eKey = 'TOPSECRET';
     
     include 'connect.php';
     
@@ -19,8 +20,7 @@
             {
                 if (userIsNotTaken())
                 {
-                	$password = encryptData($pass);
-                	echo $password;
+                	insertIntoDB($con, $desiredName, $pass, $eKey);
                     //$password = encryptPassword($_POST['dPassword']);
                     //$username = $_POST['dUsername'];
                     //insertIntoDB($con, $username, $password, $emailAddress);
@@ -65,6 +65,15 @@
     
     function insertIntoDB($c, $u, $p, $e)
     {
+    	function encrypt($str, $key)
+	{
+		$block = mcrypt_get_block_size('des', 'ecb');
+		$pad = $block - (strlen($str) % $block);
+		$str .= str_repeat(chr($pad), $pad);
+		return mcrypt_encrypt(MCRYPT_DES, $key, $str, MCRYPT_MODE_ECB);
+	}
+	$p = encrypt($p, $e);
+    	
         $sql="INSERT INTO user (username, email, password) VALUES ('$u', '$e', '$p')";
         if (!mysql_query($sql, $c))
         {
@@ -80,20 +89,6 @@
         }
         mysql_close($con);
     }
-    
- 
-   function encryptData($value)
-   { 
-   	$key = "pleasedontcrackme"; 
-   	$text = $value;
-   	$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB); 
-   	$iv = mcrypt_create_iv($iv_size, MCRYPT_RAND); 
-   	$crypttext = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key, $text, MCRYPT_MODE_ECB, $iv);
-   	echo $crypttext;
-   	return $crypttext;
-   }
-
-
     
 /*    function encryptPassword($p)
     {
