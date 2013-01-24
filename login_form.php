@@ -86,17 +86,17 @@
         $storedPass = $user['password'];
         
         //Decrypt the database password and check if it is equal to the one inputted
-        function decrypt($str, $key)
-        {   
-            	$str = mcrypt_decrypt(MCRYPT_DES, $key, $str, MCRYPT_MODE_ECB);
-    		$block = mcrypt_get_block_size('des', 'ecb');
-    		$pad = ord($str[($len = strlen($str)) - 1]);
-    		echo (substr($str, 0, strlen($str) - $pad));
-    		echo '<br>;';
-    		return substr($str, 0, strlen($str) - $pad);
+     	function decrypt_data($text)
+     	{
+		  global $eKey;
+		  $iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
+		  $iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+		  $decrypted_text = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $eKey, $text, MCRYPT_MODE_ECB, $iv);
+		  return $decrypted_text;
 	}
 	
-        $decryptedPass = decrypt($storedPass, $k);
+        $decryptedPass = decrypt_data($storedPass);
+        $decryptedPass = rtrim($decryptedPass, "\0");
         
         echo $sql;
         echo '<br>';
