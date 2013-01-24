@@ -19,9 +19,11 @@
             {
                 if (userIsNotTaken())
                 {
-                    $password = encryptPassword($_POST['dPassword']);
-                    $username = $_POST['dUsername'];
-                    insertIntoDB($con, $username, $password, $emailAddress);
+                	$password = encryptData($pass);
+                	echo $password;
+                    //$password = encryptPassword($_POST['dPassword']);
+                    //$username = $_POST['dUsername'];
+                    //insertIntoDB($con, $username, $password, $emailAddress);
     		}
             }
 	}
@@ -79,13 +81,27 @@
         mysql_close($con);
     }
     
-    function encryptPassword($p)
+ 
+   function encryptData($value)
+   { 
+   	$key = "pleasedontcrackme"; 
+   	$text = $value;
+   	$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB); 
+   	$iv = mcrypt_create_iv($iv_size, MCRYPT_RAND); 
+   	$crypttext = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key, $text, MCRYPT_MODE_ECB, $iv);
+   	echo $crypttext;
+   	return $crypttext;
+   }
+
+
+    
+/*    function encryptPassword($p)
     {
         //Encrypt password!
         $p = hash("sha512", $p);
         return $p;
     }
-    
+*/    
     function inputIsComplete()
     {  
         $emptyFields = array();
