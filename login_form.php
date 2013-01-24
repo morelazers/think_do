@@ -92,16 +92,16 @@
 		  $salt = md5($eKey);
 		  echo $sP;
 		  echo '<br>';
-		  echo $salt;
-		  echo '<br>';
 		  echo (sha1($salt.$text));
 		  echo '<br>';
 		  if ($sP == sha1($salt.$text))
 		  {
+		  	echo 'pass matches';
 			return true;
 		  }
 		  else
 		  {
+		  	echo 'pass does not match';
 		  	return false;
 		  }
 	}
