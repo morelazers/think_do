@@ -2,7 +2,7 @@
     showForm();
     $uName = $_POST["username"];
     $pass = $_POST["password"];
-    eKey = 'TOPSECRET';
+    $eKey = 'TOPSECRET';
     
     include 'connect.php';
     
