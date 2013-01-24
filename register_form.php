@@ -74,7 +74,7 @@
 	}
 	$encP = encrypt($p, $enc);
     	
-        $sql="INSERT INTO user (username, email, password) VALUES ('$u', '$encP', '$p')";
+        $sql="INSERT INTO user (username, email, password) VALUES ('$u', '$e', '$encP')";
         if (!mysql_query($sql, $c))
         {
         	echo 'Failed to add record';
