@@ -82,6 +82,8 @@
     {
         //Query database to check if passwords are equal
         $sql = "SELECT password FROM user WHERE username =" . $u;
+        echo $u;
+        echo '<br>';
         echo $sql;
         echo '<br>';
         $storedPass = mysql_query($sql, $c);
