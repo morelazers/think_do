@@ -83,7 +83,7 @@
         $sql = "SELECT password FROM user WHERE username = '" . $u . "'";
         $resultRow = mysql_query($sql, $c);
         $user = mysql_fetch_assoc($resultRow);
-        $sP = $user['password'];
+        $storedPass = $user['password'];
         
         //Decrypt the database password and check if it is equal to the one inputted
         function decrypt($sP, $key)
@@ -94,11 +94,11 @@
     		return substr($str, 0, strlen($str) - $pad);
 	}
 	
-        $decryptedPass = decrypt($sP, $k);
+        $decryptedPass = decrypt($storedPass, $k);
         
         echo $sql;
         echo '<br>';
-        echo $sP;
+        echo $storedPass;
         echo '<br>';
         echo $decryptedPass;
         echo '<br>';
