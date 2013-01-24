@@ -93,7 +93,8 @@
 		  echo $salt;
 		  echo '<br>';
 		  echo (sha1($salt.$text));
-		  if ($sP == sha1($salt.$text)) 
+		  echo '<br>';
+		  if ($sP == sha1($salt.$text))
 		  {
 			return true;
 		  }
@@ -103,7 +104,7 @@
 		  }
 	}
 	
-        if(checkPass($p))
+        if(checkPass($p, $storedPass))
         {
         	return true;
         }
