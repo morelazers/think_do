@@ -2,6 +2,7 @@
     showForm();
     $uName = $_POST["username"];
     $pass = $_POST["password"];
+    eKey = 'TOPSECRET';
     
     include 'connect.php';
     
@@ -11,7 +12,7 @@
         {
             if (isValidInput($uName))
             {
-                if (validateLogin($con, $uName, $pass))
+                if (validateLogin($con, $uName, $pass, $eKey))
                 {
                     /*
                     * Log the user in for the current session
@@ -75,7 +76,8 @@
         return ($unameValid == $unameInput);
     }
     
-    function validateLogin($c, $u, $p)
+    
+    function validateLogin($c, $u, $p, $k)
     {
         //Query database to check if passwords are equal
         $sql = "SELECT password FROM user WHERE username = '" . $u . "'";
@@ -83,13 +85,20 @@
         $user = mysql_fetch_assoc($resultRow);
         $sP = $user['password'];
         //Hash the inputted password and check if it is equal to the one stored in the DB
-        $encryptedPass = hash("sha512", $p);
+        function decrypt($str, $key)
+        {   
+            $str = mcrypt_decrypt(MCRYPT_DES, $key, $str, MCRYPT_MODE_ECB);
+    		$block = mcrypt_get_block_size('des', 'ecb');
+    		$pad = ord($str[($len = strlen($str)) - 1]);
+    		return substr($str, 0, strlen($str) - $pad);
+	}
+        deryptedPass = decrypt($sP, $k);
         echo $sql;
         echo '<br>';
         echo $sP;
         echo '<br>';
-        echo $encryptedPass;
+        echo $decryptedPass;
         echo '<br>';
-        return ($encryptedPass == $sP);
+        return ($decryptedPass == $sP);
     }
 ?> 
