@@ -84,16 +84,14 @@
         $resultRow = mysql_query($sql, $c);
         $user = mysql_fetch_assoc($resultRow);
         $storedPass = $user['password'];
-        echo $k;
-        echo $p;
         
         //Decrypt the database password and check if it is equal to the one inputted
         function decrypt($sP, $key)
         {   
-            	$str = mcrypt_decrypt(MCRYPT_DES, $key, $str, MCRYPT_MODE_ECB);
+            	$sP = mcrypt_decrypt(MCRYPT_DES, $key, $sP, MCRYPT_MODE_ECB);
     		$block = mcrypt_get_block_size('des', 'ecb');
-    		$pad = ord($str[($len = strlen($str)) - 1]);
-    		return substr($str, 0, strlen($str) - $pad);
+    		$pad = ord($sP[($len = strlen($sP)) - 1]);
+    		return substr($sP, 0, strlen($sP) - $pad);
 	}
 	
         $decryptedPass = decrypt($storedPass, $k);
