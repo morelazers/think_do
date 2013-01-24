@@ -94,7 +94,7 @@
     		return substr($str, 0, strlen($str) - $pad);
 	}
 	
-        deryptedPass = decrypt($sP, $k);
+        $decryptedPass = decrypt($sP, $k);
         
         echo $sql;
         echo '<br>';
