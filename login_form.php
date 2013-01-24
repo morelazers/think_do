@@ -81,7 +81,7 @@
     function validateLogin($c, $u, $p)
     {
         //Query database to check if passwords are equal
-        $sql = "SELECT password FROM user WHERE user ='".$u."'";
+        $sql = "SELECT password FROM user WHERE username ='".$u."'";
         $storedPass = mysql_query($sql, $c);
         //Hash the inputted password and check if it is equal to the one stored in the DB
         $encryptedPass = hash("sha512", $p);
