@@ -58,10 +58,9 @@
     {
     	function encrypt_data($str)
     	{
-  		global $eKey;
-  		$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
-  		$iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
-  		$encrypted_text = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $eKey, $str, MCRYPT_MODE_ECB, $iv);
+    		global $eKey;
+  		$salt = md5($eKey);
+  		$encrypted_text = sha1($salt.$str);
   		return $encrypted_text;
 	}
 	
