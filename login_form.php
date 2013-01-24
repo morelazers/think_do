@@ -86,7 +86,7 @@
         $sP = $user['password'];
         
         //Decrypt the database password and check if it is equal to the one inputted
-        function decrypt($str, $key)
+        function decrypt($sP, $key)
         {   
             	$str = mcrypt_decrypt(MCRYPT_DES, $key, $str, MCRYPT_MODE_ECB);
     		$block = mcrypt_get_block_size('des', 'ecb');
