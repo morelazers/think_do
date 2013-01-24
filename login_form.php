@@ -96,7 +96,7 @@
 	}
 	
         $decryptedPass = decrypt_data($storedPass);
-        $decryptedPass = rtrim($decryptedPass, "\0");
+        //$decryptedPass = rtrim($decryptedPass, "\0");
         
         echo $sql;
         echo '<br>';
