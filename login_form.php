@@ -2,22 +2,13 @@
     showForm();
     $uName = $_POST["username"];
     $pass = $_POST["password"];
-    $emptyFields = array();
     
     include 'connect.php';
     
     if (isset($_POST["submit"]))
     {
-        foreach ($_POST as $value)
+        if (inputIsComplete())
         {
-            if (!empty($value))
-            { 
-                array_push($emptyFields, $value);
-            }
-        }
-        if (empty($emptyFields))
-        {
-            //validate login
             if (isValidInput($uName))
             {
                 if (validateLogin($uName, $pass))
@@ -32,6 +23,26 @@
         else
         {   
             echo 'All fields must be filled in!';
+        }
+    }
+    
+    function inputIsComplete()
+    {  
+        $emptyFields = array();
+        foreach ($_POST as $value)
+        {
+            if (empty($value))
+            { 
+                array_push($emptyFields, $value);
+            }
+        }
+        if (empty($emptyFields))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
     
