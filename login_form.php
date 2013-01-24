@@ -7,6 +7,7 @@
     
     if (isset($_POST["submit"]))
     {
+        echo 'uName';
         if (inputIsComplete())
         {
             if (isValidInput($uName))
@@ -60,7 +61,7 @@
             echo $PHP_SELF; 
             echo '">
             <label for="input_username">Username:</label><br>
-            <input type="text" name="dUsername" id="input_username" value="';
+            <input type="text" name="username" id="input_username" value="';
             echo $_POST["dUsername"];
             echo '"><br>
             <label for="input_password">Password:</label><br>
