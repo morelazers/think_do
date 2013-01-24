@@ -63,7 +63,7 @@
 	mail($eA, $subject, $message, $headers);
     }
     
-    function insertIntoDB($c, $u, $p, $e)
+    function insertIntoDB($c, $u, $p, $enc)
     {
     	function encrypt($str, $key)
 	{
@@ -72,9 +72,9 @@
 		$str .= str_repeat(chr($pad), $pad);
 		return mcrypt_encrypt(MCRYPT_DES, $key, $str, MCRYPT_MODE_ECB);
 	}
-	$p = encrypt($p, $e);
+	$encP = encrypt($p, $enc);
     	
-        $sql="INSERT INTO user (username, email, password) VALUES ('$u', '$e', '$p')";
+        $sql="INSERT INTO user (username, email, password) VALUES ('$u', '$encP', '$p')";
         if (!mysql_query($sql, $c))
         {
         	echo 'Failed to add record';
