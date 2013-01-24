@@ -7,8 +7,8 @@
     $desiredName = $_POST["dUsername"];
     $pass = $_POST["dPassword"];
     $secondPass = $_POST["rPassword"];
+    $emailAddress = $_POST["email"];
     
-
     include 'connect.php';
     
     if (isset($_POST["submit"]))
@@ -46,8 +46,19 @@
               <input type="password" name="dPassword" id="pass" value=""><br>
               <label for="retyped_pass">Retype your password:</label><br>
               <input type="password" name="rPassword" id="retyped_pass" value=""><br>
+              <label for="email_address">Your email address:</label><br>
+              <input type="text" name="email" id="email_address" value=""><br>
               <input type="submit" name="submit" value="Submit">
               </form>';
+    }
+    
+    function emailNewUser($emailAddress)
+    {
+	$subject = "Welcome to thinkdo!";
+	$message = "Thanks for signing up to thinkdo!";
+	$from = "admin@think.do";
+	$headers = "From: " . $from;
+	mail($emailAddress, $subject, $message, $headers);
     }
     
     function insertIntoDB($u, $p)
@@ -61,6 +72,7 @@
         else
         {
             echo 'You are registered!<br>Please login';
+            emailNewUser();
             header( 'Location: http://www.yoursite.com/new_page.html' ) ;
         }
         mysql_close($con);
