@@ -25,6 +25,7 @@
                     /*
                     * Log the user in for the current session
                     */
+                    echo 'Logged in!';
                 }
             }
         }
