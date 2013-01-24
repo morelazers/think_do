@@ -18,6 +18,14 @@
                     */
                     echo 'Logged in!';
                 }
+                else
+                {
+                    echo 'Your login could not be validated for some reason';
+                }
+            }
+            else
+            {
+                echo 'Invalid username input';
             }
         }
         else
