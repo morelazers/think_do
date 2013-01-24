@@ -63,7 +63,7 @@
     
     function insertIntoDB($u, $p, $e)
     {
-        $sql="INSERT INTO user (username, password, email) VALUES ('$u', '$p', '$e')";
+        $sql="INSERT INTO user (username, email, password) VALUES ('$u', '$e', '$p')";
         if (!mysql_query($sql, $con))
         {
     		die('Error: ' . mysql_error());
