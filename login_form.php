@@ -93,7 +93,7 @@
 		  echo $salt;
 		  echo '<br>';
 		  echo (sha1($salt.$text));
-		  if (stored_password == sha1($salt.$text)) 
+		  if ($storedPass == sha1($salt.$text)) 
 		  {
 			return true;
 		  }
