@@ -72,10 +72,6 @@
     function isValidInput($unameInput)
     {
         $unameValid = preg_replace("/[^a-zA-Z 0-9]+/", " ", $unameInput);
-        echo $unameValid;
-        echo '<br>';
-        echo $unameInput;
-        echo '<br>';
         return ($unameValid == $unameInput);
     }
     
