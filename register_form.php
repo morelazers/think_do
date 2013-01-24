@@ -20,7 +20,7 @@
             {
                 if (userIsNotTaken())
                 {
-                	insertIntoDB($con, $desiredName, $emailAddress, $pass, $eKey);
+                	insertIntoDB($con, $desiredName, $emailAddress, $pass);
                     //$password = encryptPassword($_POST['dPassword']);
                     //$username = $_POST['dUsername'];
                     //insertIntoDB($con, $username, $password, $emailAddress);
@@ -54,14 +54,15 @@
               </form>';
     }
     
-    function insertIntoDB($c, $u, $e, $p, $enc)
+    function insertIntoDB($c, $u, $e, $p)
     {
-    	function encrypt($str, $key)
-	{
-		$block = mcrypt_get_block_size('des', 'ecb');
-		$pad = $block - (strlen($str) % $block);
-		$str .= str_repeat(chr($pad), $pad);
-		return mcrypt_encrypt(MCRYPT_DES, $key, $str, MCRYPT_MODE_ECB);
+    	function encrypt_data($str)
+    	{
+  		global $eKey;
+  		$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
+  		$iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+  		$encrypted_text = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $eKey, $str, MCRYPT_MODE_ECB, $iv);
+  		return $encrypted_text;
 	}
 	
 	$encP = encrypt($p, $enc);
