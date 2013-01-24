@@ -66,8 +66,8 @@
         $sql="INSERT INTO user (username, email, password) VALUES ('$u', '$e', '$p')";
         if (!mysql_query($sql, $con))
         {
+        	echo 'Failed to add record';
     		die('Error: ' . mysql_error());
-    		echo 'failed to add record';
     	}
         else
         {
@@ -113,6 +113,7 @@
     	//If username is not taken, add new user to database
     	if($userTaken==null)
         {
+	    echo 'User not taken';
             return true;
         }
         else
