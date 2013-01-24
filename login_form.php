@@ -7,7 +7,6 @@
     
     if (isset($_POST["submit"]))
     {
-        echo 'uName';
         if (inputIsComplete())
         {
             if (isValidInput($uName))
@@ -76,6 +75,7 @@
         echo $unameValid;
         echo '<br>';
         echo $unameInput;
+        echo '<br>';
         return ($unameValid == $unameInput);
     }
     
