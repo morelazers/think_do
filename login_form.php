@@ -83,11 +83,14 @@
         //Query database to check if passwords are equal
         $sql = "SELECT password FROM user WHERE username ='".$u."'";
         echo $sql;
+        echo '<br>';
         $storedPass = mysql_query($sql, $c);
         //Hash the inputted password and check if it is equal to the one stored in the DB
         $encryptedPass = hash("sha512", $p);
         echo $storedPass;
-        echo $encryptedPass;        
+        echo '<br>';
+        echo $encryptedPass;
+        echo '<br>';
         return ($encryptedPass == $storedPass);
     }
 ?> 
