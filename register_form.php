@@ -65,7 +65,7 @@
   		return $encrypted_text;
 	}
 	
-	$encP = encrypt($p);
+	$encP = encrypt_data($p);
 	
 	function emailNewUser($eA)
     	{
