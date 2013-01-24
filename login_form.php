@@ -86,14 +86,14 @@
         $storedPass = $user['password'];
         
         //Decrypt the database password and check if it is equal to the one inputted
-     	function checkPass($text)
+     	function checkPass($text, $sP)
      	{
 		  global $eKey;
 		  $salt = md5($eKey);
 		  echo $salt;
 		  echo '<br>';
 		  echo (sha1($salt.$text));
-		  if ($storedPass == sha1($salt.$text)) 
+		  if ($sP == sha1($salt.$text)) 
 		  {
 			return true;
 		  }
