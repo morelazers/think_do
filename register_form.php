@@ -73,7 +73,8 @@
         {
             echo 'You are registered!<br>Please login';
             emailNewUser($e);
-            header( 'Location: index.php' ) ;
+            sleep(2.5);
+            header('Location: index.php') ;
         }
         mysql_close($con);
     }
