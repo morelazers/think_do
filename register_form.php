@@ -20,7 +20,7 @@
             {
                 if (userIsNotTaken())
                 {
-                	insertIntoDB($con, $desiredName, $pass, $eKey);
+                	insertIntoDB($con, $desiredName, $emailAddress, $pass, $eKey);
                     //$password = encryptPassword($_POST['dPassword']);
                     //$username = $_POST['dUsername'];
                     //insertIntoDB($con, $username, $password, $emailAddress);
@@ -54,16 +54,7 @@
               </form>';
     }
     
-    function emailNewUser($eA)
-    {
-	$subject = "Welcome to thinkdo!";
-	$message = "Thanks for signing up to thinkdo!";
-	$from = "admin@think.do";
-	$headers = "From: " . $from;
-	mail($eA, $subject, $message, $headers);
-    }
-    
-    function insertIntoDB($c, $u, $p, $enc)
+    function insertIntoDB($c, $u, $e, $p, $enc)
     {
     	function encrypt($str, $key)
 	{
@@ -72,7 +63,17 @@
 		$str .= str_repeat(chr($pad), $pad);
 		return mcrypt_encrypt(MCRYPT_DES, $key, $str, MCRYPT_MODE_ECB);
 	}
+	
 	$encP = encrypt($p, $enc);
+	
+	function emailNewUser($eA)
+    	{
+		$subject = "Welcome to thinkdo!";
+		$message = "Thanks for signing up to thinkdo!";
+		$from = "admin@think.do";
+		$headers = "From: " . $from;
+		mail($eA, $subject, $message, $headers);
+    	}
     	
         $sql="INSERT INTO user (username, email, password) VALUES ('$u', '$e', '$encP')";
         if (!mysql_query($sql, $c))
@@ -85,7 +86,7 @@
             echo 'You are registered!<br>Please login';
             emailNewUser($e);
             sleep(2.5);
-            header('Location: index.php') ;
+            header('Location: index.php');
         }
         mysql_close($con);
     }
