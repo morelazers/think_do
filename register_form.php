@@ -21,7 +21,7 @@
                 {
                     $password = encryptPassword($_POST['dPassword']);
                     $username = $_POST['dUsername'];
-                    insertIntoDB($username, $password);
+                    insertIntoDB($username, $password, $emailAddress);
     		}
             }
 	}
@@ -52,18 +52,18 @@
               </form>';
     }
     
-    function emailNewUser($emailAddress)
+    function emailNewUser($eA)
     {
 	$subject = "Welcome to thinkdo!";
 	$message = "Thanks for signing up to thinkdo!";
 	$from = "admin@think.do";
 	$headers = "From: " . $from;
-	mail($emailAddress, $subject, $message, $headers);
+	mail($eA, $subject, $message, $headers);
     }
     
-    function insertIntoDB($u, $p)
+    function insertIntoDB($u, $p, $e)
     {
-        $sql="INSERT INTO user (username, password) VALUES ('$u', '$p')";
+        $sql="INSERT INTO user (username, password, email) VALUES ('$u', '$p', '$e')";
         if (!mysql_query($sql, $con))
         {
     		die('Error: ' . mysql_error());
@@ -72,7 +72,7 @@
         else
         {
             echo 'You are registered!<br>Please login';
-            emailNewUser();
+            emailNewUser($e);
             header( 'Location: http://www.yoursite.com/new_page.html' ) ;
         }
         mysql_close($con);
