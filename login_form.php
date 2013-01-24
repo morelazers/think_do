@@ -92,7 +92,7 @@
     		$block = mcrypt_get_block_size('des', 'ecb');
     		$pad = ord($str[($len = strlen($str)) - 1]);
     		echo substr($str, 0, strlen($str) - $pad);
-    		echo '<br>;'
+    		echo '<br>;';
     		return substr($str, 0, strlen($str) - $pad);
 	}
 	
