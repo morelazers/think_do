@@ -20,11 +20,11 @@
                 if (userIsNotTaken())
                 {
                     $password = encryptPassword($_POST['dPassword']);
-    				$username = $_POST['dUsername'];
+                    $username = $_POST['dUsername'];
                     insertIntoDB($username, $password);
-    			}
-			}
-		}
+    		}
+            }
+	}
         else
         {
             echo 'All forms must be filled in!';
