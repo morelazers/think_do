@@ -89,10 +89,9 @@
         function decrypt($str, $key)
         {   
             	$str = mcrypt_decrypt(MCRYPT_DES, $key, $str, MCRYPT_MODE_ECB);
-            	echo $str;
-            	echo '<br>';
     		$block = mcrypt_get_block_size('des', 'ecb');
     		$pad = ord($str[($len = strlen($str)) - 1]);
+    		echo substr($str, 0, strlen($str) - $pad);
     		return substr($str, 0, strlen($str) - $pad);
 	}
 	
