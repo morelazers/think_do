@@ -81,7 +81,7 @@
     function validateLogin($c, $u, $p)
     {
         //Query database to check if passwords are equal
-        $sql = "SELECT password FROM user WHERE username ='".$u."'";
+        $sql = "SELECT password FROM user WHERE username =" . $u;
         echo $sql;
         echo '<br>';
         $storedPass = mysql_query($sql, $c);
