@@ -21,7 +21,7 @@
                 {
                     $password = encryptPassword($_POST['dPassword']);
                     $username = $_POST['dUsername'];
-                    insertIntoDB($username, $password, $emailAddress);
+                    insertIntoDB($con, $username, $password, $emailAddress);
     		}
             }
 	}
@@ -61,10 +61,10 @@
 	mail($eA, $subject, $message, $headers);
     }
     
-    function insertIntoDB($u, $p, $e)
+    function insertIntoDB($c, $u, $p, $e)
     {
         $sql="INSERT INTO user (username, email, password) VALUES ('$u', '$e', '$p')";
-        if (!mysql_query($sql, $con))
+        if (!mysql_query($sql, $c))
         {
         	echo 'Failed to add record';
     		die('Error: ' . mysql_error());
@@ -113,7 +113,6 @@
     	//If username is not taken, add new user to database
     	if($userTaken==null)
         {
-	    echo 'User not taken';
             return true;
         }
         else
