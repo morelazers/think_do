@@ -90,6 +90,8 @@
      	{
 		  global $eKey;
 		  $salt = md5($eKey);
+		  echo $sP;
+		  echo '<br>';
 		  echo $salt;
 		  echo '<br>';
 		  echo (sha1($salt.$text));
