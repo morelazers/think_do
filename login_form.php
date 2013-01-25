@@ -98,7 +98,7 @@
 	//Decrypt the database password and check if it is equal to the one inputted
     function checkPass($text, $sP)
     {
-		//global $eKey;
+		global $eKey;
 		$salt = md5($eKey);
 		echo $sP;
 		echo '<br>';
