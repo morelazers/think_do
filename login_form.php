@@ -93,6 +93,7 @@
 		  echo $sP;
 		  echo '<br>';
 		  $decPass = (sha1($salt.$text));
+		  echo $decPass;
 		  echo '<br>';
 		  if ($sP == $decPass)
 		  {
