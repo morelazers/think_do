@@ -19,10 +19,6 @@
                     */
                     echo 'Logged in!';
                 }
-                else
-                {
-                    echo 'Your login could not be validated for some reason';
-                }
             }
             else
             {
@@ -82,7 +78,15 @@
         //Query database to check if passwords are equal
         $sql = "SELECT password FROM user WHERE username = '" . $u . "'";
         $resultRow = mysql_query($sql, $c);
+        //If there is no user with the inputted name in the database
+        if ($resultRow == null)
+        {
+        	echo 'No such user!';
+        	return false;
+        }
+        //Get the row with the user's data
         $user = mysql_fetch_assoc($resultRow);
+        //Get the password
         $storedPass = $user['password'];
         if(checkPass($p, $storedPass))
         {
@@ -93,9 +97,9 @@
         	return false;
         }
         
-	}
+    }
 	
-	//Decrypt the database password and check if it is equal to the one inputted
+    //Encrypt the inputted password to see if it matches the entry in the database
     function checkPass($text, $sP)
     {
 		global $eKey;
@@ -110,5 +114,5 @@
 			echo 'Your password is incorrect!';
 		  	return false;
 		}
-	}
+    }
 ?> 
