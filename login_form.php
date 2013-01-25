@@ -30,7 +30,12 @@
             echo 'All fields must be filled in!';
         }
     }
-    
+	
+    /**
+	*	This function declares an empty array then adds each empty _POST value
+	*	to the array. The function then checks to see if the array is empty at
+	*	the end, returning true if it is, false if has any values in it.
+	*/
     function inputIsComplete()
     {  
         $emptyFields = array();
@@ -51,7 +56,10 @@
         }
     }
     
-     function showForm() 
+	/**
+	*	This function is responsible for outputting the login form to the page
+	*/
+    function showForm() 
     {
         echo '<form method="post" action="'; 
             echo $PHP_SELF; 
@@ -66,13 +74,26 @@
             </form>';
     }
     
+	/**
+	*	Uses a regex to strip any punctuation from the users input to prevent SQL injection
+	*	@param string $unameInput This is a string containing the input from the username field
+	*/
     function isValidInput($unameInput)
     {
         $unameValid = preg_replace("/[^a-zA-Z 0-9]+/", " ", $unameInput);
         return ($unameValid == $unameInput);
     }
     
-    
+    /**
+	*	Handles the validation of a users login attempt. It queries the database to obtain the
+	*	stored password for the entered username, then compares that with a hashed version of
+	*	the password from the login form.
+	*
+	*	@param MySQLConnection $c Connection to MySQL database, necessary to perform queries
+	*	@param string $u Username from the login form
+	*	@param string $p Password from the login form
+	*	@param string $k Secret key which is hashed to become the salt
+	*/
     function validateLogin($c, $u, $p, $k)
     {
         //Query database to check if passwords are equal
@@ -99,12 +120,22 @@
         
     }
 	
-    //Encrypt the inputted password to see if it matches the entry in the database
+    /**
+	*	Hashes the input password and compares it to the stored password to determine if
+	*	the login is valid.
+	*	@param string $text Password from the login form
+	*	@param string $sP Hashed password from the database
+	*/
     function checkPass($text, $sP)
     {
 		global $eKey;
 		$salt = md5($eKey);
 		$decPass = (sha1($salt.$text));
+		/*
+		*	Replaced '==' comparison with strcmp() and surrounded the args with trim()
+		*	to ensure an accurate comparison
+		*	-Nathan
+		*/
 		if (strcmp(trim($sP), trim($decPass)) == 0)
 		{
 			return true;
