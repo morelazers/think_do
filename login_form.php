@@ -100,19 +100,14 @@
     {
 		global $eKey;
 		$salt = md5($eKey);
-		echo $sP;
-		echo '<br>';
 		$decPass = (sha1($salt.$text));
-		echo $decPass;
-		echo '<br>';
 		if (strcmp(trim($sP), trim($decPass)) == 0)
 		{
-			echo 'pass matches';
 			return true;
 		}
 		else
 		{
-			echo 'pass does not match';
+			echo 'Your password is incorrect!';
 		  	return false;
 		}
 	}
