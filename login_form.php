@@ -84,29 +84,6 @@
         $resultRow = mysql_query($sql, $c);
         $user = mysql_fetch_assoc($resultRow);
         $storedPass = $user['password'];
-        
-        //Decrypt the database password and check if it is equal to the one inputted
-     	function checkPass($text, $sP)
-     	{
-		  global $eKey;
-		  $salt = md5($eKey);
-		  echo $sP;
-		  echo '<br>';
-		  $decPass = (sha1($salt.$text));
-		  echo $decPass;
-		  echo '<br>';
-		  if ($sP == $decPass)
-		  {
-		  	echo 'pass matches';
-			return true;
-		  }
-		  else
-		  {
-		  	echo 'pass does not match';
-		  	return false;
-		  }
-	}
-	
         if(checkPass($p, $storedPass))
         {
         	return true;
@@ -115,5 +92,28 @@
         {
         	return false;
         }
-    }
+        
+	}
+	
+	//Decrypt the database password and check if it is equal to the one inputted
+    function checkPass($text, $sP)
+    {
+		//global $eKey;
+		$salt = md5($eKey);
+		echo $sP;
+		echo '<br>';
+		$decPass = (sha1($salt.$text));
+		echo $decPass;
+		echo '<br>';
+		if ($sP == $decPass)
+		{
+			echo 'pass matches';
+			return true;
+		}
+		else
+		{
+			echo 'pass does not match';
+		  	return false;
+		}
+	}
 ?> 
