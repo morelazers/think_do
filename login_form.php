@@ -105,7 +105,7 @@
 		$decPass = (sha1($salt.$text));
 		echo $decPass;
 		echo '<br>';
-		if (strcmp($sP, $decPass) == 0)
+		if (strcmp(trim($sP), trim($decPass)) == 0)
 		{
 			echo 'pass matches';
 			return true;
