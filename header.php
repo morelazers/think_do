@@ -27,6 +27,7 @@
 				<!--Login stuff not really sure what to do here-->
                 <h3><a href="login.php">Login</a></h3>
                 <h3><a href="register.php">Register</a></h3>
+				<h3><a href="modify_profile.php">Modify profile</a></h3>
 			</div>
 		</div>
             		
