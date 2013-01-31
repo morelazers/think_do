@@ -95,6 +95,7 @@ function insertIntoDB($c, $u, $e, $p)
 		$headers = "From: " . $from;
 		mail($eA, $subject, $message, $headers);
     }
+	
     $sql="INSERT INTO user (username, email, password) VALUES ('$u', '$e', '$encP')";
     if (!mysql_query($sql, $c))
     {
@@ -110,11 +111,11 @@ function insertIntoDB($c, $u, $e, $p)
     mysql_close($con);
 }
     
-function userIsNotTaken($u)
+function userIsNotTaken($u, $c)
 {
     //Query database to check if username is taken
     $sql = "SELECT username FROM user WHERE username ='".$u."'";
-  	$userTaken = mysql_query($sql, $con);
+  	$userTaken = mysql_query($sql, $c);
   	//If username is not taken, add new user to database
    	if($userTaken == null)
     {
