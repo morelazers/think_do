@@ -115,9 +115,10 @@ function userIsNotTaken($u, $c)
     //Query database to check if username is taken
     echo $u;
     $sql = "SELECT username FROM user WHERE username ='".$u."'";
-  	$userTaken = mysql_query($sql, $c);
+  	$result = mysql_query($sql, $c);
+  	$user = mysql_fetch_assoc($result);
   	//If username is not taken, add new user to database
-   	if($userTaken == null)
+   	if($user == null)
     {
         return true;
     }
