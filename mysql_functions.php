@@ -119,6 +119,7 @@ function userIsNotTaken($u, $c)
   	//If username is not taken, add new user to database
    	if($userTaken == null)
     {
+		echo 'user is not taken';
         return true;
     }
     else
