@@ -50,7 +50,9 @@
               <label for="retyped_pass">Retype your password:</label><br>
               <input type="password" name="rPassword" id="retyped_pass" value=""><br>
               <label for="email_address">Your email address:</label><br>
-              <input type="text" name="email" id="email_address" value=""><br>
+              <input type="text" name="email" id="email_address" value="';
+			  echo $_POST["email"];
+              echo '"><br>
               <input type="submit" name="submit" value="Submit">
               </form>';
     }
