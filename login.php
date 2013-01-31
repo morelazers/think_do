@@ -1,4 +1,6 @@
-<?php include 'header.php'; ?>
+<?php $psn = session_name("thinkdo");
+	session_start();
+	include 'header.php'; ?>
         <div class="clear"></div>
         <div id="post-container">
     		<div class="post">
