@@ -21,6 +21,7 @@
                 if (userIsNotTaken($desiredName, $con))
                 {
                 	insertIntoDB($con, $desiredName, $emailAddress, $pass);
+                	
                     //$password = encryptPassword($_POST['dPassword']);
                     //$username = $_POST['dUsername'];
                     //insertIntoDB($con, $username, $password, $emailAddress);
