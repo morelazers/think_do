@@ -58,9 +58,8 @@ function checkPass($text, $user)
 /*
  *  MySQL function to change a user's password
  *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
- *	@param string $u the entered username
- *  @param string $e the entered email address
- *  @param string $p the entered password
+ *	@param user $user the entered username
+ *  @param password $newpass the entered password
  */
 function changePass($user, $newpass)
 {
