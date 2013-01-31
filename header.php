@@ -28,8 +28,15 @@
                 <h3><a href="login.php">Login</a></h3>
                 <h3><a href="register.php">Register</a></h3>
 				<h3><a href="modify_profile.php">Modify profile</a></h3>
-				<h3><a href="logout.php">Logout</a></h3>
-			</div>
+				<h3><a href="logout.php">Logout</a></h3>';
+				
+				if (isset($_SESSION['usr'])
+				{
+					$n = $_SESSION['usr']['username'];
+					echo '<h3><a href="profile.php">'.$n.'</a></h3>'
+				}
+				
+			echo '</div>
 		</div>
             		
 		<div id="navcontainer">
