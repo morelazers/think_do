@@ -18,6 +18,7 @@
         {
             if (isValidInput($_POST["dUsername"]))
             {
+				echo 'valid input';
                 if (userIsNotTaken($desiredName, $con))
                 {
 					echo 'inserting';
