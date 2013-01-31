@@ -14,24 +14,16 @@
     
     if (isset($_POST["submit"]))
     {
-		echo 'submit';
         if (inputIsComplete())
         {
-			echo 'complete input';
             if (isValidInput($_POST["dUsername"]))
             {
-				echo 'valid input';
                 if (userIsNotTaken($desiredName, $con))
                 {
-					echo 'inserting';
                 	insertIntoDB($con, $desiredName, $emailAddress, $pass);
                     //$password = encryptPassword($_POST['dPassword']);
                     //$username = $_POST['dUsername'];
                     //insertIntoDB($con, $username, $password, $emailAddress);
-				}
-				else
-				{
-					echo 'user is taken';
 				}
             }
 		}	
