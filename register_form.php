@@ -27,6 +27,10 @@
                     //$username = $_POST['dUsername'];
                     //insertIntoDB($con, $username, $password, $emailAddress);
 				}
+				else
+				{
+					echo 'user is taken';
+				}
             }
 		}	
         else
