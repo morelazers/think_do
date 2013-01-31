@@ -74,6 +74,7 @@
         }
         else
         {
+			echo 'input is not complete';
             return false;
         }
     }
