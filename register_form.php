@@ -8,7 +8,6 @@
     $pass = $_POST["dPassword"];
     $secondPass = $_POST["rPassword"];
     $emailAddress = $_POST["email"];
-    $eKey = 'TOPSECRET';
     
     include 'connect.php';
 	include 'mysql_functions';
