@@ -14,7 +14,7 @@
             if (isValidInput($uName))
             {
 				$currentUser = getUserData($con, $uName);
-				if checkPass($pass, $currentUser, $eKey)
+				if (checkPass($pass, $currentUser, $eKey))
 				{
 					/*
                     * Log the user in for the current session
