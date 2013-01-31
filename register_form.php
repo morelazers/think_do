@@ -18,8 +18,9 @@
         {
             if (isValidInput($_POST["dUsername"]))
             {
-                if (userIsNotTaken($desiredName))
+                if (userIsNotTaken($desiredName, $con))
                 {
+					echo 'inserting';
                 	insertIntoDB($con, $desiredName, $emailAddress, $pass);
                     //$password = encryptPassword($_POST['dPassword']);
                     //$username = $_POST['dUsername'];
