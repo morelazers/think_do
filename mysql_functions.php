@@ -1,5 +1,7 @@
 <?php
 
+    $eKey = 'TOPSECRET';
+
 /*
  *  MySQL functions for connecting to and querying the database for various attributes
  *	@param MySQLConnection $c Connection to MySQL database, necessary to perform queries
@@ -32,9 +34,10 @@
  *	@param string $user the current user as returned by getUserData
  *  @param string $k the secret key which is hashed to become the salt
  */
-function checkPass($text, $user, $k)
+function checkPass($text, $user)
 {
-	$salt = md5($k);
+	global $eKey;
+	$salt = md5($eKey);
 	$decPass = (sha1($salt.$text));
 	/*
 	*	Replaced '==' comparison with strcmp() and surrounded the args with trim()
