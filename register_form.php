@@ -10,7 +10,7 @@
     $emailAddress = $_POST["email"];
     
     include 'connect.php';
-	include 'mysql_functions';
+	include 'mysql_functions.php';
     
     if (isset($_POST["submit"]))
     {
