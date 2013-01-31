@@ -14,8 +14,10 @@
     
     if (isset($_POST["submit"]))
     {
+		echo 'submit';
         if (inputIsComplete())
         {
+			echo 'complete input';
             if (isValidInput($_POST["dUsername"]))
             {
 				echo 'valid input';
