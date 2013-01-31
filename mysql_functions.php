@@ -2,7 +2,7 @@
 
 /*
  *  MySQL functions for connecting to and querying the database for various attributes
- *  @param MySQLConnection $c Connection to MySQL database, necessary to perform queries
+ *	@param MySQLConnection $c Connection to MySQL database, necessary to perform queries
  *	@param string $u Username for the current user
  */
  function getUserData($c, $u)
@@ -41,7 +41,7 @@ function checkPass($text, $user, $k)
 	*	to ensure an accurate comparison
 	*	-Nathan
 	*/
-	if (strcmp(trim($dbpass), trim($decPass)) == 0)
+	if (strcmp(trim($user['password']), trim($decPass)) == 0)
 	{
 		return true;
 	}
