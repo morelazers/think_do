@@ -13,14 +13,15 @@
         {
             if (isValidInput($uName))
             {
-				$currentUser = getUserData($con, $uName);
-				if (checkPass($pass, $currentUser, $eKey))
-				{
-					/*
-                    * Log the user in for the current session
-                    */
-                    echo 'Logged in!';
-				}
+		$currentUser = getUserData($con, $uName);
+		if (checkPass($pass, $currentUser, $eKey))
+		{
+			/*
+        		* Log the user in for the current session
+        		*/
+        		$_SESSION['usr'] = $currentUser;
+        		echo 'Logged in!';
+		}
             }
             else
             {
