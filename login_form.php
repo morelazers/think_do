@@ -5,6 +5,7 @@
     $eKey = 'TOPSECRET';
     
     include 'connect.php';
+	include 'mysql_functions';
     
     if (isset($_POST["submit"]))
     {
@@ -12,13 +13,14 @@
         {
             if (isValidInput($uName))
             {
-                if (validateLogin($con, $uName, $pass, $eKey))
-                {
-                    /*
+				$currentUser = getUserData($con, $uName);
+				if checkPass($pass, $currentUser, $eKey)
+				{
+					/*
                     * Log the user in for the current session
                     */
                     echo 'Logged in!';
-                }
+				}
             }
             else
             {
@@ -82,68 +84,5 @@
     {
         $unameValid = preg_replace("/[^a-zA-Z 0-9]+/", " ", $unameInput);
         return ($unameValid == $unameInput);
-    }
-    
-    /**
-	*	Handles the validation of a users login attempt. It queries the database to obtain the
-	*	stored password for the entered username, then compares that with a hashed version of
-	*	the password from the login form.
-	*
-	*	@param MySQLConnection $c Connection to MySQL database, necessary to perform queries
-	*	@param string $u Username from the login form
-	*	@param string $p Password from the login form
-	*	@param string $k Secret key which is hashed to become the salt
-	*/
-    function validateLogin($c, $u, $p, $k)
-    {
-        //Query database to check if passwords are equal
-        $sql = "SELECT password FROM user WHERE username = '" . $u . "'";
-        $resultRow = mysql_query($sql, $c);
-        //If there is no user with the inputted name in the database
-        if ($resultRow == null)
-        {
-        	echo 'No such user!';
-        	return false;
-        }
-        //Get the row with the user's data
-        $user = mysql_fetch_assoc($resultRow);
-        //Get the password
-        $storedPass = $user['password'];
-        if(checkPass($p, $storedPass))
-        {
-        	return true;
-        }
-        else
-        {
-        	return false;
-        }
-        
-    }
-	
-    /**
-	*	Hashes the input password and compares it to the stored password to determine if
-	*	the login is valid.
-	*	@param string $text Password from the login form
-	*	@param string $sP Hashed password from the database
-	*/
-    function checkPass($text, $sP)
-    {
-		global $eKey;
-		$salt = md5($eKey);
-		$decPass = (sha1($salt.$text));
-		/*
-		*	Replaced '==' comparison with strcmp() and surrounded the args with trim()
-		*	to ensure an accurate comparison
-		*	-Nathan
-		*/
-		if (strcmp(trim($sP), trim($decPass)) == 0)
-		{
-			return true;
-		}
-		else
-		{
-			echo 'Your password is incorrect!';
-		  	return false;
-		}
     }
 ?> 
