@@ -1,10 +1,9 @@
 <?php 
-  session_start();
+	session_start();
     showForm();
 	$oldPass = $_POST["oldPass"];
     $pass1 = $_POST["newPass"];
 	$pass2 = $_POST["newPass2"];
-    $eKey = 'TOPSECRET';
     
     include 'connect.php';
 	include 'mysql_functions.php';
