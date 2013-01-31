@@ -11,6 +11,7 @@
     $eKey = 'TOPSECRET';
     
     include 'connect.php';
+	include 'mysql_functions';
     
     if (isset($_POST["submit"]))
     {
@@ -18,15 +19,15 @@
         {
             if (isValidInput($_POST["dUsername"]))
             {
-                if (userIsNotTaken())
+                if (userIsNotTaken($desiredName))
                 {
                 	insertIntoDB($con, $desiredName, $emailAddress, $pass);
                     //$password = encryptPassword($_POST['dPassword']);
                     //$username = $_POST['dUsername'];
                     //insertIntoDB($con, $username, $password, $emailAddress);
-    		}
+				}
             }
-	}
+		}	
         else
         {
             echo 'All forms must be filled in!';
@@ -53,52 +54,8 @@
               <input type="submit" name="submit" value="Submit">
               </form>';
     }
-    
-    function insertIntoDB($c, $u, $e, $p)
-    {
-    	function encrypt_data($str)
-    	{
-    		global $eKey;
-  		$salt = md5($eKey);
-  		$encrypted_text = sha1($salt.$str);
-  		return $encrypted_text;
-	}
 	
-	$encP = encrypt_data($p);
-	
-	function emailNewUser($eA)
-    	{
-		$subject = "Welcome to thinkdo!";
-		$message = "Thanks for signing up to thinkdo!";
-		$from = "admin@think.do";
-		$headers = "From: " . $from;
-		mail($eA, $subject, $message, $headers);
-    	}
-    	
-        $sql="INSERT INTO user (username, email, password) VALUES ('$u', '$e', '$encP')";
-        if (!mysql_query($sql, $c))
-        {
-        	echo 'Failed to add record';
-    		die('Error: ' . mysql_error());
-    	}
-        else
-        {
-            echo 'You are registered!<br>Please login';
-            emailNewUser($e);
-            sleep(2.5);
-            header('Location: index.php');
-        }
-        mysql_close($con);
-    }
-    
-/*    function encryptPassword($p)
-    {
-        //Encrypt password!
-        $p = hash("sha512", $p);
-        return $p;
-    }
-*/    
-    function inputIsComplete()
+	function inputIsComplete()
     {  
         $emptyFields = array();
         foreach ($_POST as $value)
@@ -109,22 +66,6 @@
             }
         }
         if (empty($emptyFields))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    
-    function userIsNotTaken($u)
-    {
-        //Query database to check if username is taken
-        $sql = "SELECT username FROM user WHERE user ='".$username."'";
-    	$userTaken = mysql_query($sql, $con);
-    	//If username is not taken, add new user to database
-    	if($userTaken==null)
         {
             return true;
         }
