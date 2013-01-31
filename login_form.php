@@ -5,7 +5,7 @@
     $eKey = 'TOPSECRET';
     
     include 'connect.php';
-	include 'mysql_functions';
+	include 'mysql_functions.php';
     
     if (isset($_POST["submit"]))
     {
