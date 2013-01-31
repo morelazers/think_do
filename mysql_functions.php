@@ -110,7 +110,7 @@ function insertIntoDB($c, $u, $e, $p)
 function userIsNotTaken($u)
 {
     //Query database to check if username is taken
-    $sql = "SELECT username FROM user WHERE user ='".$u."'";
+    $sql = "SELECT username FROM user WHERE username ='".$u."'";
   	$userTaken = mysql_query($sql, $con);
   	//If username is not taken, add new user to database
    	if($userTaken == null)
@@ -119,6 +119,7 @@ function userIsNotTaken($u)
     }
     else
     {
+		echo 'Username is already taken!';
         return false;
     }
 }
