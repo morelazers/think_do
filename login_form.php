@@ -19,6 +19,7 @@
 			echo 'no user';
 		}
 		echo $currentUser['username'];
+		var_dump($currentUser);
 		if (checkPass($pass, $currentUser, $eKey))
 		{
 			/*
