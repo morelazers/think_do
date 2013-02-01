@@ -32,8 +32,8 @@
 				
 				if (isset($_SESSION['usr']))
 				{
-					$user = $_SESSION['usr'];
-					$n = $user['username'];
+					//$user = $_SESSION['usr'];
+					$n = $_SESSION['usr']['username'];
 					echo $n;
 					echo '<h3><a href="profile.php">'.$n.'</a></h3>';
 				}
