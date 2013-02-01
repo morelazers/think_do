@@ -30,12 +30,12 @@
 				<h3><a href="modify_profile.php">Modify profile</a></h3>
 				<h3><a href="logout.php">Logout</a></h3>';
 				
-				/*if (isset($_SESSION['usr'])
+				if (isset($_SESSION['usr']))
 				{
 					$user = $_SESSION['usr'];
 					$n = $user['username'];
 					echo '<h3><a href="profile.php">'.$n.'</a></h3>';
-				}*/
+				}
 				
 			echo '</div>
 		</div>
