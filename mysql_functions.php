@@ -19,7 +19,6 @@
 	//If there is no user with the inputted name in the database
 	if ($user == null)
     {
-    	echo 'No such user!';
        	return false;
     }
 	else
