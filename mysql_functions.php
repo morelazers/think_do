@@ -24,7 +24,6 @@
     }
 	else
 	{
-		echo $user['username'];
 		return $user;
 	}
  }
