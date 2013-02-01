@@ -18,7 +18,6 @@
 		{
 			echo 'no user';
 		}
-		echo $currentUser['username'];
 		var_dump($currentUser);
 		if (checkPass($pass, $currentUser, $eKey))
 		{
@@ -30,7 +29,6 @@
         		$n = $u['username'];
         		//session_write_close()
         		echo 'Logged in!';
-        		echo $n;
 		}
             }
             else
