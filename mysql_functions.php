@@ -10,7 +10,7 @@
  function getUserData($c, $u)
  {
     //Query database get the data for the user (will use sessions later)
-    $sql = "SELECT password FROM user WHERE username = '" . $u . "'";
+    $sql = "SELECT * FROM user WHERE username = '" . $u . "'";
     $resultRow = mysql_query($sql, $c);
 	
     //Get the row with the user's data
