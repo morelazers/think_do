@@ -38,7 +38,7 @@
 				}
 				else
 				{
-					echo 'session not set\n';
+					echo 'session not set';
 				}
 				
 			echo '</div>
