@@ -14,6 +14,10 @@
             if (isValidInput($uName))
             {
 		$currentUser = getUserData($con, $uName);
+		if ($currentUser == false)
+		{
+			echo 'no user';
+		}
 		echo $currentUser['username'];
 		if (checkPass($pass, $currentUser, $eKey))
 		{
