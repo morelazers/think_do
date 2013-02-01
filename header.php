@@ -33,8 +33,8 @@
 				if (isset($_SESSION['usr'])
 				{
 					$user = $_SESSION['usr'];
-					
-					echo '<h3><a href="profile.php">'.$user["username"].'</a></h3>';
+					$n = $user['username'];
+					echo '<h3><a href="profile.php">'.$n.'</a></h3>';
 				}
 				
 			echo '</div>
