@@ -14,7 +14,7 @@
     $resultRow = mysql_query($sql, $c);
 	
     //Get the row with the user's data
-    $user = mysql_fetch_assoc($resultRow);
+    $user = mysql_fetch_array($resultRow);
 	
 	//If there is no user with the inputted name in the database
 	if ($user == null)
