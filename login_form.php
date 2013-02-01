@@ -20,8 +20,11 @@
         		* Log the user in for the current session
         		*/
         		$_SESSION['usr'] = $currentUser;
+        		$u = $_SESSION['usr'];
+        		$n = $u['username'];
         		//session_write_close()
         		echo 'Logged in!';
+        		echo $n;
 		}
             }
             else
