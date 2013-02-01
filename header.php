@@ -36,6 +36,10 @@
 					$n = $user['username'];
 					echo '<h3><a href="profile.php">'.$n.'</a></h3>';
 				}
+				else
+				{
+					echo 'session not set\n';
+				}
 				
 			echo '</div>
 		</div>
