@@ -24,9 +24,7 @@
 			/*
         		* Log the user in for the current session
         		*/
-        		$_SESSION['usr'] = $currentUser;
-        		$u = $_SESSION['usr'];
-        		$n = $u['username'];
+        		$_SESSION['usr'][] = $currentUser;
         		//session_write_close()
         		echo 'Logged in!';
 		}
