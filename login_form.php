@@ -1,4 +1,4 @@
-<?php 
+<?php session_start();
     showForm();
     $uName = $_POST["username"];
     $pass = $_POST["password"];
