@@ -1,4 +1,7 @@
-<?php
+<?php session_start();
+
+if (isset($_SESSION['usr']))
+{
 /**
 	Author: Tom Nash
 */
@@ -55,7 +58,11 @@
             echo 'All forms must be filled in!';
         }
     }
-    
+}
+else
+{
+	header(Location: "login.php");
+}
     function showForm() 
     {
         echo '<form method="post" action="'; echo $PHP_SELF; echo '">
