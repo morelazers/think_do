@@ -27,8 +27,9 @@
         		$_SESSION['usr'] = $currentUser;
         		//session_write_close()
         		echo 'Logged in!';
-        		var_dump($currentUser);
-        		var_dump($_SESSION);
+        		//var_dump($currentUser);
+        		//var_dump($_SESSION);
+        		header('Location: index.php');
 		}
             }
             else
