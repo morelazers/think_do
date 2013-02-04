@@ -1,4 +1,5 @@
-<?php $psn = session_name("thinkdo");
+<?php 
+//$psn = session_name("thinkdo");
 	session_start();
 	include 'header.php'; ?>
         <div class="clear"></div>
