@@ -19,6 +19,10 @@
 					changePass($_SESSION['usr'], $pass1);
 				}
 			}
+			else
+			{
+				header(Location: "login.php");
+			}
         }
         else
         {   
