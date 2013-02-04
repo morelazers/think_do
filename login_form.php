@@ -18,7 +18,7 @@
 		{
 			echo 'no user';
 		}
-		var_dump($currentUser);
+		
 		if (checkPass($pass, $currentUser, $eKey))
 		{
 			/*
@@ -27,6 +27,8 @@
         		$_SESSION['usr'][] = $currentUser;
         		//session_write_close()
         		echo 'Logged in!';
+        		var_dump($currentUser);
+        		var_dump($_SESSION);
 		}
             }
             else
