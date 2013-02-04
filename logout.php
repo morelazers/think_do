@@ -2,7 +2,7 @@
 session_start();
                 	if (isset($_SESSION['usr'])
                 	{
-                		session_unset();
+                		unset($_SESSION['usr']);
                 		session_destroy();
                 	}
 header('Location: index.php');
