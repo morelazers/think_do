@@ -109,11 +109,16 @@ function insertIntoDB($c, $u, $e, $p)
     }
     mysql_close($con);
 }
-    
+
+
+/*
+ *  MySQL function to check that an inputted username has not already been taken
+ *	@param string $u the entered username
+ *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
+ */
 function userIsNotTaken($u, $c)
 {
     //Query database to check if username is taken
-    echo $u;
     $sql = "SELECT username FROM user WHERE username ='".$u."'";
   	$result = mysql_query($sql, $c);
   	$user = mysql_fetch_assoc($result);
@@ -124,9 +129,36 @@ function userIsNotTaken($u, $c)
     }
     else
     {
-		echo 'Username is already taken!';
+	echo 'Username is already taken!';
         return false;
     }
+}
+
+
+/*
+ *  MySQL function to get the details of an idea using it's unique ID
+ *	@param string $id the idea's unique ID
+ *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
+ */
+function getIdeaData($id, $c)
+{
+	$sql = "SELECT * FROM idea WHERE ideaID ='".$id."'";
+	$result = mysql_query($sql, $c);
+  	$idea = mysql_fetch_assoc($result);
+  	return $idea;
+}
+
+/*
+ *  MySQL function to get the number of upvotes for a particular idea
+ *	@param Idea $i the given idea
+ *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
+ */
+function incrementUpvotes($i, $c)
+{
+	$i['upvotes']++;
+	$sql = "UPDATE idea SET upvotes = ".$i['upvotes']." WHERE ideaID =".$i['ideaID']."";
+	$result = mysql_query($sql, $c)
+	or die(mysql_error());
 }
  
 ?>
