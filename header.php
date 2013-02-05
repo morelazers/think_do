@@ -23,7 +23,7 @@
 				<h2>Think. Share. Do.</h2>
 			</div>
             			
-		<div id="header-bottom-right">'
+		<div id="header-bottom-right">';
 				
 				if (isset($_SESSION['usr']))
 				{
