@@ -129,7 +129,7 @@ function userIsNotTaken($u, $c)
     }
     else
     {
-		echo 'Username is already taken!';
+	echo 'Username is already taken!';
         return false;
     }
 }
@@ -142,7 +142,7 @@ function userIsNotTaken($u, $c)
  */
 function getIdeaData($id, $c)
 {
-	$sql = "SELECT * FROM ideas WHERE idea_name ='".$n."'";
+	$sql = "SELECT * FROM idea WHERE ideaID ='".$id."'";
 	$result = mysql_query($sql, $c);
   	$idea = mysql_fetch_assoc($result);
   	return $idea
@@ -156,7 +156,7 @@ function getIdeaData($id, $c)
 function incrementUpvotes($i, $c)
 {
 	$i['upvotes']++;
-	$sql = "UPDATE ideas SET upvotes = ".$i['upvotes']." WHERE ideaID =".$i['ideaID']."";
+	$sql = "UPDATE idea SET upvotes = ".$i['upvotes']." WHERE ideaID =".$i['ideaID']."";
 	$result = mysql_query($sql, $c)
 	or die(mysql_error());
 }
