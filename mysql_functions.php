@@ -145,7 +145,7 @@ function getIdeaData($id, $c)
 	$sql = "SELECT * FROM idea WHERE ideaID ='".$id."'";
 	$result = mysql_query($sql, $c);
   	$idea = mysql_fetch_assoc($result);
-  	return $idea
+  	return $idea;
 }
 
 /*
