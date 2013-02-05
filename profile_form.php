@@ -1,5 +1,7 @@
 <?php 
 	session_start();
+	if (isset($_SESSION['usr']))
+	{
     showForm();
 	$oldPass = $_POST["oldPass"];
     $pass1 = $_POST["newPass"];
@@ -12,23 +14,22 @@
     {
         if (inputIsComplete())
         {
-			if (isset($_SESSION['usr']))
-			{
+			
 				if (checkPass($oldPass, $_SESSION['usr'], $eKey))
 				{
 					changePass($_SESSION['usr'], $pass1);
 				}
-			}
-			else
-			{
-				header('Location: login.php');
-			}
         }
         else
         {   
             echo 'All fields must be filled in!';
         }
     }
+	}
+			else
+			{
+				header('Location: login.php');
+			}
 	
     /**
 	*	This function declares an empty array then adds each empty _POST value
