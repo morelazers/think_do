@@ -23,23 +23,20 @@
 				<h2>Think. Share. Do.</h2>
 			</div>
             			
-		<div id="header-bottom-right">
-				<!--Login stuff not really sure what to do here-->
-                <h3><a href="login.php">Login</a></h3>
-                <h3><a href="register.php">Register</a></h3>
-				<h3><a href="modify_profile.php">Modify profile</a></h3>
-				<h3><a href="logout.php">Logout</a></h3>';
+		<div id="header-bottom-right">'
 				
 				if (isset($_SESSION['usr']))
 				{
-					//$user = $_SESSION['usr'];
 					$u = $_SESSION['usr'];
 					$n = $u['username'];
-					echo '<h3><a href="profile.php">'.$n.'</a></h3>';
+					echo '<h3><a href="profile.php">'.$n.'</a></h3>
+						<h3><a href="modify_profile.php">Modify profile</a></h3>
+						<h3><a href="logout.php">Logout</a></h3>';
 				}
 				else
 				{
-					echo 'session not set';
+					echo '<h3><a href="login.php">Login</a></h3>
+                				<h3><a href="register.php">Register</a></h3>';
 				}
 				
 			echo '</div>
