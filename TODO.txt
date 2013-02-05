@@ -1,0 +1,8 @@
+Update requirements document regularly - WITH DATES
+
+Update architecture document - Needs more detail on the interfaces between systems
+                             - Also needs the addition of an interests table in the DB (with reasoning etc.)
+
+Implement matchmaking (shouldn't take too long)
+
+Implement modification of ideas etc
