@@ -9,7 +9,8 @@ include 'connect.php';
 function getUserInterests($u)
 {
       $ids = join(',',$u['interests']);  
-      $sql = "SELECT id FROM interests WHERE id IN ($ids)";
+      echo $ids;
+      $sql = "SELECT ID FROM interests WHERE ID IN ($ids)";
       $result = mysql_query($sql, $con);
       var_dump($result);
 }
