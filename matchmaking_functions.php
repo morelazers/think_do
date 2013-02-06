@@ -12,7 +12,7 @@ function getUserInterests($u)
       var_dump($ids);
       $ids = explode(',', $ids);  
       var_dump($ids);
-      $sql = "SELECT ID FROM interests WHERE ID IN ($ids)";
+      $sql = "SELECT name FROM interests WHERE ID IN ($ids)";
       $result = mysql_query($sql, $con);
       var_dump($result);
 }
