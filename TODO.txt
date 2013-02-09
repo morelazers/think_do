@@ -6,3 +6,16 @@ Update architecture document - Needs more detail on the interfaces between syste
 Implement matchmaking (shouldn't take too long)
 
 Implement modification of ideas etc
+
+Modification of profiles
+                             avatar
+                             about me
+                             skills
+                             interests
+
+Creation of tasks
+                             task name
+                             task details
+                             single action/continuous
+                             complete
+
