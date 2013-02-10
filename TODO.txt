@@ -8,14 +8,14 @@ Implement matchmaking (shouldn't take too long)
 Implement modification of ideas etc
 
 Modification of profiles
-                             avatar
+                             avatar (file upload/gravatar/other?)
                              about me
-                             skills
-                             interests
+                             skills    ] -
+                             interests ] - JQuery autocomplete boxes
 
 Creation of tasks
                              task name
                              task details
-                             single action/continuous
-                             complete
+                             single action/continuous - radio buttons
+                             complete                 - tickbox
 
