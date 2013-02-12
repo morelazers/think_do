@@ -20,9 +20,9 @@ function getAllInterests($c)
       echo mysql_error();
       while($row = mysql_fetch_row($result))
       {
-            $GLOBALS['interests'][$row['id']] = $row['name'];
+            $GLOBALS['interests'][$row[0]] = $row[1];
       }
-      var_dump($GLOBALS);
+      var_dump($GLOBALS['interests']);
 }
 
 ?>
