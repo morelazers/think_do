@@ -16,7 +16,7 @@ function getUserInterests($u)
 
 function getAllInterests()
 {
-      $sql = "SELECT * FROM 'interests' WHERE 1 LIMIT 0,10";
+      $sql = mysql_real_escape_string("SELECT * FROM 'interests' WHERE 1 LIMIT 0,10");
       $result = mysql_query($sql, $con);
       echo mysql_error();
       var_dump($result);
