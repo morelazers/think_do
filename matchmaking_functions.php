@@ -16,7 +16,7 @@ function getUserInterests($u)
 
 function getAllInterests()
 {
-      $sql = "SELECT * FROM interests";
+      $sql = trim("SELECT * FROM interests");
       $result = mysql_query($sql, $con);
       var_dump($result);
       while($row = mysql_fetch_assoc($result))
