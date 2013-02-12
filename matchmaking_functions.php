@@ -9,6 +9,7 @@ function getUserInterests($u, $c)
 {
       $ids = $u['interests'];
       $ids = explode(',', $ids);
+      var_dump($ids);
       $intName;
       foreach($ids as &$val)
       {
