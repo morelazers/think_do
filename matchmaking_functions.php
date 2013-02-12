@@ -24,7 +24,7 @@ function getAllInterests()
       $sql = "SELECT * FROM interests";
       $result = mysql_query($sql, $con);
       var_dump($result);
-      while($row = mysql_fetch_array($result))
+      while($row = mysql_fetch_assoc($result))
       {
             $GLOBALS['interests'] = $row;
             var_dump($row);
