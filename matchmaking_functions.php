@@ -13,7 +13,6 @@ function getUserInterests($u, $c)
       $intName;
       foreach($ids as &$val)
       {
-            var_dump($ids);
             var_dump($val);
             echo $GLOBALS['interests'][$val];
       }
