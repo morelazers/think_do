@@ -17,6 +17,10 @@ function getUserInterests($u)
 function getAllInterests()
 {
       $sql = mysql_real_escape_string("SELECT * FROM 'interests' WHERE 1 LIMIT 0,10");
+      if (!$con)
+    {
+        die('Could not connect: ' . mysql_error());
+    }
       $result = mysql_query($sql, $con)
       or die(mysql_error());
       echo mysql_error();
