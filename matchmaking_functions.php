@@ -23,6 +23,7 @@ function getAllInterests()
 {
       $sql = "SELECT * FROM interests";
       $result = mysql_query($sql, $con);
+      var_dump($result);
       while($row = mysql_fetch_array($result))
       {
             $GLOBALS['interests'] = $row;
