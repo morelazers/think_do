@@ -13,6 +13,7 @@ include 'header.php'; ?>
 			{
 				getUserInterests($_SESSION['usr']);	
 			}
+			getAllInterests();
 			?>
 		</div>			
 	</div>	
