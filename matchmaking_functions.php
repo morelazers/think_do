@@ -16,9 +16,9 @@ function getUserInterests($u)
 
 function getAllInterests()
 {
-      $sql = "SELECT * FROM 'interests' LIMIT 0, 600";
-      echo $sql;
+      $sql = "SELECT * FROM 'interests'";
       $result = mysql_query($sql, $con);
+      echo mysql_error();
       var_dump($result);
       while($row = mysql_fetch_assoc($result))
       {
