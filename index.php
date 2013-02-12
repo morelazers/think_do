@@ -10,12 +10,14 @@ include 'header.php'; ?>
 			<?php
 			include 'connect.php';
 			include 'matchmaking_functions.php';
-			/*if (isset($_SESSION['usr']))
+			if (!isset($GLOBALS['interests'])
+			{
+				getAllInterests($con);
+			}
+			if (isset($_SESSION['usr']))
 			{
 				getUserInterests($_SESSION['usr']);	
 			}
-			*/
-			getAllInterests($con);
 			?>
 		</div>			
 	</div>	
