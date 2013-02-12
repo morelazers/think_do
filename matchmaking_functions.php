@@ -5,23 +5,18 @@
  * to the user
  */
 
-include 'connect.php';
-function getUserInterests($u, $con)
+function getUserInterests($u, $c)
 {
       $ids = $u['interests'];
       $sql = "SELECT name FROM interests WHERE ID IN ($ids)";
-      $result = mysql_query($sql, $con);
+      $result = mysql_query($sql, $c);
       var_dump($result);
 }
 
-function getAllInterests($con)
+function getAllInterests($c)
 {
-      $sql = mysql_real_escape_string("SELECT * FROM 'interests' WHERE 1 LIMIT 0,10");
-      if (!$con)
-    {
-        die('Could not connect: ' . mysql_error());
-    }
-      $result = mysql_query($sql, $con)
+      $sql = mysql_real_escape_string("SELECT * FROM interests");
+      $result = mysql_query($sql, $c)
       or die(mysql_error());
       echo mysql_error();
       var_dump($result);
