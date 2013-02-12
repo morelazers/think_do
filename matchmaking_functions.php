@@ -23,7 +23,6 @@ function getAllInterests($c)
       while($row = mysql_fetch_array($result))
       {
             $GLOBALS['interests'] = $row;
-            var_dump($row);
       }
       var_dump($GLOBALS['interests']);
 }
