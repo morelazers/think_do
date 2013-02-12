@@ -19,4 +19,15 @@ function getUserInterests($u)
       var_dump($result);
 }
 
+function getAllInterests()
+{
+      $sql = "SELECT * FROM interests";
+      $result = mysql_query($sql, $con);
+      while($row = mysql_fetch_array($result))
+      {
+            $GLOBALS['interests'] = $row;
+      }
+      var_dump($GLOBALS['interests']);
+}
+
 ?>
