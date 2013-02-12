@@ -20,7 +20,7 @@ function getAllInterests($c)
       or die(mysql_error());
       echo mysql_error();
       var_dump($result);
-      while($row = mysql_fetch_assoc($result))
+      while($row = mysql_fetch_array($result))
       {
             $GLOBALS['interests'] = $row;
             var_dump($row);
