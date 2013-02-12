@@ -6,7 +6,7 @@
  */
 
 include 'connect.php';
-function getUserInterests($u)
+function getUserInterests($u, $con)
 {
       $ids = $u['interests'];
       $sql = "SELECT name FROM interests WHERE ID IN ($ids)";
@@ -14,7 +14,7 @@ function getUserInterests($u)
       var_dump($result);
 }
 
-function getAllInterests()
+function getAllInterests($con)
 {
       $sql = mysql_real_escape_string("SELECT * FROM 'interests' WHERE 1 LIMIT 0,10");
       if (!$con)
