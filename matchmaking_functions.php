@@ -29,7 +29,7 @@ function getAllInterests($c)
       echo mysql_error();
       while($row = mysql_fetch_row($result))
       {
-            $GLOBALS['interests'][$row[0]] = $row[1];
+            $GLOBALS['interests'][intval($row[0])] = $row[1];
       }
       //var_dump($GLOBALS['interests']);
 }
