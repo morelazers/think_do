@@ -8,9 +8,16 @@
 function getUserInterests($u, $c)
 {
       $ids = $u['interests'];
+      $ids = explode(',', $ids);
+      $intName;
+      foreach($ids as &$val)
+      {
+            echo $GLOBALS['interests'][$val];
+      }
+      
       $sql = "SELECT name FROM interests WHERE ID IN ($ids)";
       $result = mysql_query($sql, $c);
-      var_dump($result);
+      //var_dump($result);
 }
 
 function getAllInterests($c)
@@ -22,7 +29,7 @@ function getAllInterests($c)
       {
             $GLOBALS['interests'][$row[0]] = $row[1];
       }
-      var_dump($GLOBALS['interests']);
+      //var_dump($GLOBALS['interests']);
 }
 
 ?>
