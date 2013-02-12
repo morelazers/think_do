@@ -16,7 +16,7 @@ function getUserInterests($u)
 
 function getAllInterests()
 {
-      $sql = "SELECT * FROM 'interests'";
+      $sql = "SELECT * FROM 'interests' WHERE 1";
       $result = mysql_query($sql, $con);
       echo mysql_error();
       var_dump($result);
