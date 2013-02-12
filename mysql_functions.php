@@ -155,17 +155,43 @@ function getIdeaData($id, $c)
  */
 function incrementIdeaUpvotes($i, $u, $c)
 {
-	$i['upvotes']++;
-	$sql = "UPDATE idea SET upvotes = ".$i['upvotes']." WHERE ideaID =".$i['ideaID']."";
+	$i['upVotes']++;
+	$sql = "UPDATE idea SET upVotes = ".$i['upVotes']." WHERE ideaID =".$i['ideaID']."";
 	$result = mysql_query($sql, $c)
 	or die(mysql_error());
-	if($u['votedFor'] == null)
+	if($u['ideasVotedFor'] == null)
 	{
-		$sql = "UPDATE users SET votedFor = ".$i['ideaID']."";
+		$sql = "UPDATE users SET ideasVotedFor = ".$i['ideaID']."";
 	}
 	else
 	{
-		$sql = "UPDATE users SET votedFor = ".$u['votedFor'].",".$i['ideaID']."";
+		$sql = "UPDATE users SET ideasVotedFor = ".$u['ideasVotedFor'].",".$i['ideaID']."";
+	}
+	$result = mysql_query($sql, $c)
+	or die(mysql_error());
+}
+
+function getCommentData($comid, $c)
+{
+	$sql = "SELECT * FROM comments WHERE commentID ='".$comid."'";
+	$result = mysql_query($sql, $c);
+  	$comment = mysql_fetch_assoc($result);
+  	return $comment;
+}
+
+function incrementCommentUpvotes($com, $u, $c)
+{
+	$com['upVotes']++;
+	$sql = "UPDATE comments SET upVotes = ".$com['upVotes']." WHERE commentID =".$com['ideaID']."";
+	$result = mysql_query($sql, $c)
+	or die(mysql_error());
+	if($u['commentVotes'] == null)
+	{
+		$sql = "UPDATE users SET commentVotes = ".$com['commentID']."";
+	}
+	else
+	{
+		$sql = "UPDATE users SET commentVotes = ".$u['commentVotes'].",".$com['commentID']."";
 	}
 	$result = mysql_query($sql, $c)
 	or die(mysql_error());
