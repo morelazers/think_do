@@ -10,7 +10,7 @@ include 'header.php'; ?>
 			<?php
 			include 'connect.php';
 			include 'matchmaking_functions.php';
-			if (!isset($GLOBALS['interests'])
+			if (!isset($GLOBALS['interests']))
 			{
 				getAllInterests($con);
 			}
