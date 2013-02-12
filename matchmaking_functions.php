@@ -15,8 +15,8 @@ function getUserInterests($u, $c)
             echo $GLOBALS['interests'][$val];
       }
       
-      $sql = "SELECT name FROM interests WHERE ID IN ($ids)";
-      $result = mysql_query($sql, $c);
+      //$sql = "SELECT name FROM interests WHERE ID IN ($ids)";
+      //$result = mysql_query($sql, $c);
       //var_dump($result);
 }
 
