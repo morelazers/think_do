@@ -22,7 +22,7 @@ function getAllInterests($c)
       {
             $GLOBALS['interests'][$row['id']] = $row['name'];
       }
-      var_dump($GLOBALS['interests']);
+      var_dump($GLOBALS['interests'][]);
 }
 
 ?>
