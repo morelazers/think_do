@@ -14,7 +14,7 @@ function getUserInterests($u, $c)
       foreach($ids as &$val)
       {
             var_dump(intval($val));
-            var_dump($GLOBALS['interests'][intval($val)]);
+            echo $GLOBALS['interests'][intval($val)];
       }
       
       //$sql = "SELECT name FROM interests WHERE ID IN ($ids)";
