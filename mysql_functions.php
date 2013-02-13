@@ -41,7 +41,7 @@ function checkPass($c, $text, $user)
 	$decPass = (sha1($salt.$text));
 	$sql = "SELECT password FROM user WHERE username = '" . $user['username'] . "'";
     	$resultRow = mysql_query($sql, $c);
-    	$pass = mysql_fetch_assoc($resultRow)
+    	$pass = mysql_fetch_assoc($resultRow);
     	var_dump($pass);
 	/*
 	*	Replaced '==' comparison with strcmp() and surrounded the args with trim()
