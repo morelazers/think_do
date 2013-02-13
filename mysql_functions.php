@@ -71,17 +71,14 @@ function changePass($user, $newpass)
     	}
 }
 
-function updateProfileInfo($c)
+function updateProfileInfo($c, $a, $i, $s)
 {
-	$a = mysql_real_escape_string($_POST['aboutMe']);
-	$i = mysql_real_escape_string($_POST['interests']);
-	$s = mysql_real_escape_string($_POST['skills']);
 	$sql = "UPDATE user SET aboutMe ='".$a."', interests = '".$i."', skills = '".$s."'";
     
 	if(!mysql_query($c, $sql))
-    {
-        echo "could not update profile information";
-    }
+    	{
+        	echo "could not update profile information";
+    	}
 }
 
 function encrypt_data($str)
