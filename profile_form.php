@@ -71,7 +71,7 @@ function passInputIsComplete()
 function passInputIsComplete()
 {  
 	$emptyFields = array();
-	$fields = array($_POST["aboutMe"];, $_POST["interests"], $_POST["skills"]);
+	$fields = array($_POST["aboutMe"], $_POST["interests"], $_POST["skills"]);
         foreach ($fields as $value)
         {
 		if (empty($value))
