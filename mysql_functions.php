@@ -34,7 +34,7 @@
  *	@param string $user the current user as returned by getUserData
  *  @param string $k the secret key which is hashed to become the salt
  */
-function checkPass($text, $user)
+function checkPass($c, $text, $user)
 {
 	global $eKey;
 	$salt = md5($eKey);
