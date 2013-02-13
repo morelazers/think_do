@@ -89,7 +89,7 @@ function profileInputIsComplete()
         }
         else
         {
-        	echo "incomplete profile input;"
+        	echo "incomplete profile input";
 		return false;
         }
 }
