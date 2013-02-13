@@ -131,8 +131,8 @@ function showAboutMeForm($u)
 	echo '<form method="post" action="'; 
         echo $PHP_SELF; 
         echo '">
-        <label for="about_me">Describe yourself:</label><br>
-        <input type="text" name="oldPass" id="old_password" value="';
+        <label for="aboutMe">Describe yourself:</label><br>
+        <input type="text" name="aboutMe" id="aboutMe" value="';
         echo $u['aboutme'];
         echo '"><br>
 	<label for="interests">What are you interested in?</label><br>
