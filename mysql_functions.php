@@ -73,7 +73,7 @@ function updateProfileInfo($c)
 	$a = mysql_real_escape_string($_POST['aboutMe']);
 	$i = mysql_real_escape_string($_POST['interests']);
 	$s = mysql_real_escape_string($_POST['skills']);
-	$sql = "UPDATE users SET aboutMe ='".$a."', interests = '".$i."', skills = '".$s."'";
+	$sql = "UPDATE user SET aboutMe ='".$a."', interests = '".$i."', skills = '".$s."'";
 	$result = mysql_query($c, $sql);
 }
 
