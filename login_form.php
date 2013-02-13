@@ -19,7 +19,7 @@
 			echo 'no user';
 		}
 		
-		if (checkPass($pass, $currentUser))
+		if (checkPass($con, $pass, $currentUser))
 		{
 			/*
         		* Log the user in for the current session
