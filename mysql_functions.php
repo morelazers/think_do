@@ -43,6 +43,7 @@ function checkPass($c, $text, $user)
     	$resultRow = mysql_query($sql, $c);
     	$pass = mysql_fetch_assoc($resultRow);
     	var_dump($pass);
+    	var_dump($decPass);
 	/*
 	*	Replaced '==' comparison with strcmp() and surrounded the args with trim()
 	*	to ensure an accurate comparison
