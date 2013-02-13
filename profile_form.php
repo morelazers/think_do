@@ -47,7 +47,7 @@ if (isset($_SESSION['usr']))
     	{
     		if (profileInputIsComplete())
         	{   
-        		//insert new profile information into the database
+        		updateProfileInfo($con);
         	}
     	}
 }
@@ -107,6 +107,8 @@ function profileInputIsComplete()
 		return false;
         }
 }
+
+
     
 	/**
 	*	This function is responsible for outputting the login form to the page
