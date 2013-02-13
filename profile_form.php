@@ -144,11 +144,6 @@ function showAboutMeForm($u)
         <input type="submit" name="submitAboutMe" value="Update">
         </form>';
 }
-
-function showLinks();
-{
-
-}
     
 
 ?> 
