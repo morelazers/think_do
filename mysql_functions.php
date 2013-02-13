@@ -5,17 +5,17 @@
 /*
  *  MySQL functions for connecting to and querying the database for various attributes
  *    @param MySQLConnection $c Connection to MySQL database, necessary to perform queries
- *	@param string $u Username for the current user
+ *    @param string $u Username for the current user
  */
  function getUserData($c, $u)
  {
     //Query database get the data for the user (will use sessions later)
     $sql = "SELECT * FROM user WHERE username = '" . $u . "'";
     $resultRow = mysql_query($sql, $c);
-	
+
     //Get the row with the user's data
     $user = mysql_fetch_array($resultRow);
-	
+
 	//If there is no user with the inputted name in the database
 	if ($user == null)
     {
@@ -65,7 +65,7 @@ function changePass($c, $user, $newpass)
 {
 	$encP = encrypt_data($newPass);
 	$sql="UPDATE user SET password='".$encP."' WHERE username='".$user['username']."'";
-	if(!mysql_query($c, $sql))
+	if(!mysql_query($sql, $c))
     	{
         	echo "could not update password";
         	die('Error: ' . mysql_error());
@@ -76,7 +76,7 @@ function updateProfileInfo($c, $a, $i, $s)
 {
 	$sql = "UPDATE user SET aboutMe ='".$a."', interests = '".$i."', skills = '".$s."'";
     
-	if(!mysql_query($c, $sql))
+	if(!mysql_query($sql, $c))
     	{
         	echo "could not update profile information";
         	die('Error: ' . mysql_error());
@@ -110,7 +110,7 @@ function insertIntoDB($c, $u, $e, $p)
 		$headers = "From: " . $from;
 		mail($eA, $subject, $message, $headers);
     }
-	
+
     $sql="INSERT INTO user (username, email, password) VALUES ('$u', '$e', '$encP')";
     if (!mysql_query($sql, $c))
     {
