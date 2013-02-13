@@ -68,6 +68,7 @@ function changePass($c, $user, $newpass)
 	if(!mysql_query($c, $sql))
     	{
         	echo "could not update password";
+        	die('Error: ' . mysql_error());
     	}
 }
 
@@ -78,6 +79,7 @@ function updateProfileInfo($c, $a, $i, $s)
 	if(!mysql_query($c, $sql))
     	{
         	echo "could not update profile information";
+        	die('Error: ' . mysql_error());
     	}
 }
 
