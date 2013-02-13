@@ -12,13 +12,17 @@ if (isset($_SESSION['usr']))
 	$oldPass = $_POST["oldPass"];
 	$pass1 = $_POST["newPass"];
 	$pass2 = $_POST["newPass2"];
+	
+	$aboutMe = $_POST["aboutMe"];
+	$interests = $_POST["interests"];
+	$skills = $_POST["skills"];
    
 	include 'connect.php';
 	include 'mysql_functions.php';
     
     	if (isset($_POST["submitPass"]))
     	{
-        	if (inputIsComplete())
+        	if (passInputIsComplete())
         	{
 		
 			if (checkPass($oldPass, $currentUser, $eKey))
@@ -26,9 +30,10 @@ if (isset($_SESSION['usr']))
 				changePass($currentUser, $pass1);
 			}
         	}
-        	else
+        	else if (profileInputIsComplete())
         	{   
-        		echo 'All fields must be filled in!';
+        		//insert new profile information into the database
+        		echo "complete profile input";
         	}
     	}
 }
@@ -42,10 +47,32 @@ else
 	*	to the array. The function then checks to see if the array is empty at
 	*	the end, returning true if it is, false if has any values in it.
 	*/
-function inputIsComplete()
+function passInputIsComplete()
 {  
 	$emptyFields = array();
-        foreach ($_POST as $value)
+	$fields = array($_POST["oldPass"], $_POST["newPass"], $_POST["newPass2"]);
+        foreach ($fields as $value)
+        {
+		if (empty($value))
+           	{
+                	array_push($emptyFields, $value);
+            	}
+        }
+        if (empty($emptyFields))
+        {
+		return true;
+        }
+        else
+        {
+		return false;
+        }
+}
+
+function passInputIsComplete()
+{  
+	$emptyFields = array();
+	$fields = array($_POST["aboutMe"];, $_POST["interests"], $_POST["skills"]);
+        foreach ($fields as $value)
         {
 		if (empty($value))
            	{ 
@@ -101,13 +128,5 @@ function showAboutMeForm($u)
         </form>';
 }
     
-	/**
-	*	Uses a regex to strip any punctuation from the users input to prevent SQL injection
-	*	@param string $unameInput This is a string containing the input from the username field
-	*/
-function isValidInput($unameInput)
-{
-	$unameValid = preg_replace("/[^a-zA-Z 0-9]+/", " ", $unameInput);
-        return ($unameValid == $unameInput);
-}
+
 ?> 
