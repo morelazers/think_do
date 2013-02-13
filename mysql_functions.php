@@ -61,7 +61,7 @@ function checkPass($text, $user)
  *	@param user $user the entered username
  *  @param password $newpass the entered password
  */
-function changePass($user, $newpass)
+function changePass($c, $user, $newpass)
 {
 	$encP = encrypt_data($newPass);
 	$sql="UPDATE user SET password=".$encP." WHERE username='".$user['username']."'";
