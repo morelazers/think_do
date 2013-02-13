@@ -39,12 +39,15 @@ function checkPass($text, $user)
 	global $eKey;
 	$salt = md5($eKey);
 	$decPass = (sha1($salt.$text));
+	$sql = "SELECT password FROM user WHERE username = '" . $user['username'] . "'";
+    	$resultRow = mysql_query($sql, $c);
+    	$pass = mysql_fetch_assoc($resultRow)
 	/*
 	*	Replaced '==' comparison with strcmp() and surrounded the args with trim()
 	*	to ensure an accurate comparison
 	*	-Nathan
 	*/
-	if (strcmp(trim($user['password']), trim($decPass)) == 0)
+	if (strcmp(trim($pass['password']), trim($decPass)) == 0)
 	{
 		return true;
 	}
