@@ -4,7 +4,7 @@
 
 /*
  *  MySQL functions for connecting to and querying the database for various attributes
- *	@param MySQLConnection $c Connection to MySQL database, necessary to perform queries
+ *    @param MySQLConnection $c Connection to MySQL database, necessary to perform queries
  *	@param string $u Username for the current user
  */
  function getUserData($c, $u)
@@ -65,7 +65,10 @@ function changePass($user, $newpass)
 {
 	$encP = encrypt_data($newPass);
 	$sql="UPDATE user SET password=".$encP." WHERE username='".$user['username']."'";
-	$result = mysql_query($sql, $c);
+	if(!mysql_query($c, $sql))
+    	{
+        	echo "could not update password";
+    	}
 }
 
 function updateProfileInfo($c)
@@ -74,7 +77,11 @@ function updateProfileInfo($c)
 	$i = mysql_real_escape_string($_POST['interests']);
 	$s = mysql_real_escape_string($_POST['skills']);
 	$sql = "UPDATE user SET aboutMe ='".$a."', interests = '".$i."', skills = '".$s."'";
-	$result = mysql_query($c, $sql);
+    
+	if(!mysql_query($c, $sql))
+    {
+        echo "could not update profile information";
+    }
 }
 
 function encrypt_data($str)
