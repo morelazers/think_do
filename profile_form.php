@@ -5,9 +5,21 @@ if (isset($_SESSION['usr']))
 	
 	$currentUser = $_SESSION['usr'];
 	
-	showPassForm();
+	echo '<form method="post" action="'; 
+        echo $PHP_SELF; 
+        echo '"><input type="submit" name="editPass" value="Change password">
+        <input type="submit" name="editProfile" value="Edit profile">
+        </form>';
 	
-	showAboutMeForm($currentUser);
+	if (isset($_POST['editPass']))
+	{
+		showPassForm();
+	}
+	else if (isset($_POST['editProfile']))
+	{
+		showAboutMeForm($currentUser);
+	}
+
 	
 	$oldPass = $_POST["oldPass"];
 	$pass1 = $_POST["newPass"];
@@ -131,6 +143,11 @@ function showAboutMeForm($u)
         echo '"><br>
         <input type="submit" name="submitAboutMe" value="Update">
         </form>';
+}
+
+function showLinks();
+{
+
 }
     
 
