@@ -42,6 +42,7 @@ function checkPass($text, $user)
 	$sql = "SELECT password FROM user WHERE username = '" . $user['username'] . "'";
     	$resultRow = mysql_query($sql, $c);
     	$pass = mysql_fetch_assoc($resultRow)
+    	var_dump($pass);
 	/*
 	*	Replaced '==' comparison with strcmp() and surrounded the args with trim()
 	*	to ensure an accurate comparison
