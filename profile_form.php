@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION['usr']))
 {
-    
+	
 	$currentUser = $_SESSION['usr'];
 	
 	echo '<form method="post" action="'; 
@@ -36,19 +36,20 @@ if (isset($_SESSION['usr']))
     	{
         	if (passInputIsComplete())
         	{
-    			if (checkPass($oldPass, $currentUser, $eKey))
-    			{
-    				changePass($currentUser, $pass1);
-    			}
+		
+			if (checkPass($oldPass, $currentUser, $eKey))
+			{
+				changePass($currentUser, $pass1);
+			}
         	}
     	}
-        if (isset($_POST["submitAboutMe"]))
-        {
-            	if (profileInputIsComplete())
-            	{   
+    	if (isset($_POST["submitAboutMe"]))
+    	{
+    		if (profileInputIsComplete())
+        	{   
         		//insert new profile information into the database
         	}
-        }
+    	}
 }
 else
 {
