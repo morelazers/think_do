@@ -39,7 +39,7 @@ if (isset($_SESSION['usr']))
 		
 			if (checkPass($oldPass, $currentUser, $eKey))
 			{
-				changePass($currentUser, $pass1);
+				changePass($con, $currentUser, $pass1);
 			}
         	}
     	}
