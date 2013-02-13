@@ -47,7 +47,15 @@ if (isset($_SESSION['usr']))
     	{
     		if (profileInputIsComplete())
         	{   
-        		updateProfileInfo($con);
+        		/*
+        		 * Functionality needed to take the inputted interests and convert them to
+        		 * a string of comma-separated integers to be passed into the update function
+        		 */
+        		$aboutMe = mysql_real_escape_string($aboutMe);
+        		$interests = mysql_real_escape_string($interests);
+        		$skills = mysql_real_escape_string($skills);
+        		
+        		updateProfileInfo($con, $aboutMe, $interests, $skills);
         	}
     	}
 }
