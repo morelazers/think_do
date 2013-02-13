@@ -64,8 +64,17 @@ function checkPass($text, $user)
 function changePass($user, $newpass)
 {
 	$encP = encrypt_data($newPass);
-	$sql="UPDATE user SET password='".$encP."' WHERE username='".$user['username']."'";
+	$sql="UPDATE user SET password=".$encP." WHERE username='".$user['username']."'";
 	$result = mysql_query($sql, $c);
+}
+
+function updateProfileInfo($c)
+{
+	$a = mysql_real_escape_string($_POST['aboutMe']);
+	$i = mysql_real_escape_string($_POST['interests']);
+	$s = mysql_real_escape_string($_POST['skills']);
+	$sql = "UPDATE users SET aboutMe ='".$a."', interests = '".$i."', skills = '".$s."'";
+	$result = mysql_query($c, $sql);
 }
 
 function encrypt_data($str)
