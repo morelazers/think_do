@@ -68,7 +68,7 @@ function passInputIsComplete()
         }
 }
 
-function passInputIsComplete()
+function profileInputIsComplete()
 {  
 	$emptyFields = array();
 	$fields = array($_POST["aboutMe"], $_POST["interests"], $_POST["skills"]);
