@@ -69,7 +69,7 @@ function checkPass($c, $text, $user)
 function changePass($c, $user, $newpass)
 {
 	$encP = encrypt_data($newPass);
-	$sql="UPDATE user SET password=".$encP." WHERE username='".$user['username']."'";
+	$sql="UPDATE user SET password='".$encP."' WHERE username='".$user['username']."'";
 	if(!mysql_query($sql, $c))
     	{
         	echo "could not update password";
