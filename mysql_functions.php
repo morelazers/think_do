@@ -2,7 +2,7 @@
 
     $eKey = 'TOPSECRET';
 
-/*
+/**
  *  MySQL functions for connecting to and querying the database for various attributes
  *    @param MySQLConnection $c Connection to MySQL database, necessary to perform queries
  *    @param string $u Username for the current user
@@ -28,11 +28,11 @@
 	}
  }
  
-/*
+/**
  *  MySQL function to verify that the entered password is correct during a login attempt
- *	@param password $text the user's entered password
- *	@param string $user the current user as returned by getUserData
- *  @param string $k the secret key which is hashed to become the salt
+ *	@param MySQLConnection $c Connection to MySQL database, necessary to perform queries
+ *	@param string $text the entered password
+ *  @param user $user the the current user
  */
 function checkPass($c, $text, $user)
 {
@@ -60,7 +60,7 @@ function checkPass($c, $text, $user)
 	}
 }
 
-/*
+/**
  *  MySQL function to change a user's password
  *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
  *	@param user $user the entered username
@@ -69,12 +69,12 @@ function checkPass($c, $text, $user)
 function changePass($c, $user, $newpass)
 {
 	$encP = encrypt_data($newPass);
-	$sql="UPDATE user SET password='$encP' WHERE username='".trim($user['username'])."'";
+	$sql="UPDATE user SET password='".$encP."' WHERE username='".trim($user['username'])."'";
 	if(!mysql_query($sql, $c))
-    	{
-        	echo "could not update password";
-        	die('Error: ' . mysql_error());
-    	}
+    {
+       	echo "could not update password";
+       	die('Error: ' . mysql_error());
+    }
     $user['password'] = $encP;
 }
 
@@ -83,10 +83,10 @@ function updateProfileInfo($c, $a, $i, $s)
 	$sql = "UPDATE user SET aboutMe ='".$a."', interests = '".$i."', skills = '".$s."'";
     
 	if(!mysql_query($sql, $c))
-    	{
-        	echo "could not update profile information";
-        	die('Error: ' . mysql_error());
-    	}
+    {
+       	echo "could not update profile information";
+       	die('Error: ' . mysql_error());
+    }
 }
 
 function encrypt_data($str)
@@ -97,7 +97,7 @@ function encrypt_data($str)
 	return $encrypted_text;
 }
 
-/*
+/**
  *  MySQL function to insert the data from the register form into the database
  *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
  *	@param string $u the entered username
@@ -133,7 +133,7 @@ function insertIntoDB($c, $u, $e, $p)
 }
 
 
-/*
+/**
  *  MySQL function to check that an inputted username has not already been taken
  *	@param string $u the entered username
  *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
@@ -157,7 +157,7 @@ function userIsNotTaken($u, $c)
 }
 
 
-/*
+/**
  *  MySQL function to get the details of an idea using it's unique ID
  *	@param string $id the idea's unique ID
  *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
@@ -170,7 +170,7 @@ function getIdeaData($id, $c)
   	return $idea;
 }
 
-/*
+/**
  *  MySQL function to get the number of upvotes for a particular idea
  *	@param Idea $i the given idea
  *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
