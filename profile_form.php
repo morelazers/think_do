@@ -37,7 +37,7 @@ if (isset($_SESSION['usr']))
         	if (passInputIsComplete())
         	{
 		
-			if (checkPass($con, $pass1, $currentUser))
+			if (checkPass($con, $oldPass, $currentUser))
 			{
 				changePass($con, $currentUser, $pass1);
 			}
