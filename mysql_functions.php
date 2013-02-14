@@ -39,17 +39,17 @@ function checkPass($c, $text, $user)
 	global $eKey;
 	$salt = md5($eKey);
 	$decPass = (sha1($salt.$text));
-	$sql = "SELECT password FROM user WHERE username = '" . $user['username'] . "'";
+	/*$sql = "SELECT password FROM user WHERE username = '" . $user['username'] . "'";
     	$resultRow = mysql_query($sql, $c);
     	$pass = mysql_fetch_assoc($resultRow);
     	var_dump($pass);
-    	var_dump($decPass);
+    	var_dump($decPass);*/
 	/*
 	*	Replaced '==' comparison with strcmp() and surrounded the args with trim()
 	*	to ensure an accurate comparison
 	*	-Nathan
 	*/
-	if (strcmp(trim($pass['password']), trim($decPass)) == 0)
+	if (strcmp(trim($user['password']), trim($decPass)) == 0)
 	{
 		return true;
 	}
@@ -69,12 +69,13 @@ function checkPass($c, $text, $user)
 function changePass($c, $user, $newpass)
 {
 	$encP = encrypt_data($newPass);
-	$sql="UPDATE user SET password='".$encP."' WHERE username='".$user['username']."'";
+	$sql="UPDATE user SET password=".$encP." WHERE username='".$user['username']."'";
 	if(!mysql_query($sql, $c))
     	{
         	echo "could not update password";
         	die('Error: ' . mysql_error());
     	}
+    $user['password'] = $encP;
 }
 
 function updateProfileInfo($c, $a, $i, $s)
