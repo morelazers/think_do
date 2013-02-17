@@ -18,7 +18,7 @@
 		$(function() {
 		    var availableInterests = [
 		    ';
-		   	foreach($_GLOBALS['interests'] as $val){
+		   	foreach($GLOBALS['interests'] as $val){
 		   		echo '"' . $val . '"';
 		   		if ($val != "Zoology"){
 		   			echo ',';
