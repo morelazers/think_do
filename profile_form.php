@@ -6,10 +6,10 @@ if (isset($_SESSION['usr']))
 	$currentUser = $_SESSION['usr'];
 	
 	echo '<form method="post" action="'; 
-        echo $PHP_SELF; 
-        echo '"><input type="submit" name="editPass" value="Change password">
-        <input type="submit" name="editProfile" value="Edit profile">
-        </form>';
+    echo $PHP_SELF; 
+    echo '"><input type="submit" name="editPass" value="Change password">
+    <input type="submit" name="editProfile" value="Edit profile">
+    </form>';
 	
 	if (isset($_POST['editPass']))
 	{
@@ -32,32 +32,31 @@ if (isset($_SESSION['usr']))
 	include 'connect.php';
 	include 'mysql_functions.php';
     
-    	if (isset($_POST["submitPass"]))
+	if (isset($_POST["submitPass"]))
+	{
+    	if (passInputIsComplete())
     	{
-        	if (passInputIsComplete())
-        	{
-		
-			if (checkPass($con, $oldPass, $currentUser))
-			{
-				changePass($con, $currentUser, trim($pass1));
-			}
-        	}
+    		if (checkPass($con, $oldPass, $currentUser))
+    		{
+    			changePass($con, $currentUser, trim($pass1));
+    		}
     	}
-    	if (isset($_POST["submitAboutMe"]))
-    	{
-    		if (profileInputIsComplete())
-        	{   
-        		/*
-        		 * Functionality needed to take the inputted interests and convert them to
-        		 * a string of comma-separated integers to be passed into the update function
-        		 */
-        		$aboutMe = mysql_real_escape_string($aboutMe);
-        		$interests = mysql_real_escape_string($interests);
-        		$skills = mysql_real_escape_string($skills);
-        		
-        		updateProfileInfo($con, $aboutMe, $interests, $skills);
-        	}
+	}
+	if (isset($_POST["submitAboutMe"]))
+	{
+		if (profileInputIsComplete())
+    	{   
+    		/*
+    		 * Functionality needed to take the inputted interests and convert them to
+    		 * a string of comma-separated integers to be passed into the update function
+    		 */
+    		$aboutMe = mysql_real_escape_string($aboutMe);
+    		$interests = mysql_real_escape_string($interests);
+    		$skills = mysql_real_escape_string($skills);
+    		
+    		updateProfileInfo($con, $aboutMe, $interests, $skills);
     	}
+	}
 }
 else
 {
