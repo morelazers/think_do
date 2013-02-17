@@ -3,9 +3,10 @@
     $eKey = 'TOPSECRET';
 
 /**
- *  MySQL functions for connecting to and querying the database for various attributes
- *    @param MySQLConnection $c Connection to MySQL database, necessary to perform queries
- *    @param string $u Username for the current user
+ *  MySQL function for connecting to and querying the database for user data
+ *  @param MySQLConnection $c Connection to MySQL database, necessary to perform queries
+ *  @param string $u Username for the current user
+ *	@return either false, if there is no such user, or an assosciative array containing all the fields from the users table
  */
  function getUserData($c, $u)
  {
@@ -27,6 +28,31 @@
 		return $user;
 	}
  }
+
+/**
+ *  MySQL function for getting the data for an idea from the database using the URL as input
+ *	@return either redirect the user to the error page, if there is no such idea, or an assosciative array containing all the fields from the idea table
+ */
+ function getIdea()
+ {
+	//Check for 'pid' parameter in URL
+	if(array_key_exists("pid", $_GET))
+	{
+		$ideaID = $_GET["pid"];
+		$idea = mysql_query("SELECT * FROM idea WHERE ideaID =" . $ideaID);
+		//Get project data for the project from the database
+		$ideaArray = mysql_fetch_array($idea);
+		
+		if ($user == null)
+    	{
+       		header('Location: error_page.php');
+	    }
+		else
+		{
+			return $ideaArray;
+		}
+	}
+}
  
 /**
  *  MySQL function to verify that the entered password is correct during a login attempt
@@ -39,11 +65,13 @@ function checkPass($c, $text, $user)
 	global $eKey;
 	$salt = md5($eKey);
 	$decPass = (sha1($salt.$text));
-	/*$sql = "SELECT password FROM user WHERE username = '" . $user['username'] . "'";
-    	$resultRow = mysql_query($sql, $c);
-    	$pass = mysql_fetch_assoc($resultRow);
-    	var_dump($pass);
-    	var_dump($decPass);*/
+	/*
+	$sql = "SELECT password FROM user WHERE username = '" . $user['username'] . "'";
+    $resultRow = mysql_query($sql, $c);
+    $pass = mysql_fetch_assoc($resultRow);
+    var_dump($pass);
+    var_dump($decPass);
+    */
 	/*
 	*	Replaced '==' comparison with strcmp() and surrounded the args with trim()
 	*	to ensure an accurate comparison
@@ -78,9 +106,17 @@ function changePass($c, $user, $newpass)
     $user['password'] = $encP;
 }
 
+/**
+ *  MySQL function to change the current user's profile information
+ *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
+ *	@param string $a the user's 'About Me'
+ *  @param string $i the user's interests, as comma-seperated indices
+ *	@param string $s the user's skills, as comma-seperated indices
+ */
 function updateProfileInfo($c, $a, $i, $s)
 {
-	$sql = "UPDATE user SET aboutMe ='".$a."', interests = '".$i."', skills = '".$s."'";
+	$u = $_SESSION['usr'];
+	$sql = "UPDATE user SET aboutMe ='".$a."', interests = '".$i."', skills = '".$s."' WHERE username='".$u['username']."'";
     
 	if(!mysql_query($sql, $c))
     {
@@ -89,6 +125,54 @@ function updateProfileInfo($c, $a, $i, $s)
     }
 }
 
+/**
+*  Function to check if the inputs from a $_POST form are all filled in
+*/
+function inputIsComplete()
+{
+    //Add all empty fields to an array
+    foreach ($_POST as $value)
+    {
+        if (empty($value))
+        { 
+            array_push($emptyFields, $value);
+        }
+    }
+    if (empty($emptyFields))
+    { 
+        return true;
+    }
+    else
+    {
+        echo 'All forms must be filled in!';
+        return false;
+    }
+}
+
+
+/**
+ *  MySQL function to change the information assosciated with an idea
+ *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
+ *	@param string $d the description of the idea
+ *  @param string $i any assosciated interests, as comma-seperated indices
+ *	@param string $s any useful skills, as comma-seperated indices
+ */
+function updateIdeaInfo($c, $d, $i, $s)
+{
+	$sql = "UPDATE idea SET description ='".$d."', skillsRequired = '".$s."', interests = '".$i."'";
+    
+	if(!mysql_query($sql, $c))
+    {
+       	echo "could not update profile information";
+       	die('Error: ' . mysql_error());
+    }
+}
+
+/**
+ *  Fcuntion to encrypt string data
+ *	@param string $str string to be encrypted
+ *  @return hexadecimal string
+ */
 function encrypt_data($str)
 {
 	global $eKey;
@@ -161,6 +245,7 @@ function userIsNotTaken($u, $c)
  *  MySQL function to get the details of an idea using it's unique ID
  *	@param string $id the idea's unique ID
  *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
+ *	@return an assosciative array containing all the fields from the ideas table
  */
 function getIdeaData($id, $c)
 {
@@ -193,6 +278,12 @@ function incrementIdeaUpvotes($i, $u, $c)
 	or die(mysql_error());
 }
 
+/**
+ *  MySQL function to get the data for a particular comment from the database
+ *	@param int $comid the comment's ID
+ *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
+ *	@return an assosciative array containing all the fields from the comments table
+ */
 function getCommentData($comid, $c)
 {
 	$sql = "SELECT * FROM comments WHERE commentID ='".$comid."'";
@@ -201,6 +292,12 @@ function getCommentData($comid, $c)
   	return $comment;
 }
 
+/**
+ *  MySQL function to increment the upvotes on a particular comment
+ *	@param comment $com the array of comment data, as returned by getCommentData
+ *	@param user $u the user that has incremented the upvotes, as returned by getUserData (should already be in the session variable $_SESSION['usr'])
+ *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
+ */
 function incrementCommentUpvotes($com, $u, $c)
 {
 	$com['upVotes']++;
@@ -218,5 +315,4 @@ function incrementCommentUpvotes($com, $u, $c)
 	$result = mysql_query($sql, $c)
 	or die(mysql_error());
 }
- 
 ?>
