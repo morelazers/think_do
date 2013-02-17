@@ -1,6 +1,6 @@
 <?php session_start();
 /**
-  Author: Tom Nash
+*  @author: Tom Nash
 */
     error_reporting(0);
     showForm();
@@ -57,7 +57,7 @@
               </form>';
     }
 	
-	function inputIsComplete()
+	/*function inputIsComplete()
     {  
         $emptyFields = array();
         foreach ($_POST as $value)
@@ -76,7 +76,7 @@
 			echo 'input is not complete';
             return false;
         }
-    }
+    }*/
     
     /*
     *
