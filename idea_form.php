@@ -19,7 +19,7 @@ if (isset($_SESSION['usr']))
     if (isset($_POST["submit"]))
     {
 		//If no fields are empty, add to database
-        if inputIsComplete()
+        if (inputIsComplete())
         {
             $iName = mysql_real_escape_string($ideaName);
             $iDesc = mysql_real_escape_string($ideaDescription);
