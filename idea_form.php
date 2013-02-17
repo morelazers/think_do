@@ -25,17 +25,17 @@ if (isset($_SESSION['usr']))
         {
             $iName = mysql_real_escape_string($ideaName);
             $iDesc = mysql_real_escape_string($ideaDesc);
-      $iSkills = mysql_real_escape_string($skills);
-      $iInterests = mysql_real_escape_string($interests);
-      $iDate = date("Y-m-d H:i:s");
-      if($_POST["iPrivacy"]=="public")
-      {
-        $iOpen = 1;
-      }
-      else
-      {
-        $iOpen = 0;
-      }
+              $iSkills = mysql_real_escape_string($skills);
+              $iInterests = mysql_real_escape_string($interests);
+              $iDate = date("Y-m-d H:i:s");
+              if($_POST["iPrivacy"]=="public")
+              {
+                $iOpen = 1;
+              }
+              else
+              {
+                $iOpen = 0;
+              }
             $sql="INSERT INTO idea (ideaName, description, skillsRequired, interests, dateCreated, isOpen) VALUES ('".$iName."', '".$iDesc."', '".$iSkills."', '".$iInterests."', '".$iDate."', '".$iOpen."')";
             if (!mysql_query($sql, $con))
       //If error durying query execution report error
