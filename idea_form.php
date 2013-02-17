@@ -15,6 +15,8 @@ if (isset($_SESSION['usr']))
 	
     //Attempt database connection
     include 'connect.php';
+    
+    include 'mysql_functions.php';
 
     if (isset($_POST["submit"]))
     {
