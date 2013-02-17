@@ -43,7 +43,7 @@
 		//Get project data for the project from the database
 		$ideaArray = mysql_fetch_array($idea);
 		
-		if ($user == null)
+		if ($ideaArray == null)
     	{
        		header('Location: error_page.php');
 	    }
