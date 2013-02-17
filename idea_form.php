@@ -72,7 +72,7 @@ else
         <label for="interests">Interests:</label><br>
         <input type="text" name="iInterests" id="interests" value="';
         echo $_POST["iInterests"];
-    echo '"><br><label for="Privacy">Privacy:</label><br>';
+    echo '"><br></div><label for="Privacy">Privacy:</label><br>';
     if(array_key_exists("iPrivacy", $_POST))
     {
       if($_POST["iPrivacy"] == "public")
