@@ -16,32 +16,18 @@
 		var dateObject=new Date();
 
 		$(function() {
-		    var availableTags = [
-		      "ActionScript",
-		      "AppleScript",
-		      "Asp",
-		      "BASIC",
-		      "C",
-		      "C++",
-		      "Clojure",
-		      "COBOL",
-		      "ColdFusion",
-		      "Erlang",
-		      "Fortran",
-		      "Groovy",
-		      "Haskell",
-		      "Java",
-		      "JavaScript",
-		      "Lisp",
-		      "Perl",
-		      "PHP",
-		      "Python",
-		      "Ruby",
-		      "Scala",
-		      "Scheme"
+		    var availableInterests = [
+		    ';
+		   	foreach($_GLOBAL['interests'] as $val){
+		   		echo '"' . $val . '"';
+		   		if ($val != "Zoology"){
+		   			echo ',';
+		   		}
+		   	}
+		    echo '
     		];
-	    $( "#tags" ).autocomplete({
-	      source: availableTags
+	    $( "#interests" ).autocomplete({
+	      source: availableInterests
 	    });
 	  });
 
