@@ -36,7 +36,7 @@ if (isset($_SESSION['usr']))
 			{
 				$iOpen = 0;
 			}
-            $sql="INSERT INTO project (projectName, description, skillsRequired, interests, dateCreated, isOpen) VALUES ('".$iName."', '".$iDesc."', '".$iSkills."', '".$iInterests."', '".$iDate."', '".$iOpen."')";
+            $sql="INSERT INTO idea (ideaName, description, skillsRequired, interests, dateCreated, isOpen) VALUES ('".$iName."', '".$iDesc."', '".$iSkills."', '".$iInterests."', '".$iDate."', '".$iOpen."')";
             if (!mysql_query($sql, $con))
 			//If error durying query execution report error
             {
