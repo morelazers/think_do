@@ -329,6 +329,6 @@ function showIdea($i)
 	echo '<h3>Skills Needed:</h3><br>';
 	echo '<p>'.$i['skillsRequired'].'</p><br>';
 	echo '<h3>Idea Tags:</h3><br>';
-	echo '<p>'.$i['tags'].'</p>';
+	echo '<p>'.$i['interests'].'</p>';
 }
 ?>
