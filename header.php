@@ -1,6 +1,6 @@
 <?php session_start();
 /**
-	Author: Mingkit Wong
+*	Author: Mingkit Wong
 */
  echo '
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -18,7 +18,7 @@
 		$(function() {
 		    var availableInterests = [
 		    ';
-		   	foreach($_GLOBAL['interests'] as $val){
+		   	foreach($_GLOBALS['interests'] as $val){
 		   		echo '"' . $val . '"';
 		   		if ($val != "Zoology"){
 		   			echo ',';
