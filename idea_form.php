@@ -15,8 +15,8 @@ if (isset($_SESSION['usr']))
 	
     //Attempt database connection
     include 'connect.php';
-    
-    include 'mysql_functions.php';
+
+    include 'mysql_functions';
 
     if (isset($_POST["submit"]))
     {
@@ -24,7 +24,7 @@ if (isset($_SESSION['usr']))
         if (inputIsComplete())
         {
             $iName = mysql_real_escape_string($ideaName);
-            $iDesc = mysql_real_escape_string($ideaDescription);
+            $iDesc = mysql_real_escape_string($ideaDesc);
 			$iSkills = mysql_real_escape_string($skills);
 			$iInterests = mysql_real_escape_string($interests);
 			$iDate = date("Y-m-d H:i:s");
