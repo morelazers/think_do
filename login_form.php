@@ -13,24 +13,24 @@
         {
             if (isValidInput($uName))
             {
-		$currentUser = getUserData($con, $uName);
-		if ($currentUser == false)
-		{
-			echo 'no user';
-		}
-		
-		if (checkPass($con, $pass, $currentUser))
-		{
-			/*
-        		* Log the user in for the current session
-        		*/
-        		$_SESSION['usr'] = $currentUser;
-        		//session_write_close()
-        		echo 'Logged in!';
-        		//var_dump($currentUser);
-        		//var_dump($_SESSION);
-        		header('Location: index.php');
-		}
+        		$currentUser = getUserData($con, $uName);
+        		if ($currentUser == false)
+        		{
+        			echo 'no user';
+        		}
+        		
+        		if (checkPass($con, $pass, $currentUser))
+        		{
+        			/*
+            		* Log the user in for the current session
+            		*/
+            		$_SESSION['usr'] = $currentUser;
+            		//session_write_close()
+            		echo 'Logged in!';
+            		//var_dump($currentUser);
+            		//var_dump($_SESSION);
+            		header('Location: index.php');
+        		}
             }
             else
             {
@@ -48,7 +48,7 @@
 	*	to the array. The function then checks to see if the array is empty at
 	*	the end, returning true if it is, false if has any values in it.
 	*/
-    function inputIsComplete()
+    /*function inputIsComplete()
     {  
         $emptyFields = array();
         foreach ($_POST as $value)
@@ -66,7 +66,7 @@
         {
             return false;
         }
-    }
+    }*/
     
 	/**
 	*	This function is responsible for outputting the login form to the page
