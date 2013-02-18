@@ -1,107 +1,77 @@
 <?php session_start();
-
-if (isset($_SESSION['usr']))
-{
 /**
-* @author: Tom Nash
+*    Author: Mingkit Wong
 */
-    error_reporting(0);
-    showForm();
-    $ideaName = $_POST["ideaName"];
-    $ideaDesc = $_POST["ideaDescription"];
-    $skills = $_POST["iSkills"];
-    $interests = $_POST["iInterests"];
-    $emptyFields = array();
-  
-    //Attempt database connection
-    include 'connect.php';
+include 'connect.php';
+include 'matchmaking_functions.php';
+getAllInterests($con);
+ echo '
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" href="webfonts/stylesheet.css" type="text/css" charset="utf-8" />
+    <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" /> 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+	<script language="javascript" type="text/javascript">
+		var dateObject=new Date();
 
-    include 'mysql_functions.php';
+		$(function() {
+		    var availableInterests = [
+		    ';
+		   	foreach($GLOBALS['interests'] as $val){
+		   		echo '"' . $val . '"';
+		   		if ($val != "Zoology"){
+		   			echo ',';
+		   		}
+		   	}
+		    echo '
+    		];
+	    $( "#interests" ).autocomplete({
+	      source: availableInterests
+	      position: {my : "right top", at: "right bottom"}
+	    });
+	  });
 
-    if (isset($_POST["submit"]))
-    {
-    //If no fields are empty, add to database
-        if (inputIsComplete())
-        {
-            $iName = mysql_real_escape_string($ideaName);
-            $iDesc = mysql_real_escape_string($ideaDesc);
-              $iSkills = mysql_real_escape_string($skills);
-              $iInterests = mysql_real_escape_string($interests);
-              $iDate = date("Y-m-d H:i:s");
-              if($_POST["iPrivacy"]=="public")
-              {
-                $iOpen = 1;
-              }
-              else
-              {
-                $iOpen = 0;
-              }
-            $sql="INSERT INTO idea (ideaName, description, skillsRequired, interests, dateCreated, isOpen) VALUES ('".$iName."', '".$iDesc."', '".$iSkills."', '".$iInterests."', '".$iDate."', '".$iOpen."')";
-            if (!mysql_query($sql, $con))
-      //If error durying query execution report error
-            {
-                echo 'failed to add record';
-                die('Error: ' . mysql_error());
-            }
-            mysql_close($con);
-            echo 'Idea submitted!';
-        }
-    }
-}
-else
-{
-  header('Location: login.php');
-}
-
-
-    function showForm() 
-    {
-        echo '<form method="post" action="'; echo $PHP_SELF; echo '">
-        <label for="idea_title">Name your idea:</label><br>
-        <input type="text" name="ideaName" id="idea_title" value="';
-    echo $_POST["ideaName"];
-        echo '"><br>
-        <label for="idea_desc">Describe your idea:</label><br>
-        <input type="text" name="ideaDescription" id="idea_desc" size="50" value="';
-        echo $_POST["ideaDescription"]; 
-        echo '"><br>
-        <label for="skills">Beneficial Skills:</label><br>
-        <input type="text" name="iSkills" id="skills" value="';
-        echo $_POST["iSkills"];
-        echo '"><br><div class="ui-widget">
-        <label for="interests">Interests:</label><br>
-        <input type="text" name="iInterests" id="interests" value="';
-        echo $_POST["iInterests"];
-    echo '"><br></div><label for="Privacy">Privacy:</label><br>';
-    if(array_key_exists("iPrivacy", $_POST))
-    {
-      if($_POST["iPrivacy"] == "public")
-      {
-        echo '
-          <input type="radio" name="iPrivacy" id="privacy" value="public" checked="checked">Public';
-      }
-      else
-      {
-        echo '
-          <input type="radio" name="iPrivacy" id="privacy" value="public">Public';
-      }
-      if($_POST["iPrivacy"] == "private")
-      {
-        echo '
-          <input type="radio" name="iPrivacy" id="privacy" value="private" checked="checked">Private';
-      }
-      else
-      {
-        echo '
-          <input type="radio" name="iPrivacy" id="privacy" value="private">Private';
-      }
-    }
-    else
-    {
-      echo '<input type="radio" name="iPrivacy" id="privacy" value="public" checked="checked">Public
-        <input type="radio" name="iPrivacy" id="privacy" value="private">Private';
-    }
-    echo '<br><input type="submit" name="submit" value="Submit"></form>';
-    }
-
-?> 
+	</script>
+    <title>think.do</title>
+    </head>
+    <body>
+    <div id="page-container">
+		<div id="header">
+			<div id="header-bottom-left">
+				<h1><a href="index.php">think.do</a></h1>
+				<h2>Think. Share. Do.</h2>
+			</div>
+            			
+		<div id="header-bottom-right">';
+				
+				if (isset($_SESSION['usr']))
+				{
+					$u = $_SESSION['usr'];
+					$n = $u['username'];
+					echo '<h3><a href="profile.php">'.$n.'</a></h3>
+						<h3><a href="modify_profile.php">Modify profile</a></h3>
+						<h3><a href="logout.php">Logout</a></h3>';
+				}
+				else
+				{
+					echo '<h3><a href="login.php">Login</a></h3>
+                				<h3><a href="register.php">Register</a></h3>';
+				}
+				
+			echo '</div>
+		</div>
+            		
+		<div id="navcontainer">
+			<ul>
+				<li>
+                <a href="index.php">Home</a>
+    			<a href="submit_idea.php"> | Submit an Idea | </a>
+				<a href="list_ideas.php">View a List of Ideas</a>
+				</li>			
+			</ul>
+		</div>';
+?>
