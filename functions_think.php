@@ -21,7 +21,7 @@ function getAllInterests($c)
 {
       $sql = "SELECT * FROM interests";
       $result = mysql_query($sql, $c);
-      while($row = mysql_fetch_row($result))
+      while(($row = mysql_fetch_row($result))!=null)
       {
             $GLOBALS['interests'][intval($row[1])] = $row[0];
       }
