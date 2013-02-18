@@ -55,6 +55,10 @@ if (isset($_SESSION['usr']))
             echo 'Idea submitted!';
             header('Location: index.php');
         }
+        else
+        {
+        	echo 'All fields must be filled in!';
+        }
     }
 }
 else
