@@ -21,7 +21,7 @@
 
             showIdea($idea);
             echo '<br><hr>';
-            getComments();
+            getComments($con);
             if(isset($_SESSION['usr'])){
              showCommentForm();
             }
