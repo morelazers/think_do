@@ -6,7 +6,15 @@ if (isset($_SESSION['usr']))
 * @author: Tom Nash
 */
     error_reporting(0);
-    showForm();
+    if (isset($_SESSION['modIdea']))
+	{
+		$array = $_SESSION['modIdea'];
+	}
+	else
+	{
+		$array = $_POST;
+	}
+    showForm($array);
     $ideaName = $_POST["ideaName"];
     $ideaDesc = $_POST["ideaDescription"];
     $skills = $_POST["iSkills"];
@@ -54,28 +62,28 @@ else
 }
 
 
-    function showForm() 
+    function showForm($i) 
     {
         echo '<form method="post" action="'; echo $PHP_SELF; echo '">
         <label for="idea_title">Name your idea:</label><br>
         <input type="text" name="ideaName" id="idea_title" value="';
-    echo $_POST["ideaName"];
+    echo $i["ideaName"];
         echo '"><br>
         <label for="idea_desc">Describe your idea:</label><br>
         <input type="text" name="ideaDescription" id="idea_desc" size="50" value="';
-        echo $_POST["ideaDescription"]; 
+        echo $i["ideaDescription"]; 
         echo '"><br>
         <label for="skills">Beneficial Skills:</label><br>
         <input type="text" name="iSkills" id="skills" value="';
-        echo $_POST["iSkills"];
+        echo $i["iSkills"];
         echo '"><br><div class="ui-widget">
         <label for="interests">Interests:</label><br>
         <input type="text" name="iInterests" id="interests" value="';
-        echo $_POST["iInterests"];
+        echo $i["iInterests"];
     echo '"><br></div><label for="Privacy">Privacy:</label><br>';
-    if(array_key_exists("iPrivacy", $_POST))
+    if(array_key_exists("iPrivacy", $i))
     {
-      if($_POST["iPrivacy"] == "public")
+      if($i["iPrivacy"] == "public")
       {
         echo '
           <input type="radio" name="iPrivacy" id="privacy" value="public" checked="checked">Public';
@@ -85,7 +93,7 @@ else
         echo '
           <input type="radio" name="iPrivacy" id="privacy" value="public">Public';
       }
-      if($_POST["iPrivacy"] == "private")
+      if($i["iPrivacy"] == "private")
       {
         echo '
           <input type="radio" name="iPrivacy" id="privacy" value="private" checked="checked">Private';
