@@ -68,20 +68,16 @@ else
 echo ' <script language="javascript" type="text/javascript">
 $(function() {
     var availableInterests = [';
-   	
-
-    echo '];
-
-    $("#interests").tagit({
-		availableTags: [';
 		foreach($GLOBALS['interests'] as $val){
 	   		echo '"' . $val . '"';
 	   		if ($val != "Zoology"){
 	   			echo ',';
 	   		}
-	   	}
-		
-		echo '],
+	   	}   	
+    echo '];
+
+    $("#interests").tagit({
+		availableTags: availableInterests,
 		allowSpaces: true,
 		removeConfirmation: true
 	});
