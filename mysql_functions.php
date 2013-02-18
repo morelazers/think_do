@@ -53,7 +53,34 @@
 		}
 	}
 }
- 
+ /**
+ *  MySQL function for getting comments for an idea
+ *	@return either redirect the user to the error page, if there is no such idea, or an assosciative array containing all the fields from the idea table
+ */
+ function getComments()
+ {
+	//Check for 'pid' parameter in URL
+	if(array_key_exists("pid", $_GET))
+	{
+		$ideaID = $_GET["pid"];
+		$comments = mysql_query("SELECT * FROM comments WHERE ideaID =" . $ideaID);
+		//Get project data for the project from the database
+		$commentArray = mysql_fetch_array($comments);
+		
+		if ($commentsArray =! null)
+    	{
+    		echo '<table border = "0">';
+       		while(($commentArray = mysql_fetch_array($comments)) != null)
+       		{
+       			echo '<tr><td>' . $commentArray['upVotes'] . '</td>';
+       			echo '<td>' . $commentArray['username'] . '</td>';
+       			echo '<td>' . $commentArray['datePosted'] . '</td></tr>';
+       			echo '<tr><td colspan = "3">' . $commentArray['content'] . '</td></tr>';
+       		}
+       		echo '</table>';
+       	}
+	}
+}
 /**
  *  MySQL function to verify that the entered password is correct during a login attempt
  *	@param MySQLConnection $c Connection to MySQL database, necessary to perform queries
