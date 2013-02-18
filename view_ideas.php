@@ -21,8 +21,10 @@
             showIdea($idea);
             echo '<br><hr>';
             getComments();
-
-            showCommentForm();
+            if(isset($_SESSION['usr'])){
+             showCommentForm();
+            }
+            
 
             ?>
             </div>
