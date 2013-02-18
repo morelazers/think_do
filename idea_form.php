@@ -61,6 +61,7 @@ else
 {
   header('Location: login.php');
 }
+echo ' <script language="javascript" type="text/javascript">
 $(function() {
     var availableInterests = [
     ';
@@ -79,8 +80,7 @@ $(function() {
 		allowSpaces: true,
 		removeConfirmation: true
 	});
- });
-
+ })';
 
 function showForm($i) 
 {
