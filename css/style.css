@@ -74,20 +74,7 @@ ul{
 	margin:0 auto;
 	padding:0px;
 }
-li{
 
-	text-transform:uppercase;
-	padding:0;
-	margin:0px 0px 0px 0px;
-	font: 14px 'PTSansRegular';
-	display:table-cell;
-	text-align:center;
-	vertical-align:middle;
-	white-space:normal;
-	overflow:hidden;
-	padding-top:10px;
-	padding-left:20px;
-}
 
 #navcontainer a{
 	
