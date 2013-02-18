@@ -40,7 +40,7 @@ getAllInterests($con);
 
 
 		$("#interests").tagit({
-			availableTags: [';
+			var availableTags = [';
 
 			foreach($GLOBALS['interests'] as $val){
 		   		echo '"' . $val . '"';
