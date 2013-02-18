@@ -36,7 +36,7 @@ ul.tagit li.tagit-choice .tagit-close .text-icon {
     color: #777;
 }
 ul.tagit li.tagit-choice:hover, ul.tagit li.tagit-choice.remove {
-    background-color: #FFB2B2;
+    background-color: #996B6B;
     border-color: #CC8E8E;
 }
 ul.tagit li.tagit-choice a.tagLabel:hover,
