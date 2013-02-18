@@ -5,7 +5,6 @@
 include 'connect.php';
 include 'matchmaking_functions.php';
 getAllInterests($con);
-var_dump($GLOBALS['interests']);
  echo '
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,12 +21,12 @@ var_dump($GLOBALS['interests']);
 		$(function() {
 		    var availableInterests = [
 		    ';
-		   	/*foreach($GLOBALS['interests'] as $val){
+		   	foreach($GLOBALS['interests'] as $val){
 		   		echo '"' . $val . '"';
 		   		if ($val != "Zoology"){
 		   			echo ',';
 		   		}
-		   	}*/
+		   	}
 		    echo '
     		];
 	    $( "#interests" ).autocomplete({
