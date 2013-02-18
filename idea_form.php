@@ -1,10 +1,32 @@
 <?php session_start();
-getAllInterests($con);
+
+echo ' <script language="javascript" type="text/javascript">
+	$(function() {
+	    var availableInterests = [
+	    ';
+	   	foreach($GLOBALS['interests'] as $val){
+	   		echo '"' . $val . '"';
+	   		if ($val != "Zoology"){
+	   			echo ',';
+	   		}
+	   	}
+	    echo '
+	    ];
+		$( "#interests" ).tagit({
+			availableTags: availableInterests,
+			allowSpaces: true,
+			removeConfirmation: true
+		});
+	});
+ </script>';
+
+
 if (isset($_SESSION['usr']))
 {
 /**
 * @author: Tom Nash
 */
+
     error_reporting(0);
     if (isset($_SESSION['modIdea']))
 	{
@@ -65,25 +87,6 @@ else
 {
   header('Location: login.php');
 }
-echo ' <script language="javascript" type="text/javascript">
-	$(function() {
-	    var availableInterests = [
-	    ';
-	   	foreach($GLOBALS['interests'] as $val){
-	   		echo '"' . $val . '"';
-	   		if ($val != "Zoology"){
-	   			echo ',';
-	   		}
-	   	}
-	    echo '
-	    ];
-		$( "#interests" ).tagit({
-			availableTags: availableInterests,
-			allowSpaces: true,
-			removeConfirmation: true
-		});
-	});
- </script>';
 
 function showForm($i) 
 {
