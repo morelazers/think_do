@@ -1,0 +1,122 @@
+body{
+	margin:0px;
+	padding:0px;
+	background-color:#F0F0F0;
+	font-family:"Tahoma";
+	font-size:12;
+	height:100%;
+}
+
+.header{
+	width:100%;
+	background-color:#B30000;
+	height:90px;
+}
+
+.navbar{
+	width:100%;
+	background-color:#800000;
+	height:30px;
+}
+
+.insideNav{
+	padding-top:5px;
+	width:650px;
+	padding-left:250px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.navbar a{
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.navbar li{
+	float: left;
+	padding-right:25px;
+}
+
+.insideHeader{
+	padding-top:10px;
+	margin-left:auto;
+	margin-right:auto;
+	width:900px;
+}
+
+.logo{
+	float:left;
+}
+
+.user{
+	float:right;
+	width:200px;
+	text-align:right;
+	padding-right:100px;
+	color:#FFFFFF;
+}
+
+.userText{
+	float:left;
+	width:120px;
+}
+
+.userImg{
+	float:right; 
+	padding-left:10px
+}
+
+
+.main{
+	background-color:#F0F0F0;
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.sidebar{
+	float:left;
+	padding-left:10px;
+	padding-top:10px;
+	width:240px;
+	color:#FFFFFF;
+	background-color:#222222;
+	padding-bottom:20px;
+}
+
+.mainRight{
+	background-color:#F0F0F0;
+	float:right;
+	width:640px;
+	padding-left:10px;
+	padding-bottom:20px;
+}
+
+.footer{
+	width:100%;
+	position:absolute;
+	bottom:0px;
+	height:auto;
+	background-color:#B30000;
+}
+
+.sidebar h1{
+	color:#FFFFFF;
+	font-family:"Century Gothic";
+	font-size:25px;
+	padding:0px;
+	margin:0px;
+}
+
+.mainRight h1{
+	color:#B30000;
+	font-family:"Century Gothic";
+	font-size:25px;
+	padding:0px;
+	margin:0px;
+}
+
+	
+	
+
+	
