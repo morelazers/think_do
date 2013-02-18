@@ -69,7 +69,7 @@ else
 	<div class="mainRight">
 	<h1>Share your idea</h1>
 	<form method="post" action="'; echo $PHP_SELF; echo '">
-        <label for="idea_title">Name your idea:</label><br>
+        <label for="idea_title">Name your idea:</label>
         <input type="text" name="ideaName" id="idea_title" value="';
     echo $_POST["ideaName"];
         echo '"><br>
