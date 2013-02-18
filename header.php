@@ -3,7 +3,7 @@
 *	Author: Mingkit Wong
 */
 include 'connect.php';
-include 'matchmaking_functions.php';
+include 'functions_think.php';
 getAllInterests($con);
  echo '
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -30,8 +30,8 @@ getAllInterests($con);
 		    var availableInterests = [
 		    ';
 		   	foreach($GLOBALS['interests'] as $val){
-		   		echo ''' . $val . ''';
-		   		if ($val != 'Zoology'){
+		   		echo '"' . $val . '"';
+		   		if ($val != "Zoology"){
 		   			echo ',';
 		   		}
 		   	}
