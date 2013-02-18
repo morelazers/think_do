@@ -1,5 +1,7 @@
 <?php
 
+$eKey = 'TOPSECRET';
+
 /**
  *  MySQL function for connecting to and querying the database for user data
  *  @param MySQLConnection $c Connection to MySQL database, necessary to perform queries
