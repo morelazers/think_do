@@ -23,7 +23,8 @@ if (isset($_SESSION['usr']))
     //Attempt database connection
     include 'connect.php';
 
-    include 'mysql_functions';
+    include 'functions_idea.php';
+    include 'functions_input.php';
 
     if (isset($_POST["submit"]))
     {
