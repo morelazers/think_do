@@ -28,10 +28,26 @@ getAllInterests($con);
 		   			echo ',';
 		   		}
 		   	}
+
 		    echo '
     		];
+
+    		select: function(e, ui){
+		   		var interest = ui.item.value,
+		   		span = $("<span>").text(friend),
+		   		a = $("<a>").addClass("remove").attr({
+		   			href: "javascipt:",
+		   			title: "Remove " + friend
+		   		}).text("x").appendTo(span);
+		   		span.insertBefore("#interests");
+		   	},
+		   	change: function() {
+		   		$("#interests").val("").css("top", 2);
+		   	}
+
 	    $( "#interests" ).autocomplete({
 	      source: availableInterests
+
 	    });
 	  });
 
