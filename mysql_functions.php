@@ -66,7 +66,7 @@
 		$comments = mysql_query("SELECT * FROM comments WHERE ideaID =" . $ideaID);
 		//Get project data for the project from the database
 		$commentArray = mysql_fetch_array($comments);
-		
+		var_dump($commentArray);
 		if ($commentsArray != null)
     		{
 	    		echo '<table border = "0">';
