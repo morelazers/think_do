@@ -30,8 +30,8 @@ getAllInterests($con);
 		    var availableInterests = [
 		    ';
 		   	foreach($GLOBALS['interests'] as $val){
-		   		echo '"' . $val . '"';
-		   		if ($val != "Zoology"){
+		   		echo ''' . $val . ''';
+		   		if ($val != 'Zoology'){
 		   			echo ',';
 		   		}
 		   	}
@@ -40,7 +40,9 @@ getAllInterests($con);
     		];
 
     		$("#interests").tagit({
-				availableTags: availableInterests
+				availableTags: availableInterests,
+				allowSpaces: true,
+				removeConfirmation: true
 			});
 	 	});
 
