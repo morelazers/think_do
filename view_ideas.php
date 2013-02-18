@@ -1,6 +1,6 @@
 <?php
 /**
-*	@author: Nathan Emery
+* @author: Nathan Emery
 */
  include 'header.php'; ?>
     <div class="clear"></div>
@@ -15,6 +15,10 @@
             $idea = getIdea();
 
             showIdea($idea);
+
+            getComments();
+
+            //showCommentForm();
 
             ?>
             </div>
