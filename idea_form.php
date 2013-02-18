@@ -1,5 +1,5 @@
 <?php session_start();
-
+getAllInterests($con);
 if (isset($_SESSION['usr']))
 {
 /**
