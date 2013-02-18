@@ -1,4 +1,3 @@
-
 /* Optional scoped theme for tag-it which mimics the zendesk widget. */
 
 
@@ -15,7 +14,7 @@ ul.tagit li.tagit-choice {
     border: 1px solid #CAD8F3;
 
     background: none;
-    background-color: #DEE7F8;
+    background-color: #FFB2B2;
 
     color: #555;
     font-weight: normal;
