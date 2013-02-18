@@ -5,25 +5,27 @@
  include 'header.php'; ?>
     <div class="clear"></div>
         <div id="post-container">
-        	<div class="post">
+         <div class="post">
             <?php 
 
             include 'connect.php';
 
-            include 'mysql_functions.php';
+            include 'functions_idea.php';
+            include 'functions_comment.php';
 
             if(isset($_POST['submit'])){
-                postComment();
+                postComment($con);
             }
 
             $idea = getIdea();
 
             showIdea($idea);
             echo '<br><hr>';
-            echo '<a href="modify_idea_form.php">Modify idea</a>';
             getComments();
-
-            showCommentForm();
+            if(isset($_SESSION['usr'])){
+             showCommentForm();
+            }
+            
 
             ?>
             </div>
@@ -43,12 +45,13 @@ function showCommentForm()
     <br><input type="submit" name="submit" value="Submit"></form>';
 }
 
-function postComment()
+function postComment($c)
 {
     $u = $_SESSION['usr'];
     $n = $u['username'];
-    $now = date("y-m-d H:i:s");
-    $sql = "INSERT INTO comments (ideaID, parentID, username, content, datePosted, upVotes) VALUES (" . $_GET['pid'] . ", 0," .$n. "," .$_POST['content']. ",".$now.",0)";
-    mysql_query($sql, $con);
+    $now = date("Y-m-d H:i:s");
+    $content = mysql_real_escape_string($_POST['content']);
+    $sql = "INSERT INTO comments (ideaID, parentID, username, content, datePosted, upVotes) VALUES (" . $_GET['pid'] . ", 0, '" .$n. "', '" .$content. "','" .$now. "', 0)";
+    mysql_query($sql, $c);
 }
 ?>
