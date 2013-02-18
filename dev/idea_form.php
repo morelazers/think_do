@@ -56,7 +56,18 @@ else
 
     function showForm() 
     {
-        echo '<form method="post" action="'; echo $PHP_SELF; echo '">
+        echo '
+<div class="main">
+	<div class="sidebar">
+	
+	<h1>TOP TIPS</h1>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id nisl lectus. Donec lacinia justo ut risus viverra mattis. Aliquam sed iaculis lorem. Donec sit amet enim at massa iaculis auctor. Suspendisse posuere iaculis dictum. Nulla in sapien sed diam sodales vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam dictum mi ac tortor mattis tristique. Cras varius tempor odio ut malesuada. Fusce at ligula velit, ac mollis eros. Quisque in nulla in leo dignissim pulvinar ut quis lacus. Maecenas ornare sollicitudin libero, id molestie mauris iaculis ut. Donec sit amet nulla eu ligula tristique congue. Etiam justo nisl, pharetra id scelerisque in, elementum et magna. Suspendisse potenti.
+	
+	</div>
+	
+	
+	<div class="mainRight">
+	<form method="post" action="'; echo $PHP_SELF; echo '">
         <label for="idea_title">Name your idea:</label><br>
         <input type="text" name="ideaName" id="idea_title" value="';
     echo $_POST["ideaName"];
