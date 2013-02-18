@@ -69,7 +69,7 @@
 		var_dump($commentArray);
 		if ($commentsArray != null)
     		{
-	    		echo '<table border = "0">';
+	    		echo '<table border = "1">';
 	       		while(($commentArray = mysql_fetch_array($comments)) != null)
 	       		{
 	       			echo '<tr><td>' . $commentArray['upVotes'] . '</td>';
