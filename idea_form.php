@@ -61,6 +61,25 @@ else
 {
   header('Location: login.php');
 }
+		$(function() {
+		    var availableInterests = [
+		    ';
+		   	foreach($GLOBALS['interests'] as $val){
+		   		echo '"' . $val . '"';
+		   		if ($val != "Zoology"){
+		   			echo ',';
+		   		}
+		   	}
+
+		    echo '
+    		];
+
+    		$("#interests").tagit({
+				availableTags: availableInterests,
+				allowSpaces: true,
+				removeConfirmation: true
+			});
+	 	});
 
 
 function showForm($i) 
