@@ -19,7 +19,7 @@ function getUserInterests($u, $c)
 
 function getAllInterests($c)
 {
-      $sql = mysql_real_escape_string("SELECT * FROM interests");
+      $sql = "SELECT * FROM interests";
       $result = mysql_query($sql, $c);
       while($row = mysql_fetch_row($result))
       {
