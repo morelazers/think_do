@@ -67,18 +67,18 @@
 		//Get project data for the project from the database
 		$commentArray = mysql_fetch_array($comments);
 		
-		if ($commentsArray =! null)
-    	{
-    		echo '<table border = "0">';
-       		while(($commentArray = mysql_fetch_array($comments)) != null)
-       		{
-       			echo '<tr><td>' . $commentArray['upVotes'] . '</td>';
-       			echo '<td>' . $commentArray['username'] . '</td>';
-       			echo '<td>' . $commentArray['datePosted'] . '</td></tr>';
-       			echo '<tr><td colspan = "3">' . $commentArray['content'] . '</td></tr>';
+		if ($commentsArray != null)
+    		{
+	    		echo '<table border = "0">';
+	       		while(($commentArray = mysql_fetch_array($comments)) != null)
+	       		{
+	       			echo '<tr><td>' . $commentArray['upVotes'] . '</td>';
+	       			echo '<td>' . $commentArray['username'] . '</td>';
+	       			echo '<td>' . $commentArray['datePosted'] . '</td></tr>';
+	       			echo '<tr><td colspan = "3">' . $commentArray['content'] . '</td></tr>';
+	       		}
+	       		echo '</table>';
        		}
-       		echo '</table>';
-       	}
 	}
 }
 /**
