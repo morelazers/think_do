@@ -39,7 +39,7 @@ getAllInterests($con);
 
 	$(document.ready(function(){
 		$("#interests").tagit({
-			availableInterests
+			availableTags: ["c++", "java"]
 		});
 	});
 
