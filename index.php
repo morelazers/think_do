@@ -14,10 +14,6 @@ include 'header.php'; ?>
 			{
 				getAllInterests($con);
 			}
-			if (isset($_SESSION['usr']))
-			{
-				getUserInterests($_SESSION['usr']);	
-			}
 			?>
 		</div>			
 	</div>	
