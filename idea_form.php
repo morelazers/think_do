@@ -75,7 +75,7 @@ function showForm($i)
     <label for="skills">Beneficial Skills:</label><br>
     <input type="text" name="iSkills" id="skills" value="';
     echo $i["iSkills"];
-    echo '"><br><div class="ui-widget">
+    echo '"><br><div class="ui-helper-clearfix">
     <label for="interests">Interests:</label><br>
     <input type="text" name="iInterests" id="interests" value="';
     echo $i["iInterests"];
