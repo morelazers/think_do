@@ -27,29 +27,22 @@ getAllInterests($con);
 		$(function() {
 		    var availableInterests = [
 		    ';
-		   	/*foreach($GLOBALS['interests'] as $val){
-		   		echo '"' . $val . '"';
-		   		if ($val != "Zoology"){
-		   			echo ',';
-		   		}
-		   	}*/
-
-		    echo '
-    		];
-	 	});
-
-
-		$("#interests").tagit({
-			var availableTags = [';
-
-			foreach($GLOBALS['interests'] as $val){
+		   	foreach($GLOBALS['interests'] as $val){
 		   		echo '"' . $val . '"';
 		   		if ($val != "Zoology"){
 		   			echo ',';
 		   		}
 		   	}
-			echo ']
-		});
+
+		    echo '
+    		];
+
+    		$("#interests").tagit({
+				availableTags: availableInterests
+			});
+	 	});
+
+
 
 
 
