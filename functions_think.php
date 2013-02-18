@@ -16,7 +16,7 @@ function getUserInterests($u)
       //$result = mysql_query($sql, $c);
       //var_dump($result);
 }
-/*
+
 function getAllInterests($c)
 {
       $sql = "SELECT * FROM interests";
@@ -26,6 +26,6 @@ function getAllInterests($c)
             $GLOBALS['interests'][intval($row[1])] = $row[0];
       }
       //var_dump($GLOBALS['interests']);
-}*/
+}
 
 ?>
