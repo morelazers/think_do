@@ -25,31 +25,6 @@ getAllInterests($con);
 
 	<script language="javascript" type="text/javascript">
 		var dateObject=new Date();
-
-		$(function() {
-		    var availableInterests = [
-		    ';
-		   	foreach($GLOBALS['interests'] as $val){
-		   		echo '"' . $val . '"';
-		   		if ($val != "Zoology"){
-		   			echo ',';
-		   		}
-		   	}
-
-		    echo '
-    		];
-
-    		$("#interests").tagit({
-				availableTags: availableInterests,
-				allowSpaces: true,
-				removeConfirmation: true
-			});
-	 	});
-
-
-
-
-
 	</script>
     <title>think.do</title>
     </head>
