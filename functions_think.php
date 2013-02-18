@@ -5,7 +5,7 @@
  * to the user
  */
 
-function getUserInterests($u, $c)
+function getUserInterests($u)
 {
       $ids = $u['interests'];
       $ids = explode(',', $ids);
