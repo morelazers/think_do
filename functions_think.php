@@ -5,7 +5,7 @@
  * to the user
  */
 
-function getUserInterests($u)
+/*function getUserInterests($u)
 {
       $ids = $u['interests'];
       $ids = explode(',', $ids);
@@ -16,7 +16,7 @@ function getUserInterests($u)
       //$result = mysql_query($sql, $c);
       //var_dump($result);
 }
-
+*/
 function getAllInterests($c)
 {
       $sql = "SELECT * FROM interests";
