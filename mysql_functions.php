@@ -77,13 +77,7 @@
 	}
 }
 
-function showCommentForm()
-{
-	echo '<form method="post" action="'; echo $PHP_SELF; echo '">
-    <label for="comment">Post a comment:</label><br>
-    <input type="text" name="content" id="contentInput" width="100%" value="">
-    <br><input type="submit" name="submit" value="Submit"></form>';
-}
+
 /**
  *  MySQL function to verify that the entered password is correct during a login attempt
  *	@param MySQLConnection $c Connection to MySQL database, necessary to perform queries
