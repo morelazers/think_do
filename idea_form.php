@@ -53,6 +53,7 @@ if (isset($_SESSION['usr']))
             }
             mysql_close($con);
             echo 'Idea submitted!';
+            header('Location: index.php');
         }
     }
 }
