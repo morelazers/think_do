@@ -1,6 +1,6 @@
 <?php session_start();
 /**
-*    Author: Mingkit Wong
+*	Author: Mingkit Wong
 */
 include 'connect.php';
 include 'matchmaking_functions.php';
@@ -31,7 +31,6 @@ getAllInterests($con);
     		];
 	    $( "#interests" ).autocomplete({
 	      source: availableInterests
-
 	    });
 	  });
 
