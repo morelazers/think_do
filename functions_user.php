@@ -51,6 +51,8 @@ function checkPass($c, $text, $user)
     *   to ensure an accurate comparison
     *   -Nathan
     */
+    var_dump($user);
+    var_dump($decPass);
     if (strcmp(trim($user['password']), trim($decPass)) == 0)
     {
         return true;
