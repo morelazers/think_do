@@ -1,24 +1,20 @@
 <?php
 
-
-
-
-
-/**
+ /**
  *  MySQL function for getting comments for an idea
- *  @return either redirect the user to the error page, if there is no such idea, or an assosciative array containing all the fields from the idea table
+ *	@return either redirect the user to the error page, if there is no such idea, or an assosciative array containing all the fields from the idea table
  */
- function getComments($c)
+ function getComments()
  {
 	//Check for 'pid' parameter in URL
 	if(array_key_exists("pid", $_GET))
 	{
 		$ideaID = $_GET["pid"];
-		$comments = mysql_query("SELECT * FROM comments WHERE ideaID =" . $ideaID . "ORDER BY upVotes DESC", $c);
+		$comments = mysql_query("SELECT * FROM comments WHERE ideaID =" . $ideaID . " ORDER BY upVotes DESC");
 
 		while(($commentArray = mysql_fetch_array($comments)) != null)
     	{
-    		echo '<table border = "1" width="100%">';
+    		echo '<table border = "0" width="100%">';
        		echo '<tr><td>' . $commentArray['upVotes'] . '</td>';
        		echo '<td>' . $commentArray['username'] . '</td>';
        		echo '<td>' . $commentArray['datePosted'] . '</td></tr>';
