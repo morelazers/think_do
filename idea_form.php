@@ -82,7 +82,8 @@ $(function() {
 		allowSpaces: true,
 		removeConfirmation: true
 	});
- })';
+ })
+ </script>';
 
 function showForm($i) 
 {
