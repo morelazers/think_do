@@ -31,6 +31,7 @@ getAllInterests($con);
     		];
 	    $( "#interests" ).autocomplete({
 	      source: availableInterests
+	      position: {my : "right top", at: "right bottom"}
 	    });
 	  });
 
