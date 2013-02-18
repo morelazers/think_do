@@ -1,4 +1,14 @@
-<?php session_start();
+<?php 
+
+/**
+* @author: Tom Nash
+*/
+
+session_start();
+
+if (isset($_SESSION['usr']))
+{
+
 
 echo ' <script language="javascript" type="text/javascript">
 	$(function() {
@@ -19,13 +29,6 @@ echo ' <script language="javascript" type="text/javascript">
 		});
 	});
  </script>';
-
-
-if (isset($_SESSION['usr']))
-{
-/**
-* @author: Tom Nash
-*/
 
     error_reporting(0);
     if (isset($_SESSION['modIdea']))

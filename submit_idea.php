@@ -1,6 +1,6 @@
 <?php 
 /**
-	Author: Tom Nash
+*	@author: Tom Nash
 */
 include 'header.php'; ?>
     <div class="clear"></div>
