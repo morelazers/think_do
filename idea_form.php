@@ -81,7 +81,7 @@ $(function() {
 	   		}
 	   	}
 		
-		echo ',
+		echo '],
 		allowSpaces: true,
 		removeConfirmation: true
 	});
