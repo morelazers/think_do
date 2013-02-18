@@ -67,8 +67,7 @@ else
 }
 echo ' <script language="javascript" type="text/javascript">
 $(function() {
-    var availableInterests = [
-    ';
+    var availableInterests = [';
    	foreach($GLOBALS['interests'] as $val){
    		echo '"' . $val . '"';
    		if ($val != "Zoology"){
@@ -76,8 +75,7 @@ $(function() {
    		}
    	}
 
-    echo '
-    ];
+    echo '];
 
     $("#interests").tagit({
 		availableTags: availableInterests,
