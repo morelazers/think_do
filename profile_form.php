@@ -139,22 +139,22 @@ function showPassForm()
 function showAboutMeForm($u)
 {	
 	echo '<form method="post" action="'; 
-        echo $PHP_SELF; 
-        echo '">
-        <label for="aboutMe">Describe yourself:</label><br>
-        <input type="text" name="aboutMe" id="aboutMe" value="';
-        echo $u['aboutme'];
-        echo '"><br>
+    echo $PHP_SELF; 
+    echo '">
+    <label for="aboutMe">Describe yourself:</label><br>
+    <input type="text" name="aboutMe" id="aboutMe" value="';
+    echo $u['aboutme'];
+    echo '"><br>
 	<label for="interests">What are you interested in?</label><br>
-        <input type="text" name="interests" id="interests" value="';
-        echo $u['interests'];
-        echo '"><br>
+    <input type="text" name="interests" id="interests" value="';
+    echo $u['interests'];
+    echo '"><br>
 	<label for="skills">What skills do you have?</label><br>
-        <input type="text" name="skills" id="skills" value="';
-        echo $u['skills'];
-        echo '"><br>
-        <input type="submit" name="submitAboutMe" value="Update">
-        </form>';
+    <input type="text" name="skills" id="skills" value="';
+    echo $u['skills'];
+    echo '"><br>
+    <input type="submit" name="submitAboutMe" value="Update">
+    </form>';
 }
     
 
