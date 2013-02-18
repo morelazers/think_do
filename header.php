@@ -10,9 +10,10 @@ getAllInterests($con);
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" href="webfonts/stylesheet.css" type="text/css" charset="utf-8" />
     <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" /> 
+    <link rel="stylesheet" type="text/css" href="css/autocomplete.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
 	<script language="javascript" type="text/javascript">
