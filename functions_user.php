@@ -66,7 +66,7 @@ function checkPass($c, $text, $user)
 /**
  *  MySQL function to change a user's password
  *  @param MySQLConnection $c Connection to MySQL database, necessary to perform operations
- *  @param user $user the entered username
+ *  @param user $user the current user
  *  @param password $newpass the entered password
  */
 function changePass($c, $user, $newPass)
