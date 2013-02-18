@@ -18,7 +18,7 @@
             echo '<br><hr>';
             getComments();
 
-            //showCommentForm();
+            showCommentForm();
 
             ?>
             </div>
