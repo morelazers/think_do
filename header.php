@@ -14,8 +14,10 @@ getAllInterests($con);
     <link rel="stylesheet" href="webfonts/stylesheet.css" type="text/css" charset="utf-8" />
     <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" /> 
     <link rel="stylesheet" type="text/css" href="css/jquerycss/jquery-ui-1.10.1.custom.css" />
-    <script src="js/jquery-1.9.1.js"></script>
-  	<script src="js/jquery-ui-1.10.1.custom.min.js"></script>
+    <link href="css/jquery.tagit.css" rel="stylesheet" type="test/css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+  	<script src="js/tag-it.js"></script>
 	<script language="javascript" type="text/javascript">
 		var dateObject=new Date();
 
@@ -32,11 +34,25 @@ getAllInterests($con);
 		    echo '
     		];
 
-	    $( "#interests" ).autocomplete({
-	      source: availableInterests
+		    $( "#interests" ).autocomplete({
+		      source: availableInterests
 
-	    });
-	  });
+		    });
+	 	});
+
+
+
+	$(document.ready(function(){
+		$("#interests").tagit();
+	});
+
+
+
+
+
+
+
+
 
 	</script>
     <title>think.do</title>
