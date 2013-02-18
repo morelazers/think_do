@@ -14,6 +14,7 @@ getAllInterests($con);
     <link rel="stylesheet" href="webfonts/stylesheet.css" type="text/css" charset="utf-8" />
     <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" /> 
     <link rel="stylesheet" type="text/css" href="css/jquerycss/jquery-ui-1.10.1.custom.css" />
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
     <link href="css/jquery.tagit.css" rel="stylesheet" type="test/css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
   	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
@@ -33,12 +34,15 @@ getAllInterests($con);
 
 		    echo '
     		];
-    		
-		    $( "#interests" ).autocomplete({
-		      source: availableInterests
-
-		    });
 	 	});
+
+
+
+	
+	$("#interests").tagit({
+		availableTags: availableInterests
+	});
+
 
 
 	</script>
