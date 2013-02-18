@@ -33,22 +33,12 @@ getAllInterests($con);
 
 		    echo '
     		];
+    		
+		    $( "#interests" ).autocomplete({
+		      source: availableInterests
+
+		    });
 	 	});
-
-
-
-	$(document.ready(function(){
-		$("#interests").tagit({
-			availableTags: ["c++", "java"]
-		});
-	});
-
-
-
-
-
-
-
 
 
 	</script>
