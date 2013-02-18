@@ -10,14 +10,8 @@ function getUserInterests($u, $c)
       $ids = $u['interests'];
       $ids = explode(',', $ids);
       //var_dump($ids);
-      $intName;
-      foreach($ids as &$val)
-      {
-            //var_dump(intval($val));
-            echo $GLOBALS['interests'][intval($val)];
-            echo '<br>';
-      }
-      
+      $u['interests'] = $ids;
+      $_SESSION['usr'] = $u;
       //$sql = "SELECT name FROM interests WHERE ID IN ($ids)";
       //$result = mysql_query($sql, $c);
       //var_dump($result);
