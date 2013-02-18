@@ -63,7 +63,7 @@
 	if(array_key_exists("pid", $_GET))
 	{
 		$ideaID = $_GET["pid"];
-		$comments = mysql_query("SELECT * FROM comments WHERE ideaID =" . $ideaID . "ORDER BY upVotes DESC");
+		$comments = mysql_query("SELECT * FROM comments WHERE ideaID =" . $ideaID . " ORDER BY upVotes DESC");
 
 		while(($commentArray = mysql_fetch_array($comments)) != null)
     	{
