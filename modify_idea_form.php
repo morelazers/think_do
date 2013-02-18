@@ -2,7 +2,7 @@
 
 include 'connect.php';
 
-include 'mysql_functions.php';
+include 'functions_idea.php';
 
 $_SESSION['modIdea'] = getIdeaData();
 
