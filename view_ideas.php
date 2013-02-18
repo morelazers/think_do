@@ -47,7 +47,8 @@ function postComment($c)
     $u = $_SESSION['usr'];
     $n = $u['username'];
     $now = date("Y-m-d H:i:s");
-    $sql = "INSERT INTO comments (ideaID, parentID, username, content, datePosted, upVotes) VALUES (" . $_GET['pid'] . ", 0, '" .$n. "', '" .$_POST['content']. "','" .$now."', 0)";
+    $content = mysql_real_escape_string($_POST['content']);
+    $sql = "INSERT INTO comments (ideaID, parentID, username, content, datePosted, upVotes) VALUES (" . $_GET['pid'] . ", 0, '" .$n. "', '" .$content. "','" .$now. "', 0)";
     mysql_query($sql, $c)
     or die(mysql_error());
 }
