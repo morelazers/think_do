@@ -8,13 +8,12 @@ if (isset($_SESSION['usr']))
     error_reporting(0);
     if (isset($_SESSION['modIdea']))
 	{
-		$array = $_SESSION['modIdea'];
+		showForm($_SESSION['modIdea']);
 	}
 	else
 	{
-		$array = $_POST;
+		showForm($_POST);
 	}
-    showForm($array);
     $ideaName = $_POST["ideaName"];
     $ideaDesc = $_POST["ideaDescription"];
     $skills = $_POST["iSkills"];
@@ -28,25 +27,25 @@ if (isset($_SESSION['usr']))
 
     if (isset($_POST["submit"]))
     {
-    //If no fields are empty, add to database
+    	//If no fields are empty, add to database
         if (inputIsComplete())
         {
             $iName = mysql_real_escape_string($ideaName);
             $iDesc = mysql_real_escape_string($ideaDesc);
-      $iSkills = mysql_real_escape_string($skills);
-      $iInterests = mysql_real_escape_string($interests);
-      $iDate = date("Y-m-d H:i:s");
-      if($_POST["iPrivacy"]=="public")
-      {
-        $iOpen = 1;
-      }
-      else
-      {
-        $iOpen = 0;
-      }
+		      $iSkills = mysql_real_escape_string($skills);
+		      $iInterests = mysql_real_escape_string($interests);
+		      $iDate = date("Y-m-d H:i:s");
+		      if($_POST["iPrivacy"]=="public")
+		      {
+		        $iOpen = 1;
+		      }
+		      else
+		      {
+		        $iOpen = 0;
+		      }
             $sql="INSERT INTO idea (ideaName, description, skillsRequired, interests, dateCreated, isOpen) VALUES ('".$iName."', '".$iDesc."', '".$iSkills."', '".$iInterests."', '".$iDate."', '".$iOpen."')";
             if (!mysql_query($sql, $con))
-      //If error durying query execution report error
+      		//If error durying query execution report error
             {
                 echo 'failed to add record';
                 die('Error: ' . mysql_error());
@@ -62,54 +61,54 @@ else
 }
 
 
-    function showForm($i) 
-    {
-        echo '<form method="post" action="'; echo $PHP_SELF; echo '">
-        <label for="idea_title">Name your idea:</label><br>
-        <input type="text" name="ideaName" id="idea_title" value="';
-    echo $i["ideaName"];
-        echo '"><br>
-        <label for="idea_desc">Describe your idea:</label><br>
-        <input type="text" name="ideaDescription" id="idea_desc" size="50" value="';
-        echo $i["ideaDescription"]; 
-        echo '"><br>
-        <label for="skills">Beneficial Skills:</label><br>
-        <input type="text" name="iSkills" id="skills" value="';
-        echo $i["iSkills"];
-        echo '"><br><div class="ui-widget">
-        <label for="interests">Interests:</label><br>
-        <input type="text" name="iInterests" id="interests" value="';
-        echo $i["iInterests"];
+function showForm($i) 
+{
+    echo '<form method="post" action="'; echo $PHP_SELF; echo '">
+    <label for="idea_title">Name your idea:</label><br>
+    <input type="text" name="ideaName" id="idea_title" value="';
+	echo $i["ideaName"];
+    echo '"><br>
+    <label for="idea_desc">Describe your idea:</label><br>
+    <input type="text" name="ideaDescription" id="idea_desc" size="50" value="';
+    echo $i["ideaDescription"]; 
+    echo '"><br>
+    <label for="skills">Beneficial Skills:</label><br>
+    <input type="text" name="iSkills" id="skills" value="';
+    echo $i["iSkills"];
+    echo '"><br><div class="ui-widget">
+    <label for="interests">Interests:</label><br>
+    <input type="text" name="iInterests" id="interests" value="';
+    echo $i["iInterests"];
     echo '"><br></div><label for="Privacy">Privacy:</label><br>';
     if(array_key_exists("iPrivacy", $i))
     {
-      if($i["iPrivacy"] == "public")
-      {
-        echo '
-          <input type="radio" name="iPrivacy" id="privacy" value="public" checked="checked">Public';
-      }
-      else
-      {
-        echo '
-          <input type="radio" name="iPrivacy" id="privacy" value="public">Public';
-      }
-      if($i["iPrivacy"] == "private")
-      {
-        echo '
-          <input type="radio" name="iPrivacy" id="privacy" value="private" checked="checked">Private';
-      }
-      else
-      {
-        echo '
-          <input type="radio" name="iPrivacy" id="privacy" value="private">Private';
-      }
+	    if($i["iPrivacy"] == "public")
+	    {
+	        echo '
+	        <input type="radio" name="iPrivacy" id="privacy" value="public" checked="checked">Public';
+	    }
+	    else
+	    {
+	        echo '
+	        <input type="radio" name="iPrivacy" id="privacy" value="public">Public';
+	    }
+	    if($i["iPrivacy"] == "private")
+	    {
+	        echo '
+	        <input type="radio" name="iPrivacy" id="privacy" value="private" checked="checked">Private';
+	    }
+	    else
+	    {
+	        echo '
+	        <input type="radio" name="iPrivacy" id="privacy" value="private">Private';
+	    }
     }
     else
     {
-      echo '<input type="radio" name="iPrivacy" id="privacy" value="public" checked="checked">Public
+      	echo '<input type="radio" name="iPrivacy" id="privacy" value="public" checked="checked">Public
         <input type="radio" name="iPrivacy" id="privacy" value="private">Private';
-    }
-    echo '<br><input type="submit" name="submit" value="Submit"></form>';
-    }
+	}
+	echo '<br><input type="submit" name="submit" value="Submit"></form>';
+}
 
 ?> 
