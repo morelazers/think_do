@@ -67,7 +67,7 @@
 
 		while(($commentArray = mysql_fetch_array($comments)) != null)
     	{
-    		echo '<table border = "0" width="100%">';
+    		echo '<table border = "1" width="100%">';
        		echo '<tr><td>' . $commentArray['upVotes'] . '</td>';
        		echo '<td>' . $commentArray['username'] . '</td>';
        		echo '<td>' . $commentArray['datePosted'] . '</td></tr>';
