@@ -30,7 +30,8 @@ if (isset($_SESSION['usr']))
 	$skills = $_POST["skills"];
    
 	include 'connect.php';
-	include 'mysql_functions.php';
+	include 'functions_user.php';
+	include 'functions_input.php';
     
 	if (isset($_POST["submitPass"]))
 	{
