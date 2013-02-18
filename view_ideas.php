@@ -15,7 +15,7 @@
             $idea = getIdea();
 
             showIdea($idea);
-
+            echo '<br><hr>';
             getComments();
 
             //showCommentForm();
