@@ -142,6 +142,10 @@ body p{
 	font-size:11px;
 }
 
+.insideNav li{
+	list-style: none;
+}
+
 #copyright{
 	float:right;
 	position:relative;
