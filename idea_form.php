@@ -61,6 +61,7 @@ echo ' <script language="javascript" type="text/javascript">
 		      $iSkills = mysql_real_escape_string($skills);
 		      $iInterests = mysql_real_escape_string($interests);
 		      $iDate = date("Y-m-d H:i:s");
+		      $u = $_SESSION['usr'];
 		      if($_POST["iPrivacy"]=="public")
 		      {
 		        $iOpen = 1;
@@ -69,7 +70,8 @@ echo ' <script language="javascript" type="text/javascript">
 		      {
 		        $iOpen = 0;
 		      }
-            $sql="INSERT INTO idea (ideaName, description, skillsRequired, interests, dateCreated, isOpen) VALUES ('".$iName."', '".$iDesc."', '".$iSkills."', '".$iInterests."', '".$iDate."', '".$iOpen."')";
+            $sql="INSERT INTO idea (createdBy, ideaName, description, skillsRequired, interests, isOpen, dateCreated, moderators) 
+            		VALUES (' ".$u['username']."', ".$iName."', '".$iDesc."', '".$iSkills."', '".$iInterests."', '".$iOpen."', '".$iDate."', '".$u['userID']."' )";
             if (!mysql_query($sql, $con))
       		//If error durying query execution report error
             {

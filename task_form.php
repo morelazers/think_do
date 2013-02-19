@@ -4,6 +4,8 @@ include 'functions_task.php';
 include 'functions_input.php';
 include 'connect.php';
 
+showTaskForm();
+
 $tName = $_POST['taskName'];
 $tDesc = $_POST['taskDesc'];
 
@@ -14,7 +16,7 @@ if(isset($_POST['submitTask']))
 		$tName = mysql_real_escape_string($tName);
 		$tDesc = mysql_real_escape_string($tDesc);
 
-		createTask($tName, $tDesc, $_SESSION['usr'], $con);
+		createTask($idea, $tName, $tDesc, $_SESSION['usr'], $con);
 	}
 }
 

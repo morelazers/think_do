@@ -25,7 +25,11 @@
             if(isset($_SESSION['usr'])){
              showCommentForm();
             }
-            
+
+            if(currentUserIsIdeaMod($idea))
+            {
+                include 'task_form.php';
+            }
 
             ?>
             </div>
@@ -53,5 +57,20 @@ function postComment($c)
     $content = mysql_real_escape_string($_POST['content']);
     $sql = "INSERT INTO comments (ideaID, parentID, username, content, datePosted, upVotes) VALUES (" . $_GET['pid'] . ", 0, '" .$n. "', '" .$content. "','" .$now. "', 0)";
     mysql_query($sql, $c);
+}
+
+function currentUserIsIdeaMod($i)
+{
+    $u = $_SESSION['usr'];
+    $mods = $idea['moderators'];
+    $mods = explode(',', $mods);
+    foreach ($mods as $uID)
+    {
+        if ($uID == $u['userID'])
+        { 
+            return true;
+        }
+    }
+    return false;
 }
 ?>

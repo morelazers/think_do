@@ -1,6 +1,6 @@
 <?php
 	/**
-		Author: Nathan Emery
+	*	@author: Nathan Emery
 	*/
 
 include 'header.php'; ?>
