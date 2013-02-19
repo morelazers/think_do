@@ -25,11 +25,11 @@ function showTaskForm()
 	echo '<form method="post" action="'; 
     echo $PHP_SELF; 
     echo '">
-    <label for="taskName">Describe yourself:</label><br>
+    <label for="taskName">Task name:</label><br>
     <input type="text" name="taskName" id="taskName" value="';
     echo $u['taskName'];
     echo '"><br>
-	<label for="taskDesc">What are you interested in?</label><br>
+	<label for="taskDesc">Describe the task:</label><br>
     <input type="text" name="taskDesc" id="taskDesc" value="';
     echo $u['taskDesc'];
     echo '"><br>
