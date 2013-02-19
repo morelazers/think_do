@@ -59,7 +59,7 @@ function postComment($c)
     mysql_query($sql, $c);
 }
 
-function currentUserIsIdeaMod($i)
+function currentUserIsIdeaMod($idea)
 {
     $u = $_SESSION['usr'];
     $mods = $idea['moderators'];
