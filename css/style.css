@@ -108,6 +108,9 @@ li{
 	border-color:#b81900;
 }
 
+.search {
+	padding-bottom:5px;
+}
 body p{
 	font:14px'GentiumBasicRegular';
 	margin:0px 0px 0px 0px;
