@@ -99,7 +99,7 @@ else
 
 function getInterestIDs($i, $c)
 {
-	$i = explode(', ', $i);
+	$i = explode(',', $i);
 	$iArray = array();
 	
 	var_dump($i);
