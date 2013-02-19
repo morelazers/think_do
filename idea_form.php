@@ -105,6 +105,7 @@ function getInterestIDs($i, $c)
 	foreach($i as $val)
 	{
 		$val = '"' .$val. '"';
+		echo $val;
 		$iArray[] = $val;
 	}
 	
