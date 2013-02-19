@@ -3,7 +3,7 @@ body{
 	padding:0px;
 	background-color:#F0F0F0;
 	font-family:"Tahoma";
-	font-size:10px;
+	font-size:12px;
 	height:100%;
 }
 
@@ -35,6 +35,7 @@ body{
 .navbar li{
 	float: left;
 	padding-right:25px;
+	list-style-type: none;
 }
 
 .insideHeader{
