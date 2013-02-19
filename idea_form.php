@@ -126,7 +126,7 @@ function getInterestIDs($i, $c)
 	foreach($IDs as $val)
 	{
 		//var_dump($val);
-		$val =  $val. ',';
+		//$val =  $val. ',';
 		$IDArray[] = $val;
 	}
 	
