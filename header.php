@@ -62,5 +62,6 @@ getAllInterests($con);
 		<li><a href="list_ideas.php">View a List of Ideas</a></li>
 	<div style="float:right;"><form><input type="text" name="search" value="Search..."></form></div>
 	</div>
-</div>';
+</div>
+<div>';
 ?>
