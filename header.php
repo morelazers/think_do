@@ -11,7 +11,6 @@ getAllInterests($con);
     <head>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" href="webfonts/stylesheet.css" type="text/css" charset="utf-8" />
     <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" /> 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
