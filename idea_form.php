@@ -102,23 +102,24 @@ function getInterestIDs($i, $c)
 	$i = explode(',', $i);
 	$iArray = array();
 	
-	var_dump($i);
+	//var_dump($i);
 	
 	foreach($i as $val)
 	{
 		$val = '"' .$val. '"';
-		var_dump($val);
+		//var_dump($val);
 		$iArray[] = $val;
 	}
 	
 	$i = implode(',', $iArray);
 	
-	var_dump($i);
+	//var_dump($i);
 	
 	$sql = "SELECT ID FROM interests WHERE name IN ($i)";
 	$result = mysql_query($sql, $c)
 	or die(mysql_error());
 	$IDs = mysql_fetch_array($result);
+	var_dump($IDs);
 	$IDs = implode(',', $IDs);
 	var_dump($IDs);
 	return $IDs;
