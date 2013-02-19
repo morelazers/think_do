@@ -99,7 +99,17 @@ else
 
 function getInterestIDs($i, $c)
 {
-	//$i = explode(', ', $i);
+	$i = explode(', ', $i);
+	$iArray = array();
+	
+	foreach($i as $val)
+	{
+		$val = '"' .$val. '"';
+		$iArray[] = $val;
+	}
+	
+	$i = implode(',', $iArray);
+	
 	$sql = "SELECT ID FROM interests WHERE name IN ($i)";
 	$result = mysql_query($sql, $c)
 	or die(mysql_error());
