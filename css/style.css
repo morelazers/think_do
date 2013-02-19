@@ -109,7 +109,7 @@ li{
 }
 
 .search {
-	padding-bottom:15px;
+	vertical-align: middle;
 }
 body p{
 	font:14px'GentiumBasicRegular';
