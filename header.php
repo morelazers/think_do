@@ -31,7 +31,7 @@ getAllInterests($con);
 
 <div class="header">
 	<div class="insideHeader">
-		<div class="logo"><img src="images/logo.jpg"/></div>
+		<div class="logo"><a href="./"><img src="images/logo.jpg"/></a></div>
 		<div class="user">
 			<div class="userText">';
 				
