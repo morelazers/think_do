@@ -100,7 +100,7 @@ else
 function getInterestIDs($i, $c)
 {
 	//$i = explode(', ', $i);
-	$sql = "SELECT * FROM interests WHERE name IN ($i)";
+	$sql = "SELECT ID FROM interests WHERE name IN ($i)";
 	$result = mysql_query($sql, $c)
 	or die(mysql_error());
 	$IDs = mysql_fetch_array($result);
