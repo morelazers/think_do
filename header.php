@@ -55,13 +55,14 @@ getAllInterests($con);
 		</div>
 	</div>
 </div><!--END DIV HEADER-->
+
 <div class="navbar">
 	<div class="insideNav">
-        <li><a href="index.php">Home</a></li>
-    	<li><a href="submit_idea.php">Submit an Idea</a></li>
+        	<li><a href="index.php">Home</a></li>
+    		<li><a href="submit_idea.php">Submit an Idea</a></li>
 		<li><a href="list_ideas.php">View a List of Ideas</a></li>
-	<div style="float:right;"><form><input type="text" name="search" value="Search..."></form></div>
+		<div style="float:right;"><form><input type="text" name="search" value="Search..."></form></div>
 	</div>
 </div>
-<div>';
+<div class="main">';
 ?>
