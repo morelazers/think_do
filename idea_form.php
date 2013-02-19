@@ -102,10 +102,12 @@ function getInterestIDs($i, $c)
 	$i = explode(', ', $i);
 	$iArray = array();
 	
+	var_dump($i);
+	
 	foreach($i as $val)
 	{
 		$val = '"' .$val. '"';
-		echo $val;
+		var_dump($val);
 		$iArray[] = $val;
 	}
 	
