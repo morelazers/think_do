@@ -110,6 +110,8 @@ function getInterestIDs($i, $c)
 	
 	$i = implode(',', $iArray);
 	
+	var_dump($i);
+	
 	$sql = "SELECT ID FROM interests WHERE name IN ($i)";
 	$result = mysql_query($sql, $c)
 	or die(mysql_error());
