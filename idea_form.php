@@ -17,7 +17,7 @@ echo ' <script language="javascript" type="text/javascript">
 	   	foreach($GLOBALS['interests'] as $val){
 	   		echo '"' . $val . '"';
 	   		if ($val != "Zoology"){
-	   			echo ',';
+	   			echo ', ';
 	   		}
 	   	}
 	    echo '
@@ -72,8 +72,9 @@ echo ' <script language="javascript" type="text/javascript">
 		      {
 		        $iOpen = 0;
 		      }
+		$interestIDs = getInterestIDs($iInterests, $con);
             $sql="INSERT INTO idea (createdBy, ideaName, description, skillsRequired, interests, isOpen, dateCreated, moderators) 
-            		VALUES ('".$uName."', '".$iName."', '".$iDesc."', '".$iSkills."', '".$iInterests."', '".$iOpen."', '".$iDate."', '".$uID."' )";
+            		VALUES ('".$uName."', '".$iName."', '".$iDesc."', '".$iSkills."', '".$interestIDs."', '".$iOpen."', '".$iDate."', '".$uID."' )";
             if (!mysql_query($sql, $con))
       		//If error durying query execution report error
             {
@@ -93,6 +94,19 @@ echo ' <script language="javascript" type="text/javascript">
 else
 {
   header('Location: login.php');
+}
+
+
+function getInterestIDs($i, $c)
+{
+	//$i = explode(', ', $i);
+	$sql = "SELECT * FROM interests WHERE name IN ($i)";
+	$result = mysql_query($sql, $c)
+	or die(mysql_error());
+	$IDs = mysql_fetch_array($result);
+	$IDs = implode(',', $IDs);
+	var_dump($IDs);
+	return $IDs;
 }
 
 function showForm($i) 
