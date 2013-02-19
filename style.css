@@ -61,6 +61,11 @@ body{
 	width:120px;
 }
 
+.userText a{
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
 .userImg{
 	float:right; 
 	padding-left:10px
