@@ -35,4 +35,9 @@ function getAllInterests($c)
       //var_dump($GLOBALS['interests']);
 }
 
+function think()
+{
+      
+}
+
 ?>
