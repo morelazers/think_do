@@ -30,6 +30,7 @@ function getAllInterests($c)
 
 function think($c)
 {
+      /*
       $u = $_SESSION['usr'];
       $interestArray = explode(',', $u['interests']);
       $SQLArrayString = array();
@@ -44,6 +45,7 @@ function think($c)
       {
             echo '<a href="view_ideas.php?pid='.$resultIdea["ideaID"].'">'.$resultIdea["ideaName"].'</a></br>';
       }
+      */
 }
 
 ?>
