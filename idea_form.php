@@ -141,9 +141,10 @@ function getInterestIDs($i, $c)
 	$IDArray = array();
 	while ($ID = mysql_fetch_array($result))
 	{
+		var_dump($ID);
 		$IDArray[] = $ID;
 	}
-	var_dump($ID);
+
 	
 	/*
 	foreach($IDs as $val)
@@ -153,7 +154,7 @@ function getInterestIDs($i, $c)
 		$IDArray[] = $val;
 	}*/
 	
-	$IDs = implode(',', $IDArray);
+	$ID = implode(',', $IDArray);
 	var_dump($ID);
 	
 	return $ID;
