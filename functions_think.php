@@ -53,7 +53,7 @@ function think($c)
                    $sql = $sql . "LIKE '%".$val."%' OR interests ";
             }
       }
-      var_dump($sql);
+      //var_dump($sql);
       
        //'Text%' OR column LIKE 'Hello%' OR column LIKE 'That%'
       
@@ -61,10 +61,10 @@ function think($c)
       //$sql = "SELECT * FROM idea WHERE interests LIKE (%".$SQLArrayString."%)";
       //var_dump($sql);
       $res = mysql_query($sql, $c);
-      var_dump($res);
+      //var_dump($res);
       while ($resultIdea = mysql_fetch_array($res))
       {
-            var_dump($resultIdea);
+            //var_dump($resultIdea);
             echo '<a href="view_ideas.php?pid='.$resultIdea["ideaID"].'">'.$resultIdea["ideaName"].'</a></br>';
       }
 }
