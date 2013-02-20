@@ -141,7 +141,7 @@ function getInterestIDs($i, $c)
 	$IDArray = array();
 	while ($ID = mysql_fetch_array($result))
 	{
-		var_dump($ID);
+		//var_dump($ID);
 		$IDArray[] = $ID;
 	}
 
@@ -153,11 +153,11 @@ function getInterestIDs($i, $c)
 		//$val =  $val. ',';
 		$IDArray[] = $val;
 	}*/
+	var_dump($IDArray);
+	$IDString = implode(',', $IDArray);
+	var_dump($IDString);
 	
-	$ID = implode(',', $IDArray);
-	var_dump($ID);
-	
-	return $ID;
+	return $IDString;
 }
 
 function showForm($i) 
