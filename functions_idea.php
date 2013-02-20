@@ -93,7 +93,19 @@ function showIdea($i)
 	echo '<h3>Skills Needed:</h3><br>';
 	echo '<p>'.$i['skillsRequired'].'</p><br>';
 	echo '<h3>Idea Tags:</h3><br>';
-	echo '<p>'.$i['interests'].'</p>';
+	echo '<p>'.getInterestsAsStrings($i['interests']).'</p>';
+}
+
+function getInterestsAsStrings($IDString)
+{
+	$IDArray = explode(',', $IDString);
+	$StringArray = array();
+	foreach($IDArray as $val)
+	{
+		 $StringArray[] = $GLOBALS['interests'][$val];
+	}
+	$interestString = implode(', ', $StringArray);
+	return $interestString;
 }
 
 
