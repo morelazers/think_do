@@ -39,7 +39,7 @@ function think($c)
             $SQLArrayString[] = $val;
       }
       var_dump($SQLArrayString);
-      $sql = "SELECT * FROM idea WHERE interests IN (".$SQLArrayString.")";
+      $sql = "SELECT * FROM idea WHERE interests LIKE (%".$SQLArrayString."%)";
       $res = mysql_query($sql, $c);
       var_dump($res);
       while ($resultIdea = mysql_fetch_array($res))
