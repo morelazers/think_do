@@ -153,9 +153,9 @@ function getInterestIDs($i, $c)
 		//$val =  $val. ',';
 		$IDArray[] = $val;
 	}*/
-	var_dump($IDArray);
+	//var_dump($IDArray);
 	$IDString = implode(',', $IDArray);
-	var_dump($IDString);
+	//var_dump($IDString);
 	
 	return $IDString;
 }
