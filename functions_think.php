@@ -33,13 +33,33 @@ function think($c)
       $u = $_SESSION['usr'];
       $interestArray = explode(',', $u['interests']);
       $SQLArrayString = array();
+      
+      $interestCount = count($interestArray);
+      $i = 0;
+      
+      $sql = "SELECT * FROM idea WHERE interests ";
+      
       foreach($interestArray as $val)
       {
-            $val = "'".$val."'";
-            $SQLArrayString[] = $val;
+            //$val = "'".$val."'";
+            //$SQLArrayString[] = $val;
+            $i++;
+            if($i == ($interestCount))
+            {
+                   $sql = $sql . "LIKE %".$val."%";
+            }
+            else
+            {
+                   $sql = $sql . "LIKE %".$val."% OR interests ";
+            }
       }
-      var_dump($SQLArrayString);
-      $sql = "SELECT * FROM idea WHERE interests LIKE (%".$SQLArrayString."%)";
+      var_dump($sql);
+      
+       //'Text%' OR column LIKE 'Hello%' OR column LIKE 'That%'
+      
+      
+      //$sql = "SELECT * FROM idea WHERE interests LIKE (%".$SQLArrayString."%)";
+      //var_dump($sql);
       $res = mysql_query($sql, $c);
       var_dump($res);
       while ($resultIdea = mysql_fetch_array($res))
