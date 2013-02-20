@@ -1,8 +1,8 @@
 <?php
 
 include 'header.php';
-include 'functions_think.php';
-include 'connect.php';
+//include 'functions_think.php';
+//include 'connect.php';
 
 ?>
 <div class="clear"></div>
