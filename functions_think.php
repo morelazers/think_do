@@ -38,10 +38,12 @@ function think($c)
             $val = "'".$val."'";
             $SQLArrayString[] = $val;
       }
+      var_dump($SQLArrayString);
       $sql = "SELECT * FROM idea WHERE interests IN ($SQLArrayString)";
       $res = mysql_query($sql, $c);
       while ($resultIdea = mysql_fetch_array($res))
       {
+            var_dump($resultIdea);
             echo '<a href="view_ideas.php?pid='.$resultIdea["ideaID"].'">'.$resultIdea["ideaName"].'</a></br>';
       }
 }
