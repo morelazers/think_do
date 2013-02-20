@@ -28,4 +28,22 @@ function getAllInterests($c)
       //var_dump($GLOBALS['interests']);
 }
 
+function think($c)
+{
+      $u = $_SESSION['usr'];
+      $interestArray = explode(',', $u['interests']);
+      $SQLArrayString = array();
+      foreach($interestArray as $val)
+      {
+            $val = "'".$val."'";
+            $SQLArrayString[] = $val;
+      }
+      $sql = "SELECT * FROM idea WHERE interests IN ($SQLArrayString)";
+      $res = mysql_query($sql, $c) or die(mysql_error());
+      while ($resultIdea = mysql_fetch_array($res))
+      {
+            echo '<a href="view_ideas.php?pid='.$resultIdea["ideaID"].'">'.$resultIdea["ideaName"].'</a></br>';
+      }
+}
+
 ?>
