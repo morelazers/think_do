@@ -41,7 +41,7 @@ function think($c)
       
       foreach($interestArray as $val)
       {
-            //$val = "'".$val."'";
+            $val = "'".$val."'";
             //$SQLArrayString[] = $val;
             $i++;
             if($i == ($interestCount))
