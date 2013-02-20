@@ -13,7 +13,17 @@ if (isset($_SESSION['usr']))
 echo ' 	<div class="sidebar">
 	
 	<h1>TOP TIPS</h1>
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id nisl lectus. Donec lacinia justo ut risus viverra mattis. Aliquam sed iaculis lorem. Donec sit amet enim at massa iaculis auctor. Suspendisse posuere iaculis dictum. Nulla in sapien sed diam sodales vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam dictum mi ac tortor mattis tristique. Cras varius tempor odio ut malesuada. Fusce at ligula velit, ac mollis eros. Quisque in nulla in leo dignissim pulvinar ut quis lacus. Maecenas ornare sollicitudin libero, id molestie mauris iaculis ut. Donec sit amet nulla eu ligula tristique congue. Etiam justo nisl, pharetra id scelerisque in, elementum et magna. Suspendisse potenti.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id nisl lectus. 
+	Donec lacinia justo ut risus viverra mattis. Aliquam sed iaculis lorem. 
+	Donec sit amet enim at massa iaculis auctor. Suspendisse posuere iaculis dictum. 
+	Nulla in sapien sed diam sodales vehicula. 
+	Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+	Etiam dictum mi ac tortor mattis tristique. Cras varius tempor odio ut malesuada. 
+	Fusce at ligula velit, ac mollis eros. Quisque in nulla in leo dignissim pulvinar ut quis lacus. 
+	Maecenas ornare sollicitudin libero, id molestie mauris iaculis ut. 
+	Donec sit amet nulla eu ligula tristique congue. 
+	Etiam justo nisl, pharetra id scelerisque in, elementum et magna. 
+	Suspendisse potenti.
 	
 	</div>
 	
@@ -122,27 +132,31 @@ function getInterestIDs($i, $c)
 	
 	$i = implode(',', $iArray);
 	
-	var_dump($i);
+	//var_dump($i);
 	
 	$sql = "SELECT ID FROM interests WHERE name IN ($i)";
 	$result = mysql_query($sql, $c)
 	or die(mysql_error());
 	
-	$IDs = mysql_fetch_array($result);
-	var_dump($IDs);
-	
 	$IDArray = array();
+	while ($ID = mysql_fetch_array($result))
+	{
+		$IDArray[] = $ID;
+	}
+	var_dump($ID);
+	
+	/*
 	foreach($IDs as $val)
 	{
 		var_dump($val);
 		//$val =  $val. ',';
 		$IDArray[] = $val;
-	}
+	}*/
 	
 	$IDs = implode(',', $IDArray);
-	var_dump($IDs);
+	var_dump($ID);
 	
-	return $IDs;
+	return $ID;
 }
 
 function showForm($i) 
