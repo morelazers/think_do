@@ -20,6 +20,7 @@ include 'functions_idea.php'; ?>
 				if(isset($u['interests']))
 				{
 					echo '<a href="think_output.php">Think!</a><br>';
+					echo '<a href="upload_file.php">Upload!</a><br>';
 				}
 				else
 				{
