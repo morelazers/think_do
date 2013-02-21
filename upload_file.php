@@ -5,7 +5,9 @@
         <div class="clear"></div>
         <div id="post-container">
     		<div class="post">
-		        <?php include 'form_file_upload.php'; ?>
+		        <?php 
+		        echo 'Upload a file!';
+		        include 'form_file_upload.php'; ?>
             </div>
         </div>
     </div>
