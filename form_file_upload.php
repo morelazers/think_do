@@ -41,7 +41,7 @@ else
 
 function showUploadForm()
 {
-	echo '<form action="' echo $PHP_SELF; '" method="post"
+	echo '<form action="form_file_upload.php" method="post"
 	enctype="multipart/form-data">
 	<label for="file">Filename:</label>
 	<input type="file" name="file" id="file"><br>
