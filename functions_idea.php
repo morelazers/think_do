@@ -25,6 +25,14 @@
 	}
 }
 
+
+function getHomepageIdeas()
+{
+	$sql = "SELECT TOP 10 * FROM idea ORDER BY upVotes DESC";
+	$res = mysql_query($sql);
+	outputIdeas($res);
+}
+
 /**
  *  MySQL function to change the information assosciated with an idea
  *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
