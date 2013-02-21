@@ -25,7 +25,7 @@ include 'functions_idea'; ?>
 					<br></p>";
 				}
 			}
-			getHomepageIdeas();
+			getHomepageIdeas($con);
 			?>
 			
 		</div>			
