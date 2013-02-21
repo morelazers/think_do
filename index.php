@@ -2,7 +2,8 @@
 	/**
 		Author: Mingkit Wong
 	*/
-include 'header.php'; ?>
+include 'header.php';
+include 'functions_idea'; ?>
 	<div class="clear"></div>
 	<div id="post-container">
 		<div class="post">
@@ -24,6 +25,7 @@ include 'header.php'; ?>
 					<br></p>";
 				}
 			}
+			getHomepageIdeas();
 			?>
 			
 		</div>			
