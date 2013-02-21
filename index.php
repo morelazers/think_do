@@ -7,7 +7,11 @@ include 'functions_idea.php'; ?>
 	<div class="clear"></div>
 	<div id="post-container">
 		<div class="post">
-			<p>Thinkdo is a website designed to help people get help with their ideas or projects. It is open to all, and shows no discrimination.</p>
+			<p>Welcome to think.do! We're a site dedicated to the future, but we need your help!
+			<br>
+			If you have an idea - be it big or small - we want you to share it here!
+			<br>
+			But we also believe that what goes around comes around, so if you see an idea that you think you can help with, give it a shot! You never know what you might achieve together!</p>
 			<?php
 			//include 'functions_think.php';
 			if(isset($_SESSION['usr']))
