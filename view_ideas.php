@@ -25,6 +25,13 @@
             if(isset($_SESSION['usr'])){
              showCommentForm();
             }
+            else
+            {
+                echo "You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can post a comment!
+                   <br>
+                   But don't worry, it will take you less than a minute!
+                   <br>";
+            }
 
             if(currentUserIsIdeaMod($idea))
             {
