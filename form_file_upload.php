@@ -30,17 +30,16 @@ if(isset($_POST['submit']))
 	     	}
 	    	else
 	      	{
-			    if(!is_dir("upload/".$u['username']))
+			    if(!is_dir("//var/www/upload/".$u['username']))
 			    {
-			    	mkdir("upload/".$u['username']);
+			    	mkdir("//var/www/upload/".$u['username']);
 			    }
-
 			    move_uploaded_file($_FILES["file"]["tmp_name"],
-			    "upload/". $u['username'] . $_FILES["file"]["name"]);
+			    "//var/www/upload/". $u['username'] . $_FILES["file"]["name"]);
 
 			    //$dirToStoreIn = "upload/".$u['username'];
 
-			    echo "Stored in: " . "upload/". $u['username'] . $_FILES["file"]["name"];
+			    echo "Stored in: " . "//var/www/upload/". $u['username'] . $_FILES["file"]["name"];
 	      	}
 		}
 	}
