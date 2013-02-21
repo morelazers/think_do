@@ -35,11 +35,11 @@ if(isset($_POST['submit']))
 			    	mkdir("//var/upload/".$u['username']);
 			    }
 			    move_uploaded_file($_FILES["file"]["tmp_name"],
-			    "//var/www/upload/". $u['username'] . "/" . $_FILES["file"]["name"]);
+			    "//var/upload/". $u['username'] . "/" . $_FILES["file"]["name"]);
 
 			    //$dirToStoreIn = "upload/".$u['username'];
 
-			    echo "Stored in: " . "//var/www/upload/". $u['username'] . "/" . $_FILES["file"]["name"];
+			    echo "Stored in: " . "//var/upload/". $u['username'] . "/" . $_FILES["file"]["name"];
 	      	}
 		}
 	}
