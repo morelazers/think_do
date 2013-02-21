@@ -30,7 +30,31 @@ function getHomepageIdeas()
 {
 	$sql = "SELECT TOP 10 * FROM idea ORDER BY upVotes DESC";
 	$res = mysql_query($sql);
-	outputIdeas($res);
+	if($res != null)
+	{
+		outputIdeas($res);
+	}
+}
+
+function outputIdeas(&$ideas)
+{
+	echo '<table>';
+	//Create a table and output the project creator, created date and project name to table. The project name is linked to the project page
+	while($ideasArray = mysql_fetch_array($ideas))
+	{
+		$iName = $ideasArray['ideaName'];
+		$createdBy = $ideasArray['createdBy'];
+		$dateCreated = $ideasArray['dateCreated'];
+		$iID = $ideasArray['ideaID'];
+		$iVotes = $ideasArray['upVotes'];
+		echo '<tr>';
+		echo '<td><h2><a href="./view_ideas.php?pid='.$iID.'">'.$iName.'</a></h2></td>';
+		echo '<td>'.$createdBy.'</td>';
+		echo '<td>'.$dateCreated.'</td>';
+		echo '<td>'.$iVotes.'</td>';
+		echo '</tr>';
+	}
+	echo '</table><br>';
 }
 
 /**
