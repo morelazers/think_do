@@ -30,8 +30,16 @@ if(isset($_POST['submit']))
 	     	}
 	    	else
 	      	{
+			    if(!is_dir("upload/".$u['username']))
+			    {
+			    	mkdir("upload/".$u['username']);
+			    }
+
 			    move_uploaded_file($_FILES["file"]["tmp_name"],
-			    "upload/" . $_FILES["file"]["name"]);
+			    "upload/". $u['username'] . $_FILES["file"]["name"]);
+
+			    //$dirToStoreIn = "upload/".$u['username'];
+
 			    echo "Stored in: " . "upload/". $u['username'] . $_FILES["file"]["name"];
 	      	}
 		}
