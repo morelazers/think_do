@@ -11,7 +11,7 @@ include 'functions_idea.php'; ?>
 			<br>
 			If you have an idea - be it big or small - we want you to share it here!
 			<br>
-			But we also believe that what goes around comes around, so if you see an idea that you think you can help with, give it a shot! You never know what you might achieve together!</p>
+			But we also believe that what goes around comes around, so if you see an idea that you like and think you can help with, give it a shot! You never know what you might achieve together!</p>
 			<?php
 			//include 'functions_think.php';
 			if(isset($_SESSION['usr']))
