@@ -24,22 +24,22 @@ if(isset($_POST['submit']))
 			echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
 			echo "Stored in: " . $_FILES["file"]["tmp_name"];
 
-			if (file_exists("upload/" . $_FILES["file"]["name"]))
+			if (file_exists("//var/upload/" . $u['username'] . "/" . $_FILES["file"]["name"]))
 	      	{
 	      		echo $_FILES["file"]["name"] . " already exists. ";
 	     	}
 	    	else
 	      	{
-			    if(!is_dir("//var/www/upload/".$u['username']))
+			    if(!is_dir("//var/upload/".$u['username']))
 			    {
-			    	mkdir("//var/www/upload/".$u['username']);
+			    	mkdir("//var/upload/".$u['username']);
 			    }
 			    move_uploaded_file($_FILES["file"]["tmp_name"],
-			    "//var/www/upload/". $u['username'] . $_FILES["file"]["name"]);
+			    "//var/www/upload/". $u['username'] . "/" . $_FILES["file"]["name"]);
 
 			    //$dirToStoreIn = "upload/".$u['username'];
 
-			    echo "Stored in: " . "//var/www/upload/". $u['username'] . $_FILES["file"]["name"];
+			    echo "Stored in: " . "//var/www/upload/". $u['username'] . "/" . $_FILES["file"]["name"];
 	      	}
 		}
 	}
