@@ -29,6 +29,7 @@
 function getHomepageIdeas($c)
 {
 	$sql = "SELECT TOP 10 * FROM idea ORDER BY upVotes DESC";
+	var_dump($sql);
 	$res = mysql_query($sql, $c) or die(mysql_error());
 	var_dump($res);
 	if($res != null)
