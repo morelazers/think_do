@@ -91,7 +91,7 @@ function changePass($c, $user, $newPass)
  *  @param MySQLConnection $c Connection to MySQL database, necessary to perform operations
  *  @param string $a the user's 'About Me'
  *  @param string $i the user's interests, as comma-seperated indices
- *  @param string $s the user's skills, as comma-seperated indices
+ *  @param string $s the user's skills, as a string (for now)
  */
 function updateProfileInfo($c, $a, $i, $s)
 {

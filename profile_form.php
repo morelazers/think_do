@@ -18,6 +18,7 @@ if (isset($_SESSION['usr']))
 	else if (isset($_POST['editProfile']))
 	{
 		showAboutMeForm($currentUser);
+        include 'form_file_upload.php';
 	}
 
 	
