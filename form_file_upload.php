@@ -2,7 +2,7 @@
 $u = $_SESSION['usr'];
 showUploadForm();
 
-mkdir('directory',0777);
+mkdir('directory',0777,true);
 
 if(isset($_POST['submit']))
 {
