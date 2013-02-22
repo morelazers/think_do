@@ -28,6 +28,8 @@ if(isset($_POST['submit']))
 			$dirExists = is_dir($dirToStoreIn);
 			var_dump($dirExists);
 			
+			echo umask();
+			
 			echo dirname( __FILE__ );
 			
 			if(!$dirExists)
