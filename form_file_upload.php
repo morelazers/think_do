@@ -2,6 +2,8 @@
 $u = $_SESSION['usr'];
 showUploadForm();
 
+phpinfo();
+
 
 
 if(isset($_POST['submit']))
@@ -33,13 +35,11 @@ if(isset($_POST['submit']))
 			$dirExists = is_dir($dirToStoreIn);
 			var_dump($dirExists);
 			
-			echo umask(0777);
-			
 			echo dirname( __FILE__ );
 			
 			if(!$dirExists)
 			{
-			   	$success = mkdir($dirToStoreIn, 0777);
+			   	$success = mkdir($dirToStoreIn);
 			   	var_dump($success);
 			}
 			
