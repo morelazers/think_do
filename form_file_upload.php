@@ -7,7 +7,7 @@ showUploadForm();
 if(isset($_POST['submit']))
 {
 	
-	mkdir('/directory',0777,true);
+	mkdir('www/test',0777,true);
 	
 	$allowedExts = array("jpg", "jpeg", "gif", "png");
 	$extension = end(explode(".", $_FILES["file"]["name"]));
