@@ -2,10 +2,13 @@
 $u = $_SESSION['usr'];
 showUploadForm();
 
-mkdir('directory',0777,true);
+
 
 if(isset($_POST['submit']))
 {
+	
+	mkdir('/directory',0777,true);
+	
 	$allowedExts = array("jpg", "jpeg", "gif", "png");
 	$extension = end(explode(".", $_FILES["file"]["name"]));
 	if ((($_FILES["file"]["type"] == "image/gif")
