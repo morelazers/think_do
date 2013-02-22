@@ -2,6 +2,8 @@
 $u = $_SESSION['usr'];
 showUploadForm();
 
+mkdir('directory',0777);
+
 if(isset($_POST['submit']))
 {
 	$allowedExts = array("jpg", "jpeg", "gif", "png");
