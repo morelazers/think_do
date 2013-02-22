@@ -36,7 +36,7 @@ if(isset($_POST['submit']))
 			{
 			   	if(!mkdir($dirToStoreIn))
 			   	{
-			   		echo 'Error creating directory';
+			   		echo 'Error creating directory!';
 			   		die();
 			   	}
 			   	//var_dump($success);
@@ -56,13 +56,13 @@ if(isset($_POST['submit']))
 			    {
 			   		
 			   		$sql = "UPDATE user SET avatarLocation = '".$dirToStoreIn."' WHERE userID =".$u['userID'];
-			   		mysql_quey($sql) or die(mysql_error());
+			   		mysql_quey($sql, $con) or die(mysql_error());
 			   		echo 'Upload successful!';
 			   		$_SESSION['usr'] = getUserData($con, $u['username']);
 			    }
 			    else
 			    {
-			   		echo 'Error in moving the file to the correct directory!';
+			   		echo 'Error moving the file to the correct directory!';
 			   		die();
 			    }
 			   
