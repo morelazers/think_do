@@ -25,7 +25,7 @@ if(isset($_POST['submit']))
 			echo "Type: " . $_FILES["file"]["type"] . "<br>";
 			echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
 			
-			$dirToStoreIn = "upload";
+			$dirToStoreIn = "/var/www/upload";
 			//.$u['username'];
 			
 			$dirExists = is_dir($dirToStoreIn);
