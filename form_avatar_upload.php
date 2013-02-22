@@ -56,7 +56,8 @@ if(isset($_POST['submit']))
 			    {
 			   		
 			   		$sql = "UPDATE user SET avatarLocation = '".$dirToStoreIn."' WHERE userID =".$u['userID'];
-			   		mysql_quey($sql, $con) or die(mysql_error());
+			   		var_dump($sql);
+			   		mysql_query($sql, $con) or die(mysql_error());
 			   		echo 'Upload successful!';
 			   		$_SESSION['usr'] = getUserData($con, $u['username']);
 			    }
