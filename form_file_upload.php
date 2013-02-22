@@ -4,7 +4,7 @@ showUploadForm();
 if(isset($_POST['submit']))
 {
 	
-	mkdir('www/test',0777,true);
+	//mkdir('www/test',0777,true);
 	
 	$allowedExts = array("jpg", "jpeg", "gif", "png");
 	$extension = end(explode(".", $_FILES["file"]["name"]));
@@ -25,28 +25,31 @@ if(isset($_POST['submit']))
 			echo "Type: " . $_FILES["file"]["type"] . "<br>";
 			echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
 			
-			$dirToStoreIn = "/var/www/upload/";
-			//.$u['username'];
+			$dirToStoreIn = "/var/www/upload/".$u['username']."/";
 			
-			//$dirExists = is_dir($dirToStoreIn);
+			$dirExists = is_dir($dirToStoreIn);
 			//var_dump($dirExists);
 			
 			//echo dirname( __FILE__ );
 			
-			/*if(!$dirExists)
+			if(!$dirExists)
 			{
-			   	$success = mkdir($dirToStoreIn);
-			   	var_dump($success);
-			}*/
+			   	if(!mkdir($dirToStoreIn))
+			   	{
+			   		echo 'Error creating directory';
+			   		die();
+			   	}
+			   	//var_dump($success);
+			}
 			
 			//echo "Stored in: " . $_FILES["file"]["tmp_name"];
 	
-			/*if (file_exists($dirToStoreIn . $_FILES["file"]["name"]))
+			if (file_exists($dirToStoreIn . $_FILES["file"]["name"]))
 		      	{
 		      		echo $_FILES["file"]["name"] . " already exists. ";
-		     	}*/
-		    	//else
-		      	//{
+		     	}
+		    	else
+		      	{
 		      		   $dirToStoreIn = $dirToStoreIn . basename($_FILES["file"]["name"]);
 				   if (move_uploaded_file($_FILES["file"]["tmp_name"],
 				   $dirToStoreIn))
@@ -60,7 +63,7 @@ if(isset($_POST['submit']))
 				   
 				    //$dirToStoreIn = "upload/".$u['username'];
 				    echo "Stored in: " . $dirToStoreIn;
-		      //}
+		      }
 		}
 	}
 	else
