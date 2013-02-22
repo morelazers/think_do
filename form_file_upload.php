@@ -23,29 +23,31 @@ if(isset($_POST['submit']))
 			echo "Type: " . $_FILES["file"]["type"] . "<br>";
 			echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
 			
-			$dirExists = is_dir("//var/upload/".$u['username']);
+			$dirToStoreIn = "../upload/".$u['username'];
+			
+			$dirExists = is_dir($dirToStoreIn);
 			var_dump($dirExists);
 			
 			echo dirname( __FILE__ );
 			
 			if(!$dirExists)
 			{
-			   	$success = mkdir("//var/upload/".$u['username']);
+			   	$success = mkdir($dirToStoreIn);
 			   	var_dump($success);
 			}
 			
 			echo "Stored in: " . $_FILES["file"]["tmp_name"];
 	
-			if (file_exists("//var/upload/" . $u['username'] . "/" . $_FILES["file"]["name"]))
+			if (file_exists($dirToStoreIn . "/" . $_FILES["file"]["name"]))
 		      	{
 		      		echo $_FILES["file"]["name"] . " already exists. ";
 		     	}
 		    	else
 		      	{
 				   move_uploaded_file($_FILES["file"]["tmp_name"],
-				   "//var/upload/". $u['username'] . "/" . $_FILES["file"]["name"]); 
+				   $dirToStoreIn . "/" . $_FILES["file"]["name"]); 
 				    //$dirToStoreIn = "upload/".$u['username'];
-				    echo "Stored in: " . "//var/upload/". $u['username'] . "/" . $_FILES["file"]["name"];
+				    echo "Stored in: " . $dirToStoreIn . "/" . $_FILES["file"]["name"];
 		      	}
 		}
 	}
