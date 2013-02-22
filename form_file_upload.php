@@ -1,11 +1,6 @@
 <?php 
 $u = $_SESSION['usr'];
 showUploadForm();
-
-phpinfo();
-
-
-
 if(isset($_POST['submit']))
 {
 	
