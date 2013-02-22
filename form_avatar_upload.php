@@ -44,7 +44,6 @@ if(isset($_POST['submit']))
 			
 			//echo "Stored in: " . $_FILES["file"]["tmp_name"];
 
-			$_FILES["file"]["name"]
 	
 			if (file_exists($dirToStoreIn . $_FILES["file"]["name"]))
 	      	{
