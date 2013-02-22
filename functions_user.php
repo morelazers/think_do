@@ -29,6 +29,16 @@ $eKey = 'TOPSECRET';
 	}
  }
 
+/*function getUserAvatar()
+{
+    $u = $_SESSION['usr'];
+    $sql = "SELECT avatarLocation FROM user WHERE userID = ".$u['userID'];
+    $res = mysql_query($sql) or die(mysql_error());
+    $avatarLocation = mysql_fetch_array($res);
+    $u['avatar'] = $avatarLocation['fileLocation'];
+    $_SESSION['usr'] = $u;
+}*/
+
 
 /**
  *  MySQL function to verify that the entered password is correct during a login attempt

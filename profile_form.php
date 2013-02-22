@@ -18,8 +18,10 @@ if (isset($_SESSION['usr']))
 	else if (isset($_POST['editProfile']))
 	{
 		showAboutMeForm($currentUser);
+        echo '<br>';
+        include 'form_avatar_upload.php';
 	}
-    include 'form_file_upload.php';
+    
 
 	
 	$oldPass = $_POST["oldPass"];

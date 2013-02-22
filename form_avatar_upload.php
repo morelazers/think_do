@@ -45,24 +45,29 @@ if(isset($_POST['submit']))
 			//echo "Stored in: " . $_FILES["file"]["tmp_name"];
 	
 			if (file_exists($dirToStoreIn . $_FILES["file"]["name"]))
-		      	{
-		      		echo $_FILES["file"]["name"] . " already exists. ";
-		     	}
-		    	else
-		      	{
-		      		   $dirToStoreIn = $dirToStoreIn . basename($_FILES["file"]["name"]);
-				   if (move_uploaded_file($_FILES["file"]["tmp_name"],
-				   $dirToStoreIn))
-				   {
-				   	echo 'success!';
-				   }
-				   else
-				   {
-				   	echo 'failed!';
-				   }
-				   
-				    //$dirToStoreIn = "upload/".$u['username'];
-				    echo "Stored in: " . $dirToStoreIn;
+	      	{
+	      		echo $_FILES["file"]["name"] . " already exists. ";
+	     	}
+	    	else
+	      	{
+	      		$dirToStoreIn = $dirToStoreIn . basename($_FILES["file"]["name"]);
+			    if (move_uploaded_file($_FILES["file"]["tmp_name"],
+			    $dirToStoreIn))
+			    {
+			   		
+			   		$sql = "UPDATE user SET avatarLocation = '".$dirToStoreIn."' WHERE userID =".$u['userID'];
+			   		mysql_quey($sql) or die(mysql_error());
+			   		echo 'Upload successful!';
+			   		$_SESSION['usr'] = getUserData($con, $u['username']);
+			    }
+			    else
+			    {
+			   		echo 'Error in moving the file to the correct directory!';
+			   		die();
+			    }
+			   
+			    //$dirToStoreIn = "upload/".$u['username'];
+			    echo "Stored in: " . $dirToStoreIn;
 		      }
 		}
 	}
@@ -76,7 +81,7 @@ function showUploadForm()
 {
 	echo '<form action="'; echo $PHP_SELF; echo '" method="post"
 	enctype="multipart/form-data">
-	<label for="file">Filename:</label><br>
+	<label for="file">Upload an avatar!: (must be less than 20kb)</label><br>
 	<input type="file" name="file" id="file"><br>
 	<input type="submit" name="submit" value="Submit">
 	</form>';

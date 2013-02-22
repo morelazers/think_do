@@ -7,7 +7,7 @@
     		<div class="post">
 		        <?php 
 		        echo 'Upload a file!';
-		        include 'form_file_upload.php'; ?>
+		        include 'form_avatar_upload.php'; ?>
             </div>
         </div>
     </div>

@@ -49,8 +49,17 @@ getAllInterests($con);
                 				<a href="register.php">Register</a></br>';
 				}
 				
-			echo '</div>
-			<div class="userImg"><img src="images/avatar.jpg"/></div>
+			echo '</div>';
+
+			if(isset($_SESSION['usr']) && isset($_SESSION['usr']['avatarLocation']))
+			{
+				echo '<div class="userImg"><img src="'.$_SESSION['usr']['avatarLocation'].'"/></div>';
+			}
+			else
+			{
+				echo '<div class="userImg"><img src="images/avatar.jpg"/></div>';
+			}
+			echo '
 		</div>
 	</div>
 </div><!--END DIV HEADER-->
