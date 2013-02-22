@@ -34,7 +34,7 @@ if(isset($_POST['submit']))
 			
 			if(!$dirExists)
 			{
-			   	$success = mkdir($dirToStoreIn);
+			   	$success = mkdir($dirToStoreIn, 077);
 			   	var_dump($success);
 			}
 			
