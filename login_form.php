@@ -74,7 +74,7 @@
 	*/
     function showForm() 
     {
-        echo '<div id=loginform><form method="post" action="'; 
+        echo '<div id="loginform"><form method="post" action="'; 
             echo $PHP_SELF; 
             echo '">
             <label for="input_username">Username:</label><br>
