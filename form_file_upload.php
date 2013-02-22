@@ -28,32 +28,39 @@ if(isset($_POST['submit']))
 			$dirToStoreIn = "/var/www/upload/";
 			//.$u['username'];
 			
-			$dirExists = is_dir($dirToStoreIn);
-			var_dump($dirExists);
+			//$dirExists = is_dir($dirToStoreIn);
+			//var_dump($dirExists);
 			
 			//echo dirname( __FILE__ );
 			
-			if(!$dirExists)
+			/*if(!$dirExists)
 			{
 			   	$success = mkdir($dirToStoreIn);
 			   	var_dump($success);
-			}
+			}*/
 			
-			echo "Stored in: " . $_FILES["file"]["tmp_name"];
+			//echo "Stored in: " . $_FILES["file"]["tmp_name"];
 	
-			if (file_exists($dirToStoreIn . $_FILES["file"]["name"]))
+			/*if (file_exists($dirToStoreIn . $_FILES["file"]["name"]))
 		      	{
 		      		echo $_FILES["file"]["name"] . " already exists. ";
-		     	}
-		    	else
-		      	{
+		     	}*/
+		    	//else
+		      	//{
 		      		   $dirToStoreIn = $dirToStoreIn . basename($_FILES["file"]["name"]);
-				   $success = move_uploaded_file($_FILES["file"]["tmp_name"],
-				   $dirToStoreIn); 
-				   var_dump($success);
+				   if (move_uploaded_file($_FILES["file"]["tmp_name"],
+				   $dirToStoreIn))
+				   {
+				   	echo 'success!';
+				   }
+				   else
+				   {
+				   	echo 'failed!';
+				   }
+				   
 				    //$dirToStoreIn = "upload/".$u['username'];
-				    echo "Stored in: " . $dirToStoreIn . $_FILES["file"]["name"];
-		      	}
+				    echo "Stored in: " . $dirToStoreIn;
+		      //}
 		}
 	}
 	else
