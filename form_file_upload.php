@@ -47,7 +47,7 @@ if(isset($_POST['submit']))
 		     	}
 		    	else
 		      	{
-		      		   $dirToStoreIn = $dirToStoreIn . basename($_FILES["file"]["name"])
+		      		   $dirToStoreIn = $dirToStoreIn . basename($_FILES["file"]["name"]);
 				   $success = move_uploaded_file($_FILES["file"]["tmp_name"],
 				   $dirToStoreIn); 
 				   var_dump($success);
