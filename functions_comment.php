@@ -2,7 +2,6 @@
 
  /**
  *  MySQL function for getting comments for an idea
- *	@return either redirect the user to the error page, if there is no such idea, or an assosciative array containing all the fields from the idea table
  */
  function getComments()
  {
