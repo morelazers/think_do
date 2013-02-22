@@ -122,7 +122,7 @@ body{
 	margin:0px;
 }
 
-#loginform input[type=text], #loginform input[type=password] {
+#loginform form input[type=text], #loginform form input[type=password] {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     font-size: 13px;
     font-weight: 400;
