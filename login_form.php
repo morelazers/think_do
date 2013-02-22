@@ -74,7 +74,7 @@
 	*/
     function showForm() 
     {
-        echo '<form method="post" action="'; 
+        echo '<div id=loginform><form method="post" action="'; 
             echo $PHP_SELF; 
             echo '">
             <label for="input_username">Username:</label><br>
@@ -84,7 +84,7 @@
             <label for="input_password">Password:</label><br>
             <input type="password" name="password" id="input_password" value=""><br>
             <input type="submit" name="submit" value="Login">
-            </form>';
+            </form></div>';
     }
     
 	/**
