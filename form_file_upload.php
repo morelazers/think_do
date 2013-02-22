@@ -26,6 +26,8 @@ if(isset($_POST['submit']))
 			$dirExists = is_dir("//var/upload/".$u['username']);
 			var_dump($dirExists);
 			
+			echo dirname( __FILE__ );
+			
 			if(!$dirExists)
 			{
 			   	$success = mkdir("//var/upload/".$u['username']);
