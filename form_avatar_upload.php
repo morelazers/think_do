@@ -54,8 +54,8 @@ if(isset($_POST['submit']))
 			    if (move_uploaded_file($_FILES["file"]["tmp_name"],
 			    $dirToStoreIn))
 			    {
-			   		
-			   		$sql = "UPDATE user SET avatarLocation = '".$dirToStoreIn."' WHERE userID =".$u['userID'];
+			   		$sqlDir = "/upload/".$u['username']."/".basename($_FILES["file"]["name"];
+			   		$sql = "UPDATE user SET avatarLocation = '".$sqlDir."' WHERE userID =".$u['userID'];
 			   		//var_dump($sql);
 			   		mysql_query($sql, $con) or die(mysql_error());
 			   		echo 'Upload successful!';
