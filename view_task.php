@@ -14,7 +14,8 @@
 		
 		if ($task == null)
     	{
-       		header('Location: error_page.php');
+       		//header('Location: error_page.php');
+       		echo 'help';
 	    }
 		else
 		{
