@@ -8,9 +8,12 @@
 	if(array_key_exists("pid", $_GET))
 	{
 		$taskID = $_GET["pid"];
-		$res = mysql_query("SELECT * FROM tasks WHERE taskID =" . $taskID);
+		var_dump($taskID);
+		$sql = "SELECT * FROM tasks WHERE taskID =" . $taskID;
+		$res = mysql_query($sql) or die(mysql_error());
 		//Get project data for the project from the database
 		$task = mysql_fetch_array($res);
+		var_dump($task);
 		
 		if ($task == null)
     	{
