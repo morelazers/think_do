@@ -35,6 +35,7 @@
 
             if(currentUserIsIdeaMod($idea))
             {
+                echo 'mod';
                 include 'form_gathering.php';
             }
 

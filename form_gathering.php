@@ -17,15 +17,15 @@ if(isset($_POST['submit']))
 		$date = $_POST['gatheringDate'];
 		$time = $_POST['gatheringTime'];
 		$sql = "INSERT INTO gatherings (gathDescription, gathLocation, gathDate, gathTime, proposedBy, forIdea)
-		VALUES ('".$gDesc."', '".$gLoc."', '".$date."', '".$time."', '".$_SESSION['usr']['userID']."', ".$idea['ideaID']")";
-		mysql_query($sql) or die(mysql_error());
+		VALUES ('".$gDesc."', '".$gLoc."', '".$date."', '".$time."', ".$_SESSION['usr']['userID'].", ".$idea['ideaID'].")";
+		mysql_query($sql, $con) or die(mysql_error());
 	}
 }
 
 function showGatheringForm()
 {
-	echo '<form method="post" action="'; 
-    echo $PHP_SELF; 
+	echo '<form method="post" action="';
+    echo $PHP_SELF;
     echo '">
     <label for="gatheringDescription">What should the gathering accomplish?</label><br>
     <input type="text" name="gatheringDescription" id="gatheringDescription" value=""><br>
