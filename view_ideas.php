@@ -35,7 +35,7 @@
 
             if(currentUserIsIdeaMod($idea))
             {
-                include 'task_form.php';
+                include 'form_gathering.php';
             }
 
             ?>

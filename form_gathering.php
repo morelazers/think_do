@@ -2,6 +2,10 @@
 
 include 'functions_input.php';
 
+/*  
+ *  Needs some JQuery in here so that the form only displays if the user chooses
+ */
+
 showGatheringForm();
 
 if(isset($_POST['submit']))
@@ -12,7 +16,8 @@ if(isset($_POST['submit']))
 		$gLoc = mysql_real_escape_string($_POST['gatheringLocation']);
 		$date = $_POST['gatheringDate'];
 		$time = $_POST['gatheringTime'];
-		$sql = "INSERT INTO gatherings (description, location, gdate, gtime) VALUES ('".$gDesc."', '".$gLoc."', '".$date."', '".$time."')";
+		$sql = "INSERT INTO gatherings (gathDescription, gathLocation, gathDate, gathTime, proposedBy, forIdea)
+		VALUES ('".$gDesc."', '".$gLoc."', '".$date."', '".$time."', '".$_SESSION['usr']['userID']."', ".$idea['ideaID']")";
 		mysql_query($sql) or die(mysql_error());
 	}
 }
