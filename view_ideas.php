@@ -42,6 +42,7 @@
                 echo 'mod';
                 /* JQuery needed here I think, or at the top of the form file */
                 include 'form_gathering.php';
+                include 'task_form.php';
             }
 
             ?>
