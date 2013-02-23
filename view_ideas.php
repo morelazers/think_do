@@ -12,6 +12,7 @@
 
             include 'functions_idea.php';
             include 'functions_comment.php';
+            include 'functions_task.php';
 
             if(isset($_POST['submit'])){
                 postComment($con);
@@ -32,6 +33,8 @@
                    But don't worry, it will take you less than a minute!
                    <br>";
             }
+
+            include 'todo_list.php';
 
             if(currentUserIsIdeaMod($idea))
             {

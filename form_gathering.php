@@ -35,7 +35,7 @@ function showGatheringForm()
     <input type="date" name="gatheringDate" id="gatheringDate" value=""><br>
     <label for="gatheringTime">At what time?</label><br>
     <input type="time" name="gatheringTime" id="gatheringTime" value=""><br>
-    <input type="submit" name="submitAboutMe" value="Update">
+    <input type="submit" name="submit" value="Submit">
     </form>';
 }
 

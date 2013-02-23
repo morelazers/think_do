@@ -1,6 +1,5 @@
 <?php
 
-include 'functions_task.php';
 include 'functions_input.php';
 include 'connect.php';
 
@@ -25,11 +24,11 @@ function showTaskForm()
 	echo '<form method="post" action="'; 
     echo $PHP_SELF; 
     echo '">
-    <label for="taskName">Task name:</label><br>
+    <label for="taskName">Give the task a title:</label><br>
     <input type="text" name="taskName" id="taskName" value="';
     echo $u['taskName'];
     echo '"><br>
-	<label for="taskDesc">Describe the task:</label><br>
+	<label for="taskDesc">What needs to be done?</label><br>
     <input type="text" name="taskDesc" id="taskDesc" value="';
     echo $u['taskDesc'];
     echo '"><br>
