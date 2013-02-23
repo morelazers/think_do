@@ -1,6 +1,5 @@
 <?php
 
-include 'functions_input.php';
 include 'connect.php';
 
 showTaskForm();

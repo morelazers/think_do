@@ -13,6 +13,7 @@
             include 'functions_idea.php';
             include 'functions_comment.php';
             include 'functions_task.php';
+            include 'functions_input.php';
 
             if(isset($_POST['submit'])){
                 postComment($con);
@@ -39,6 +40,7 @@
             if(currentUserIsIdeaMod($idea))
             {
                 echo 'mod';
+                /* JQuery needed here I think, or at the top of the form file */
                 include 'form_gathering.php';
             }
 
