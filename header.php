@@ -55,7 +55,7 @@ getAllInterests($con);
 			{
 				//$avLoc = $_SESSION['usr']['avatarLocation'];
 				//var_dump($avLoc);
-				echo '<div class="userImg"><img src="'.$_SESSION['usr']['avatarLocation'].'"/></div>';
+				echo '<div class="userImg"><img src="..'.$_SESSION['usr']['avatarLocation'].'"/></div>';
 			}
 			else
 			{
