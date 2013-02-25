@@ -30,12 +30,12 @@ include 'functions_idea.php'; ?>
 			<br></p>";
 		}
 	}
+	?>
 	</div> //End of sidebar div
 	
 		<div class="mainRight">
-			echo '<h2>Top Ten Ideas</h2>';
-			getHomepageIdeas($con);
-			?>
+			<h2>Top Ten Ideas</h2>
+			<?php getHomepageIdeas($con); ?>
 			
 		</div>			
 	</div>	
