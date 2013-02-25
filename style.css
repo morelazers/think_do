@@ -165,4 +165,7 @@ input[type=text], input[type=password] {
     transition: color 0.3s ease-out;
 }
 
+#idea_desc{
+	height:100px;
+}
 	
