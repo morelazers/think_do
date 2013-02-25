@@ -67,6 +67,12 @@ body{
 	text-decoration:none;
 }
 
+.mainRight a{
+	color:#B30000;
+	text-decoration:none;
+	font-size:12pt;
+}
+
 .userImg{
 	float:right; 
 	padding-left:10px
@@ -92,7 +98,7 @@ body{
 .mainRight{
 	background-color:#F0F0F0;
 	float:right;
-	width:640px;
+	width:630px;
 	padding-left:10px;
 	padding-bottom:20px;
 }
