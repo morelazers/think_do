@@ -82,8 +82,7 @@ body{
 
 .sidebar{
 	float:left;
-	padding-left:10px;
-	padding-top:10px;
+	padding:10px;
 	width:240px;
 	color:#FFFFFF;
 	background-color:#222222;
@@ -114,7 +113,7 @@ body{
 	margin:0px;
 }
 
-.mainRight h1{
+.mainRight h1, h2{
 	color:#B30000;
 	font-family:"Century Gothic";
 	font-size:25px;
@@ -168,4 +167,10 @@ input[type=text], input[type=password] {
 #idea_desc{
 	height:100px;
 }
+
+#search{
+	width:150px;
+	padding:5px;
+}
+
 	
