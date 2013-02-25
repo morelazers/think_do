@@ -37,7 +37,7 @@ include 'functions_idea.php'; ?>
 					<br></p>";
 				}
 			}
-			echo '<h2>Top Ten Ideas</h2>'
+			echo '<h2>Top Ten Ideas</h2>';
 			getHomepageIdeas($con);
 			?>
 			
