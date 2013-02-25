@@ -9,10 +9,10 @@ include 'functions_idea.php'; ?>
 	<div class="sidebar">	
 	<h1>Think.Do</h1>
 	Welcome to think.do! We're a site dedicated to the future, but we need your help!
-	<br>
+	<br><br>
 	If you have an idea - be it big or small - we want you to share it here!
-	<br>
-	But we also believe that what goes around comes around, so if you see an idea that you like and think you can help with, give it a shot! You never know what you might achieve together!</p>
+	<br><br>
+	We also believe that what goes around comes around, so if you see an idea that you like and think you can help with, give it a shot! You never know what you might achieve together!</p>
 	<?php
 	//include 'functions_think.php';
 	if(isset($_SESSION['usr']))
@@ -31,7 +31,7 @@ include 'functions_idea.php'; ?>
 		}
 	}
 	?>
-	</div> //End of sidebar div
+	</div>
 	
 		<div class="mainRight">
 			<h2>Top Ten Ideas</h2>
