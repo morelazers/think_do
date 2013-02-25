@@ -1,6 +1,6 @@
 <?php session_start();
 /**
-*	Author: Mingkit Wong
+*	Author: Mingkit Wrong
 */
 include 'connect.php';
 include 'functions_think.php';
@@ -55,7 +55,7 @@ getAllInterests($con);
 			{
 				//$avLoc = $_SESSION['usr']['avatarLocation'];
 				//var_dump($avLoc);
-				echo '<div class="userImg"><img width="80px" height="80px" src="'.$_SESSION['usr']['avatarLocation'].'"/></div>';
+				echo '<div class="userImg"><img width="70px" height="70px" src="'.$_SESSION['usr']['avatarLocation'].'"/></div>';
 			}
 			else
 			{
