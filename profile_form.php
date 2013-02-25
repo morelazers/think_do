@@ -41,6 +41,7 @@ if (isset($_SESSION['usr']))
     		if (checkPass($con, $oldPass, $currentUser))
     		{
     			changePass($con, $currentUser, trim($pass1));
+    			$_SESSION['usr'] = getUserData($currentUser['username']);
     		}
     	}
 	}
@@ -57,6 +58,7 @@ if (isset($_SESSION['usr']))
     		$skills = mysql_real_escape_string($skills);
     		
     		updateProfileInfo($con, $aboutMe, $interests, $skills);
+    		$_SESSION['usr'] = getUserData($currentUser['username']);
     	}
 	}
 }
