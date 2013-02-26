@@ -149,7 +149,7 @@ body{
     transition: color 0.3s ease-out;
 }
 
-input[type=text], input[type=textarea], input[type=password] {
+input[type=text], textarea, input[type=password] {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     font-size: 13px;
     font-weight: 400;
