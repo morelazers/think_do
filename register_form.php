@@ -46,7 +46,7 @@
     
     function showForm() 
     {
-        echo '<form method="post" action="'; echo $PHP_SELF; echo '">
+        echo '<form width="300px" method="post" action="'; echo $PHP_SELF; echo '">
               <label for="desired_username">Your desired username:</label><br>
               <input type="text" name="dUsername" id="desired_username" value="';
               echo $_POST["dUsername"];
