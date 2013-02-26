@@ -6,10 +6,12 @@ include 'functions_idea.php';
 include 'functions_input.php';
 
 $i = 0;
-for ($i; $i <= 5; $i++)
+for ($i = 0; $i <= 5; $i++)
 {
 	$u = "USER ".$i;
-	insertIntoDB($con, $u, "e", "password");
+	$e = "e";
+	$p = "password";
+	insertIntoDB($con, $u, $e, $p);
 	$_SESSION['usr'] = getUserData($u);
 	$interests = rand(0, 504);
 	$interests = $interests .",". rand(0, 504);
