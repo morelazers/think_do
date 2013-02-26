@@ -22,7 +22,7 @@ for ($i; $i <= 5; $i++)
 	updateProfileInfo($con, "test user", $interests, "none, i am fictional");
 	echo $i;
 	echo "<br>";
-	unset($_SESSION['usr']);
+	//unset($_SESSION['usr']);
     	//session_destroy();
 }
 echo 'ok';
