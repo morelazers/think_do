@@ -149,7 +149,7 @@ body{
     transition: color 0.3s ease-out;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=textarea], input[type=password] {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     font-size: 13px;
     font-weight: 400;
@@ -157,7 +157,7 @@ input[type=text], input[type=password] {
  
     /* Size and position */
     width: 100%;
-    padding: 10px 18px 10px 45px;
+    padding: 5px 18px 10px 45px;
  
     /* Styles */
     border: none; /* Remove the default border */
@@ -176,6 +176,7 @@ input[type=text], input[type=password] {
 
 #search{
 	width:150px;
+	height:20px;
 	padding:5px;
 }
 
