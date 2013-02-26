@@ -51,7 +51,7 @@
 	*/
     /*function inputIsComplete()
     {  
-        $emptyFields = array();
+        
         foreach ($_POST as $value)
         {
             if (empty($value))
@@ -103,6 +103,7 @@
 function inputIsComplete()
 {
     //Add all empty fields to an array
+    $emptyFields = array();
     foreach ($_POST as $value)
     {
         if (empty($value))
@@ -120,5 +121,5 @@ function inputIsComplete()
         return false;
     }
 }
-    
+
 ?> 
