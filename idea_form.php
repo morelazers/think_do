@@ -68,7 +68,7 @@ echo ' 	<div class="sidebar">
     include 'connect.php';
 
     include 'functions_idea.php';
-    include 'functions_input.php';
+    //include 'functions_input.php';
 
     if (isset($_POST["submit"]))
     {
@@ -77,21 +77,21 @@ echo ' 	<div class="sidebar">
         {
             $iName = mysql_real_escape_string($ideaName);
             $iDesc = mysql_real_escape_string($ideaDesc);
-		      $iSkills = mysql_real_escape_string($skills);
-		      $iInterests = mysql_real_escape_string($interests);
-		      $iDate = date("Y-m-d H:i:s");
-		      $u = $_SESSION['usr'];
-		      $uName = $u['username'];
-		      $uID = $u['userID'];
-		      if($_POST["iPrivacy"]=="public")
-		      {
-		        $iOpen = 1;
-		      }
-		      else
-		      {
+		    $iSkills = mysql_real_escape_string($skills);
+		    $iInterests = mysql_real_escape_string($interests);
+		    $iDate = date("Y-m-d H:i:s");
+		    $u = $_SESSION['usr'];
+		    $uName = $u['username'];
+		    $uID = $u['userID'];
+		    if($_POST["iPrivacy"]=="public")
+		    {
+		    	$iOpen = 1;
+		    }
+		    else
+		    {
 		        $iOpen = 0;
-		      }
-		$interestIDs = getInterestIDs($iInterests, $con);
+		    }
+			$interestIDs = getInterestIDs($iInterests, $con);
             $sql="INSERT INTO idea (createdBy, ideaName, description, skillsRequired, interests, isOpen, dateCreated, moderators) 
             		VALUES ('".$uName."', '".$iName."', '".$iDesc."', '".$iSkills."', '".$interestIDs."', '".$iOpen."', '".$iDate."', '".$uID."' )";
             if (!mysql_query($sql, $con))
@@ -211,6 +211,30 @@ function showForm($i)
         <input type="radio" name="iPrivacy" id="privacy" value="private">Private';
 	}
 	echo '<br><input type="submit" name="submit" value="Submit"></form></div>';
+}
+
+/**
+*  Function to check if the inputs from a $_POST form are all filled in
+*/
+function inputIsComplete()
+{
+    //Add all empty fields to an array
+    foreach ($_POST as $value)
+    {
+        if (empty($value))
+        {
+            array_push($emptyFields, $value);
+        }
+    }
+    if (empty($emptyFields))
+    { 
+        return true;
+    }
+    else
+    {
+        echo 'All forms must be filled in!';
+        return false;
+    }
 }
 
 ?> 

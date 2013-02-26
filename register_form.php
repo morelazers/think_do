@@ -11,7 +11,7 @@
     
     include 'connect.php';
 	include 'functions_user.php';
-	include 'functions_input.php';
+	//include 'functions_input.php';
     
     if (isset($_POST["submit"]))
     {
@@ -61,26 +61,31 @@
               </form>';
     }
 	
-	/*function inputIsComplete()
-    {  
-        $emptyFields = array();
-        foreach ($_POST as $value)
+
+
+/**
+*  Function to check if the inputs from a $_POST form are all filled in
+*/
+function inputIsComplete()
+{
+    //Add all empty fields to an array
+    foreach ($_POST as $value)
+    {
+        if (empty($value))
         {
-            if (empty($value))
-            { 
-                array_push($emptyFields, $value);
-            }
+            array_push($emptyFields, $value);
         }
-        if (empty($emptyFields))
-        {
-            return true;
-        }
-        else
-        {
-			echo 'input is not complete';
-            return false;
-        }
-    }*/
+    }
+    if (empty($emptyFields))
+    { 
+        return true;
+    }
+    else
+    {
+        echo 'All forms must be filled in!';
+        return false;
+    }
+}
     
     /*
     *

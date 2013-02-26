@@ -13,10 +13,11 @@
             include 'functions_idea.php';
             include 'functions_comment.php';
             include 'functions_task.php';
-            include 'functions_input.php';
+            //include 'functions_input.php';
 
-            if(isset($_POST['submit'])){
-                postComment($con);
+            if(isset($_POST['submit']))
+            {
+                postComment($parent);
             }
 
             $idea = getIdea();
@@ -24,8 +25,9 @@
             showIdea($idea);
             echo '<br><hr>';
             getComments($con);
-            if(isset($_SESSION['usr'])){
-             showCommentForm();
+            if(isset($_SESSION['usr']))
+            {
+                showCommentForm();
             }
             else
             {
@@ -63,14 +65,22 @@ function showCommentForm()
     <br><input type="submit" name="submit" value="Submit"></form>';
 }
 
-function postComment($c)
+function postComment($p)
 {
+    if ($p == null)
+    {
+        $parentID = 0;
+    }
+    else
+    {
+        $parentID = $p['commentID']
+    }
     $u = $_SESSION['usr'];
     $n = $u['username'];
     $now = date("Y-m-d H:i:s");
     $content = mysql_real_escape_string($_POST['content']);
-    $sql = "INSERT INTO comments (ideaID, parentID, username, content, datePosted, upVotes) VALUES (" . $_GET['pid'] . ", 0, '" .$n. "', '" .$content. "','" .$now. "', 0)";
-    mysql_query($sql, $c);
+    $sql = "INSERT INTO comments (ideaID, parentID, username, content, datePosted, upVotes) VALUES (" . $_GET['pid'] . ", ".$parentID.", '" .$n. "', '" .$content. "','" .$now. "', 0)";
+    mysql_query($sql);
 }
 
 function currentUserIsIdeaMod($idea)
