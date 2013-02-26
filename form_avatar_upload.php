@@ -21,9 +21,9 @@ if(isset($_POST['submit']))
 		}
 		else
 		{
-			echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-			echo "Type: " . $_FILES["file"]["type"] . "<br>";
-			echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+			//echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+			//echo "Type: " . $_FILES["file"]["type"] . "<br>";
+			//echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
 			
 			$dirToStoreIn = "/var/www/upload/".$u['username']."/";
 			
@@ -70,7 +70,7 @@ if(isset($_POST['submit']))
 			    }
 			   
 			    //$dirToStoreIn = "upload/".$u['username'];
-			    echo "Stored in: " . $dirToStoreIn;
+			    //echo "Stored in: " . $dirToStoreIn;
 		      }
 		}
 	}
