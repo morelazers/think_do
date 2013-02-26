@@ -8,7 +8,7 @@ include 'functions_input.php';
 $i = 0;
 for ($i = 0; $i <= 5; $i++)
 {
-	$u = "USER ".$i;
+	$u = "USER".$i;
 	$e = "e";
 	$p = "password";
 	insertIntoDB($con, $u, $e, $p);
