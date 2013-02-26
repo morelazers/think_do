@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 
 //include 'connect.php';
 include 'functions_user.php';
@@ -18,7 +18,12 @@ for ($i = 0; $i <= 5; $i++)
 	$interests = $interests .",". rand(0, 504);
 	$interests = $interests .",". rand(0, 504);
 	$interests = $interests .",". rand(0, 504);
+	var_dump($interests);
 	updateProfileInfo($con, "test user", $interests, "none, i am fictional");
+	echo $i;
+	echo "<br>";
+	unset($_SESSION['usr']);
+    	session_destroy();
 }
 echo 'ok';
 
