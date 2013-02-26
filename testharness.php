@@ -9,7 +9,7 @@ $i = 0;
 for ($i; $i <= 5; $i++)
 {
 	$u = "USER ".$i;
-	insertIntoDB($con, $u, "", "password");
+	insertIntoDB($con, $u, "e", "password");
 	$_SESSION['usr'] = getUserData($u);
 	$interests = rand(0, 504);
 	$interests = $interests .",". rand(0, 504);
