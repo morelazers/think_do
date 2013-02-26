@@ -145,7 +145,7 @@ function insertIntoDB($c, $u, $e, $p)
     {
         echo 'You are registered!<br>Please login';
         emailNewUser($e);
-        header('Location: index.php');
+        //header('Location: index.php');
     }
     mysql_close($con);
 }
