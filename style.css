@@ -186,10 +186,10 @@ input[type=text], textarea, input[type=password] {
 	width:664px;
 }
 .ideaVotes{
-	width:38px;
+	width:54px;
 	margin-right:10px;
 	padding-top:35px;
-	padding-left:16px;
+	text-align:center;
 	height:19px;
 	float:left;
 	background:url(images/thumb.png) no-repeat;
