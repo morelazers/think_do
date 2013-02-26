@@ -15,11 +15,34 @@
 
             include 'connect.php';
 
-            include 'functions_idea.php';
-            include 'functions_comment.php';
-            include 'functions_task.php';
-            include 'functions_input.php';
 
+			echo '
+			<div id="tabs">
+				<ul>
+					<li><a href="#tabs-1">Descriptions</a></li>
+					<li><a href="#tabs-2">To do list</a></li>
+					<li><a href="#tabs-3">Gatherings</a></li>
+				</ul>
+				<div id="tabs-1">';
+					include 'functions_idea.php';
+					include 'functions_comment.php';
+					include 'functions_task.php';
+					include 'functions_input.php';
+				echo '<div id="tabs-2">;'
+					include 'todo_list.php';
+			echo '
+				</div>
+				<div id="tabs-3">';
+				if(currentUserIsIdeaMod($idea))
+					{
+						echo 'mod';
+						/* JQuery needed here I think, or at the top of the form file */
+						include 'form_gathering.php';
+						include 'task_form.php';
+					}
+			echo '
+				</div>
+			</div>';
             if(isset($_POST['submit']))
             {
                 postComment($parent);
@@ -41,27 +64,7 @@
                    But don't worry, it will take you less than a minute!
                    <br>";
             }
-			echo '
-			<div id="tabs">
-				<ul>
-					<li><a href="#tabs-1">To do list</a></li>
-					<li><a href="#tabs-2">Gatherings</a></li>
-				</ul>
-				<div id="tabs-1">';
-					include 'todo_list.php';
-			echo '
-				</div>
-				<div id="tabs-2">';
-				if(currentUserIsIdeaMod($idea))
-					{
-						echo 'mod';
-						/* JQuery needed here I think, or at the top of the form file */
-						include 'form_gathering.php';
-						include 'task_form.php';
-					}
-			echo '
-				</div>
-			</div>';
+
             
 
 
