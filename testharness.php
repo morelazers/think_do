@@ -1,4 +1,6 @@
-<?php session_start();
+<?php session_start();	
+unset($_SESSION['usr']);
+session_destroy();
 
 //include 'connect.php';
 include 'functions_user.php';
@@ -8,11 +10,11 @@ include 'functions_input.php';
 $i = 0;
 for ($i; $i <= 5; $i++)
 {
-	$u = "USER ".$i;
+	$n = "USER".$i;
 	$e = "e";
 	$p = "password";
-	insertIntoDB($con, $u, $e, $p);
-	$_SESSION['usr'] = getUserData($u);
+	insertIntoDB($con, $n, $e, $p);
+	$_SESSION['usr'] = getUserData($n);
 	$interests = rand(0, 504);
 	$interests = $interests .",". rand(0, 504);
 	$interests = $interests .",". rand(0, 504);
