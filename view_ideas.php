@@ -15,7 +15,10 @@
 
             include 'connect.php';
 
-
+            include 'functions_idea.php';
+            include 'functions_comment.php';
+            include 'functions_task.php';
+            include 'functions_input.php';
 			echo '
 			<div id="tabs">
 				<ul>
@@ -24,10 +27,7 @@
 					<li><a href="#tabs-3">Gatherings</a></li>
 				</ul>
 				<div id="tabs-1">
-					include 'functions_idea.php';
-					include 'functions_comment.php';
-					include 'functions_task.php';
-					include 'functions_input.php';
+					
 				<div id="tabs-2">';
 					include 'todo_list.php';
 			echo '
@@ -43,6 +43,7 @@
 			echo '
 				</div>
 			</div>';
+			
             if(isset($_POST['submit']))
             {
                 postComment($parent);
