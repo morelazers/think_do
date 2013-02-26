@@ -180,4 +180,22 @@ input[type=text], textarea, input[type=password] {
 	padding:5px;
 }
 
-	
+.idea{
+	height:54px;
+	margin-bottom:5px;
+	width:664px;
+}
+.ideaVotes{
+	width:38px;
+	margin-right:10px;
+	padding-top:35px;
+	padding-left:16px;
+	height:19px;
+	float:left;
+	background:url(images/thumb.png) no-repeat;
+	color:#FFFFFF;
+}
+.ideaText{
+	width:600px;
+	float:right;
+}
