@@ -4,11 +4,14 @@
 */
     error_reporting(0);
     showForm();
-    
+    $desiredName = $_POST["dUsername"];
+    $pass = $_POST["dPassword"];
+    $secondPass = $_POST["rPassword"];
+    $emailAddress = $_POST["email"];
     
     include 'connect.php';
 	include 'functions_user.php';
-	//include 'functions_input.php';
+	include 'functions_input.php';
     
     if (isset($_POST["submit"]))
     {
@@ -17,10 +20,6 @@
             echo 'complete input';
             if (isValidInput($_POST["dUsername"]))
             {
-                $desiredName = $_POST["dUsername"];
-                $pass = $_POST["dPassword"];
-                $secondPass = $_POST["rPassword"];
-                $emailAddress = $_POST["email"];
                 if (userIsNotTaken($desiredName, $con))
                 {
                 	insertIntoDB($con, $desiredName, $emailAddress, $pass);
@@ -68,9 +67,10 @@
 /**
 *  Function to check if the inputs from a $_POST form are all filled in
 */
-function inputIsComplete()
+/*function inputIsComplete()
 {
     //Add all empty fields to an array
+    $emptyFields = array();
     foreach ($_POST as $value)
     {
         if (empty($value))
@@ -87,7 +87,7 @@ function inputIsComplete()
         echo 'All forms must be filled in!';
         return false;
     }
-}
+}*/
     
     /*
     *
@@ -126,7 +126,7 @@ function inputIsComplete()
             }
             else
             {
-                echo 'Username must not be more than 15 characters!</br>';
+                echo 'Username must not be more than 100 characters!</br>';
             }
         }
         else

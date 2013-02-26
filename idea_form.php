@@ -65,7 +65,7 @@ echo ' 	<div class="sidebar">
     include 'connect.php';
 
     include 'functions_idea.php';
-    //include 'functions_input.php';
+    include 'functions_input.php';
 
     if (isset($_POST["submit"]))
     {
@@ -213,7 +213,7 @@ function showForm($i)
 /**
 *  Function to check if the inputs from a $_POST form are all filled in
 */
-function inputIsComplete()
+/*function inputIsComplete()
 {
     //Add all empty fields to an array
     foreach ($_POST as $value)
@@ -232,6 +232,6 @@ function inputIsComplete()
         echo 'All forms must be filled in!';
         return false;
     }
-}
+}*/
 
 ?> 

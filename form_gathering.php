@@ -40,9 +40,10 @@ function showGatheringForm()
 /**
 *  Function to check if the inputs from a $_POST form are all filled in
 */
-function inputIsComplete()
+/*function inputIsComplete()
 {
     //Add all empty fields to an array
+    $emptyFields = array();
     foreach ($_POST as $value)
     {
         if (empty($value))
@@ -59,6 +60,6 @@ function inputIsComplete()
         echo 'All forms must be filled in!';
         return false;
     }
-}
+}*/
 
 ?>
