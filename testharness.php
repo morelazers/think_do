@@ -18,5 +18,6 @@ for ($i; $i <= 5; $i++)
 	$interests = $interests .",". rand(0, 504);
 	updateProfileInfo($con, "test user", $interests, "none, i am fictional");
 }
+echo 'ok';
 
 ?>
