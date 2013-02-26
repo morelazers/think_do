@@ -23,7 +23,7 @@ for ($i; $i <= 5; $i++)
 	echo $i;
 	echo "<br>";
 	unset($_SESSION['usr']);
-    	session_destroy();
+    	//session_destroy();
 }
 echo 'ok';
 
