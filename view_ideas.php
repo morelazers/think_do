@@ -47,25 +47,24 @@
 					<li><a href="#tabs-1">To do list</a></li>
 					<li><a href="#tabs-2">Gatherings</a></li>
 				</ul>
-				<div id="tabs-1">
-			';
+				<div id="tabs-1">';
 					include 'todo_list.php';
 			echo '
 				</div>
-				<div id="tabs-2">
-					<p>Tab Info 2</p>
+				<div id="tabs-2">';
+				if(currentUserIsIdeaMod($idea))
+					{
+						echo 'mod';
+						/* JQuery needed here I think, or at the top of the form file */
+						include 'form_gathering.php';
+						include 'task_form.php';
+					}
+			echo '
 				</div>
-			</div>
-			';
+			</div>';
             
 
-            if(currentUserIsIdeaMod($idea))
-            {
-                echo 'mod';
-                /* JQuery needed here I think, or at the top of the form file */
-                include 'form_gathering.php';
-                include 'task_form.php';
-            }
+
 
             ?>
             </div>
