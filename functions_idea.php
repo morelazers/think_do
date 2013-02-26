@@ -51,7 +51,7 @@ function outputIdeas(&$ideas)
 		echo '<div class="idea">';
 		echo '<div class="ideaVotes">'.$iVotes.'</div>';
 		echo '<div class="ideaText"><h2><a href="./view_ideas.php?pid='.$iID.'">'.$iName.'</a></h2></br>';
-		echo $createdBy. ' ' .$dateCreated. '</div>';
+		echo 'Shared by: ' .$createdBy. ' on: ' .$dateCreated. '</div>';
 		echo '</div>';
 	}
 }
