@@ -6,7 +6,7 @@ include 'functions_idea.php';
 include 'functions_input.php';
 
 $i = 0;
-for ($i; $i <= 5; $i++)
+for ($i; $i < 5; $i++)
 {
 	$n = "USER".$i;
 	$e = "e";
@@ -22,8 +22,8 @@ for ($i; $i <= 5; $i++)
 	updateProfileInfo($con, "test user", $interests, "none, i am fictional");
 	echo $i;
 	echo "<br>";
-	//unset($_SESSION['usr']);
-    	//session_destroy();
+	unset($_SESSION['usr']);
+    	session_destroy();
 }
 echo 'ok';
 
