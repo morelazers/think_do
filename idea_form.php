@@ -164,7 +164,7 @@ function showForm($i)
 	echo $i["ideaName"];
     echo '"><br>
     <label for="idea_desc">Describe your idea:</label><br>
-    <input type="textarea" name="ideaDescription" id="idea_desc" size="50" value="';
+    <input type="textarea" rows="10" cols="30" name="ideaDescription" id="idea_desc" size="50" value="';
     echo $i["ideaDescription"]; 
     echo '"><br>
     <label for="skills">Beneficial Skills:</label><br>
