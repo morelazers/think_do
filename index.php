@@ -20,7 +20,7 @@ include 'functions_idea.php'; ?>
 		$u = $_SESSION['usr'];
 		if(isset($u['interests']))
 		{
-			echo '<a href="think_output.php">Think!</a><br>';
+			echo '<a href="think_output.php"><img src="images/think.png"/></a><br>';
 		}
 		else
 		{
