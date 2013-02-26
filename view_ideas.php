@@ -3,11 +3,11 @@
 * @author: Nathan Emery
 */
  include 'header.php'; ?>
- echo '<script>
+	<script>
 	$(function() {
 		$( "#tabs" ).tabs();
 	});
-	</script>';
+	</script>
     <div class="clear"></div>
         <div id="post-container">
          <div class="post">
