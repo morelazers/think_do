@@ -1,6 +1,6 @@
 <?php
 
-include 'connect.php';
+//include 'connect.php';
 include 'functions_user.php';
 include 'functions_idea.php';
 include 'functions_input.php';
