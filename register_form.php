@@ -33,10 +33,6 @@
 				}
             }
 		}	
-        else
-        {
-            echo 'All forms must be filled in!';
-        }
     }
     else
     {
