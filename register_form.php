@@ -4,10 +4,7 @@
 */
     error_reporting(0);
     showForm();
-    $desiredName = $_POST["dUsername"];
-    $pass = $_POST["dPassword"];
-    $secondPass = $_POST["rPassword"];
-    $emailAddress = $_POST["email"];
+    
     
     include 'connect.php';
 	include 'functions_user.php';
@@ -20,6 +17,10 @@
             echo 'complete input';
             if (isValidInput($_POST["dUsername"]))
             {
+                $desiredName = $_POST["dUsername"];
+                $pass = $_POST["dPassword"];
+                $secondPass = $_POST["rPassword"];
+                $emailAddress = $_POST["email"];
                 if (userIsNotTaken($desiredName, $con))
                 {
                 	insertIntoDB($con, $desiredName, $emailAddress, $pass);
