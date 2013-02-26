@@ -17,6 +17,7 @@
     {
         if (inputIsComplete())
         {
+            echo 'complete input';
             if (isValidInput($_POST["dUsername"]))
             {
                 if (userIsNotTaken($desiredName, $con))
