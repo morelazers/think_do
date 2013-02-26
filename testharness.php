@@ -12,7 +12,7 @@ for ($i; $i <= 5; $i++)
 	$e = "e";
 	$p = "password";
 	insertIntoDB($con, $n, $e, $p);
-	$_SESSION['usr'] = getUserData($n);
+	$_SESSION['usr'] = getUserData($con, $n);
 	$interests = rand(0, 504);
 	$interests = $interests .",". rand(0, 504);
 	$interests = $interests .",". rand(0, 504);
