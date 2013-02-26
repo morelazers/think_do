@@ -27,7 +27,8 @@
 					<li><a href="#tabs-3">Gatherings</a></li>
 				</ul>
 				<div id="tabs-1">
-					
+				
+				</div>
 				<div id="tabs-2">';
 					include 'todo_list.php';
 			echo '
