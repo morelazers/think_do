@@ -17,7 +17,7 @@ echo ' 	<div class="sidebar">
 	The title is the first thing people will see! Your idea could be revolutionary, make the title exciting!</br></br>
 	<b>Description</b></br>
 	You have hooked people in with your title, now continue to impress them! Try not to be boring, time is money after all!</br></br>
-	<b>Skills Needed</b></br>
+	<b>Beneficial Skills</b></br>
 	What help do you need to get your idea out of your head and into the real world?</br></br>
 	<b>Interests</b></br>
 	Help us help you! People with similar interests are automatically matched to your idea!</br></br>
