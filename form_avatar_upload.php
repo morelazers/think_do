@@ -44,6 +44,7 @@ if(isset($_POST['submit']))
 			
 			//echo "Stored in: " . $_FILES["file"]["tmp_name"];
 
+			//$_FILES["file"]["name"] = "avatar.jpg";
 	
 			if (file_exists($dirToStoreIn . $_FILES["file"]["name"]))
 	      	{
@@ -60,7 +61,7 @@ if(isset($_POST['submit']))
 			   		//var_dump($sql);
 			   		mysql_query($sql, $con) or die(mysql_error());
 			   		echo 'Upload successful!';
-			   		$_SESSION['usr'] = getUserData($con, $u['username']);
+			   		//$_SESSION['usr'] = getUserData($con, $u['username']);
 			    }
 			    else
 			    {
