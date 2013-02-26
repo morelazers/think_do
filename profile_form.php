@@ -86,13 +86,13 @@ function passInputIsComplete()
         }
         if (empty($emptyFields))
         {
-        	echo "complete password input";
-		return true;
+        	//echo "complete password input";
+		    return true;
         }
         else
         {
-        	echo "incomplete password input";
-		return false;
+        	//echo "incomplete password input";
+		    return false;
         }
 }
 
@@ -109,14 +109,14 @@ function profileInputIsComplete()
         }
         if (empty($emptyFields))
         {
-        	echo "complete profile input";
-		return true;
+        	//echo "complete profile input";
+		    return true;
 		
         }
         else
         {
-        	echo "incomplete profile input";
-		return false;
+        	//echo "incomplete profile input";
+		    return false;
         }
 }
 

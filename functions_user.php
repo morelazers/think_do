@@ -20,7 +20,7 @@ $eKey = 'TOPSECRET';
 	//If there is no user with the inputted name in the database
 	if ($user == null)
     {
-    	echo 'no user';
+    	//echo 'no user';
        	return false;
     }
 	else
@@ -63,8 +63,8 @@ function checkPass($c, $text, $user)
     *   to ensure an accurate comparison
     *   -Nathan
     */
-    var_dump($user);
-    var_dump($decPass);
+    //var_dump($user);
+    //var_dump($decPass);
     if (strcmp(trim($user['password']), trim($decPass)) == 0)
     {
         return true;
@@ -168,7 +168,7 @@ function userIsNotTaken($u, $c)
     }
     else
     {
-    echo 'Username is already taken!';
+        echo 'Username is already taken!';
         return false;
     }
 }

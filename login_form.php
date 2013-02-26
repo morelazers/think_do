@@ -17,7 +17,7 @@
         		$currentUser = getUserData($con, $uName);
         		if ($currentUser == false)
         		{
-        			echo 'no user';
+        			echo 'No such user!';
         		}
         		
         		if (checkPass($con, $pass, $currentUser))
