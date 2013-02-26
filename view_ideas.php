@@ -73,7 +73,7 @@ function postComment($p)
     }
     else
     {
-        $parentID = $p['commentID']
+        $parentID = $p['commentID'];
     }
     $u = $_SESSION['usr'];
     $n = $u['username'];
