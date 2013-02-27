@@ -49,7 +49,8 @@ function outputIdeas(&$ideas)
 		$iID = $ideasArray['ideaID'];
 		$iVotes = $ideasArray['upVotes'];
 		echo '<div class="idea">';
-		echo '<div class="ideaVotes">'if ($iVotes>900)
+		echo '<div class="ideaVotes">';
+		if ($iVotes>900)
 		{
 			echo '900+';
 		}
