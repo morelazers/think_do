@@ -49,16 +49,7 @@ function outputIdeas(&$ideas)
 		$iID = $ideasArray['ideaID'];
 		$iVotes = $ideasArray['upVotes'];
 		echo '<div class="idea">';
-		echo '<div class="ideaVotes">';
-		if ($iVotes>'900')
-		{
-			echo '900+';
-		}
-			else
-		{
-			.$iVotes.
-		}
-		echo '</div>';
+		echo '<div class="ideaVotes">' .$iVotes. '</div>';
 		echo '<div class="ideaText"><h2><a href="./view_ideas.php?pid='.$iID.'">'.$iName.'</a></h2></br>';
 		echo 'Shared by: ' .$createdBy. ' on: ' .$dateCreated. '</div>';
 		echo '</div>';
