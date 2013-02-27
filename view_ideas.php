@@ -15,10 +15,7 @@
 
             include 'connect.php';
 
-            include 'functions_idea.php';
-            include 'functions_comment.php';
-            include 'functions_task.php';
-            include 'functions_input.php';
+
 			echo '
 			<div id="tabs">
 				<ul>
@@ -26,8 +23,13 @@
 					<li><a href="#tabs-2">To do list</a></li>
 					<li><a href="#tabs-3">Gatherings</a></li>
 				</ul>
-				<div id="tabs-1">
-				<p>info</p>
+				<div id="tabs-1">';
+                    include 'functions_idea.php';
+                    include 'functions_comment.php';
+                    include 'functions_task.php';
+                    include 'functions_input.php';
+			echo '	
+                <p>info</p>
 				</div>
 				<div id="tabs-2">';
 					include 'todo_list.php';
