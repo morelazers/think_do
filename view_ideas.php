@@ -15,37 +15,10 @@
 
             include 'connect.php';
 
-
-			echo '
-			<div id="tabs">
-				<ul>
-					<li><a href="#tabs-1">Descriptions</a></li>
-					<li><a href="#tabs-2">To do list</a></li>
-					<li><a href="#tabs-3">Gatherings</a></li>
-				</ul>
-				<div id="tabs-1">';
-                    include 'functions_idea.php';
-                    include 'functions_comment.php';
-                    include 'functions_task.php';
-                    include 'functions_input.php';
-			echo '	
-                <p>info</p>
-				</div>
-				<div id="tabs-2">';
-					include 'todo_list.php';
-			echo '
-				</div>
-				<div id="tabs-3">';
-				if(currentUserIsIdeaMod($idea))
-					{
-						echo 'mod';
-						/* JQuery needed here I think, or at the top of the form file */
-						include 'form_gathering.php';
-						include 'task_form.php';
-					}
-			echo '
-				</div>
-			</div>';
+            include 'functions_idea.php';
+            include 'functions_comment.php';
+            include 'functions_task.php';
+            include 'functions_input.php';
 			
             if(isset($_POST['submit']))
             {
@@ -54,7 +27,35 @@
 
             $idea = getIdea();
 
-            showIdea($idea);
+            
+
+            echo '
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">Descriptions</a></li>
+                    <li><a href="#tabs-2">To do list</a></li>
+                    <li><a href="#tabs-3">Gatherings</a></li>
+                </ul>
+                <div id="tabs-1">
+                <p>info</p>';
+                showIdea($idea);
+            echo'
+                </div>
+                <div id="tabs-2">';
+                    include 'todo_list.php';
+            echo '
+                </div>
+                <div id="tabs-3">';
+                if(currentUserIsIdeaMod($idea))
+                    {
+                        echo 'mod';
+                        /* JQuery needed here I think, or at the top of the form file */
+                        include 'form_gathering.php';
+                        include 'task_form.php';
+                    }
+            echo '
+                </div>
+            </div>';
             echo '<br><hr>';
             getComments($con);
             if(isset($_SESSION['usr']))
