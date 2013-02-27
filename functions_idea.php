@@ -50,7 +50,7 @@ function outputIdeas(&$ideas)
 		$iVotes = $ideasArray['upVotes'];
 		echo '<div class="idea">';
 		echo '<div class="ideaVotes">';
-		if ($iVotes>900)
+		if ($iVotes>"900")
 		{
 			echo '900+';
 		}
