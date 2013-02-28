@@ -19,6 +19,7 @@
             include 'functions_comment.php';
             include 'functions_task.php';
             include 'functions_input.php';
+            include 'functions_gatherings.php';
 			
             if(isset($_POST['submit']))
             {
