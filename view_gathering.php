@@ -31,7 +31,7 @@ include 'header.php';
 					else
 					{
 						echo '<h2>'.$gath['gathLocation'].'</h2><br>';
-						echo '<h3>Task Description:</h3><br>';
+						echo '<h3>Motive:</h3><br>';
 						echo '<p>'.$gath['gathDescription'].'</p><br>';
 					}
 				}

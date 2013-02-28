@@ -1,7 +1,7 @@
 <?php
 
 include 'header.php';
-//include 'functions_think.php';
+include 'functions_idea.php';
 //include 'connect.php';
 
 ?>

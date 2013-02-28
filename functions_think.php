@@ -62,11 +62,12 @@ function think($c)
       //var_dump($sql);
       $res = mysql_query($sql, $c);
       //var_dump($res);
-      while ($resultIdea = mysql_fetch_array($res))
+/*      while ($resultIdea = mysql_fetch_array($res))
       {
             //var_dump($resultIdea);
             echo '<a href="view_ideas.php?pid='.$resultIdea["ideaID"].'">'.$resultIdea["ideaName"].'</a></br>';
-      }
+      }*/
+      outputIdeas($res);
 }
 
 ?>
