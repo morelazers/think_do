@@ -44,17 +44,20 @@
                 <div id="tabs-2">
             ';
                     include 'todo_list.php';
+                    if(currentUserIsIdeaMod($idea))
+                    {
+                        include 'task_form.php';
+                    }
             echo '
                 </div>
                 <div id="tabs-3">
             ';
+                include 'list_gatherings.php';
                 if(currentUserIsIdeaMod($idea))
-                    {
-                        echo 'mod';
-                        /* JQuery needed here I think, or at the top of the form file */
-                        include 'form_gathering.php';
-                        include 'task_form.php';
-                    }
+                {
+                    /* JQuery needed here I think, or at the top of the form file */
+                    include 'form_gathering.php';
+                }
             echo '
                 </div>
             </div>
