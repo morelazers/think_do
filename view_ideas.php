@@ -21,7 +21,7 @@
             include 'functions_input.php';
             include 'functions_gatherings.php';
 			
-            if(isset($_POST['submit']))
+            if(isset($_POST['submitComment']))
             {
                 postComment($parent);
             }
@@ -77,10 +77,6 @@
                    <br>";
             }
 
-            
-
-
-
             ?>
             </div>
         </div>
@@ -96,7 +92,7 @@ function showCommentForm()
     echo '<form method="post" action="'; echo $PHP_SELF; echo '">
     <label for="comment">Post a comment:</label><br>
     <input type="text" name="content" id="contentInput" value="">
-    <br><input type="submit" name="submit" value="Submit"></form>';
+    <br><input type="submit" name="submitComment" value="Submit"></form>';
 }
 
 function postComment($p)

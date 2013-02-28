@@ -6,7 +6,7 @@
 
 showGatheringForm();
 
-if(isset($_POST['submit']))
+if(isset($_POST['submitGathering']))
 {
 	if(inputIsComplete())
 	{
@@ -33,7 +33,7 @@ function showGatheringForm()
     <input type="date" name="gatheringDate" id="gatheringDate" value=""><br>
     <label for="gatheringTime">At what time?</label><br>
     <input type="time" name="gatheringTime" id="gatheringTime" value=""><br>
-    <input type="submit" name="submit" value="Submit">
+    <input type="submit" name="submitGathering" value="Submit">
     </form>';
 }
 
