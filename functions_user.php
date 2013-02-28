@@ -173,4 +173,16 @@ function userIsNotTaken($u, $c)
     }
 }
 
+function displayProfile($u)
+{
+    include 'functions_idea.php';
+    echo '<h2>'.$u['username'].'</h2><br>';
+    echo '<h3>About Me:</h3><br>';
+    echo '<p>'.$u['aboutme'].'</p><br>';
+    echo '<h3>Skills:</h3><br>';
+    echo '<p>'.$u['skills'].'</p><br>';
+    echo '<h3>Interests:</h3><br>';
+    echo '<p>'.getInterestsAsStrings($u['interests']).'</p>';
+}
+
 ?>

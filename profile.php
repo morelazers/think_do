@@ -1,4 +1,7 @@
-<?php include 'header.php'; ?>
+<?php 
+	include 'header.php';
+	include 'functions_user.php';
+?>
     <div class="clear"></div>
         <div id="post-container">
           <div class="post">
