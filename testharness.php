@@ -18,8 +18,8 @@ for ($i; $i < 5; $i++)
 	$interests = $interests .",". rand(0, 504);
 	$interests = $interests .",". rand(0, 504);
 	$interests = $interests .",". rand(0, 504);
-	echo "<br>";
-	var_dump($interests);
+	//echo "<br>";
+	//var_dump($interests);
 	echo '<br>';
 	updateProfileInfo($con, "test user", $interests, "none, i am fictional");
 	echo $i;
