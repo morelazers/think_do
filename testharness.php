@@ -9,11 +9,20 @@ $i = 0;
 for ($i; $i < 5; $i++)
 {
 	echo $i;
+	echo "<br>";
 	$n = "USER".$i;
+	echo $n;
+	echo "<br>";
 	$e = "e";
+	echo $e;
+	echo "<br>";
 	$p = "password";
+	echo $p;
+	echo "<br>";
 	insertIntoDB($con, $n, $e, $p);
 	$_SESSION['usr'] = getUserData($con, $n);
+	echo $_SESSION['usr']['username'];
+	echo "<br>";
 	$interests = rand(0, 504);
 	$interests = $interests .",". rand(0, 504);
 	$interests = $interests .",". rand(0, 504);
