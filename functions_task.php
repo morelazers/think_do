@@ -30,5 +30,21 @@ function displayTasks(&$t)
 	}
 }
 
+function doTask($tID)
+{
+	include 'functions_user.php';
+	$u = $_SESSION['usr'];
+	if (isset($u['doingTasks']))
+	{
+		$sql = "UPDATE user SET doingTasks='".$tID."'";
+	}
+	else
+	{
+		$sql = "UPDATE user SET doingTasks='".$u['doingTasks'].','.$tID."'";
+	}
+	mysql_query($sql) or die(mysql_error());
+	$_SESSION['usr'] = getUserData($con, $u['username']);
+}
+
 
 ?>
