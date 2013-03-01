@@ -8,6 +8,7 @@ include 'functions_input.php';
 $i = 0;
 for ($i; $i < 5; $i++)
 {
+	echo $i;
 	$n = "USER".$i;
 	$e = "e";
 	$p = "password";
@@ -22,7 +23,6 @@ for ($i; $i < 5; $i++)
 	//var_dump($interests);
 	echo '<br>';
 	updateProfileInfo($con, "test user", $interests, "none, i am fictional");
-	echo $i;
 	echo "<br>";
 	//unset($_SESSION['usr']);
     //session_destroy();
