@@ -38,19 +38,7 @@
                 <div id="tabs-1">
             ';
             showIdea($idea);
-            echo '<br><hr>';
-            getComments($con);
-            if(isset($_SESSION['usr']))
-            {
-                showCommentForm();
-            }
-            else
-            {
-                echo "You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can post a comment!
-                   <br>
-                   But don't worry, it will take you less than a minute!
-                   <br>";
-            }
+            
             echo'
                 </div>
                 <div id="tabs-2">
@@ -74,6 +62,21 @@
                 </div>
             </div>
             ';
+
+            echo '<br><hr>';
+            getComments($con);
+            if(isset($_SESSION['usr']))
+            {
+                showCommentForm();
+            }
+            else
+            {
+                echo "You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can post a comment!
+                   <br>
+                   But don't worry, it will take you less than a minute!
+                   <br>";
+            }
+            
             ?>
             </div>
         </div>
