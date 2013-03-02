@@ -21,4 +21,20 @@ function displayGatherings(&$g)
 	}
 }
 
+function markAsAttending($gathID)
+{
+	$u = $_SESSION['usr'];
+	if(isset($u['gathsAttending']))
+	{
+		$sql = "UPDATE user SET gathsAttending='".$u['gathsAttending'].','.$gathID."' WHERE userID=".$u['userID'];
+	}
+	else
+	{
+		$sql = "UPDATE user SET gathsAttending='".$gathID."' WHERE userID=".$u['userID'];
+	}
+	mysql_query($sql) or die(mysql_error());
+	$_SESSION['usr'] = getUserData($con, $u['username']);
+	
+}
+
 ?>
