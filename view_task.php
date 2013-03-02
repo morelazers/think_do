@@ -34,6 +34,12 @@ include 'header.php';
 						echo '<h3>Task Description:</h3><br>';
 						echo '<p>'.$task['taskDescription'].'</p><br>';
 					}
+					if(!strcmp($_SESSION['usr']['username'], $task['username']))
+					{
+						//code to modify task
+						$_SESSION['taskToModify'] = $task;
+						include 'task_form.php';
+					}
 				}
 
 			?>
