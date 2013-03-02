@@ -34,7 +34,7 @@ include 'header.php';
 						echo '<h3>Task Description:</h3><br>';
 						echo '<p>'.$task['taskDescription'].'</p><br>';
 					}
-					if(!strcmp($_SESSION['usr']['username'], $task['username']))
+					if(strcmp($_SESSION['usr']['username'], $task['username']) == 0)
 					{
 						//code to modify task
 						$_SESSION['taskToModify'] = $task;

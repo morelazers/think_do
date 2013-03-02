@@ -15,7 +15,7 @@ if(isset($_POST['submitTask']))
 		$tDesc = mysql_real_escape_string($tDesc);
 
 		createTask($idea, $tName, $tDesc, $_SESSION['usr'], $con);
-        unset($_SESSION['taskToModify'])
+        unset($_SESSION['taskToModify']);
 	}
 }
 
