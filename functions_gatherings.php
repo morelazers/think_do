@@ -34,7 +34,6 @@ function markAsAttending($gathID)
 	}
 	mysql_query($sql) or die(mysql_error());
 	$_SESSION['usr'] = getUserData($con, $u['username']);
-	
 }
 
 ?>

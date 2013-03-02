@@ -1,11 +1,11 @@
 <?php
 
 
-function createTask($i, $n, $d, $u, $c)
+function createTask($i, $n, $d, $dline, $u, $c)
 {
 	$now = date("Y-m-d H:i:s");
 	$sql = "INSERT INTO tasks (ideaID, taskName, username, taskDescription, complete, dateCreated)
-	VALUES ('" . $i['ideaID'] . "', '".$n."', '". $u['username'] ."', '".$d."', '0', '".$now."' )";
+	VALUES ('".$i['ideaID']."', '".$n."', '".$u['username']."', '".$d."', '0', '".$dline."', '".$now."')";
 	mysql_query($sql, $c)
 	or die(mysql_error());
 }
@@ -26,6 +26,14 @@ function displayTasks(&$t)
 		echo '<td><h2><a href="./view_task.php?pid='.$curTask['taskID'].'">'.$curTask['taskName'].'</a></h2></td>';
 		echo '<td>'.$curTask['username'].'</td>';
 		echo '<td>'.$curTask['dateCreated'].'</td>';
+		if(isset($curTask['deadline']))
+		{
+			echo '<td>'.$curTask['deadline'].'</td>';
+		}
+		else
+		{
+			echo '<td>No deadline has been specified for this task.</td>';
+		}
 		echo '</tr>';
 	}
 }

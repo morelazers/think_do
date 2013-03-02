@@ -6,6 +6,7 @@ showTaskForm();
 
 $tName = $_POST['taskName'];
 $tDesc = $_POST['taskDesc'];
+$tDeadline = $_POST['taskDeadline'];
 
 if(isset($_POST['submitTask']))
 {
@@ -14,14 +15,14 @@ if(isset($_POST['submitTask']))
 		$tName = mysql_real_escape_string($tName);
 		$tDesc = mysql_real_escape_string($tDesc);
 
-		createTask($idea, $tName, $tDesc, $_SESSION['usr'], $con);
-        unset($_SESSION['taskToModify']);
+		createTask($idea, $tName, $tDesc, $tDeadline, $_SESSION['usr'], $con);
+        //unset($_SESSION['taskToModify']);
 	}
 }
 
 function showTaskForm()
 {
-    if(isset($_SESSION['taskToModify']))
+/*    if(isset($_SESSION['taskToModify']))
     {
         echo '<form method="post" action="'; 
         echo $PHP_SELF; 
@@ -38,7 +39,7 @@ function showTaskForm()
         </form>';
     }
     else
-    {
+    {*/
         echo '<form method="post" action="'; 
         echo $PHP_SELF; 
         echo '">
@@ -50,9 +51,13 @@ function showTaskForm()
         <input type="text" name="taskDesc" id="taskDesc" value="';
         echo $_POST['taskDesc'];
         echo '"><br>
+        <label for="taskDeadline">Does this need to be done by a particular date?</label><br>
+        <input type="date" name="taskDeadline" id="taskDeadline" value="';
+        echo $_POST['taskDeadline'];
+        echo '"><br>
         <input type="submit" name="submitTask" value="Submit">
         </form>';
-    }
+   /* }*/
 }
 
 /**
