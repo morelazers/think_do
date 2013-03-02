@@ -15,24 +15,44 @@ if(isset($_POST['submitTask']))
 		$tDesc = mysql_real_escape_string($tDesc);
 
 		createTask($idea, $tName, $tDesc, $_SESSION['usr'], $con);
+        unset($_SESSION['taskToModify'])
 	}
 }
 
 function showTaskForm()
 {
-	echo '<form method="post" action="'; 
-    echo $PHP_SELF; 
-    echo '">
-    <label for="taskName">Give the task a title:</label><br>
-    <input type="text" name="taskName" id="taskName" value="';
-    echo $u['taskName'];
-    echo '"><br>
-	<label for="taskDesc">What needs to be done?</label><br>
-    <input type="text" name="taskDesc" id="taskDesc" value="';
-    echo $u['taskDesc'];
-    echo '"><br>
-    <input type="submit" name="submitTask" value="Submit">
-    </form>';
+    if(isset($_SESSION['taskToModify']))
+    {
+        echo '<form method="post" action="'; 
+        echo $PHP_SELF; 
+        echo '">
+        <label for="taskName">Give the task a title:</label><br>
+        <input type="text" name="taskName" id="taskName" value="';
+        echo $_SESSION['taskToModify']['taskName'];
+        echo '"><br>
+        <label for="taskDesc">What needs to be done?</label><br>
+        <input type="text" name="taskDesc" id="taskDesc" value="';
+        echo $_SESSION['taskToModify']['taskDesc'];
+        echo '"><br>
+        <input type="submit" name="submitTask" value="Submit">
+        </form>';
+    }
+    else
+    {
+        echo '<form method="post" action="'; 
+        echo $PHP_SELF; 
+        echo '">
+        <label for="taskName">Give the task a title:</label><br>
+        <input type="text" name="taskName" id="taskName" value="';
+        echo $_POST['taskName'];
+        echo '"><br>
+        <label for="taskDesc">What needs to be done?</label><br>
+        <input type="text" name="taskDesc" id="taskDesc" value="';
+        echo $_POST['taskDesc'];
+        echo '"><br>
+        <input type="submit" name="submitTask" value="Submit">
+        </form>';
+    }
 }
 
 /**
