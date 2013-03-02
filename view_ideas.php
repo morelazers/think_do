@@ -28,27 +28,38 @@
 
             $idea = getIdea();
 
-            
-
             echo '
             <div id="tabs">
                 <ul>
-                    <li><a href="#tabs-1">Descriptions</a></li>
-                    <li><a href="#tabs-2">To do list</a></li>
+                    <li><a href="#tabs-1">Description</a></li>
+                    <li><a href="#tabs-2">Todo List</a></li>
                     <li><a href="#tabs-3">Gatherings</a></li>
                 </ul>
                 <div id="tabs-1">
             ';
-                showIdea($idea);
+            showIdea($idea);
+            echo '<br><hr>';
+            getComments($con);
+            if(isset($_SESSION['usr']))
+            {
+                showCommentForm();
+            }
+            else
+            {
+                echo "You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can post a comment!
+                   <br>
+                   But don't worry, it will take you less than a minute!
+                   <br>";
+            }
             echo'
                 </div>
                 <div id="tabs-2">
             ';
-                    include 'todo_list.php';
-                    if(currentUserIsIdeaMod($idea))
-                    {
-                        include 'task_form.php';
-                    }
+                include 'todo_list.php';
+                if(currentUserIsIdeaMod($idea))
+                {
+                    include 'task_form.php';
+                }
             echo '
                 </div>
                 <div id="tabs-3">
@@ -63,20 +74,6 @@
                 </div>
             </div>
             ';
-            echo '<br><hr>';
-            getComments($con);
-            if(isset($_SESSION['usr']))
-            {
-                showCommentForm();
-            }
-            else
-            {
-                echo "You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can post a comment!
-                   <br>
-                   But don't worry, it will take you less than a minute!
-                   <br>";
-            }
-
             ?>
             </div>
         </div>
