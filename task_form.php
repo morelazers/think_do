@@ -32,7 +32,7 @@ function showTaskForm()
         echo '"><br>
         <label for="taskDesc">What needs to be done?</label><br>
         <input type="text" name="taskDesc" id="taskDesc" value="';
-        echo $_SESSION['taskToModify']['taskDesc'];
+        echo $_SESSION['taskToModify']['taskDescription'];
         echo '"><br>
         <input type="submit" name="submitTask" value="Submit">
         </form>';
