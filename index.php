@@ -36,7 +36,6 @@ include 'functions_idea.php'; ?>
 		<div class="mainRight">
 			<h2>Top Ten Ideas</h2>
 			<?php getHomepageIdeas($con); ?>
-			
 		</div>			
 	</div>	
 </div>
