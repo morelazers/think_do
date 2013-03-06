@@ -13,16 +13,22 @@ if (isset($_SESSION['usr']))
             <div id="tabs">
                 <ul>
                     <li><a href="#tabs-1">Edit Profile</a></li>
-                    <li><a href="#tabs-2">Change Password</a></li>
+                    <li><a href="#tabs-2">Change Avatar</a></li>
+                    <li><a href="#tabs-3">Change Password</a></li>
                 </ul>
                 <div id="tabs-1">
 	                <h3>Changes will be seen upon logging in again</h3>
             ';
 	showAboutMeForm($currentUser);
-	include 'form_avatar_upload.php';
 	echo '
 		</div>
 		<div id="tabs-2">
+			<h3>Changes will be seen upon logging in again</h3>
+		';
+	include 'form_avatar_upload.php';
+	echo '</div>
+		</div>
+		<div id="tabs-3">
 			<h3>Changes will be seen upon logging in again</h3>
 		';
 	showPassForm();
