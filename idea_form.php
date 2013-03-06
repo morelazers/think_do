@@ -105,10 +105,10 @@ echo ' 	<div class="sidebar">
 }
 else
 {
-  echo "You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can share an idea!
+  echo "<div class=regDiv><h3>You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can share an idea!
   <br>
-  But don't worry, it will take you less than a minute!
-  <br>";
+  But don't worry, it will take you less than a minute!</h3>
+  </div>";
 }
 
 
