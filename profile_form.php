@@ -27,7 +27,6 @@ if (isset($_SESSION['usr']))
 		';
 	include 'form_avatar_upload.php';
 	echo '</div>
-		</div>
 		<div id="tabs-3">
 			<h3>Changes will be seen upon logging in again</h3>
 		';
