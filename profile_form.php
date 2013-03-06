@@ -16,14 +16,14 @@ if (isset($_SESSION['usr']))
                     <li><a href="#tabs-2">Change Password</a></li>
                 </ul>
                 <div id="tabs-1">
-	                <h1>Changes will be seen upon logging in again</h1>
+	                <h3>Changes will be seen upon logging in again</h3>
             ';
 	showAboutMeForm($currentUser);
 	include 'form_avatar_upload.php';
 	echo '
 		</div>
 		<div id="tabs-2">
-			<h1>Changes will be seen upon logging in again</h1>
+			<h3>Changes will be seen upon logging in again</h3>
 		';
 	showPassForm();
 	echo '</div></div>';
