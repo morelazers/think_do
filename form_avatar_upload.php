@@ -85,7 +85,7 @@ function showUploadForm()
 	echo '<form action="'; echo $PHP_SELF; echo '" method="post"
 	enctype="multipart/form-data">
 	<label for="file">Upload an avatar!: (must be less than 20kb)</label><br>
-	<input type="file" name="file" id="file"><br>
+	<input type="file" name="file" class="normalButton" id="file"><br>
 	<input type="submit" name="submit" class="normalButton" value="Submit">
 	</form>';
 }
