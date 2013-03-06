@@ -159,7 +159,7 @@ function showAboutMeForm($u)
     <label for="aboutMe">Describe yourself:</label><br>
     <textarea rows="10" cols="30" name="aboutMe" id="aboutMe" value="';
     echo $u['aboutme'];
-    echo '"><br>
+    echo '"></textarea><br>
 	<label for="interests">What are you interested in?</label><br>
     <input type="text" name="interests" id="interests" value="';
     echo $u['interests'];
