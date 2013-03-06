@@ -4,24 +4,23 @@ if (isset($_SESSION['usr']))
 {
 	
 	$currentUser = $_SESSION['usr'];
-	
-	echo '<form method="post" action="'; 
-    echo $PHP_SELF; 
-    echo '"><input type="submit" name="editPass" class="normalButton" value="Change password">
-    <input type="submit" name="editProfile" class="normalButton" value="Edit profile">
-    </form>';
-	
-	if (isset($_POST['editPass']))
-	{
-		showPassForm();
-	}
-	else if (isset($_POST['editProfile']))
-	{
-		showAboutMeForm($currentUser);
-	}
-    include 'form_avatar_upload.php';
-
-	
+	echo '
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">Edit Profile</a></li>
+                    <li><a href="#tabs-2">Change Password</a></li>
+                </ul>
+                <div id="tabs-1">
+            ';
+	showAboutMeForm($currentUser);
+	include 'form_avatar_upload.php';
+	echo '
+		</div>
+		<div id="tabs-2">
+		';
+	showPassForm();
+	echo '</div>';
+		
 	$oldPass = $_POST["oldPass"];
 	$pass1 = $_POST["newPass"];
 	$pass2 = $_POST["newPass2"];
