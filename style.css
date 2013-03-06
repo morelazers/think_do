@@ -174,7 +174,7 @@ input[type=text], textarea, input[type=password] {
     text-shadow: 0 1px 0 rgba(255,255,255,0.8);
  
     /* Size and position */
-    width: 100%;
+    width: 95%;
     padding: 5px 18px 10px 5px;
  
     /* Styles */
