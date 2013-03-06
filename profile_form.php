@@ -19,7 +19,7 @@ if (isset($_SESSION['usr']))
 		<div id="tabs-2">
 		';
 	showPassForm();
-	echo '</div>';
+	echo '</div></div>';
 		
 	$oldPass = $_POST["oldPass"];
 	$pass1 = $_POST["newPass"];
