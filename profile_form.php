@@ -7,8 +7,8 @@ if (isset($_SESSION['usr']))
 	
 	echo '<form method="post" action="'; 
     echo $PHP_SELF; 
-    echo '"><input type="submit" name="editPass" value="Change password">
-    <input type="submit" name="editProfile" value="Edit profile">
+    echo '"><input type="submit" name="editPass" class="normalButton" value="Change password">
+    <input type="submit" name="editProfile" class="normalButton" value="Edit profile">
     </form>';
 	
 	if (isset($_POST['editPass']))
@@ -136,7 +136,7 @@ function showPassForm()
         <input type="password" name="newPass" id="new_password" value=""><br>
 	<label for="new_password2">Retype new password:</label><br>
         <input type="password" name="newPass2" id="new_password2" value=""><br>
-        <input type="submit" name="submitPass" value="Change">
+        <input type="submit" name="submitPass" class="normalButton" value="Change">
         </form>';
 }
 
@@ -157,7 +157,7 @@ function showAboutMeForm($u)
     <input type="text" name="skills" id="skills" value="';
     echo $u['skills'];
     echo '"><br>
-    <input type="submit" name="submitAboutMe" value="Update">
+    <input type="submit" name="submitAboutMe" class="normalButton" value="Update">
     </form>';
 }
     
