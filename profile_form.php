@@ -16,12 +16,14 @@ if (isset($_SESSION['usr']))
                     <li><a href="#tabs-2">Change Password</a></li>
                 </ul>
                 <div id="tabs-1">
+	                <h1>Changes will be seen upon logging in again</h1>
             ';
 	showAboutMeForm($currentUser);
 	include 'form_avatar_upload.php';
 	echo '
 		</div>
 		<div id="tabs-2">
+			<h1>Changes will be seen upon logging in again</h1>
 		';
 	showPassForm();
 	echo '</div></div>';
@@ -65,7 +67,7 @@ if (isset($_SESSION['usr']))
     		$_SESSION['usr'] = getUserData($con, $currentUser['username']);
     	}
 	}
-	echo 'Changes will be seen upon logging in again.';
+	
 }
 else
 {
