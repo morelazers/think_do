@@ -218,3 +218,7 @@ input[type=text], textarea, input[type=password] {
 	width:600px;
 	float:right;
 }
+.regDiv{
+	width:600px;
+	margin: 0 auto;
+}
