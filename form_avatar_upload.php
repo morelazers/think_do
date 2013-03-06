@@ -86,7 +86,7 @@ function showUploadForm()
 	enctype="multipart/form-data">
 	<label for="file">Upload an avatar!: (must be less than 20kb)</label><br>
 	<input type="file" name="file" id="file"><br>
-	<input type="submit" name="submit" value="Submit">
+	<input type="submit" name="submit" class="normalButton" value="Submit">
 	</form>';
 }
 
