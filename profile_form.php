@@ -1,5 +1,10 @@
 <?php 
 session_start();
+echo'<script>
+	$(function(){
+		$( "#tabs" ).tabs();
+	});
+</script>';
 if (isset($_SESSION['usr']))
 {
 	
