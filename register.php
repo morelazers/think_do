@@ -2,7 +2,8 @@
         <div class="clear"></div>
         <div id="post-container">
 			<div class="post">
-		        <?php include 'register_form.php'; ?>
+			<div class="regDiv">
+		        <?php include 'register_form.php'; ?></div>
             </div>
         </div>
     </div>
