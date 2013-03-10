@@ -173,6 +173,10 @@ function userIsNotTaken($u, $c)
     }
 }
 
+/**
+*   Function to display the profile of the user passed into it
+*   @param array $u the array of the user's data
+*/
 function displayProfile($u)
 {
     $sql = "SELECT * FROM idea WHERE createdBy = '".$u['username']."'";
@@ -188,7 +192,7 @@ function displayProfile($u)
     echo '<h3>My Ideas:</h3><br>';
     while($idea = mysql_fetch_array($res))
     {
-        echo '<h2><a href="./view_ideas.php?pid='.$idea['ideaID'].'">'.$idea['ideaName'].'</a></h2></br>';
+        echo '<p><a href="./view_ideas.php?pid='.$idea['ideaID'].'">'.$idea['ideaName'].'</a></p></br>';
     }
 }
 
