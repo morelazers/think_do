@@ -7,7 +7,7 @@ include 'functions_idea.php'; ?>
 	<div class="clear"></div>
 	<div id="post-container">
 	<div class="sidebar">	
-	<h1>Think.Do</h1>
+	<h1>think.do</h1>
 	Welcome to think.do! We're a site dedicated to the future, but we need your help!
 	<br><br>
 	If you have an idea - be it big or small - we want you to share it here!

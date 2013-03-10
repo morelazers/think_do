@@ -28,7 +28,7 @@
 
 function getHomepageIdeas($c)
 {
-	$sql = "SELECT * FROM idea ORDER BY upVotes DESC LIMIT 10";
+	$sql = "SELECT * FROM idea WHERE isOpen = 1 ORDER BY upVotes DESC LIMIT 10";
 	//var_dump($sql);
 	$res = mysql_query($sql, $c) or die(mysql_error());
 	//var_dump($res);
