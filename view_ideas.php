@@ -7,11 +7,11 @@
 	$(function(){
 		$( "#tabs" ).tabs();
 	});
-    function echoIncrementIdeaUpvotes(){
+    $(function echoIncrementIdeaUpvotes(){
         <?php
             incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
         ?>
-    }
+    });
 	</script>
     <div class="clear"></div>
         <div id="post-container">
