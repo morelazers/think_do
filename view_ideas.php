@@ -37,6 +37,7 @@
                 </ul>
                 <div id="tabs-1">
             ';
+            echo '<button onclick="upVote()"></button>';
             showIdea($idea);
             echo '<br><hr>';
             getComments($con);
