@@ -15,8 +15,8 @@ function displayGatherings(&$g)
 		//var_dump($curGath);
 		echo '<tr>';
 		echo '<td><h2><a href="./view_gathering.php?pid='.$curGath['gathID'].'">'.$curGath['gathLocation'].'</a></h2></td>';
-		echo '<td>'.$curGath['gathDate'].'</td>';
-		echo '<td>'.$curGath['gathTime'].'</td>';
+		echo '<td>'.$curGath['gathDate'].' </td>';
+		echo '<td>'.$curGath['gathTime'].' </td>';
 		echo '</tr>';
 	}
 }
