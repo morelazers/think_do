@@ -24,11 +24,11 @@ function displayTasks(&$t)
 	{
 		echo '<tr>';
 		echo '<td><h2><a href="./view_task.php?pid='.$curTask['taskID'].'">'.$curTask['taskName'].'</a></h2></td>';
-		echo '<td>'.$curTask['username'].'</td>';
-		echo '<td>'.$curTask['dateCreated'].'</td>';
+		echo '<td>'.$curTask['username'].' </td>';
+		echo '<td>'.$curTask['dateCreated'].' </td>';
 		if(isset($curTask['deadline']))
 		{
-			echo '<td>'.$curTask['deadline'].'</td>';
+			echo '<td>Deadline:'.$curTask['deadline'].'</td>';
 		}
 		else
 		{
