@@ -192,7 +192,7 @@ function displayProfile($u)
     echo '<h3>My Ideas:</h3><br>';
     while($idea = mysql_fetch_array($res))
     {
-        echo '<div class="ideaText"><h2><a href="./view_ideas.php?pid='.$idea['ideaID'].'">'.$idea['ideaName'].'</a></h2></div></br>';
+        echo '<h2><a href="./view_ideas.php?pid='.$idea['ideaID'].'">'.$idea['ideaName'].'</a></h2></br>';
     }
 }
 
