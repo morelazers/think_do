@@ -175,6 +175,8 @@ function userIsNotTaken($u, $c)
 
 function displayProfile($u)
 {
+    $sql = "SELECT * FROM idea WHERE createdBy = '".$u['username']."'";
+    $res = mysql_query($sql);
     include 'functions_idea.php';
     echo '<h2>'.$u['username'].'</h2><br>';
     echo '<h3>About Me:</h3><br>';
@@ -182,7 +184,12 @@ function displayProfile($u)
     echo '<h3>Skills:</h3><br>';
     echo '<p>'.$u['skills'].'</p><br>';
     echo '<h3>Interests:</h3><br>';
-    echo '<p>'.getInterestsAsStrings($u['interests']).'</p>';
+    echo '<p>'.getInterestsAsStrings($u['interests']).'</p><br>';
+    echo '<h3>My Ideas:</h3><br>';
+    while($idea = mysql_fetch_array($res))
+    {
+        echo '<h2><a href="./view_ideas.php?pid='.$idea['ideaID'].'">'.$idea['ideaName'].'</a></h2></br>';
+    }
 }
 
 ?>

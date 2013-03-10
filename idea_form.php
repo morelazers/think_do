@@ -91,15 +91,20 @@ echo ' 	<div class="sidebar">
 			$interestIDs = getInterestIDs($iInterests, $con);
             $sql="INSERT INTO idea (createdBy, ideaName, description, skillsRequired, interests, isOpen, dateCreated, moderators) 
             		VALUES ('".$uName."', '".$iName."', '".$iDesc."', '".$iSkills."', '".$interestIDs."', '".$iOpen."', '".$iDate."', '".$uID."' )";
+            
+            //If error durying query execution report error
             if (!mysql_query($sql, $con))
-      		//If error durying query execution report error
             {
                 echo 'failed to add record';
                 die('Error: ' . mysql_error());
             }
-            mysql_close($con);
-            echo 'Idea submitted!';
-            header('Location: index.php');
+            else
+            {
+            	header('Location: index.php');
+            }
+            //mysql_close($con);
+            //echo 'Idea submitted!';
+            //$sql = "SELECT ideaID FROM idea WHERE "
         }
     }
 }
