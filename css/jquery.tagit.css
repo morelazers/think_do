@@ -1,12 +1,12 @@
 ul.tagit {
-    /*padding: 1px 5px;
+    padding: 1px 5px;
     overflow: auto;
     margin-left: inherit; 
     margin-right: inherit;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #CC8E8E;
-    background: inherit;*/
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    /*border-color: #CC8E8E;*/
+    background: inherit;
 }
 ul.tagit li {
     display: block;
