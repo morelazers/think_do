@@ -3,11 +3,6 @@
 * @author: Nathan Emery
 */
  include 'header.php';
-
- if(isset($_POST['upvote'])){
-    $idea = getIdea();
-    incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
- }
 ?>
 	<script>
 	$(function(){
@@ -32,6 +27,12 @@
                 postComment($parent);
             }
 
+
+            if(isset($_POST['upvote'])){
+                $idea = getIdea();
+                incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
+            }
+
             $idea = getIdea();
 
             echo '
@@ -43,9 +44,9 @@
                 </ul>
                 <div id="tabs-1">
             ';
-            if(isset($_SESSION['usr'])){
+            /*if(isset($_SESSION['usr'])){
                 if(userHasVoted())
-            }
+            }*/
             echo '<form method="post" action="'; 
             echo $PHP_SELF; 
             echo '">
