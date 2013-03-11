@@ -9,10 +9,10 @@
 	});
 	</script>
     <script>
-        $(function echoIncrementIdeaUpvotes(){
+        function echoIncrementIdeaUpvotes(){
            echo' incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); ';
            alert("VOTED!");
-    });
+    }
     </script>
     <div class="clear"></div>
         <div id="post-container">
