@@ -8,7 +8,7 @@ include 'functions_idea.php'; ?>
 	
 	<div class="sidebar">	
 	<h1>Newest Ideas</h1>
-	Here are the newest ideas. 
+	Here are the newest ideas.</br> 
 	<?php 
 	if(!isset($_SESSION['usr']))
 	{ 
