@@ -170,7 +170,7 @@ function showPassForm()
 
 function showAboutMeForm($u)
 {	
-    $interestsToDsiplay = getInterestsAsStrings($u['interests']);
+    $interestsToDisplay = getInterestsAsStrings($u['interests']);
 	echo '<form method="post" action="'; 
     echo $PHP_SELF; 
     echo '">
@@ -180,7 +180,7 @@ function showAboutMeForm($u)
     echo '</textarea><br>
 	<label for="interests">What are you interested in?</label><br>
     <input type="text" name="interests" id="interests" value="';
-    echo $interestsToDsiplay;
+    echo $interestsToDisplay;
     echo '"><br>
 	<label for="skills">What skills do you have?</label><br>
     <input type="text" name="skills" id="skills" value="';
