@@ -102,18 +102,19 @@ function incrementIdeaUpvotes($i, &$u, $c)
 	mysql_query($sql, $c) or die(mysql_error());
 	if($u['ideasVotedFor'] == '')
 	{
-		$sql = "UPDATE user SET ideasVotedFor = ".$i['ideaID']."";
+		$sql = "UPDATE user SET ideasVotedFor = ".$i['ideaID']." WHERE userID = ".$u['userID'];
 		$u['ideasVotedFor'] = $i['ideaID'];
 		
 	}
 	else
 	{
-		$sql = "UPDATE user SET ideasVotedFor = '".$u['ideasVotedFor'].",".$i['ideaID']."'";
+		$sql = "UPDATE user SET ideasVotedFor = '".$u['ideasVotedFor'].",".$i['ideaID']."' WHERE userID = ".$u['userID'];
 		$u['ideasVotedFor'] = $u['ideasVotedFor'] . ',' . $i['ideaID'];
 	}
 	//var_dump($sql);
 	mysql_query($sql, $c) or die(mysql_error());
 }
+
 function userHasVoted($i, $u){
 	$votedArray = explode(",", $u['ideasVotedFor']);
 	if(in_array($i['ideaID'], $votedArray)){
