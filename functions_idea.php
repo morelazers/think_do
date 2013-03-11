@@ -144,7 +144,7 @@ function userMemberStatus($i, $u, $c){
 	//Check if user is a helper
 	$sql = "SELECT helpers FROM idea WHERE ideaID = ".$i['ideaID'];
 	$queryResults = mysql_query($sql, $c);
-	if($queryResults!=NULL){
+	if($queryResults!=false){
 		$resultString = mysql_fetch_array($queryResults);
 		$resultsArray = explode(",", $resultsString);
 		if(in_array($u['userID'], $resultsArray)){
@@ -155,7 +155,7 @@ function userMemberStatus($i, $u, $c){
 	//Check if user is a moderator
 	$sql = "SELECT moderators FROM idea WHERE ideaID = ".$i['ideaID'];
 	$queryResults = mysql_query($sql, $c);
-	if($queryResults!=NULL){
+	if($queryResults!=false){
 		$resultString = mysql_fetch_array($queryResults);
 		$resultsArray = explode(",", $resultsString);
 		if(in_array($u['userID'], $resultsArray)){
