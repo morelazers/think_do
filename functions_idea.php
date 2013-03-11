@@ -156,7 +156,6 @@ function userMemberStatus($i, $u, $c){
 	$queryResults = mysql_query($sql, $c);
 	$resultString = mysql_fetch_array($queryResults);
 	$resultsArray = explode(",", $resultsString['moderators']);
-	var_dump($resultsArray);
 	if(in_array($u['userID'], $resultsArray)){
 		return 2;
 	}
