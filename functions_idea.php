@@ -99,7 +99,7 @@ function incrementIdeaUpvotes($i, $u, $c)
 	$sql = "UPDATE idea SET upVotes = ".$i['upVotes']." WHERE ideaID =".$i['ideaID']."";
 	$result = mysql_query($sql, $c)
 	or die(mysql_error());
-	if($u['ideasVotedFor'] == null)
+	if($u['ideasVotedFor'] == '')
 	{
 		$sql = "UPDATE users SET ideasVotedFor = ".$i['ideaID']."";
 	}
