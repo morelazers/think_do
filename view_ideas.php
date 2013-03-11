@@ -58,7 +58,7 @@
                 else{
                     echo "<p class='upVoted'>You've already upvoted this idea!</p>";
                 }
-                $ideaMember = userMemberStatus($idea, $_SESSION['usr'], $c);
+                $ideaMember = userMemberStatus($idea, $_SESSION['usr'], $con);
                 if($ideaMember == 0){
                     echo '<form method="post" action="'; 
                     echo $PHP_SELF; 
