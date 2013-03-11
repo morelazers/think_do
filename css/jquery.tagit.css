@@ -4,9 +4,21 @@ ul.tagit {
     margin-left: inherit; 
     margin-right: inherit;
     /*border-style: solid;
-    border-width: 1px;*/
-    border-color: #CC8E8E;
+    border-width: 1px;
+    border-color: #CC8E8E;*/
     background: inherit;
+        margin: 0 auto;
+    width: 95%;
+    padding:5px 18px 10px 5px;
+ 
+    /* Styles */
+    border: none; /* Remove the default border */
+    box-shadow: 
+        inset 0 0 5px rgba(0,0,0,0.1),
+        inset 0 3px 2px rgba(0,0,0,0.1);
+    border-radius: 3px;
+    background: #f9f9f9;
+    color: #777;
 
 }
 ul.tagit li {
@@ -117,11 +129,11 @@ ul.tagit input[type="text"] {
  
     /* Styles */
     border: none; /* Remove the default border */
-    box-shadow: 
+   /* box-shadow: 
         inset 0 0 5px rgba(0,0,0,0.1),
         inset 0 3px 2px rgba(0,0,0,0.1);
     border-radius: 3px;
     background: #f9f9f9;
     color: #777;
-    transition: color 0.3s ease-out;
+    transition: color 0.3s ease-out;*/
 }
