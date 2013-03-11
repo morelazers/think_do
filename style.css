@@ -81,11 +81,11 @@ input[type=submit]:hover, .smallForm a:hover{
 }
 
 .upVoted{
-	background-color:#00FF00;
+	background-color:#00CC00;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
 	border-radius:6px;
-	border:1px solid #00FF00;
+	border:1px solid #00CC00;
 	display:inline-block;
 	color:#ffffff;
 	font-family:arial;
@@ -95,8 +95,8 @@ input[type=submit]:hover, .smallForm a:hover{
 	text-decoration:none;
 }
 .upVoted:hover{
-	background-color:#00CC00;
-	border:1px solid #00CC00;
+	background-color:#00A300;
+	border:1px solid #00A300;
 }
 
 .userText a{
