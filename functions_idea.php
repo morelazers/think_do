@@ -111,6 +111,13 @@ function incrementIdeaUpvotes($i, $u, $c)
 	var_dump($sql);
 	mysql_query($sql, $c) or die(mysql_error());
 }
+function userHasVoted($i, $u){
+	$votedArray = explode(",", $u['ideasVotedFor']);
+	if(in_array($i['ideaID'], $votedArray)){
+		return true;
+	}
+	return false;
+}
 
 /**
  *  Function to output the data from the idea to the page
