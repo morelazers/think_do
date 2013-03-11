@@ -96,9 +96,10 @@ function getIdeaData($id, $c)
 function incrementIdeaUpvotes($i, $u, $c)
 {
 	$i['upVotes']++;
-	$sql = "UPDATE idea SET upVotes = ".$i['upVotes']." WHERE ideaID =".$i['ideaID']."";
-	$result = mysql_query($sql, $c)
-	or die(mysql_error());
+	var_dump($i);
+	$sql = "UPDATE idea SET upVotes = ".$i['upVotes']." WHERE ideaID =".$i['ideaID'];
+	var_dump($sql);
+	mysql_query($sql, $c) or die(mysql_error());
 	if($u['ideasVotedFor'] == '')
 	{
 		$sql = "UPDATE users SET ideasVotedFor = ".$i['ideaID']."";
@@ -107,8 +108,8 @@ function incrementIdeaUpvotes($i, $u, $c)
 	{
 		$sql = "UPDATE users SET ideasVotedFor = ".$u['ideasVotedFor'].",".$i['ideaID']."";
 	}
-	$result = mysql_query($sql, $c)
-	or die(mysql_error());
+	var_dump($sql);
+	mysql_query($sql, $c) or die(mysql_error());
 }
 
 /**
