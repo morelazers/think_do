@@ -40,7 +40,7 @@ function getInterestIDs($i, $c)
         if(in_array($val, $GLOBALS['interests']))
         var_dump($val);
 
-        if(strcmp(strtolower($val), strtolower($GLOBALS['interests'][])) == 0)
+        if(strcmp(strtolower($val), strtolower($GLOBALS['interests'])) == 0)
         {
             $IDArray[] = $val;
         }
