@@ -3,6 +3,10 @@ ul.tagit {
     overflow: auto;
     margin-left: inherit; /* usually we don't want the regular ul margins. */
     margin-right: inherit;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #CC8E8E;
+    background: inherit;
 }
 ul.tagit li {
     display: block;
@@ -12,6 +16,16 @@ ul.tagit li {
 ul.tagit li.tagit-choice {    
     position: relative;
     line-height: inherit;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border: 1px solid #CC8E8E;
+
+    background: none;
+    background-color: #FFB2B2;
+
+    color: #555;
+    font-weight: normal;
 }
 
 ul.tagit li.tagit-choice-read-only { 
@@ -30,10 +44,15 @@ ul.tagit li.tagit-choice a.tagit-label {
     cursor: pointer;
     text-decoration: none;
 }
+
+ul.tagit li.tagit-choice a.tagit-close {
+    text-decoration: none;
+}
+
 ul.tagit li.tagit-choice .tagit-close {
     cursor: pointer;
     position: absolute;
-    right: .1em;
+    right: .4em;
     top: 50%;
     margin-top: -8px;
     line-height: 17px;
@@ -41,6 +60,14 @@ ul.tagit li.tagit-choice .tagit-close {
 
 /* used for some custom themes that don't need image icons */
 ul.tagit li.tagit-choice .tagit-close .text-icon {
+    display: inline;
+    font-family: arial, sans-serif;
+    font-size: 16px;
+    line-height: 16px;
+    color: #777;
+}
+
+ul.tagit li.tagit-choice .ui-icon {
     display: none;
 }
 
@@ -49,6 +76,17 @@ ul.tagit li.tagit-choice input {
     float: left;
     margin: 2px 5px 2px 0;
 }
+
+ul.tagit li.tagit-choice:hover, ul.tagit li.tagit-choice.remove {
+    background-color: #FFB2B2;
+    border-color: #CC8E8E;
+}
+
+ul.tagit li.tagit-choice a.tagLabel:hover,
+ul.tagit li.tagit-choice a.tagit-close .text-icon:hover {
+    color: #E0BBBB;
+}
+
 ul.tagit input[type="text"] {
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
@@ -58,6 +96,7 @@ ul.tagit input[type="text"] {
     -webkit-box-shadow: none;
     box-shadow: none;
 
+    color: #333333;
     border: none;
     margin: 0;
     padding: 0;

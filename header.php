@@ -17,10 +17,9 @@ getAllInterests($con);
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
 <script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
 
-<link rel="stylesheet" type="text/css" href="css/jquerycss/jquery-ui-1.10.1.custom.min.css">
+<link rel="stylesheet" type="text/css" href="css/jquerycss/jquery-ui-1.10.1.custom.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.tagit.css">
 
-<link rel="stylesheet" type="text/css" href="css/jquerycss/tagit.ui-zendesk.css">
 
 	<script language="javascript" type="text/javascript">
 		var dateObject=new Date();
