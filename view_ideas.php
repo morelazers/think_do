@@ -54,7 +54,7 @@
                     </form>';
                 }
                 else{
-                    echo "<div class='upVoted'><p class='upVoted'>You've already upvoted this idea!</p></div>";
+                    echo "<p class='upVoted'>You've already upvoted this idea!</p>";
                 }
             }
             showIdea($idea);
