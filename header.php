@@ -13,12 +13,12 @@ getAllInterests($con);
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" /> 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
-<script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+	<script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
 
-<link rel="stylesheet" type="text/css" href="css/jquerycss/jquery-ui-1.10.1.custom.css">
-<link rel="stylesheet" type="text/css" href="css/jquery.tagit.css">
+	<link rel="stylesheet" type="text/css" href="css/jquerycss/jquery-ui-1.10.1.custom.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.tagit.css">
 
 
 	<script language="javascript" type="text/javascript">
