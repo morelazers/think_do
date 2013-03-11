@@ -36,9 +36,8 @@ function getInterestIDs($i, $c)
     foreach($i as $val)
     {
         //$val = '"' .$val. '"';
-        var_dump($val);
-
-        if(strcmp(strtolower($val), strtolower($GLOBALS['interests'][])) == 0)
+        //var_dump($val);
+        if(in_array($val, $GLOBALS['interests'][]))
         {
             $IDArray[] = $val;
         }
@@ -71,6 +70,9 @@ function getInterestIDs($i, $c)
     $result = mysql_query($sql, $c)
     or die(mysql_error());*/
     
+    
+
+    
     /*
     foreach($IDs as $val)
     {
@@ -81,7 +83,8 @@ function getInterestIDs($i, $c)
     //var_dump($IDArray);
     
     //var_dump($IDString);
-     
+    
+    
 }
 
 function insertNewInterests($newInterests)
