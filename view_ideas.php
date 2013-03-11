@@ -46,7 +46,7 @@
             echo $PHP_SELF; 
             echo '">
             <input type="submit" name="upvote" value="Upvote this idea">
-            </form>'
+            </form>';
             showIdea($idea);
             echo '<br><hr>';
             getComments($con);
