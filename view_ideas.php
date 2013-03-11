@@ -14,6 +14,15 @@
            alert("VOTED!");
     });
     </script>
+
+    <script>
+    $(document).ready(function(){
+        $("upvote").click(function(){
+            alert("UPVOTE2");
+        });
+    });
+    </script>
+
     <div class="clear"></div>
         <div id="post-container">
          <div class="post">
@@ -43,7 +52,7 @@
                 </ul>
                 <div id="tabs-1">
             ';
-            echo '<input type="button" onclick="echoIncrementIdeaUpvotes();" value="UPVOTE" />';
+            echo '<input type="button" class="upvote" onclick="echoIncrementIdeaUpvotes();" value="UPVOTE" />';
 
             showIdea($idea);
             echo '<br><hr>';
