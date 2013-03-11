@@ -21,19 +21,20 @@
             include 'functions_task.php';
             include 'functions_input.php';
             include 'functions_gatherings.php';
-			
+			$idea = getIdea();
             if(isset($_POST['submitComment']))
             {
                 postComment($parent);
             }
-
-
-            if(isset($_POST['upvote'])){
-                $idea = getIdea();
+            elseif(isset($_POST['upvote'])){
+                
                 incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
             }
+            elseif(isset($_POST['joinTeam'])){
+                joinIdeaTeam($idea, $_SESSION['usr'], $c);
+            }
 
-            $idea = getIdea();
+            
 
             echo '
             <div id="tabs">
