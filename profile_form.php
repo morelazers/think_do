@@ -170,7 +170,9 @@ function showPassForm()
 
 function showAboutMeForm($u)
 {	
+    var_dump($u['interests']);
     $interestsToDisplay = getInterestsAsStrings($u['interests']);
+    var_dump($interestsToDisplay);
 	echo '<form method="post" action="'; 
     echo $PHP_SELF; 
     echo '">
