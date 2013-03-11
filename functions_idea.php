@@ -149,7 +149,7 @@ function userMemberStatus($i, $u, $c){
 	
 	//Check if user is a moderator
 	$moderatorArray = explode(",", $i['moderators']);
-	if(in_array($u['userID'], $moderatorsArray)){
+	if(in_array($u['userID'], $moderatorArray)){
 		return 2;
 	}
 	
