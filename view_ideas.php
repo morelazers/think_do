@@ -10,7 +10,7 @@
 	</script>
     <script type="text/javascript">
     $(document).ready(function(){
-        $(".voteup").click(function(){
+        $(".upvote").click(function(){
             alert("VOTED!");
             //echo' incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); ';
         });
@@ -45,7 +45,7 @@
                 </ul>
                 <div id="tabs-1">
             ';
-            echo '<div class="voteup" onclick="$(this).voteup()">UPVOTE</div>';
+            echo '<div class="upvote">UPVOTE</div>';
 
             showIdea($idea);
             echo '<br><hr>';
