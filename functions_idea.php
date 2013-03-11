@@ -143,9 +143,14 @@ function joinIdeaTeam($i, $u, $c){
 function userMemberStatus($i, $u, $c){
 	//Check if user is a helper
 	$sql = "SELECT * FROM idea WHERE ideaID = ".$i['ideaID'];
+	var_dump($sql);
+	echo '<br>';
 	$queryResults = mysql_query($sql) or die(mysql_error());
+	var_dump($queryResults);
+	echo '<br>';
 	$resultString = mysql_fetch_array($queryResults);
 	var_dump($resultsString);
+	echo '<br>';
 	$resultsArray = explode(",", $resultsString['helpers']);
 	if(in_array($u['userID'], $resultsArray)){
 		return 1;
