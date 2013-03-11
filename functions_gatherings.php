@@ -10,9 +10,10 @@ function getIdeaGatherings($i)
 
 function displayGatherings(&$g)
 {
+	var_dump($g);
 	if (!isset($g))
 	{
-		echo 'There are no gatherings proposed for this idea yet.';
+		echo 'There are no gatherings proposed for this idea yet!';
 	}
 	while ($curGath = mysql_fetch_array($g))
 	{
