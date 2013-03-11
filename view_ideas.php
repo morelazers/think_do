@@ -10,7 +10,9 @@
 	</script>
     <script>
         $(function echoIncrementIdeaUpvotes(){
-            incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
+            <?php
+                echo 'incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);';
+            ?>
         });
     </script>
     <div class="clear"></div>
@@ -42,7 +44,8 @@
                 </ul>
                 <div id="tabs-1">
             ';
-            echo '<input type="button" onclick="'; echo $incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); echo' value="UPVOTE" />';
+            echo '<input type="button" onclick="echoIncrementIdeaUpvotes()" value="UPVOTE" />';
+
             showIdea($idea);
             echo '<br><hr>';
             getComments($con);
