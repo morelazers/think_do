@@ -47,11 +47,11 @@
             
             if(isset($_SESSION['usr'])){
                 if(userHasVoted($idea, $_SESSION['usr'])==false){
-                    echo '<form method="post" action="'; 
+                    echo '<div style="float:right;"><form method="post" action="'; 
                     echo $PHP_SELF; 
                     echo '">
                     <input type="submit" name="upvote" value="Upvote this idea">
-                    </form>';
+                    </form></div>';
                 }
                 else{
                     echo "<p class='upVoted'>You've already upvoted this idea!</p>";
