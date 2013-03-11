@@ -32,6 +32,7 @@
             }
             elseif(isset($_POST['joinTeam'])){
                 joinIdeaTeam($idea, $_SESSION['usr'], $con);
+                $idea = getIdea();
             }
 
             
