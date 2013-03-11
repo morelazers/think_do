@@ -13,15 +13,16 @@ if (isset($_SESSION['usr']))
 echo ' 	<div class="sidebar">
 	
 	<h1>TOP TIPS</h1></br>
-	<b>Title</b></br>
+	<b>Name it/b></br>
 	The title is the first thing people will see! Your idea could be revolutionary, make the title exciting!</br></br>
-	<b>Description</b></br>
+	<b>Describe it</b></br>
 	You have hooked people in with your title, now continue to impress them! Try not to be boring, time is money after all!</br></br>
 	<b>Beneficial Skills</b></br>
 	What help do you need to get your idea out of your head and into the real world?</br></br>
 	<b>Interests</b></br>
 	Help us help you! People with similar interests are automatically matched to your idea!</br></br>
-	
+	<b>Hide it?</b></br>
+	Decide wether or not you want to reveal your idea to the whole world. Public ideas are displayed on think.do and will appear in search results.</br></br>
 	</div>
 	
 	
@@ -164,22 +165,22 @@ function getInterestIDs($i, $c)
 function showForm($i) 
 {
     echo '<form method="post" action="'; echo $PHP_SELF; echo '">
-    <label for="idea_title">Name your idea:</label><br>
+    <label for="idea_title"><h2>Name it</h2></label><br>
     <input type="text" name="ideaName" id="idea_title" value="';
 	echo $i["ideaName"];
     echo '"><br>
-    <label for="idea_desc">Describe your idea:</label><br>
+    <label for="idea_desc"><h2>Describe it</h2></label><br>
     <textarea rows="10" cols="30" name="ideaDescription" id="idea_desc" value="';
     echo $i["ideaDescription"]; 
     echo '"></textarea><br>
-    <label for="skills">Beneficial Skills:</label><br>
+    <label for="skills"><h2>Desirable Skills</h2></label><br>
     <input type="text" name="iSkills" id="skills" value="';
     echo $i["iSkills"];
     echo '"><br><div class="ui-helper-clearfix">
-    <label for="interests">Interests:</label><br>
+    <label for="interests"><h2>Interests:</h2></label><br>
     <input type="text" name="iInterests" id="interests" value="';
     echo $i["iInterests"];
-    echo '"><br></div><label for="Privacy">Privacy:</label><br>';
+    echo '"></div><label for="Privacy">Hide it?</label><br>';
     if(array_key_exists("iPrivacy", $i))
     {
 	    if($i["iPrivacy"] == "public")
