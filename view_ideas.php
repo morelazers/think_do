@@ -50,7 +50,7 @@
             echo '<form method="post" action="'; 
             echo $PHP_SELF; 
             echo '">
-            <input type="submit" name="upvote" value="Upvote this idea">
+            <input type="submit" name="upvote" value="Like this idea">
             </form>';
             showIdea($idea);
             echo '<br><hr>';
@@ -61,7 +61,8 @@
             }
             else
             {
-                echo "You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can post a comment!
+                echo "<h2>Oops!</h2></br>
+                    You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can post a comment!
                    <br>
                    But don't worry, it will take you less than a minute!
                    <br>";
@@ -102,8 +103,8 @@ include 'footer.php';
 function showCommentForm()
 {
     echo '<form method="post" action="'; echo $PHP_SELF; echo '">
-    <label for="comment">Post a comment:</label><br>
-    <input type="text" name="content" id="contentInput" value="">
+    <label for="comment"><h2>Leave a comment:</h2></label><br>
+    <input type="text" name="content" id="contentInput" width="60%" value="">
     <br><input type="submit" name="submitComment" value="Submit"></form>';
 }
 
