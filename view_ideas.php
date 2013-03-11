@@ -10,10 +10,8 @@
 	</script>
     <script>
         $(function echoIncrementIdeaUpvotes(){
-            <?php
-                echo 'incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);';
-            ?>
-        });
+           echo' incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); ';
+    });
     </script>
     <div class="clear"></div>
         <div id="post-container">
