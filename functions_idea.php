@@ -123,6 +123,17 @@ function userHasVoted($i, $u){
 	return false;
 }
 
+function joinIdeaTeam($i, $u, $c){
+	if($i['helpers'] == '')
+	{
+		$sql = "UPDATE idea SET helpers = ".$u['userID']." WHERE ideaID = ".$i['ideaID'];
+	}
+	else
+	{
+		$sql = "UPDATE idea SET helpers = '".$i['helpers'].",".$u['userID']."' WHERE ideaID = ".$i['ideaID'];
+	}
+	mysql_query($sql, $c) or die(mysql_error());
+}
 /**
  *  Function to output the data from the idea to the page
  *  @param idea $i assosciative array containing the fields fom thr idea table
