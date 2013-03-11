@@ -44,9 +44,7 @@
                 </ul>
                 <div id="tabs-1">
             ';
-            /*if(isset($_SESSION['usr'])){
-                if(userHasVoted())
-            }*/
+            
             if(isset($_SESSION['usr'])){
                 if(userHasVoted($idea, $_SESSION['usr'])==false){
                     echo '<form method="post" action="'; 
@@ -54,6 +52,9 @@
                     echo '">
                     <input type="submit" name="upvote" value="Upvote this idea">
                     </form>';
+                }
+                else{
+                    echo "<div class='upVoted'>You've already upvoted this idea!</div>";
                 }
             }
             showIdea($idea);
