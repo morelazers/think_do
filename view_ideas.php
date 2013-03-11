@@ -12,7 +12,7 @@
     $(document).ready(function(){
         $(".upvote").click(function(){
             alert("VOTED!");
-            //echo' incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); ';
+           <?php incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); ?>
         });
     });
     </script>
