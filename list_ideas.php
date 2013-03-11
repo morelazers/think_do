@@ -55,7 +55,7 @@ function getIdeas()
 	}
 	//Query database for data for all projects to be displayed on this page
 	//$ideas = mysql_query("SELECT * FROM idea WHERE ideaID BETWEEN " . $startID . " AND " . $endID);
-	$ideas = mysql_query("SELECT * FROM idea");
+	$ideas = mysql_query("SELECT * FROM idea WHERE isOpen = 1");
 	$ideaAmount = mysql_query("SELECT COUNT(*) FROM idea");
 	//If query returns projects
 	if($ideas != null)
