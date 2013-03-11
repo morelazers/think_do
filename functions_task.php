@@ -20,7 +20,7 @@ function getIdeaTasks($i)
 
 function displayTasks(&$t)
 {
-	if(!isset($t))
+	if(!isset(mysql_fetch_array($t)))
 	{
 		echo 'There have been no tasks set for this idea yet!';
 	}
