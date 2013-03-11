@@ -88,7 +88,7 @@ function getInterestIDs($i, $c)
 
 function insertNewInterests($newInterests)
 {
-    $sql = "INSERT INTO interests (name) VALUES (";
+    $sql = "INSERT INTO interests (name) VALUES ";
     $notInDBCount = count($newInterests);
     $i = 0;
     foreach($newInterests as $val)
@@ -96,11 +96,11 @@ function insertNewInterests($newInterests)
         $i++;
         if($i == $notInDBCount)
         {
-            $sql = $sql . "'" . $val . "')";
+            $sql = $sql . "('" . $val . "')";
         }
         else
         {
-            $sql = $sql . "'" . $val . "', ";
+            $sql = $sql . "('" . $val . "'), ";
         }
     }
     mysql_query($sql) or die(mysql_error());
