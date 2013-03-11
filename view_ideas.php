@@ -17,7 +17,8 @@
     <script type="text/javascript">
     $(document).ready(function(){
         $(".voteup").click(function(){
-alert("VOTED!");
+            alert("VOTED!");
+            echo' incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); ';
         });
     });
     </script>
