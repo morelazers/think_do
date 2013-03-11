@@ -80,7 +80,6 @@ if (isset($_SESSION['usr']))
 		if (profileInputIsComplete())
     	{   
             $interests = getInterestIDs($interests, $con);
-            var_dump($interests);
 
     		$aboutMe = mysql_real_escape_string($aboutMe);
     		$interests = mysql_real_escape_string($interests);
@@ -88,7 +87,6 @@ if (isset($_SESSION['usr']))
             
     		updateProfileInfo($con, $aboutMe, $interests, $skills);
     		$_SESSION['usr'] = getUserData($con, $currentUser['username']);
-            header("Location: modify_profile.php");
     	}
 	}
 	
