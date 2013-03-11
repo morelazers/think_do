@@ -9,16 +9,10 @@
 	});
 	</script>
     <script type="text/javascript">
-        $(function echoIncrementIdeaUpvotes(){
-           echo' incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); ';
-           alert("VOTED!");
-    });
-    </script>
-    <script type="text/javascript">
     $(document).ready(function(){
         $(".voteup").click(function(){
             alert("VOTED!");
-            echo' incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); ';
+            //echo' incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); ';
         });
     });
     </script>
