@@ -177,7 +177,7 @@ input[type=submit]:hover, .smallForm a:hover{
 .sidebar a,
 .sidebar a:visited{
 	color: #FFFFFF;
-	text-decoration: none;
+	/*text-decoration: none;*/
 }
 
 h1{
