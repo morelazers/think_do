@@ -102,11 +102,11 @@ function incrementIdeaUpvotes($i, $u, $c)
 	mysql_query($sql, $c) or die(mysql_error());
 	if($u['ideasVotedFor'] == '')
 	{
-		$sql = "UPDATE users SET ideasVotedFor = ".$i['ideaID']."";
+		$sql = "UPDATE user SET ideasVotedFor = ".$i['ideaID']."";
 	}
 	else
 	{
-		$sql = "UPDATE users SET ideasVotedFor = ".$u['ideasVotedFor'].",".$i['ideaID']."";
+		$sql = "UPDATE user SET ideasVotedFor = ".$u['ideasVotedFor'].",".$i['ideaID']."";
 	}
 	var_dump($sql);
 	mysql_query($sql, $c) or die(mysql_error());
