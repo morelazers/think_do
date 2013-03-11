@@ -137,10 +137,18 @@ input[type=submit]:hover, .smallForm a:hover{
 	margin:0px;
 }
 
-.mainRight h1, h2{
+.mainRight h1{
 	color:#B30000;
 	font-family:"Century Gothic";
 	font-size:28px;
+	padding:0px;
+	margin:0px;
+}
+
+.mainRight h2{
+	color:#B30000;
+	font-family:"Century Gothic";
+	font-size:20px;
 	padding:0px;
 	margin:0px;
 }
