@@ -2,20 +2,17 @@
 /**
 * @author: Nathan Emery
 */
- include 'header.php'; ?>
+ include 'header.php';
+
+ if(isset($_POST['upvote'])){
+    incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
+ }
+?>
 	<script>
 	$(function(){
 		$( "#tabs" ).tabs();
 	});
 	</script>
-    <script type="text/javascript">
-    $(document).ready(function(){
-        $(".upvote").click(function(){
-            alert("VOTED!");
-            incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
-        });
-    });
-    </script>
     <div class="clear"></div>
         <div id="post-container">
          <div class="post">
@@ -45,8 +42,11 @@
                 </ul>
                 <div id="tabs-1">
             ';
-            echo '<div class="upvote">UPVOTE</div>';
-
+            echo '<form method="post" action="'; 
+            echo $PHP_SELF; 
+            echo '">
+            <input type="submit" name="upvote" value="Upvote this idea">
+            </form>'
             showIdea($idea);
             echo '<br><hr>';
             getComments($con);
