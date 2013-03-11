@@ -118,50 +118,6 @@ else
 }
 
 
-function getInterestIDs($i, $c)
-{
-	$i = explode(',', $i);
-	$iArray = array();
-	
-	//var_dump($i);
-	
-	foreach($i as $val)
-	{
-		$val = '"' .$val. '"';
-		//var_dump($val);
-		$iArray[] = $val;
-	}
-	
-	$i = implode(',', $iArray);
-	
-	//var_dump($i);
-	
-	$sql = "SELECT ID FROM interests WHERE name IN ($i)";
-	$result = mysql_query($sql, $c)
-	or die(mysql_error());
-	
-	$IDArray = array();
-	while ($ID = mysql_fetch_array($result))
-	{
-		//var_dump($ID);
-		$IDArray[] = $ID['ID'];
-	}
-
-	
-	/*
-	foreach($IDs as $val)
-	{
-		var_dump($val);
-		//$val =  $val. ',';
-		$IDArray[] = $val;
-	}*/
-	//var_dump($IDArray);
-	$IDString = implode(',', $IDArray);
-	//var_dump($IDString);
-	
-	return $IDString;
-}
-
 function showForm($i) 
 {
     echo '<form method="post" action="'; echo $PHP_SELF; echo '">
