@@ -28,49 +28,31 @@ function inputIsComplete()
 function getInterestIDs($i, $c)
 {
     $i = explode(',', $i);
-    echo 'exploded array<br>';
+    $iArray = array();
     
     //var_dump($i);
-    $IDArray = array();
-    $notInDB = array();
+    
     foreach($i as $val)
     {
-        //$val = '"' .$val. '"';
+        $val = '"' .$val. '"';
         //var_dump($val);
-        if(in_array($val, $GLOBALS['interests']))
-        {
-            $IDArray[] = $val;
-        }
-        else
-        {
-            $notInDB[] = $val;
-            echo 'found a value not in the database<br>';
-        }
+        $iArray[] = $val;
     }
-
-    if(!empty($notInDB))
-    {
-        echo 'inserting new values<br>';
-        insertNewInterests($notInDB);
-        echo 'getting new values<br>';
-        $newIntResultSet = getNewInterests();
-        while($newID = mysql_fetch_array($newIntResultSet))
-        {
-            $IDArray[] = $newID;
-        }
-    }
-    $IDString = implode(',', $IDArray);
-    echo 'imploded array<br>';
-
-    return $IDString;
+    
+    $i = implode(',', $iArray);
     
     //var_dump($i);
     
-    /*$sql = "SELECT ID FROM interests WHERE name IN ($i)";
+    $sql = "SELECT ID FROM interests WHERE name IN ($i)";
     $result = mysql_query($sql, $c)
-    or die(mysql_error());*/
+    or die(mysql_error());
     
-    
+    $IDArray = array();
+    while ($ID = mysql_fetch_array($result))
+    {
+        //var_dump($ID);
+        $IDArray[] = $ID['ID'];
+    }
 
     
     /*
@@ -81,50 +63,10 @@ function getInterestIDs($i, $c)
         $IDArray[] = $val;
     }*/
     //var_dump($IDArray);
-    
+    $IDString = implode(',', $IDArray);
     //var_dump($IDString);
     
-    
-}
-
-function insertNewInterests($newInterests)
-{
-    $sql = "INSERT INTO interests (name) VALUES (";
-    $notInDBCount = count($newInterests);
-    $i = 0;
-    foreach($newInterests as $val)
-    {
-        $i++;
-        if($i == $notInDBCount)
-        {
-            $sql = $sql . "'" . $val . "')";
-        }
-        else
-        {
-            $sql = $sql . "'" . $val . "', ";
-        }
-    }
-    mysql_query($sql) or die(mysql_error());
-}
-
-function getNewInterests()
-{
-    $i = 0;
-    $sql = "SELECT * FROM interests WHERE name ";
-    foreach($notInDB as $val)
-    {
-        $i++;
-        if($i == $notInDBCount)
-        {
-            $sql = $sql . "= '%".$val."%'";
-        }
-        else
-        {
-           $sql = $sql . "= '%".$val."%' OR name ";
-        }
-    }
-    $result = mysql_query($sql) or die(mysql_error());
-    return $result;
+    return $IDString;
 }
 
 function getInterestsAsStrings($IDString)
