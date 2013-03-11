@@ -178,18 +178,4 @@ function showIdea($i)
 	echo '<p>'.getInterestsAsStrings($i['interests']).'</p>';
 }
 
-function getInterestsAsStrings($IDString)
-{
-	$IDArray = explode(',', $IDString);
-	$StringArray = array();
-	foreach($IDArray as $val)
-	{
-		 $StringArray[] = $GLOBALS['interests'][$val];
-	}
-	$interestString = implode(', ', $StringArray);
-	return $interestString;
-}
-
-
-
 ?>

@@ -69,6 +69,18 @@ function getInterestIDs($i, $c)
     return $IDString;
 }
 
+function getInterestsAsStrings($IDString)
+{
+    $IDArray = explode(',', $IDString);
+    $StringArray = array();
+    foreach($IDArray as $val)
+    {
+         $StringArray[] = $GLOBALS['interests'][$val];
+    }
+    $interestString = implode(', ', $StringArray);
+    return $interestString;
+}
+
 /**
  *  Fcuntion to encrypt string data
  *  @param string $str string to be encrypted
