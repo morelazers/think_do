@@ -95,11 +95,11 @@
     function isValidInput($unameInput)
     {
         
-        $unameValid = preg_replace("/[^a-zA-Z 0-9_.-]+/", " ", $unameInput);
+        $unameValid = preg_replace("/[^a-zA-Z 0-9]+/", " ", $unameInput);
         
         if ($unameInput == $unameValid)
         {
-            $maxUnameLength = 30;
+            $maxUnameLength = 100;
             
             function checkPassword()
             {
@@ -122,7 +122,7 @@
             }
             else
             {
-                echo 'Username must not be more than 30 characters!</br>';
+                echo 'Username must not be more than 100 characters!</br>';
             }
         }
         else
