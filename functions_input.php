@@ -28,11 +28,10 @@ function inputIsComplete()
 function getInterestIDs($i, $c)
 {
     $i = explode(',', $i);
-    echo 'exploded array<br>';
+    $iArray = array();
     
     //var_dump($i);
-    $IDArray = array();
-    $notInDB = array();
+    
     foreach($i as $val)
     {
         //$val = '"' .$val. '"';
@@ -59,17 +58,24 @@ function getInterestIDs($i, $c)
         {
             $IDArray[] = $newID;
         }
+        $val = '"' .$val. '"';
+        //var_dump($val);
+        $iArray[] = $val;
     }
-    $IDString = implode(',', $IDArray);
-    echo 'imploded array<br>';
-
-    return $IDString;
+    
+    $i = implode(',', $iArray);
     
     //var_dump($i);
     
-    /*$sql = "SELECT ID FROM interests WHERE name IN ($i)";
-    $result = mysql_query($sql, $c)
-    or die(mysql_error());*/
+    $sql = "SELECT ID FROM interests WHERE name IN ($i)";
+    $result = mysql_query($sql, $c) or die(mysql_error());
+    
+    $IDArray = array();
+    while ($ID = mysql_fetch_array($result))
+    {
+        //var_dump($ID);
+        $IDArray[] = $ID['ID'];
+    }
     
     /*
     foreach($IDs as $val)
@@ -79,7 +85,7 @@ function getInterestIDs($i, $c)
         $IDArray[] = $val;
     }*/
     //var_dump($IDArray);
-    
+    $IDString = implode(',', $IDArray);
     //var_dump($IDString);
      
 }
@@ -122,6 +128,8 @@ function getNewInterests()
     }
     $result = mysql_query($sql) or die(mysql_error());
     return $result;
+    
+    return $IDString;
 }
 
 function getInterestsAsStrings($IDString)
