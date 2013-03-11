@@ -31,7 +31,7 @@
                 incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
             }
             elseif(isset($_POST['joinTeam'])){
-                joinIdeaTeam($idea, $_SESSION['usr'], $c);
+                joinIdeaTeam($idea, $_SESSION['usr'], $con);
             }
 
             
