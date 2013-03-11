@@ -44,8 +44,7 @@
                 <div id="tabs-1">
             ';
             //echo '<input type="button" onclick="echoIncrementIdeaUpvotes()" value="UPVOTE" />';
-           echo '<form method="upvote" action="'; echo incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); echo '">
--                <input type="submit" name="upVote" value="UPVOTE"></form>';
+           echo'<input type="button" onclick="'; incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); echo'" value="UPVOTE" />';
 
             showIdea($idea);
             echo '<br><hr>';
