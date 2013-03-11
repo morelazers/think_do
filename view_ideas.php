@@ -8,7 +8,7 @@
 		$( "#tabs" ).tabs();
 	});
 	</script>
-    <script>
+    <script type="text/javascript">
         function echoIncrementIdeaUpvotes(){
            echo' incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); ';
            alert("VOTED!");
@@ -43,10 +43,7 @@
                 </ul>
                 <div id="tabs-1">
             ';
-           // echo '<input type="button" onclick="echoIncrementIdeaUpvotes()" value="UPVOTE" />';
-            //echo'<input type="button" onclick="'; echo incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); echo'" value="UPVOTE" />';
-                echo '<form method="upvote" action="'; echo incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); echo '">
-                <input type="submit" name="upVote" value="UPVOTE"></form>';
+            echo '<input type="button" onclick="echoIncrementIdeaUpvotes()" value="UPVOTE" />';
             showIdea($idea);
             echo '<br><hr>';
             getComments($con);
