@@ -142,20 +142,19 @@ function joinIdeaTeam($i, $u, $c){
  */
 function userMemberStatus($i, $u, $c){
 	//Check if user is a helper
-	$sql = "SELECT helpers FROM idea WHERE ideaID = ".$i['ideaID'];
+	$sql = "SELECT * FROM idea WHERE ideaID = ".$i['ideaID'];
 	$queryResults = mysql_query($sql, $c);
 	$resultString = mysql_fetch_array($queryResults);
-	echo $resultString;
-	$resultsArray = explode(",", $resultsString);
+	$resultsArray = explode(",", $resultsString['helpers']);
 	if(in_array($u['userID'], $resultsArray)){
 		return 1;
 	}
 	
 	//Check if user is a moderator
-	$sql = "SELECT moderators FROM idea WHERE ideaID = ".$i['ideaID'];
+	$sql = "SELECT * FROM idea WHERE ideaID = ".$i['ideaID'];
 	$queryResults = mysql_query($sql, $c);
 	$resultString = mysql_fetch_array($queryResults);
-	$resultsArray = explode(",", $resultsString);
+	$resultsArray = explode(",", $resultsString['moderators']);
 	if(in_array($u['userID'], $resultsArray)){
 		return 2;
 	}
