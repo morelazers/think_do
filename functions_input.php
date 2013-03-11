@@ -29,6 +29,8 @@ function getInterestIDs($i, $c)
 {
     $i = explode(',', $i);
     $iArray = array();
+    $IDArray = array();
+    $notInDB = array();
     
     //var_dump($i);
     
@@ -58,24 +60,24 @@ function getInterestIDs($i, $c)
         {
             $IDArray[] = $newID;
         }
-        $val = '"' .$val. '"';
+        //$val = '"' .$val. '"';
         //var_dump($val);
-        $iArray[] = $val;
+        //$iArray[] = $val;
     }
     
-    $i = implode(',', $iArray);
+    //$i = implode(',', $iArray);
     
     //var_dump($i);
     
-    $sql = "SELECT ID FROM interests WHERE name IN ($i)";
-    $result = mysql_query($sql, $c) or die(mysql_error());
+    /*$sql = "SELECT ID FROM interests WHERE name IN ($i)";
+    $result = mysql_query($sql, $c) or die(mysql_error());*/
     
-    $IDArray = array();
+    /*$IDArray = array();
     while ($ID = mysql_fetch_array($result))
     {
         //var_dump($ID);
         $IDArray[] = $ID['ID'];
-    }
+    }*/
     
     /*
     foreach($IDs as $val)
@@ -87,6 +89,7 @@ function getInterestIDs($i, $c)
     //var_dump($IDArray);
     $IDString = implode(',', $IDArray);
     //var_dump($IDString);
+    return $IDString;
      
 }
 
