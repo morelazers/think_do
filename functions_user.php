@@ -179,8 +179,6 @@ function userIsNotTaken($u, $c)
 */
 function displayProfile($u)
 {
-    $sql = "SELECT * FROM idea WHERE createdBy = '".$u['username']."'";
-    $res = mysql_query($sql);
     include 'functions_idea.php';
     echo '<h2>'.$u['username'].'</h2><br>';
     echo '<h3>About Me:</h3><br>';
@@ -189,11 +187,46 @@ function displayProfile($u)
     echo '<p>'.$u['skills'].'</p><br>';
     echo '<h3>Interests:</h3><br>';
     echo '<p>'.getInterestsAsStrings($u['interests']).'</p><br>';
-    echo '<h3>My Ideas:</h3><br>';
+    echo "<h3>Ideas I've Shared:</h3><br>";
+    $sql = "SELECT * FROM idea WHERE createdBy = '".$u['username']."'";
+    $res = mysql_query($sql);
     while($idea = mysql_fetch_array($res))
     {
         echo '<h2><a href="./view_ideas.php?pid='.$idea['ideaID'].'">'.$idea['ideaName'].'</a></h2></br>';
     }
+    echo "<h3>Ideas I've Liked:</h3><br>";
+
+
+    $likedIdeasArray = explode(',', $u['ideasVotedFor']);
+    $SQLArrayString = array();
+
+    $ideasCount = count($likedIdeasArray);
+    $i = 0;
+
+    $sql = "SELECT * FROM idea WHERE ideaID ";
+
+    foreach($likedIdeasArray as $val)
+    {
+        //$val = "'".$val."'";
+        //$SQLArrayString[] = $val;
+        $i++;
+        if($i == ($ideasCount))
+        {
+               $sql = $sql . "LIKE '%".$val."%'";
+        }
+        else
+        {
+               $sql = $sql . "LIKE '%".$val."%' OR ideaID ";
+        }
+    }
+
+    $res = mysql_query($sql) or die(mysql_error());
+
+    while($idea = mysql_fetch_array($res))
+    {
+        echo '<h2><a href="./view_ideas.php?pid='.$idea['ideaID'].'">'.$idea['ideaName'].'</a></h2></br>';
+    }
+
 }
 
 ?>
