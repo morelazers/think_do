@@ -70,9 +70,12 @@ getAllInterests($con);
 	<div class="insideNav">
         	<li><a href="index.php">Home</a></li>
     		<li><a href="submit_idea.php">Share an Idea</a></li>
-		<li><a href="list_ideas.php">View a List of Ideas</a></li>
-		<div style="float:right;" class = "search"><form><input type="text" id="search" name="search" value="Search..."></form></div>
-	</div>
+		<li><a href="list_ideas.php">View a List of Ideas</a></li>';
+
+		//Getting rid of the search bar for now, because it doesn't work
+		/* <div style="float:right;" class = "search"><form><input type="text" id="search" name="search" value="Search..."></form></div> */
+
+	echo '</div>
 </div>
 <div class="main">';
 ?>
