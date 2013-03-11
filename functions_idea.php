@@ -145,6 +145,7 @@ function userMemberStatus($i, $u, $c){
 	$sql = "SELECT helpers FROM idea WHERE ideaID = ".$i['ideaID'];
 	$queryResults = mysql_query($sql, $c);
 	$resultString = mysql_fetch_array($queryResults);
+	echo $resultString;
 	$resultsArray = explode(",", $resultsString);
 	if(in_array($u['userID'], $resultsArray)){
 		return 1;
