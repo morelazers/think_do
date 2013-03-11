@@ -80,7 +80,7 @@ input[type=submit]:hover, .smallForm a:hover{
 	border:1px solid #800000;
 }
 
-.upVoted{
+.upVoted, .helperMsg{
 	background-color:#00CC00;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
@@ -94,11 +94,29 @@ input[type=submit]:hover, .smallForm a:hover{
 	padding:6px 24px;
 	text-decoration:none;
 }
-.upVoted:hover{
+.upVoted:hover, .helperMsg:hover{
 	background-color:#00A300;
 	border:1px solid #00A300;
 }
 
+.modMsg{
+	background-color:#3366FF;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #3366FF;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+}
+.modMsg:hover{
+	background-color:#2952CC;
+	border:1px solid #2952CC;
+}
 .userText a{
 	color:#FFFFFF;
 	text-decoration:none;

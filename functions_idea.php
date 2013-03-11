@@ -134,6 +134,38 @@ function joinIdeaTeam($i, $u, $c){
 	}
 	mysql_query($sql, $c) or die(mysql_error());
 }
+
+/**
+ *	Function checks the member status of the user and idea. Returns 1 if the
+ *	user is a helper, 2 if the user is a moderator and 0 if the user is not 
+ *	currently part of the idea team
+ */
+function userMemberStatus($i, $u, $c){
+	//Check if user is a helper
+	$sql = "SELECT helpers FROM idea WHERE ideaID = ".$i['ideaID'];
+	$queryResults = mysql_query($sql, $c);
+	if($queryResults!=NULL){
+		$resultString = mysql_fetch_array($queryResults);
+		$resultsArray = explode(",", $resultsString);
+		if(in_array($u['userID'], $resultsArray)){
+			return 1;
+		}
+	}
+	
+	//Check if user is a moderator
+	$sql = "SELECT moderators FROM idea WHERE ideaID = ".$i['ideaID'];
+	$queryResults = mysql_query($sql, $c);
+	if($queryResults!=NULL){
+		$resultString = mysql_fetch_array($queryResults);
+		$resultsArray = explode(",", $resultsString);
+		if(in_array($u['userID'], $resultsArray)){
+			return 2;
+		}
+	}
+
+	return 0;
+	
+}
 /**
  *  Function to output the data from the idea to the page
  *  @param idea $i assosciative array containing the fields fom thr idea table

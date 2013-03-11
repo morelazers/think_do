@@ -56,6 +56,20 @@
                 else{
                     echo "<p class='upVoted'>You've already upvoted this idea!</p>";
                 }
+                $ideaMember = userMemberStatus($idea, $_SESSION['usr'], $c);
+                if($ideaMember == 0){
+                    echo '<form method="post" action="'; 
+                    echo $PHP_SELF; 
+                    echo '">
+                    <input type="submit" name="joinTeam" value="Help Out!">
+                    </form>';
+                }
+                elseif($ideaMember == 1){
+                    echo "<p class='helperMsg'>You are helping this idea!</p>";
+                }
+                else{
+                    echo "<p class='modMsg'>You are an idea moderator</p>";
+                }
             }
             showIdea($idea);
             echo '<br><hr>';
