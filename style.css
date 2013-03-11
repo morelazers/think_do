@@ -156,7 +156,7 @@ input[type=submit]:hover, .smallForm a:hover{
 	margin:0px;
 }
 
-.mainRight h1{
+h1{
 	color:#B30000;
 	font-family:"Century Gothic";
 	font-size:28px;
@@ -164,7 +164,7 @@ input[type=submit]:hover, .smallForm a:hover{
 	margin:0px;
 }
 
-.mainRight h2{
+h2{
 	color:#B30000;
 	font-family:"Century Gothic";
 	font-size:20px;
