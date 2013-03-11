@@ -12,7 +12,7 @@ include 'functions_idea.php'; ?>
 	<?php 
 	if(!isset($_SESSION['usr']))
 	{ 
-		echo "Why don't you <a href="login.php">log in</a>/ <a href="register.php">register</a> and we'll recommend some ideas we think you'll be interested in!"; 
+		echo "Why don't you <a href='login.php'>log in</a>/<a href='register.php'>register</a> and we'll recommend some ideas we think you'll be interested in!"; 
 	}
 	?>
 	</br><?php
