@@ -13,7 +13,7 @@ if (isset($_SESSION['usr']))
 echo ' 	<div class="sidebar">
 	
 	<h1>TOP TIPS</h1></br>
-	<b>Name it/b></br>
+	<b>Name it</b></br>
 	The title is the first thing people will see! Your idea could be revolutionary, make the title exciting!</br></br>
 	<b>Describe it</b></br>
 	You have hooked people in with your title, now continue to impress them! Try not to be boring, time is money after all!</br></br>
@@ -165,22 +165,22 @@ function getInterestIDs($i, $c)
 function showForm($i) 
 {
     echo '<form method="post" action="'; echo $PHP_SELF; echo '">
-    <label for="idea_title"><h2>Name it</h2></label><br>
+    <label for="idea_title"><h2>Name it</h2></label>
     <input type="text" name="ideaName" id="idea_title" value="';
 	echo $i["ideaName"];
     echo '"><br>
-    <label for="idea_desc"><h2>Describe it</h2></label><br>
+    <label for="idea_desc"><h2>Describe it</h2></label>
     <textarea rows="10" cols="30" name="ideaDescription" id="idea_desc" value="';
     echo $i["ideaDescription"]; 
     echo '"></textarea><br>
-    <label for="skills"><h2>Desirable Skills</h2></label><br>
+    <label for="skills"><h2>Desirable Skills</h2></label>
     <input type="text" name="iSkills" id="skills" value="';
     echo $i["iSkills"];
     echo '"><br><div class="ui-helper-clearfix">
-    <label for="interests"><h2>Interests:</h2></label><br>
+    <label for="interests"><h2>Interests:</h2></label>
     <input type="text" name="iInterests" id="interests" value="';
     echo $i["iInterests"];
-    echo '"></div><label for="Privacy">Hide it?</label><br>';
+    echo '"></div><label for="Privacy"><h2>Hide it?</h2></label>';
     if(array_key_exists("iPrivacy", $i))
     {
 	    if($i["iPrivacy"] == "public")
