@@ -9,7 +9,7 @@ include 'functions_idea.php'; ?>
 	<div class="sidebar">	
 	<h1>Newest Ideas</h1>
 	Here are the newest ideas, why don't you log in / register and we'll recommend some ideas we think you'll be interested in!
-	<?php
+	</br><?php
 	//include 'functions_think.php';
 	if(isset($_SESSION['usr']))
 	{
