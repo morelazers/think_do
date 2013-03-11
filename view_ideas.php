@@ -11,6 +11,7 @@
     <script>
         $(function echoIncrementIdeaUpvotes(){
            echo' incrementIdeaUpvotes($idea,$_SESSION['usr'],$con); ';
+           alert("VOTED!");
     });
     </script>
     <div class="clear"></div>
