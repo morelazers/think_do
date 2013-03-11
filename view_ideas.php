@@ -16,11 +16,11 @@
     </script>
 
     <script>
-    $(document).ready(function(){
-      $("upvote").click(function(){
-       alert("The paragraph was clicked.");
-      });
-    });
+        $(document).ready(function(){
+          $("voteup").click(function(){
+            $(this).fadeOut();
+          });
+        });
     </script>
 
     <div class="clear"></div>
@@ -52,8 +52,7 @@
                 </ul>
                 <div id="tabs-1">
             ';
-            echo '<div class="upvote">UPVOTE</div>';
-            echo '<input type="button" onclick="echoIncrementIdeaUpvotes();" value="UPVOTE" />';
+            echo '<div class="voteup">UPVOTE</div>';
 
             showIdea($idea);
             echo '<br><hr>';
