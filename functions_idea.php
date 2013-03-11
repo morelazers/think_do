@@ -93,7 +93,7 @@ function getIdeaData($id, $c)
  *	@param Idea $i the given idea
  *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
  */
-function incrementIdeaUpvotes($i, $u, $c)
+function incrementIdeaUpvotes($i, &$u, $c)
 {
 	$i['upVotes']++;
 	var_dump($i);
@@ -103,10 +103,13 @@ function incrementIdeaUpvotes($i, $u, $c)
 	if($u['ideasVotedFor'] == '')
 	{
 		$sql = "UPDATE user SET ideasVotedFor = ".$i['ideaID']."";
+		$u['ideasVotedFor'] = $i['ideaID'];
+		
 	}
 	else
 	{
 		$sql = "UPDATE user SET ideasVotedFor = '".$u['ideasVotedFor'].",".$i['ideaID']."'";
+		$u['ideasVotedFor'] = $u['ideasVotedFor'] . ',' . $i['ideaID'];
 	}
 	var_dump($sql);
 	mysql_query($sql, $c) or die(mysql_error());
