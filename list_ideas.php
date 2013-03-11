@@ -5,13 +5,34 @@
 
 include 'header.php';
 include 'functions_idea.php'; ?>
-    <div class="clear"></div>
-        <div id="post-container">
-        	<div class="post">
+<div class="sidebar">
+	
+	<div class="sidebar">	
+	<h1>Newest Ideas</h1>
+	Here are the newest ideas, why don't you log in / register and we'll recommend some ideas we think you'll be interested in!
+	<?php
+	//include 'functions_think.php';
+	if(isset($_SESSION['usr']))
+	{
+		$u = $_SESSION['usr'];
+		if(isset($u['interests']))
+		{
+			echo '<a href="think_output.php"><img src="images/think.png"/></a><br>';
+		}
+		else
+		{
+			echo "<p>We've noticed you haven't filled out any interests in your profile yet!
+			<br>
+			To get the best out of think.do we recommend that you edit your profile to include a few interests!
+			<br></p>";
+		}
+	}
+	?>
+	</div>
+	<div class="mainRight">
             <?php getIdeas(); ?>
-            </div>
-        </div>
     </div>
+
 <?php include 'footer.php'; ?>
 
 <?php
