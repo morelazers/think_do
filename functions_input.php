@@ -72,6 +72,7 @@ function getInterestIDs($i, $c)
 function getInterestsAsStrings($IDString)
 {
     $IDArray = explode(',', $IDString);
+    var_dump($IDArray);
     $StringArray = array();
     foreach($IDArray as $val)
     {
