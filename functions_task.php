@@ -23,7 +23,7 @@ function displayTasks(&$t)
 	$count = 0;
 	while ($curTask = mysql_fetch_array($t))
 	{
-		if($count == 0 && !isset($curTask))
+		if($count == 0 && $curTask == NULL)
 		{
 			echo 'No gatherings have been proposed for this idea yet!';
 		}
