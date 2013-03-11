@@ -75,9 +75,10 @@ function getInterestsAsStrings($IDString)
     $StringArray = array();
     foreach($IDArray as $val)
     {
-         $StringArray[] = $GLOBALS['interests'][$val];
+        $StringArray[] = $GLOBALS['interests'][$val];
     }
     $interestString = implode(', ', $StringArray);
+    var_dump($interestString);
     return $interestString;
 }
 
