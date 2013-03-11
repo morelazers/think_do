@@ -1,12 +1,31 @@
 ul.tagit {
-    padding: 1px 5px;
+    /*padding: 1px 5px;
     overflow: auto;
     margin-left: inherit; 
     margin-right: inherit;
-    /*border-style: solid;*/
-    /*border-width: 1px;*/
-    /*border-color: #CC8E8E;*/
-    background: inherit;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #CC8E8E;
+    background: inherit;*/
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+ 
+    /* Size and position */
+    margin: 0 auto;
+    width:150px;
+    padding: 10px 18px 10px 45px;
+ 
+    /* Styles */
+    border: none; /* Remove the default border */
+    box-shadow: 
+        inset 0 0 5px rgba(0,0,0,0.1),
+        inset 0 3px 2px rgba(0,0,0,0.1);
+    border-radius: 3px;
+    background: #f9f9f9;
+    color: #777;
+    transition: color 0.3s ease-out;
 }
 ul.tagit li {
     display: block;
