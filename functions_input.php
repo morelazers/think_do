@@ -37,7 +37,7 @@ function getInterestIDs($i, $c)
     {
         //$val = '"' .$val. '"';
         //var_dump($val);
-        if(in_array($val, $GLOBALS['interests']))
+        if(in_array($val, $GLOBALS['interests'][]))
         {
             $IDArray[] = $val;
         }
