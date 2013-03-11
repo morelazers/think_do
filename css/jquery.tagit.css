@@ -120,12 +120,12 @@ ul.tagit input[type="text"] {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     font-size: 13px;
     font-weight: 400;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+    /*text-shadow: 0 1px 0 rgba(255,255,255,0.8);*/
  
     /* Size and position */
     margin: 0 auto;
-    width: 95%;
-    padding:5px 18px 10px 5px;
+    /*width: 95%;
+    padding:5px 18px 10px 5px;*/
  
     /* Styles */
     border: none; /* Remove the default border */
