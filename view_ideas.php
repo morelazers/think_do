@@ -47,11 +47,15 @@
             /*if(isset($_SESSION['usr'])){
                 if(userHasVoted())
             }*/
-            echo '<form method="post" action="'; 
-            echo $PHP_SELF; 
-            echo '">
-            <input type="submit" name="upvote" value="Like this idea">
-            </form>';
+            if(isset($_SESSION['usr'])){
+                if(userHasVoted($idea, $_SESSION['usr'])==false){
+                    echo '<form method="post" action="'; 
+                    echo $PHP_SELF; 
+                    echo '">
+                    <input type="submit" name="upvote" value="Upvote this idea">
+                    </form>';
+                }
+            }
             showIdea($idea);
             echo '<br><hr>';
             getComments($con);
