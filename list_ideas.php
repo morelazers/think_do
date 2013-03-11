@@ -5,7 +5,6 @@
 
 include 'header.php';
 include 'functions_idea.php'; ?>
-<div class="sidebar">
 	
 	<div class="sidebar">	
 	<h1>Newest Ideas</h1>
