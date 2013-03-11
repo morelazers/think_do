@@ -14,15 +14,13 @@
            alert("VOTED!");
     });
     </script>
-
-    <script>
-        $(document).ready(function(){
-          $("voteup").click(function(){
-            $(this).fadeOut();
-          });
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $(".voteup").click(function(){
+alert("VOTED!");
         });
+    });
     </script>
-
     <div class="clear"></div>
         <div id="post-container">
          <div class="post">
@@ -52,7 +50,7 @@
                 </ul>
                 <div id="tabs-1">
             ';
-            echo '<div class="voteup">UPVOTE</div>';
+            echo '<div class="voteup" onclick="$(this).voteup()">UPVOTE</div>';
 
             showIdea($idea);
             echo '<br><hr>';
