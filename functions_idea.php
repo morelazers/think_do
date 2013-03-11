@@ -145,7 +145,6 @@ function userMemberStatus($i, $u, $c){
 	$sql = "SELECT * FROM idea WHERE ideaID = ".$i['ideaID'];
 	$queryResults = mysql_query($sql, $c);
 	$resultString = mysql_fetch_array($queryResults);
-	var_dump($resultString);
 	$resultsArray = explode(",", $resultsString['helpers']);
 	var_dump($resultsArray);
 	if(in_array($u['userID'], $resultsArray)){
@@ -156,7 +155,6 @@ function userMemberStatus($i, $u, $c){
 	$sql = "SELECT * FROM idea WHERE ideaID = ".$i['ideaID'];
 	$queryResults = mysql_query($sql, $c);
 	$resultString = mysql_fetch_array($queryResults);
-	var_dump($resultString);
 	$resultsArray = explode(",", $resultsString['moderators']);
 	var_dump($resultsArray);
 	if(in_array($u['userID'], $resultsArray)){
