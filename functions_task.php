@@ -20,8 +20,13 @@ function getIdeaTasks($i)
 
 function displayTasks(&$t)
 {
+	$count = 0;
 	while ($curTask = mysql_fetch_array($t))
 	{
+		if($count == 0 && !isset($curTask))
+		{
+			echo 'No gatherings have been proposed for this idea yet!';
+		}
 		echo '<tr>';
 		echo '<td><h2><a href="./view_task.php?pid='.$curTask['taskID'].'">'.$curTask['taskName'].'</a></h2></td>';
 		echo '<td>Created by: '.$curTask['username'].' </td>';
@@ -35,6 +40,7 @@ function displayTasks(&$t)
 			echo '<td>No deadline has been specified for this task.</td>';
 		}
 		echo '</tr>';
+		$count++;
 	}
 }
 

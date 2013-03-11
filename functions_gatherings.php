@@ -10,14 +10,20 @@ function getIdeaGatherings($i)
 
 function displayGatherings(&$g)
 {
+	$count = 0;
 	while ($curGath = mysql_fetch_array($g))
 	{
+		if($count == 0 && !isset($curGath))
+		{
+			echo 'No gatherings have been proposed for this idea yet!';
+		}
 		//var_dump($curGath);
 		echo '<tr>';
 		echo '<td><h2><a href="./view_gathering.php?pid='.$curGath['gathID'].'">'.$curGath['gathLocation'].'</a></h2></td>';
 		echo '<td>Proposed Date: '.$curGath['gathDate'].' </td>';
 		echo '<td>Proposed Time: '.$curGath['gathTime'].' </td>';
 		echo '</tr>';
+		$count++;
 	}
 }
 
