@@ -35,16 +35,16 @@ function getInterestIDs($i, $c)
         echo 'one value found';
         if(in_array($i, $GLOBALS['interests']))
         {
-            $IDArray[] = $val;
+            $IDArray[] = $i;
             echo 'found a value in the database<br>';
-            var_dump($val);
+            var_dump($i);
             echo '<br>';
         }
         else
         {
-            $notInDB[] = $val;
+            $notInDB[] = $i;
             echo 'found a value not in the database<br>';
-            var_dump($val);
+            var_dump($i);
             echo '<br>';
         }
     }
