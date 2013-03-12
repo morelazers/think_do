@@ -70,15 +70,13 @@ function getInterestIDs($i, $c)
                 {
                     $IDArray[] = $val;
                     echo 'found a value in the database<br>';
+                    $inDB = true;
                     var_dump($val);
                     echo '<br>';
                 }
-                else
+                if(!$inDB)
                 {
                     $notInDB[] = $val;
-                    echo 'found a value not in the database<br>';
-                    var_dump($val);
-                    echo '<br>';
                 }
             }
         }
