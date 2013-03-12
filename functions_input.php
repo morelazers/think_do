@@ -167,7 +167,7 @@ function getNewInterests($ints, $count)
 function getInterestsAsStrings($IDString)
 {
     $IDArray = explode(',', $IDString);
-    var_dump($IDArray);
+    //var_dump($IDArray);
     $StringArray = array();
     foreach($IDArray as $val)
     {
