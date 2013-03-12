@@ -27,24 +27,20 @@ function inputIsComplete()
 
 function getInterestIDs($i, $c)
 {
-    $iArray = explode(',', $i);
+    $i = explode(',', $i);
     echo 'exploded array<br>';
-    /*if($iArray == $i)
-    {
-        
-    }*/
     
     //var_dump($i);
     $IDArray = array();
     $notInDB = array();
-    foreach($iArray as $val)
+    foreach($i as $val)
     {
         //$val = '"' .$val. '"';
         //var_dump($val);
         if(in_array($val, $GLOBALS['interests']))
         var_dump($val);
 
-        /*if(strcmp(strtolower($val), strtolower($GLOBALS['interests'])) == 0)
+        if(strcmp(strtolower($val), strtolower($GLOBALS['interests'])) == 0)
         {
             $IDArray[] = $val;
         }
@@ -52,10 +48,10 @@ function getInterestIDs($i, $c)
         {
             $notInDB[] = $val;
             echo 'found a value not in the database<br>';
-        }*/
+        }
     }
 
-   /* if(!empty($notInDB))
+    if(!empty($notInDB))
     {
         echo 'inserting new values<br>';
         insertNewInterests($notInDB);
@@ -65,7 +61,7 @@ function getInterestIDs($i, $c)
         {
             $IDArray[] = $newID;
         }
-    }*/
+    }
     $IDString = implode(',', $IDArray);
     echo 'imploded array<br>';
 
