@@ -27,14 +27,14 @@ function inputIsComplete()
 
 function getInterestIDs($i, $c)
 {
-    var_dump($GLOBALS['interests']);
-    $globalInterestCount = count($GLOBALS['interests']);
-    var_dump($GLOBALS['interests']);
+    var_dump($GLOBALS['interestsArray']);
+    $globalInterestCount = count($GLOBALS['interestsArray']);
+    //var_dump($GLOBALS['interestsArray']);
     echo $globalInterestCount.'<br>';
     if(!strpos($i, ','))
     {
         echo 'one value found';
-        if(in_array($i, $GLOBALS['interests']))
+        if(in_array($i, $GLOBALS['interestsArray']))
         {
             $IDArray[] = $i;
             echo 'found a value in the database<br>';
@@ -65,8 +65,8 @@ function getInterestIDs($i, $c)
             $index = 0;
             for($index; $index == $globalInterestCount; $index++)
             {
-                echo $GLOBALS['interests'][$index].'<br>';
-                if(strcmp(strtolower($val), strtolower($GLOBALS['interests'][$index])) == 0)
+                echo $GLOBALS['interestsArray'][$index].'<br>';
+                if(strcmp(strtolower($val), strtolower($GLOBALS['interests~Array'][$index])) == 0)
                 {
                     $IDArray[] = $val;
                     echo 'found a value in the database<br>';
@@ -168,7 +168,7 @@ function getInterestsAsStrings($IDString)
     $StringArray = array();
     foreach($IDArray as $val)
     {
-        $StringArray[] = $GLOBALS['interests'][$val];
+        $StringArray[] = $GLOBALS['interestsArray'][$val];
     }
     $interestString = implode(', ', $StringArray);
     //var_dump($interestString);

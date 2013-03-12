@@ -9,7 +9,7 @@ echo'<script>
 $(function() {
     var availableInterests = [
     ';
-    foreach($GLOBALS['interests'] as $val){
+    foreach($GLOBALS['interestsArray'] as $val){
         echo '"' . $val . '"';
         if ($val != "Zoology"){
             echo ', ';

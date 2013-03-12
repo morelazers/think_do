@@ -23,9 +23,9 @@ function getAllInterests($c)
       $result = mysql_query($sql, $c);
       while(($row = mysql_fetch_row($result))!=null)
       {
-            $GLOBALS['interests'][intval($row[1])] = $row[0];
+            $GLOBALS['interestsArray'][intval($row[1])] = $row[0];
       }
-      var_dump($GLOBALS['interests']);
+      //var_dump($GLOBALS['interests']);
 }
 
 function think($c)
