@@ -56,21 +56,23 @@ function getInterestIDs($i, $c)
         {
             //$val = '"' .$val. '"';
             //var_dump($val);
-            //if(strcmp(strtolower($val), strtolower($GLOBALS['interests'])) == 0)
-            
-            if(in_array($val, $GLOBALS['interests']))
+            //if(in_array($val, $GLOBALS['interests']))
+            foreach($GLOBALS['interests'] as $intVal)
             {
-                $IDArray[] = $val;
-                echo 'found a value in the database<br>';
-                var_dump($val);
-                echo '<br>';
-            }
-            else
-            {
-                $notInDB[] = $val;
-                echo 'found a value not in the database<br>';
-                var_dump($val);
-                echo '<br>';
+                if(strcmp(strtolower($val), strtolower($intVal)) == 0)
+                {
+                    $IDArray[] = $val;
+                    echo 'found a value in the database<br>';
+                    var_dump($val);
+                    echo '<br>';
+                }
+                else
+                {
+                    $notInDB[] = $val;
+                    echo 'found a value not in the database<br>';
+                    var_dump($val);
+                    echo '<br>';
+                }
             }
         }
     }
