@@ -28,7 +28,7 @@ function inputIsComplete()
 function getInterestIDs($i, $c)
 {
     //var_dump($GLOBALS['interestsArray']);
-    $globalInterestCount = count($GLOBALS['interestsArray']);
+    //$globalInterestCount = count($GLOBALS['interestsArray']);
     //var_dump($GLOBALS['interestsArray']);
     //echo $globalInterestCount.'<br>';
     $nameArray = array();
@@ -64,7 +64,7 @@ function getInterestIDs($i, $c)
             //if(in_array($val, $GLOBALS['interests']))
             $inDB = false;
             $index = 0;
-            for($index; $index <= $globalInterestCount; $index++)
+            for($index; $index <= $GLOBALS['maxInterestArrayIndex']; $index++)
             {
                 //echo $index.'<br>';
                 if(strcmp(strtolower($val), strtolower($GLOBALS['interestsArray'][$index])) == 0)
