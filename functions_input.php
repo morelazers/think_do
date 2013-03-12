@@ -27,7 +27,7 @@ function inputIsComplete()
 
 function getInterestIDs($i, $c)
 {
-    $globalInterestCount = count($GLOBALS['interests'][]);
+    $globalInterestCount = count($GLOBALS['interests']);
     echo $globalInterestCount.'<br>';
     if(!strpos($i, ','))
     {
