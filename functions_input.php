@@ -30,35 +30,35 @@ function getInterestIDs($i, $c)
     //var_dump($GLOBALS['interestsArray']);
     $globalInterestCount = count($GLOBALS['interestsArray']);
     //var_dump($GLOBALS['interestsArray']);
-    echo $globalInterestCount.'<br>';
+    //echo $globalInterestCount.'<br>';
     if(!strpos($i, ','))
     {
-        echo 'one value found';
+        //echo 'one value found';
         if(in_array($i, $GLOBALS['interestsArray']))
         {
             $IDArray[] = $i;
-            echo 'found a value in the database<br>';
-            var_dump($i);
-            echo '<br>';
+            //echo 'found a value in the database<br>';
+            //var_dump($i);
+            //echo '<br>';
         }
         else
         {
             $notInDB[] = $i;
-            echo 'found a value not in the database<br>';
-            var_dump($i);
-            echo '<br>';
+            //echo 'found a value not in the database<br>';
+            //var_dump($i);
+            //echo '<br>';
         }
     }
     else
     {
         $i = explode(',', $i);
-        echo 'exploded array<br>';
+        //echo 'exploded array<br>';
         $nameArray = array();
         $IDArray = array();
         $notInDB = array();
         foreach($i as $val)
         {
-            echo $val.'<br>';
+            //echo $val.'<br>';
             //$val = '"' .$val. '"';
             //var_dump($val);
             //if(in_array($val, $GLOBALS['interests']))
@@ -69,10 +69,10 @@ function getInterestIDs($i, $c)
                 //echo $index.'<br>';
                 if(strcmp(strtolower($val), strtolower($GLOBALS['interestsArray'][$index])) == 0)
                 {
-                    echo 'found a value in the database<br>';
+                    //echo 'found a value in the database<br>';
                     $inDB = true;
-                    var_dump($val);
-                    echo '<br>';
+                    //var_dump($val);
+                    //echo '<br>';
                     break;
                 }
             }
@@ -86,7 +86,7 @@ function getInterestIDs($i, $c)
 
     if(!empty($notInDB))
     {
-        echo 'inserting new values<br>';
+        //echo 'inserting new values<br>';
         insertNewInterests($notInDB);
     }
 
@@ -95,13 +95,13 @@ function getInterestIDs($i, $c)
     while($newID = mysql_fetch_array($newIntResultSet))
     {
         $IDArray[] = $newID['ID'];
-        var_dump($newID);
-        echo '<br>';
+        //var_dump($newID);
+        //echo '<br>';
     }
 
     $IDString = implode(',', $IDArray);
-    echo 'imploded array<br>';
-    var_dump($IDString);
+    //echo 'imploded array<br>';
+    //var_dump($IDString);
     return $IDString;
    
     //var_dump($i);
@@ -167,14 +167,14 @@ function getNewInterests($ints, $count)
 function getInterestsAsStrings($IDString)
 {
     $IDArray = explode(',', $IDString);
-    //var_dump($IDArray);
+    var_dump($IDArray);
     $StringArray = array();
     foreach($IDArray as $val)
     {
         $StringArray[] = $GLOBALS['interestsArray'][$val];
     }
     $interestString = implode(', ', $StringArray);
-    //var_dump($interestString);
+    var_dump($interestString);
     return $interestString;
 }
 
