@@ -27,27 +27,45 @@ function inputIsComplete()
 
 function getInterestIDs($i, $c)
 {
-    $i = explode(',', $i);
-    echo 'exploded array<br>';
-    
-    //var_dump($i);
-    $IDArray = array();
-    $notInDB = array();
-    foreach($i as $val)
+    if(!strpos($i, ','))
     {
-        //$val = '"' .$val. '"';
-        //var_dump($val);
-        if(in_array($val, $GLOBALS['interests']))
-        var_dump($val);
-
-        if(strcmp(strtolower($val), strtolower($GLOBALS['interests'])) == 0)
+        echo 'one value found';
+        if(in_array($i, $GLOBALS['interests']))
         {
             $IDArray[] = $val;
+            var_dump($val);
         }
         else
         {
             $notInDB[] = $val;
             echo 'found a value not in the database<br>';
+            var_dump($val);
+        }
+    }
+    else
+    {
+        $i = explode(',', $i);
+        echo 'exploded array<br>';
+
+        $IDArray = array();
+        $notInDB = array();
+        foreach($i as $val)
+        {
+            //$val = '"' .$val. '"';
+            //var_dump($val);
+            //if(strcmp(strtolower($val), strtolower($GLOBALS['interests'])) == 0)
+            
+            if(in_array($val, $GLOBALS['interests']))
+            {
+                $IDArray[] = $val;
+                var_dump($val);
+            }
+            else
+            {
+                $notInDB[] = $val;
+                echo 'found a value not in the database<br>';
+                var_dump($val);
+            }
         }
     }
 
@@ -56,17 +74,18 @@ function getInterestIDs($i, $c)
         echo 'inserting new values<br>';
         insertNewInterests($notInDB);
         echo 'getting new values<br>';
-        $newIntResultSet = getNewInterests();
+        $newIntResultSet = getNewInterests($notInDB, count($notInDB));
         while($newID = mysql_fetch_array($newIntResultSet))
         {
-            $IDArray[] = $newID;
+            $IDArray[] = $newID['ID'];
+            var_dump($newID);
         }
     }
+
     $IDString = implode(',', $IDArray);
     echo 'imploded array<br>';
-
     return $IDString;
-    
+   
     //var_dump($i);
     
     /*$sql = "SELECT ID FROM interests WHERE name IN ($i)";
@@ -106,14 +125,14 @@ function insertNewInterests($newInterests)
     mysql_query($sql) or die(mysql_error());
 }
 
-function getNewInterests()
+function getNewInterests($ints, $count)
 {
     $i = 0;
     $sql = "SELECT * FROM interests WHERE name ";
-    foreach($notInDB as $val)
+    foreach($ints as $val)
     {
         $i++;
-        if($i == $notInDBCount)
+        if($i == $count)
         {
             $sql = $sql . "= '%".$val."%'";
         }
