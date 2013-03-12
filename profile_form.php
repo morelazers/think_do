@@ -60,9 +60,6 @@ if (isset($_SESSION['usr']))
 	$interests = $_POST["interests"];
 	$skills = $_POST["skills"];
    
-	include 'connect.php';
-	include 'functions_user.php';
-	include 'functions_input.php';
     
 	if (isset($_POST["submitPass"]))
 	{
@@ -182,7 +179,7 @@ function showAboutMeForm($u)
     echo '</textarea><br>
 	<label for="interests">What are you interested in?</label><br>
     <input type="text" name="interests" id="interests" value="';
-    echo $u['interests'];
+    echo $interestsToDisplay;
     echo '"><br>
 	<label for="skills">What skills do you have?</label><br>
     <input type="text" name="skills" id="skills" value="';
