@@ -58,15 +58,15 @@ if (isset($_SESSION['usr']))
     {
         /*if (profileInputIsComplete())
         { */  
-            $IDinterests = getInterestIDs($interests, $con);
+        $IDinterests = getInterestIDs($interests, $con);
 
-            $aboutMe = mysql_real_escape_string($aboutMe);
-            $IDinterests = mysql_real_escape_string($IDinterests);
-            $skills = mysql_real_escape_string($skills);
-            
-            updateProfileInfo($con, $aboutMe, $IDinterests, $skills);
-            $_SESSION['usr'] = getUserData($con, $currentUser['username']);
-            $currentUser = $_SESSION['usr'];
+        $aboutMe = mysql_real_escape_string($aboutMe);
+        $IDinterests = mysql_real_escape_string($IDinterests);
+        $skills = mysql_real_escape_string($skills);
+        
+        updateProfileInfo($con, $aboutMe, $IDinterests, $skills);
+        $_SESSION['usr'] = getUserData($con, $currentUser['username']);
+        $currentUser = $_SESSION['usr'];
         /*}*/
     }
 

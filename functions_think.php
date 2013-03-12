@@ -45,7 +45,7 @@ function think($c)
       $interestCount = count($interestArray);
       $i = 0;
       
-      $sql = "SELECT * FROM idea WHERE interests ";
+      $sql = "SELECT * FROM idea WHERE isOpen = 1 AND (interests ";
       
       foreach($interestArray as $val)
       {
@@ -54,7 +54,7 @@ function think($c)
             $i++;
             if($i == ($interestCount))
             {
-                   $sql = $sql . "LIKE '%".$val."%'";
+                   $sql = $sql . "LIKE '%".$val."%')";
             }
             else
             {
