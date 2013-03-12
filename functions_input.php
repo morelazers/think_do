@@ -58,7 +58,7 @@ function getInterestIDs($i, $c)
             //$val = '"' .$val. '"';
             //var_dump($val);
             //if(in_array($val, $GLOBALS['interests']))
-            foreach($GLOBALS['interests'] as $intVal)
+            foreach($GLOBALS['interests'][] as $intVal)
             {
                 echo $intVal.'<br>';
                 if(strcmp(strtolower($val), strtolower($intVal)) == 0)
