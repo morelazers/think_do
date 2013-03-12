@@ -53,7 +53,7 @@ function getInterestIDs($i, $c)
     {
         $i = explode(',', $i);
         echo 'exploded array<br>';
-
+        $nameArray = array();
         $IDArray = array();
         $notInDB = array();
         foreach($i as $val)
@@ -80,7 +80,7 @@ function getInterestIDs($i, $c)
             {
                 $notInDB[] = $val;
             }
-            $IDArray[] = $val;
+            $nameArray[] = $val;
         }
     }
 
@@ -91,7 +91,7 @@ function getInterestIDs($i, $c)
     }
 
     echo 'getting new values<br>';
-    $newIntResultSet = getNewInterests($IDArray, count($IDArray));
+    $newIntResultSet = getNewInterests($nameArray, count($nameArray));
     while($newID = mysql_fetch_array($newIntResultSet))
     {
         $IDArray[] = $newID['ID'];

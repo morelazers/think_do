@@ -82,7 +82,7 @@ if (isset($_SESSION['usr']))
             $IDinterests = getInterestIDs($interests, $con);
 
     		$aboutMe = mysql_real_escape_string($aboutMe);
-    		$IDinterests = mysql_real_escape_string($interests);
+    		$IDinterests = mysql_real_escape_string($IDinterests);
     		$skills = mysql_real_escape_string($skills);
             
     		updateProfileInfo($con, $aboutMe, $IDinterests, $skills);
