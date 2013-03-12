@@ -27,6 +27,8 @@ $(function() {
 if (isset($_SESSION['usr']))
 {
 
+    $currentUser = $_SESSION['usr'];
+
     $oldPass = $_POST["oldPass"];
     $pass1 = $_POST["newPass"];
     $pass2 = $_POST["newPass2"];
@@ -62,7 +64,6 @@ if (isset($_SESSION['usr']))
         }
     }
 
-    $currentUser = $_SESSION['usr'];
     echo '
             <div id="tabs">
                 <ul>
