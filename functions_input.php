@@ -160,7 +160,7 @@ function getNewInterests($ints, $count)
     }
     var_dump($sql);
     $result = mysql_query($sql) or die(mysql_error());
-    return &$result;
+    return $result;
 }
 
 function getInterestsAsStrings($IDString)
