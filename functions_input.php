@@ -27,6 +27,8 @@ function inputIsComplete()
 
 function getInterestIDs($i, $c)
 {
+    $globalInterestCount = count($GLOBALS['interests']);
+    echo $globalInterestCount.'<br>';
     if(!strpos($i, ','))
     {
         echo 'one value found';
@@ -58,7 +60,6 @@ function getInterestIDs($i, $c)
             //$val = '"' .$val. '"';
             //var_dump($val);
             //if(in_array($val, $GLOBALS['interests']))
-            $globalInterestCount = count($GLOBALS['interests']);
             $index = 0;
             for($index; $index == $globalInterestCount; $index++)
             {
