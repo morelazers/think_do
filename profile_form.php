@@ -84,6 +84,7 @@ if (isset($_SESSION['usr']))
             
     		updateProfileInfo($con, $aboutMe, $IDinterests, $skills);
     		$_SESSION['usr'] = getUserData($con, $currentUser['username']);
+            header('Location: modify_profile.php');
     	}
 	}
 	
