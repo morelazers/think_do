@@ -56,8 +56,8 @@ if (isset($_SESSION['usr']))
     }
     if (isset($_POST["submitAboutMe"]))
     {
-        if (profileInputIsComplete())
-        {   
+        /*if (profileInputIsComplete())
+        { */  
             $IDinterests = getInterestIDs($interests, $con);
 
             $aboutMe = mysql_real_escape_string($aboutMe);
@@ -67,7 +67,7 @@ if (isset($_SESSION['usr']))
             updateProfileInfo($con, $aboutMe, $IDinterests, $skills);
             $_SESSION['usr'] = getUserData($con, $currentUser['username']);
             $currentUser = $_SESSION['usr'];
-        }
+        /*}*/
     }
 
     echo '
@@ -137,7 +137,7 @@ function profileInputIsComplete()
 	if (empty($value))
        	{ 
             	array_push($emptyFields, $value);
-        	}
+        }
     }
     if (empty($emptyFields))
     {
