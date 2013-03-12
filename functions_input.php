@@ -151,11 +151,11 @@ function getNewInterests($ints, $count)
         $i++;
         if($i == $count)
         {
-            $sql = $sql . "= '%".$val."%'";
+            $sql = $sql . "= '".$val."'";
         }
         else
         {
-           $sql = $sql . "= '%".$val."%' OR name ";
+           $sql = $sql . "= '".$val."' OR name ";
         }
     }
     var_dump($sql);
