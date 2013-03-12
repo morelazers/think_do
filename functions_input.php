@@ -66,7 +66,7 @@ function getInterestIDs($i, $c)
             $index = 0;
             for($index; $index <= $globalInterestCount; $index++)
             {
-                echo $index.'<br>';
+                //echo $index.'<br>';
                 if(strcmp(strtolower($val), strtolower($GLOBALS['interestsArray'][$index])) == 0)
                 {
                     echo 'found a value in the database<br>';
@@ -158,8 +158,9 @@ function getNewInterests($ints, $count)
            $sql = $sql . "= '%".$val."%' OR name ";
         }
     }
+    var_dump($sql);
     $result = mysql_query($sql) or die(mysql_error());
-    return $result;
+    return &$result;
 }
 
 function getInterestsAsStrings($IDString)
