@@ -36,7 +36,7 @@ function getInterestIDs($i, $c)
         //echo 'one value found';
         if(in_array($i, $GLOBALS['interestsArray']))
         {
-            $IDArray[] = $i;
+            $nameArray[] = $i;
             //echo 'found a value in the database<br>';
             //var_dump($i);
             //echo '<br>';
@@ -90,7 +90,7 @@ function getInterestIDs($i, $c)
         insertNewInterests($notInDB);
     }
 
-    echo 'getting new values<br>';
+    //echo 'getting new values<br>';
     $newIntResultSet = getNewInterests($nameArray, count($nameArray));
     while($newID = mysql_fetch_array($newIntResultSet))
     {
@@ -159,7 +159,7 @@ function getNewInterests($ints, $count)
            $sql = $sql . "= '".$val."' OR name ";
         }
     }
-    var_dump($sql);
+    //var_dump($sql);
     $result = mysql_query($sql) or die(mysql_error());
     return $result;
 }
