@@ -62,6 +62,7 @@ function getInterestIDs($i, $c)
             //$val = '"' .$val. '"';
             //var_dump($val);
             //if(in_array($val, $GLOBALS['interests']))
+            $inDB = false;
             $index = 0;
             for($index; $index <= $globalInterestCount; $index++)
             {
@@ -73,11 +74,12 @@ function getInterestIDs($i, $c)
                     $inDB = true;
                     var_dump($val);
                     echo '<br>';
+                    break;
                 }
-                if(!$inDB)
-                {
-                    $notInDB[] = $val;
-                }
+            }
+            if(!$inDB)
+            {
+                $notInDB[] = $val;
             }
         }
     }
