@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+  <title>PopBox</title>
+  <link rel='stylesheet' href='popbox.css' type='text/css' media='screen' charset='utf-8'>
+  <script type='text/javascript' charset='utf-8' src='http://code.jquery.com/jquery-latest.min.js/jquery.js'></script>
+  <script type='text/javascript' charset='utf-8' src='popbox.js'></script>
+  <style type='text/css' media='screen'>
+</head>
+<body>
+    <div class='popbox'>
+      <a class='open' href='#'>Click Here!</a>
+
+      <div class='collapse'>
+        <div class='box'>
+          <div class='arrow'></div>
+          <div class='arrow-border'></div>
+
+          Content in PopBox goes here :)
+          <a href="#" class="close">close</a>
+        </div>
+      </div>
+    </div>
+        OK
+     <script type='text/javascript'>
+           $(document).ready(function(){
+             $('.popbox').popbox();
+           });
+        </script>
+</body>
+</html>
