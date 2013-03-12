@@ -26,6 +26,47 @@ $(function() {
  </script>';
 if (isset($_SESSION['usr']))
 {
+
+    $oldPass = $_POST["oldPass"];
+    $pass1 = $_POST["newPass"];
+    $pass2 = $_POST["newPass2"];
+    
+    $aboutMe = $_POST["aboutMe"];
+    $interests = $_POST["interests"];
+    $skills = $_POST["skills"];
+   
+    
+    if (isset($_POST["submitPass"]))
+    {
+        if (passInputIsComplete())
+        {
+            if (checkPass($con, $oldPass, $currentUser))
+            {
+                changePass($con, $currentUser, trim($pass1));
+                //$_SESSION['usr'] = getUserData($currentUser['username']);
+            }
+        }
+    }
+    if (isset($_POST["submitAboutMe"]))
+    {
+        if (profileInputIsComplete())
+        {   
+            $IDinterests = getInterestIDs($interests, $con);
+
+            $aboutMe = mysql_real_escape_string($aboutMe);
+            $IDinterests = mysql_real_escape_string($IDinterests);
+            $skills = mysql_real_escape_string($skills);
+            
+            updateProfileInfo($con, $aboutMe, $IDinterests, $skills);
+            $_SESSION['usr'] = getUserData($con, $currentUser['username']);
+        }
+    }
+    
+}
+else
+{
+    header('Location: login.php');
+}
 	
 	$currentUser = $_SESSION['usr'];
 	echo '
@@ -52,47 +93,7 @@ if (isset($_SESSION['usr']))
 	showPassForm();
 	echo '</div></div>';
 		
-	$oldPass = $_POST["oldPass"];
-	$pass1 = $_POST["newPass"];
-	$pass2 = $_POST["newPass2"];
 	
-	$aboutMe = $_POST["aboutMe"];
-	$interests = $_POST["interests"];
-	$skills = $_POST["skills"];
-   
-    
-	if (isset($_POST["submitPass"]))
-	{
-    	if (passInputIsComplete())
-    	{
-    		if (checkPass($con, $oldPass, $currentUser))
-    		{
-    			changePass($con, $currentUser, trim($pass1));
-    			//$_SESSION['usr'] = getUserData($currentUser['username']);
-    		}
-    	}
-	}
-	if (isset($_POST["submitAboutMe"]))
-	{
-		if (profileInputIsComplete())
-    	{   
-            $IDinterests = getInterestIDs($interests, $con);
-
-    		$aboutMe = mysql_real_escape_string($aboutMe);
-    		$IDinterests = mysql_real_escape_string($IDinterests);
-    		$skills = mysql_real_escape_string($skills);
-            
-    		updateProfileInfo($con, $aboutMe, $IDinterests, $skills);
-    		$_SESSION['usr'] = getUserData($con, $currentUser['username']);
-            header('Location: '.$_SERVER['PHP_SELF']); 
-    	}
-	}
-	
-}
-else
-{
-	header('Location: login.php');
-}
 	
     /**
 	*	This function declares an empty array then adds each empty _POST value
