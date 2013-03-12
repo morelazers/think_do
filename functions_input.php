@@ -65,7 +65,7 @@ function getInterestIDs($i, $c)
             $index = 0;
             for($index = 0; $index == $globalInterestCount; $index++)
             {
-                echo $GLOBALS['interestsArray'][$index].'<br>';
+                echo $index.'<br>';
                 if(strcmp(strtolower($val), strtolower($GLOBALS['interestsArray'][$index])) == 0)
                 {
                     $IDArray[] = $val;
