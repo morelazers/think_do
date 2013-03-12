@@ -61,15 +61,9 @@ if (isset($_SESSION['usr']))
             $_SESSION['usr'] = getUserData($con, $currentUser['username']);
         }
     }
-    
-}
-else
-{
-    header('Location: login.php');
-}
-	
-	$currentUser = $_SESSION['usr'];
-	echo '
+
+    $currentUser = $_SESSION['usr'];
+    echo '
             <div id="tabs">
                 <ul>
                     <li><a href="#tabs-1">Edit Profile</a></li>
@@ -77,21 +71,28 @@ else
                     <li><a href="#tabs-3">Change Password</a></li>
                 </ul>
                 <div id="tabs-1">
-	                <h3>Changes will be seen upon logging in again</h3>
+                    <h3>Changes will be seen upon logging in again</h3>
             ';
-	showAboutMeForm($currentUser);
-	echo '
-		</div>
-		<div id="tabs-2">
-			<h3>Changes will be seen upon logging in again</h3>
-		';
-	include 'form_avatar_upload.php';
-	echo '</div>
-		<div id="tabs-3">
-			<h3>Changes will be seen upon logging in again</h3>
-		';
-	showPassForm();
-	echo '</div></div>';
+    showAboutMeForm($currentUser);
+    echo '
+        </div>
+        <div id="tabs-2">
+            <h3>Changes will be seen upon logging in again</h3>
+        ';
+    include 'form_avatar_upload.php';
+    echo '</div>
+        <div id="tabs-3">
+            <h3>Changes will be seen upon logging in again</h3>
+        ';
+    showPassForm();
+    echo '</div></div>';
+    
+}
+else
+{
+    header('Location: login.php');
+}
+	
 		
 	
 	
