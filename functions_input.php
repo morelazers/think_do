@@ -27,6 +27,7 @@ function inputIsComplete()
 
 function getInterestIDs($i, $c)
 {
+    var_dump($GLOBALS['interests']);
     $globalInterestCount = count($GLOBALS['interests']);
     var_dump($GLOBALS['interests']);
     echo $globalInterestCount.'<br>';
