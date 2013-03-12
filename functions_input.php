@@ -27,7 +27,7 @@ function inputIsComplete()
 
 function getInterestIDs($i, $c)
 {
-    var_dump($GLOBALS['interestsArray']);
+    //var_dump($GLOBALS['interestsArray']);
     $globalInterestCount = count($GLOBALS['interestsArray']);
     //var_dump($GLOBALS['interestsArray']);
     echo $globalInterestCount.'<br>';
@@ -63,10 +63,10 @@ function getInterestIDs($i, $c)
             //var_dump($val);
             //if(in_array($val, $GLOBALS['interests']))
             $index = 0;
-            for($index; $index == $globalInterestCount; $index++)
+            for($index = 0; $index == $globalInterestCount; $index++)
             {
                 echo $GLOBALS['interestsArray'][$index].'<br>';
-                if(strcmp(strtolower($val), strtolower($GLOBALS['interests~Array'][$index])) == 0)
+                if(strcmp(strtolower($val), strtolower($GLOBALS['interestsArray'][$index])) == 0)
                 {
                     $IDArray[] = $val;
                     echo 'found a value in the database<br>';
