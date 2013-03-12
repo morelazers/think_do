@@ -49,7 +49,8 @@ if (isset($_SESSION['usr']))
             if (checkPass($con, $oldPass, $currentUser))
             {
                 changePass($con, $currentUser, trim($pass1));
-                //$_SESSION['usr'] = getUserData($currentUser['username']);
+                $_SESSION['usr'] = getUserData($currentUser['username']);
+                $currentUser = $_SESSION['usr'];
             }
         }
     }
@@ -131,24 +132,24 @@ function profileInputIsComplete()
 {  
 	$emptyFields = array();
 	$fields = array($_POST["aboutMe"], $_POST["interests"], $_POST["skills"]);
-        foreach ($fields as $value)
-        {
-		if (empty($value))
-           	{ 
-                	array_push($emptyFields, $value);
-            	}
-        }
-        if (empty($emptyFields))
-        {
-        	//echo "complete profile input";
-		    return true;
-		
-        }
-        else
-        {
-        	//echo "incomplete profile input";
-		    return false;
-        }
+    foreach ($fields as $value)
+    {
+	if (empty($value))
+       	{ 
+            	array_push($emptyFields, $value);
+        	}
+    }
+    if (empty($emptyFields))
+    {
+    	//echo "complete profile input";
+	    return true;
+	
+    }
+    else
+    {
+    	//echo "incomplete profile input";
+	    return false;
+    }
 }
 
 

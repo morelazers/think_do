@@ -31,6 +31,9 @@ function getInterestIDs($i, $c)
     $globalInterestCount = count($GLOBALS['interestsArray']);
     //var_dump($GLOBALS['interestsArray']);
     //echo $globalInterestCount.'<br>';
+    $nameArray = array();
+    $IDArray = array();
+    $notInDB = array();
     if(!strpos($i, ','))
     {
         //echo 'one value found';
@@ -53,9 +56,6 @@ function getInterestIDs($i, $c)
     {
         $i = explode(',', $i);
         //echo 'exploded array<br>';
-        $nameArray = array();
-        $IDArray = array();
-        $notInDB = array();
         foreach($i as $val)
         {
             //echo $val.'<br>';
