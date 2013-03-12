@@ -54,11 +54,13 @@ function getInterestIDs($i, $c)
         $notInDB = array();
         foreach($i as $val)
         {
+            echo $val.'<br>';
             //$val = '"' .$val. '"';
             //var_dump($val);
             //if(in_array($val, $GLOBALS['interests']))
             foreach($GLOBALS['interests'] as $intVal)
             {
+                echo $intVal.'<br>';
                 if(strcmp(strtolower($val), strtolower($intVal)) == 0)
                 {
                     $IDArray[] = $val;
