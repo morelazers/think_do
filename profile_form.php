@@ -61,6 +61,7 @@ if (isset($_SESSION['usr']))
             
             updateProfileInfo($con, $aboutMe, $IDinterests, $skills);
             $_SESSION['usr'] = getUserData($con, $currentUser['username']);
+            $currentUser = $_SESSION['usr'];
         }
     }
 
