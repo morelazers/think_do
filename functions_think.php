@@ -19,12 +19,20 @@ function getUserInterests($u)
 
 function getAllInterests($c)
 {
-      $sql = "SELECT * FROM interests";
+      $maxVal = -1;
+      $currentVal = 0;
+      $sql = "SELECT * FROM interests ORDER BY name";
       $result = mysql_query($sql, $c);
       while(($row = mysql_fetch_row($result))!=null)
       {
             $GLOBALS['interestsArray'][intval($row[1])] = $row[0];
+            $currentVal = intval($row[1]);
+            if($currentVal > $maxVal)
+            {
+                  $GLOBALS['maxInterestArrayIndex'] = $currentVal;
+            }
       }
+
       //var_dump($GLOBALS['interests']);
 }
 

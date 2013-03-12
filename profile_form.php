@@ -9,9 +9,13 @@ echo'<script>
 $(function() {
     var availableInterests = [
     ';
-    foreach($GLOBALS['interestsArray'] as $val){
+    $count = 0;
+    foreach($GLOBALS['interestsArray'] as $val)
+    {
+        $count++;
         echo '"' . $val . '"';
-        if ($val != "Zoology"){
+        if ($count <= $GLOBALS['maxInterestArrayIndex'])
+        {
             echo ', ';
         }
     }
