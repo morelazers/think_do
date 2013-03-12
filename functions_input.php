@@ -101,6 +101,7 @@ function getInterestIDs($i, $c)
 
     $IDString = implode(',', $IDArray);
     echo 'imploded array<br>';
+    var_dump($IDString);
     return $IDString;
    
     //var_dump($i);
