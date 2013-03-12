@@ -79,13 +79,13 @@ if (isset($_SESSION['usr']))
 	{
 		if (profileInputIsComplete())
     	{   
-            $interests = getInterestIDs($interests, $con);
+            $IDinterests = getInterestIDs($interests, $con);
 
     		$aboutMe = mysql_real_escape_string($aboutMe);
-    		$interests = mysql_real_escape_string($interests);
+    		$IDinterests = mysql_real_escape_string($interests);
     		$skills = mysql_real_escape_string($skills);
             
-    		updateProfileInfo($con, $aboutMe, $interests, $skills);
+    		updateProfileInfo($con, $aboutMe, $IDinterests, $skills);
     		$_SESSION['usr'] = getUserData($con, $currentUser['username']);
     	}
 	}
