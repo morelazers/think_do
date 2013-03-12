@@ -25,7 +25,7 @@ function getAllInterests($c)
       {
             $GLOBALS['interests'][intval($row[1])] = $row[0];
       }
-      //var_dump($GLOBALS['interests']);
+      var_dump($GLOBALS['interests']);
 }
 
 function think($c)
