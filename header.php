@@ -97,5 +97,5 @@ getAllInterests($con);
 </div>
 <div class="main">
 <div id="popup-wrapper" style="background-color: #ccc;">I am a popup box. Content can be anything.
-<a id="close-btn" href="#">Close</a>';
+<a id="close-btn" href="#">Close</a></div>';
 ?>
