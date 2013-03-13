@@ -24,6 +24,11 @@ getAllInterests($con);
 	<script language="javascript" type="text/javascript">
 		var dateObject=new Date();
 	</script>
+	<script type="text/javascript">
+		$(function(){
+			$(document).tooltip();
+		})
+	</script>
     <title>think.do</title>
     </head>
     <body>

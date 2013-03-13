@@ -122,7 +122,7 @@ function showForm($i)
 {
     echo '<form method="post" action="'; echo $PHP_SELF; echo '">
     <label for="idea_title"><h2>Name it</h2></label>
-    <input type="text" name="ideaName" id="idea_title" value="';
+    <input type="text" name="ideaName" id="idea_title" title="Idea Name" value="';
 	echo $i["ideaName"];
     echo '"><br>
     <label for="idea_desc"><h2>Describe it</h2></label>
