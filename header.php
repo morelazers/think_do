@@ -95,7 +95,7 @@ getAllInterests($con);
 
 	echo '</div>
 </div>
-<div class="main">;
+<div class="main">
 <div id="popup-wrapper" style="background-color: #ccc;">I am a popup box. Content can be anything.
 <a id="close-btn" href="#">Close</a></div>';
 ?>
