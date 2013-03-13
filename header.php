@@ -24,7 +24,7 @@ getAllInterests($con);
 
 	<script type="text/javascript">
 		$(function () {
-		    $('.'#popup-wrapper'.').modalPopLite({ openButton: '.'#clicker'.', closeButton: .''#close-btn.'' });
+		    $("#popup-wrapper").modalPopLite({ openButton: "#clicker", closeButton: "#close-btn"});
 		});
 	</script>
 
