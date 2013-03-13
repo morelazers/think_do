@@ -58,7 +58,7 @@ if (isset($_SESSION['usr']))
     {
         /*if (profileInputIsComplete())
         { */  
-        if(strcmp($interests, '') != 0)
+        if(isset($interests))
         {
         	$IDinterests = getInterestIDs($interests, $con);	
         }
