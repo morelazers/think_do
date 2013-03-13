@@ -122,19 +122,19 @@ function showForm($i)
 {
     echo '<form method="post" action="'; echo $PHP_SELF; echo '">
     <label for="idea_title"><h2>Name it</h2></label>
-    <input type="text" name="ideaName" id="idea_title" title="Idea Name" value="';
+    <input type="text" name="ideaName" id="idea_title" title="What&#39;s the name of your idea?" value="';
 	echo $i["ideaName"];
     echo '"><br>
     <label for="idea_desc"><h2>Describe it</h2></label>
-    <textarea rows="10" cols="30" name="ideaDescription" id="idea_desc" value="';
+    <textarea rows="10" cols="30" name="ideaDescription" id="idea_desc" title="How would you describe it?" value="';
     echo $i["ideaDescription"]; 
     echo '"></textarea><br>
     <label for="skills"><h2>Desirable Skills</h2></label>
-    <input type="text" name="iSkills" id="skills" value="';
+    <input type="text" name="iSkills" id="skills" title="What skills are you looking for?" value="';
     echo $i["iSkills"];
     echo '"><br><div class="ui-helper-clearfix">
     <label for="interests"><h2>Interests:</h2></label>
-    <input type="text" name="iInterests" id="interests" value="';
+    <input type="text" name="iInterests" id="interests" title="What interests would you want people to have?" value="';
     echo $i["iInterests"];
     echo '"></div><label for="Privacy"><h2>Hide it?</h2></label>';
     if(array_key_exists("iPrivacy", $i))
