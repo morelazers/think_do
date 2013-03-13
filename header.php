@@ -26,12 +26,12 @@ getAllInterests($con);
 	</script>
 	<script type="text/javascript">
 		$(function(){
-			$(document).tooltip({
+			var tooltips = $( "[title]" ).tooltip()
 				position: "center right",
 				offset: [-2, 10],
 				effect: "fade",
 				opacity: 0.8;
-			});
+				);
 		})
 	</script>
     <title>think.do</title>

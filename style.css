@@ -275,12 +275,23 @@ input[type=text], textarea, input[type=password] {
 }
 
 .tooltip{
-	background-color:#000;
-    border:1px solid #fff;
-    padding:10px 15px;
-    width:200px;
-    display:none;
-    color:#fff;
-    text-align:left;
-    font-size:12px;
+	font-size: 10px;
+	position: absolute;
+	z-index: 100000;
+	padding: 5px 8px 4px 8px;
+	background-color: black;
+	color: white;
+	max-width: 200px;
+	text-align: left;
+	border-radius: 3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+
+.tooltip-w, .tooltip-arrow {
+	top: 50%;
+	margin-top: -4px;
+	left: 0; 
+	width: 5px;
+	height: 9px;
 }
