@@ -58,8 +58,11 @@ if (isset($_SESSION['usr']))
     {
         /*if (profileInputIsComplete())
         { */  
-        $IDinterests = getInterestIDs($interests, $con);
-
+        if(isset($interests))
+        {
+        	$IDinterests = getInterestIDs($interests, $con);	
+        }
+        
         $aboutMe = mysql_real_escape_string($aboutMe);
         $IDinterests = mysql_real_escape_string($IDinterests);
         $skills = mysql_real_escape_string($skills);
