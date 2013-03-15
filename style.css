@@ -167,6 +167,7 @@ input[type=submit]:hover, .smallForm a:hover{
 	background-color:#F0F0F0;
 	float:right;
 	width:630px;
+	height: 100%;
 	padding-left:10px;
 	padding-bottom:20px;
 }
