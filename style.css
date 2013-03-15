@@ -141,6 +141,7 @@ input[type=submit]:hover, .smallForm a:hover{
 
 
 .main{
+	height:100%;
 	background-color:#F0F0F0;
 	width:900px;
 	margin-left:auto;
