@@ -1,10 +1,13 @@
+html, body{
+	height: 100%;
+}
+
 body{
 	margin:0px;
 	padding:0px;
 	background-color:#F0F0F0;
 	font-family:"Tahoma";
 	font-size:12px;
-	height:100%;
 }
 
 .header{
@@ -148,6 +151,7 @@ input[type=submit]:hover, .smallForm a:hover{
 	color:#FFFFFF;
 	background-color:#222222;
 	padding-bottom:20px;
+	height: 100%;
 }
 
 .mainRight{
