@@ -263,6 +263,10 @@ input[type=text], textarea, input[type=password] {
 	padding:5px;
 }
 
+#tabs{
+	height: 100%;
+}
+
 .idea{
 	height:54px;
 	margin-bottom:5px;
