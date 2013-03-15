@@ -52,6 +52,9 @@ body{
 	float:left;
 }
 
+#post-container{
+	height:100%;
+}
 .user{
 	float:right;
 	width:200px;
