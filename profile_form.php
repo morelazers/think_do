@@ -2,7 +2,9 @@
 session_start();
 echo'<script>
 	$(function(){
-		$( "#tabs" ).tabs();
+		$( "#tabs" ).tabs({
+            selected: <?php echo (isset($_POST['selected_tab']) ? $_POST['selected_tab'] : 1)?>
+        });
 	});
 </script>
 <script language="javascript" type="text/javascript">
