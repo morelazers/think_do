@@ -13,11 +13,6 @@ function displayGatherings(&$g)
 	$count = 0;
 	while ($curGath = mysql_fetch_array($g))
 	{
-		var_dump($curGath);
-		if($count == 0 && $curGath == null)
-		{
-			echo 'No gatherings have been proposed for this idea yet!';
-		}
 		//var_dump($curGath);
 		echo '<tr>';
 		echo '<td><h2><a href="./view_gathering.php?pid='.$curGath['gathID'].'">'.$curGath['gathLocation'].'</a></h2></td>';
@@ -25,6 +20,11 @@ function displayGatherings(&$g)
 		echo '<td>Proposed Time: '.$curGath['gathTime'].' </td>';
 		echo '</tr>';
 		$count++;
+	}
+	var_dump($curGath);
+	if($count == 0)
+	{
+		echo 'No gatherings have been proposed for this idea yet!';
 	}
 }
 
