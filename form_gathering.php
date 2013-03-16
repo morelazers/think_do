@@ -18,6 +18,7 @@ if(isset($_POST['submitGathering']))
 		VALUES ('".$gDesc."', '".$gLoc."', '".$date."', '".$time."', ".$_SESSION['usr']['userID'].", ".$idea['ideaID'].")";
 		mysql_query($sql) or die(mysql_error());
         $gatherings = getIdeaGatherings($idea);
+        displayGatherings($gatherings);
 	}
 }
 

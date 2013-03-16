@@ -122,10 +122,10 @@
                         </div>
                         <div id="tabs-2">
                     ';
-                        displayTasks($tasks);
                         if(currentUserIsIdeaMod($idea))
                         {
                             include 'task_form.php';
+                            displayTasks($tasks);
                         }
                     echo '
                         </div>
