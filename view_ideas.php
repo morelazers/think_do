@@ -50,6 +50,8 @@
                     include 'functions_input.php';
                     include 'functions_gatherings.php';
         			$idea = getIdea();
+                    $tasks = getIdeaTasks($idea);
+                    $gatherings = getIdeaGatherings($idea);
                     if(isset($_POST['submitComment']))
                     {
                         postComment($parent);
@@ -120,7 +122,7 @@
                         </div>
                         <div id="tabs-2">
                     ';
-                        include 'todo_list.php';
+                        displayTasks($tasks);
                         if(currentUserIsIdeaMod($idea))
                         {
                             include 'task_form.php';
@@ -129,7 +131,7 @@
                         </div>
                         <div id="tabs-3">
                     ';
-                        include 'list_gatherings.php';
+                        displayGatherings($gatherings);
                         if(currentUserIsIdeaMod($idea))
                         {
                             /* JQuery needed here I think, or at the top of the form file */
