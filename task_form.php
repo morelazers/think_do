@@ -21,6 +21,8 @@ if(isset($_POST['submitTask']))
         $_POST['taskDesc'] = null;
         $_POST['taskDeadline'] = null;
 
+        var_dump($PHP_SELF);
+
         header("Location: #");
         //unset($_SESSION['taskToModify']);
 	}
@@ -47,7 +49,7 @@ function showTaskForm()
     else
     {*/
         echo '<form method="post" action="'; 
-        echo $PHP_SELF; 
+        echo $PHP_SELF;
         echo '">
         <label for="taskName">Give the task a title:</label><br>
         <input type="text" name="taskName" id="taskName" value="';
