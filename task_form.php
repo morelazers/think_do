@@ -21,7 +21,8 @@ if(isset($_POST['submitTask']))
         $_POST['taskDesc'] = null;
         $_POST['taskDeadline'] = null;
 
-        var_dump($PHP_SELF);
+        /*var_dump($PHP_SELF);*/
+        $tasks = getIdeaTasks($idea);
 
         header("Location: #");
         //unset($_SESSION['taskToModify']);
