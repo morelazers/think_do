@@ -10,7 +10,7 @@ $tDeadline = $_POST['taskDeadline'];
 
 if(isset($_POST['submitTask']))
 {
-	if(inputIsComplete())
+	if(isset($tName) && isset($tDesc))
 	{
 		$tName = mysql_real_escape_string($tName);
 		$tDesc = mysql_real_escape_string($tDesc);
