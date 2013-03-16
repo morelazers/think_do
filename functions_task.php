@@ -26,6 +26,7 @@ function displayTasks(&$t)
 		echo '<td><h2><a href="./view_task.php?pid='.$curTask['taskID'].'">'.$curTask['taskName'].'</a></h2></td>';
 		echo '<td>Created by: '.$curTask['username'].' </td>';
 		echo '<td>On: '.$curTask['dateCreated'].' </td>';
+		var_dump($curTask['deadline']);
 		if(isset($curTask['deadline']))
 		{
 			echo '<td>Deadline: '.$curTask['deadline'].'</td>';
