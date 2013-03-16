@@ -40,6 +40,7 @@ function getHomepageIdeas($c)
 
 function outputIdeas(&$ideas)
 {
+	$count = 0;
 	//Create a table and output the project creator, created date and project name to table. The project name is linked to the project page
 	while($ideasArray = mysql_fetch_array($ideas))
 	{
@@ -53,7 +54,15 @@ function outputIdeas(&$ideas)
 		echo '<div class="ideaText"><h2><a href="./view_ideas.php?pid='.$iID.'">'.$iName.'</a></h2></br>';
 		echo 'Shared by: ' .$createdBy. ' on: ' .$dateCreated. '</div>';
 		echo '</div>';
+		$count++;
 	}
+	if($count == 0)
+	{
+		echo '<h2>There seem to be no ideas that suit your interests,
+		<br>
+		try updating them to include a few more areas, or post your own idea!</h2>';
+	}
+
 }
 
 /**
