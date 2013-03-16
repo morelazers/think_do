@@ -23,9 +23,10 @@ function displayTasks(&$t)
 	$count = 0;
 	while ($curTask = mysql_fetch_array($t))
 	{
+		var_dump($curTask);
 		if($count == 0 && $curTask == NULL)
 		{
-			echo 'No gatherings have been proposed for this idea yet!';
+			echo 'No tasks have been posted for this idea yet!';
 		}
 		echo '<tr>';
 		echo '<td><h2><a href="./view_task.php?pid='.$curTask['taskID'].'">'.$curTask['taskName'].'</a></h2></td>';

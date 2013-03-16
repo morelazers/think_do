@@ -13,7 +13,8 @@ function displayGatherings(&$g)
 	$count = 0;
 	while ($curGath = mysql_fetch_array($g))
 	{
-		if($count == 0 && !isset($curGath))
+		var_dump($curGath);
+		if($count == 0 && $curGath == null)
 		{
 			echo 'No gatherings have been proposed for this idea yet!';
 		}
