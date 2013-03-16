@@ -60,7 +60,7 @@ function outputIdeas(&$ideas)
 	{
 		echo '<h2>There seem to be no ideas that suit your interests,
 		<br>
-		try updating them to include a few more areas, or post your own idea!</h2>';
+		try updating them to include a few more areas, or share an idea of your own!</h2>';
 	}
 
 }
