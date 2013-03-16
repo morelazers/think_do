@@ -122,7 +122,7 @@
                         </div>
                         <div id="tabs-2">
                     ';
-                        //$tasks = getIdeaTasks($idea);
+                        $tasks = getIdeaTasks($idea);
                         displayTasks($tasks);
                         if(currentUserIsIdeaMod($idea))
                         {
