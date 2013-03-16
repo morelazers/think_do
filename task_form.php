@@ -23,7 +23,7 @@ if(isset($_POST['submitTask']))
 
         /*var_dump($PHP_SELF);*/
         $tasks = getIdeaTasks($idea);
-        var_dump($tasks);
+        var_dump(mysql_fetch_array($tasks));
 
         header("Location: #");
         //unset($_SESSION['taskToModify']);

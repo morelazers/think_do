@@ -7,6 +7,7 @@ function createTask($i, $n, $d, $dline, $u, $c)
 	$sql = "INSERT INTO tasks (ideaID, taskName, username, taskDescription, complete, deadline, dateCreated)
 	VALUES ('".$i['ideaID']."', '".$n."', '".$u['username']."', '".$d."', 0, '".$dline."', '".$now."')";
 	mysql_query($sql, $c) or die(mysql_error());
+	$tasks = getIdeaTasks($i);
 }
 
 
@@ -50,11 +51,11 @@ function doTask($tID)
 	$u = $_SESSION['usr'];
 	if (isset($u['doingTasks']))
 	{
-		$sql = "UPDATE user SET doingTasks='".$tID."'";
+		$sql = "UPDATE user SET doingTasks='".$tID."' WHERE userID = ".$u['userID'];
 	}
 	else
 	{
-		$sql = "UPDATE user SET doingTasks='".$u['doingTasks'].','.$tID."'";
+		$sql = "UPDATE user SET doingTasks='".$u['doingTasks'].','.$tID."' WHERE userID = ".$u['userID'];
 	}
 	mysql_query($sql) or die(mysql_error());
 	$_SESSION['usr'] = getUserData($con, $u['username']);
