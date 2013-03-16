@@ -23,9 +23,7 @@ if(isset($_POST['submitGathering']))
 
 function showGatheringForm()
 {
-	echo '<form method="post" action="';
-    echo $PHP_SELF;
-    echo '">
+	echo '<form method="post" action="#">
     <label for="gatheringDescription">What should the gathering accomplish?</label><br>
     <input type="text" name="gatheringDescription" id="gatheringDescription" value="';
     echo $_POST['gatheringDescription'];
