@@ -21,10 +21,10 @@ function displayGatherings(&$g)
 		echo '</tr>';
 		$count++;
 	}
-	var_dump($curGath);
+	
 	if($count == 0)
 	{
-		echo 'No gatherings have been proposed for this idea yet!';
+		echo '<h2>No gatherings have been proposed for this idea yet!</h2>';
 	}
 }
 

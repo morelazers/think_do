@@ -38,10 +38,10 @@ function displayTasks(&$t)
 		echo '</tr>';
 		$count++;
 	}
-	var_dump($curTask);
+	
 	if($count == 0)
 	{
-		echo 'No tasks have been posted for this idea yet!';
+		echo '<h2>No tasks have been posted for this idea yet!</h2>';
 	}
 }
 
