@@ -122,8 +122,8 @@
                         </div>
                         <div id="tabs-2">
                     ';
-                        $tasks = getIdeaTasks($idea);
-                        displayTasks($tasks);
+                        //$tasks = getIdeaTasks($idea);
+                        //displayTasks($tasks);
                         if(currentUserIsIdeaMod($idea))
                         {
                             include 'task_form.php';

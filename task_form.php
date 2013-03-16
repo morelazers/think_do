@@ -20,15 +20,15 @@ if(isset($_POST['submitTask']))
         $_POST['taskDeadline'] = null;
 
         /*var_dump($PHP_SELF);*/
-        $tasks = getIdeaTasks($idea);
         
         //var_dump(mysql_fetch_array($tasks));
 
-        header("Location: #");
+        //header("Location: #");
         //unset($_SESSION['taskToModify']);
 	}
 }
 
+//$tasks = getIdeaTasks($idea);
 displayTasks($tasks);
 showTaskForm();
 
