@@ -4,10 +4,6 @@
 function createTask($i, $n, $d, $dline, $u, $c)
 {
 	$now = date("Y-m-d H:i:s");
-	if(strcmp($dline, '0000-00-00') == 0)
-	{
-		$dline = null;
-	}
 	$sql = "INSERT INTO tasks (ideaID, taskName, username, taskDescription, complete, deadline, dateCreated)
 	VALUES ('".$i['ideaID']."', '".$n."', '".$u['username']."', '".$d."', 0, '".$dline."', '".$now."')";
 	mysql_query($sql, $c) or die(mysql_error());
@@ -30,7 +26,7 @@ function displayTasks(&$t)
 		echo '<td><h2><a href="./view_task.php?pid='.$curTask['taskID'].'">'.$curTask['taskName'].'</a></h2></td>';
 		echo '<td>Created by: '.$curTask['username'].' </td>';
 		echo '<td>On: '.$curTask['dateCreated'].' </td>';
-		if(isset($curTask['deadline']))
+		if(isset($curTask['deadline']) && $curTask['deadline'] != '0000-00-00')
 		{
 			echo '<td>Deadline: '.$curTask['deadline'].'</td>';
 		}
