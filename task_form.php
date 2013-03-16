@@ -21,7 +21,7 @@ if(isset($_POST['submitTask']))
 
         /*var_dump($PHP_SELF);*/
         $tasks = getIdeaTasks($idea);
-        displayTasks($tasks);
+        //displayTasks($tasks);
         //var_dump(mysql_fetch_array($tasks));
 
         header("Location: #");
