@@ -2,8 +2,6 @@
 
 //include 'connect.php';
 
-showTaskForm();
-
 $tName = $_POST['taskName'];
 $tDesc = $_POST['taskDesc'];
 $tDeadline = $_POST['taskDeadline'];
@@ -30,6 +28,8 @@ if(isset($_POST['submitTask']))
         //unset($_SESSION['taskToModify']);
 	}
 }
+
+showTaskForm();
 
 function showTaskForm()
 {
