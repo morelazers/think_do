@@ -68,8 +68,11 @@ if (isset($_SESSION['usr']))
         $aboutMe = mysql_real_escape_string($aboutMe);
         $IDinterests = mysql_real_escape_string($IDinterests);
         $skills = mysql_real_escape_string($skills);
+
+        var_dump($IDinterests);
         
         updateProfileInfo($con, $aboutMe, $IDinterests, $skills);
+        getAllInterests($con);
         $_SESSION['usr'] = getUserData($con, $currentUser['username']);
         $currentUser = $_SESSION['usr'];
         /*}*/
