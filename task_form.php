@@ -16,10 +16,12 @@ if(isset($_POST['submitTask']))
 		$tDesc = mysql_real_escape_string($tDesc);
 
 		createTask($idea, $tName, $tDesc, $tDeadline, $_SESSION['usr'], $con);
-        
+
         $_POST['taskName'] = null;
         $_POST['taskDesc'] = null;
         $_POST['taskDeadline'] = null;
+
+        header("Location: #");
         //unset($_SESSION['taskToModify']);
 	}
 }
