@@ -1,6 +1,6 @@
 <?php 
 $u = $_SESSION['usr'];
-showUploadForm();
+
 if(isset($_POST['submit']))
 {
 	
@@ -79,6 +79,8 @@ if(isset($_POST['submit']))
 		echo "Invalid file";
 	}
 }
+
+showUploadForm();
 
 function showUploadForm()
 {
