@@ -76,7 +76,7 @@ if(isset($_POST['submit']))
 	}
 	else
 	{
-		echo "Invalid file";
+		echo "<h2>Invalid file</h2>";
 	}
 }
 
