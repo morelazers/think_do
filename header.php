@@ -70,8 +70,6 @@ getAllInterests($con);
 
 			if(isset($_SESSION['usr']) && isset($_SESSION['usr']['avatarLocation']))
 			{
-				//$avLoc = $_SESSION['usr']['avatarLocation'];
-				//var_dump($avLoc);
 				echo '<div class="userImg"><img width="70px" height="70px" src="'.$_SESSION['usr']['avatarLocation'].'"/></div>';
 			}
 			else

@@ -16,7 +16,6 @@ function getIdeaGatherings($i)
 {
 	$sql = "SELECT * FROM gatherings WHERE forIdea = ".$i['ideaID'];
 	$res = mysql_query($sql);
-	//$gaths = mysql_fetch_array($res);
 	return $res;
 }
 
@@ -25,7 +24,6 @@ function displayGatherings(&$g)
 	$count = 0;
 	while ($curGath = mysql_fetch_array($g))
 	{
-		//var_dump($curGath);
 		echo '<tr>';
 		echo '<td><h2><a href="./view_gathering.php?pid='.$curGath['gathID'].'">'.$curGath['gathLocation'].'</a></h2></td>';
 		echo '<td>Proposed Date: '.$curGath['gathDate'].' </td>';

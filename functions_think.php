@@ -9,12 +9,8 @@ function getUserInterests($u)
 {
       $ids = $u['interests'];
       $ids = explode(',', $ids);
-      //var_dump($ids);
       $u['interests'] = $ids;
       $_SESSION['usr'] = $u;
-      //$sql = "SELECT name FROM interests WHERE ID IN ($ids)";
-      //$result = mysql_query($sql, $c);
-      //var_dump($result);
 }
 
 function getAllInterests($c)
@@ -32,8 +28,6 @@ function getAllInterests($c)
                   $GLOBALS['maxInterestArrayIndex'] = $currentVal;
             }
       }
-
-      //var_dump($GLOBALS['interests']);
 }
 
 function think($c)
@@ -49,8 +43,6 @@ function think($c)
       
       foreach($interestArray as $val)
       {
-            //$val = "'".$val."'";
-            //$SQLArrayString[] = $val;
             $i++;
             if($i == ($interestCount))
             {
@@ -61,20 +53,7 @@ function think($c)
                    $sql = $sql . "LIKE '%".$val."%' OR interests ";
             }
       }
-      //var_dump($sql);
-      
-       //'Text%' OR column LIKE 'Hello%' OR column LIKE 'That%'
-      
-      
-      //$sql = "SELECT * FROM idea WHERE interests LIKE (%".$SQLArrayString."%)";
-      //var_dump($sql);
       $res = mysql_query($sql, $c);
-      //var_dump($res);
-/*      while ($resultIdea = mysql_fetch_array($res))
-      {
-            //var_dump($resultIdea);
-            echo '<a href="view_ideas.php?pid='.$resultIdea["ideaID"].'">'.$resultIdea["ideaName"].'</a></br>';
-      }*/
       outputIdeas($res);
 }
 
