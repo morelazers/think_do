@@ -19,6 +19,8 @@ if(isset($_POST['submitTask']))
         $_POST['taskDesc'] = null;
         $_POST['taskDeadline'] = null;
 
+       /* header("Location: #tabs-2");*/
+
         /*var_dump($PHP_SELF);*/
         
         //var_dump(mysql_fetch_array($tasks));
@@ -52,9 +54,7 @@ function showTaskForm()
     }
     else
     {*/
-        echo '<form method="post" action="'; 
-        echo $PHP_SELF;
-        echo '">
+        echo '<form method="post" action="#tabs-2">
         <label for="taskName">Give the task a title:</label><br>
         <input type="text" name="taskName" id="taskName" value="';
         echo $_POST['taskName'];
