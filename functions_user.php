@@ -71,7 +71,7 @@ function checkPass($c, $text, $user)
     }
     else
     {
-        echo 'Your password is incorrect!';
+        echo '<h2>Your password is incorrect!</h2>';
         return false;
     }
 }
@@ -89,7 +89,7 @@ function changePass($c, $user, $newPass)
     $sql="UPDATE user SET password='".$encP."' WHERE username='".trim($user['username'])."'";
     if(!mysql_query($sql, $c))
     {
-        echo "could not update password";
+        echo "Could not update password!";
         die('Error: ' . mysql_error());
     }
     $user['password'] = $encP;
@@ -110,7 +110,7 @@ function updateProfileInfo($c, $a, $i, $s)
     
     if(!mysql_query($sql, $c))
     {
-        echo "could not update profile information";
+        echo "Could not update profile information!";
         die('Error: ' . mysql_error());
     }
 }
