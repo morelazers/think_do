@@ -167,9 +167,7 @@ function profileInputIsComplete()
 	*/
 function showPassForm() 
 {
-	echo '<form method="post" action="'; 
-        echo $PHP_SELF; 
-        echo '">
+	echo '<form method="post" action="#tabs-3">
         <label for="old_password">Old password:</label><br>
         <input type="password" name="oldPass" id="old_password" value=""><br>
 	<label for="new_password">New password:</label><br>

@@ -82,7 +82,7 @@ if(isset($_POST['submit']))
 
 function showUploadForm()
 {
-	echo '<form action="'; echo $PHP_SELF; echo '" method="post"
+	echo '<form action="#tabs-2" method="post"
 	enctype="multipart/form-data">
 	<label for="file">Upload an avatar!: (must be less than 20kb)</label><br>
 	<input type="file" name="file" class="normalButton" id="file"><br>
