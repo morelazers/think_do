@@ -8,13 +8,11 @@ if(isset($_POST['submitGathering']))
 {
 	if(inputIsComplete())
 	{
-		$gDesc = mysql_real_escape_string($_POST['gatheringDescription']);
-		$gLoc = mysql_real_escape_string($_POST['gatheringLocation']);
-		$date = $_POST['gatheringDate'];
-		$time = $_POST['gatheringTime'];
-		$sql = "INSERT INTO gatherings (gathDescription, gathLocation, gathDate, gathTime, proposedBy, forIdea)
-		VALUES ('".$gDesc."', '".$gLoc."', '".$date."', '".$time."', ".$_SESSION['usr']['userID'].", ".$idea['ideaID'].")";
-		mysql_query($sql) or die(mysql_error());
+        createGathering();
+        $_POST['gatheringDescription'] = null;
+        $_POST['gatheringLocation'] = null;
+        $_POST['gatheringDate'] = null;
+        $_POST['gatheringTime'] = null;
 	}
 }
 

@@ -1,5 +1,17 @@
 <?php
 
+function createGathering()
+{
+		$gDesc = mysql_real_escape_string($_POST['gatheringDescription']);
+		$gLoc = mysql_real_escape_string($_POST['gatheringLocation']);
+		$date = $_POST['gatheringDate'];
+		$time = $_POST['gatheringTime'];
+		$sql = "INSERT INTO gatherings (gathDescription, gathLocation, gathDate, gathTime, proposedBy, forIdea)
+		VALUES ('".$gDesc."', '".$gLoc."', '".$date."', '".$time."', ".$_SESSION['usr']['userID'].", ".$idea['ideaID'].")";
+		mysql_query($sql) or die(mysql_error());
+}
+
+
 function getIdeaGatherings($i)
 {
 	$sql = "SELECT * FROM gatherings WHERE forIdea = ".$i['ideaID'];
