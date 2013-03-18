@@ -73,24 +73,6 @@ body{
 	width:120px;
 }
 
-#upVoted input[type=submit], .helperMsg{
-	background-color:#00CC00;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #00CC00;
-	display:inline-block;
-	color:#ffffff;
-	font-family:arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-}
-#upVoted input[type=submit]:hover, .helperMsg:hover{
-	background-color:#00A300;
-	border:1px solid #00A300;
-}
 
 input[type=submit], .smallForm a{
 	background-color:#b30000;
@@ -110,8 +92,24 @@ input[type=submit]:hover, .smallForm a:hover{
 	background-color:#800000;
 	border:1px solid #800000;
 }
-
-
+#upVoted input[type=submit], .helperMsg{
+	background-color:#00CC00;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #00CC00;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+}
+#upVoted input[type=submit]:hover, .helperMsg:hover{
+	background-color:#00A300;
+	border:1px solid #00A300;
+}
 
 .modMsg{
 	background-color:#3366FF;
@@ -183,7 +181,7 @@ input[type=submit]:hover, .smallForm a:hover{
 	background-color:#B30000;
 }
 
-.sidebar h1{
+.sidebar h1,h2{
 	color:#FFFFFF;
 	font-family:"Century Gothic";
 	font-size:25px;
