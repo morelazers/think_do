@@ -21,11 +21,13 @@ getAllInterests($con);
 	<link rel="stylesheet" type="text/css" href="css/jquery.tagit.css">
 	<link href="modalPopLite.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="modalPopLite.min.js"></script>
+<!--
 	<script type="text/javascript">
 		$(function () {
 		    $("#popup-wrapper").modalPopLite({ openButton: "#clicker", closeButton: "#close-btn"});
 		});
 	</script>
+-->
 	<script language="javascript" type="text/javascript">
 		var dateObject=new Date();
 	</script>
