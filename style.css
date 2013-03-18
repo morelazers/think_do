@@ -72,7 +72,8 @@ body{
 	float:left;
 	width:120px;
 }
-.upVoted, .helperMsg{
+
+.upVoted input[type=submit], .helperMsg{
 	background-color:#00CC00;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
@@ -86,10 +87,11 @@ body{
 	padding:6px 24px;
 	text-decoration:none;
 }
-.upVoted:hover, .helperMsg:hover{
+.upVoted:hover input[type=submit], .helperMsg:hover{
 	background-color:#00A300;
 	border:1px solid #00A300;
 }
+
 input[type=submit], .smallForm a{
 	background-color:#b30000;
 	-moz-border-radius:6px;
