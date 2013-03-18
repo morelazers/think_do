@@ -73,7 +73,7 @@ body{
 	width:120px;
 }
 
-.upVoted input[type=submit], .helperMsg{
+#upVoted input[type=submit], .helperMsg{
 	background-color:#00CC00;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
@@ -87,7 +87,7 @@ body{
 	padding:6px 24px;
 	text-decoration:none;
 }
-.upVoted:hover input[type=submit], .helperMsg:hover{
+#upVoted input[type=submit]:hover, .helperMsg:hover{
 	background-color:#00A300;
 	border:1px solid #00A300;
 }
