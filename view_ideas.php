@@ -2,9 +2,30 @@
 /**
 * @author: Nathan Emery
 */
- include 'header.php';
-?>
-	<script>
+    include 'header.php';
+    include 'connect.php';
+    include 'functions_idea.php';
+    include 'functions_comment.php';
+    include 'functions_task.php';
+    include 'functions_input.php';
+    include 'functions_gatherings.php';
+    $idea = getIdea();
+    $tasks = getIdeaTasks($idea);
+    $gatherings = getIdeaGatherings($idea);
+    if(isset($_POST['submitComment']))
+    {
+        postComment($parent);
+    }
+    elseif(isset($_POST['upvote'])){
+        
+        incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
+    }
+    elseif(isset($_POST['joinTeam'])){
+        joinIdeaTeam($idea, $_SESSION['usr'], $con);
+        $idea = getIdea();
+    }
+
+    echo '<script>
 	$(function(){
 		$( "#tabs" ).tabs();
 	});
@@ -12,71 +33,7 @@
     <div class="clear"></div>
         <div id="post-container">
             <div class="post">
-                <div class="sidebar">   
-                    <h1>think.do</h1>
-                    Welcome to think.do! We're a site dedicated to the future, but we need your help!
-                    <br><br>
-                    If you have an idea - be it big or small - we want you to share it here!
-                    <br><br>
-                    We also believe that what goes around comes around, so if you see an idea that you like and think you can help with, give it a shot! You never know what you might achieve together!</p>
-                    <?php
-                    //include 'functions_think.php';
-                    if(isset($_SESSION['usr']))
-                    {
-                        $u = $_SESSION['usr'];
-                        if(isset($u['interests']))
-                        {
-                            echo '<a href="think_output.php"><img src="images/think.png"/></a><br>';
-                        }
-                        else
-                        {
-                            echo "<p>We've noticed you haven't filled out any interests in your profile yet!
-                            <br>
-                            To get the best out of think.do we recommend that you edit your profile to include a few interests!
-                            <br></p>";
-                        }
-                    }
-                    ?>
-                </div>
-    
-                <div class="mainRight">
-                    <?php 
-
-                    include 'connect.php';
-
-                    include 'functions_idea.php';
-                    include 'functions_comment.php';
-                    include 'functions_task.php';
-                    include 'functions_input.php';
-                    include 'functions_gatherings.php';
-        			$idea = getIdea();
-                    $tasks = getIdeaTasks($idea);
-                    $gatherings = getIdeaGatherings($idea);
-                    if(isset($_POST['submitComment']))
-                    {
-                        postComment($parent);
-                    }
-                    elseif(isset($_POST['upvote'])){
-                        
-                        incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
-                    }
-                    elseif(isset($_POST['joinTeam'])){
-                        joinIdeaTeam($idea, $_SESSION['usr'], $con);
-                        $idea = getIdea();
-                    }
-
-                    
-
-                    echo '
-                    <div id="tabs">
-                        <ul>
-                            <li><a href="#tabs-1">Description</a></li>
-                            <li><a href="#tabs-2">Todo List</a></li>
-                            <li><a href="#tabs-3">Gatherings</a></li>
-                        </ul>
-                        <div id="tabs-1">
-                    ';
-                    
+                <div class="sidebar">';
                     if(isset($_SESSION['usr'])){
                         if(userHasVoted($idea, $_SESSION['usr'])==false){
                             echo '<div style="float:right;"><form method="post" action="'; 
@@ -103,6 +60,20 @@
                             echo "<p class='modMsg'>You are an idea moderator</p>";
                         }
                     }
+                    showSidebarContent($idea);
+                echo'</div>
+                <div class="mainRight">';
+                    echo '
+                    <div id="tabs">
+                        <ul>
+                            <li><a href="#tabs-1">Description</a></li>
+                            <li><a href="#tabs-2">Todo List</a></li>
+                            <li><a href="#tabs-3">Gatherings</a></li>
+                        </ul>
+                        <div id="tabs-1">
+                    ';
+                    
+                   
                     showIdea($idea);
                     echo '<br><hr>';
                     getComments($con);
@@ -139,18 +110,13 @@
                         }
                     echo '
                         </div>
-                    </div>
-                    ';
-                    ?>
+                    </div>            
                 </div>
             </div>
-        </div>
-<?php 
+        </div>'; 
 
 include 'footer.php'; 
 
-?>
-<?php
 function showCommentForm()
 {
     echo '<form method="post" action="'; echo $PHP_SELF; echo '">
@@ -191,5 +157,6 @@ function currentUserIsIdeaMod($idea)
     }
     return false;
 }
+
+echo'</div>';
 ?>
-</div>
