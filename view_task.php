@@ -47,7 +47,7 @@ include 'functions_user.php';
 	                    else
 	                    {
 	                    	echo 'name="undoTask" value="I can\'t do this task anymore!"><br>';
-	                    	if(taskIsComplete($taskID) == 1)
+	                    	if(taskIsComplete($taskID))
 	                    	{
 	                    		echo '<input type="submit" name="notComplete" value="This task is not complete yet!"><br>';
 	                    	}
