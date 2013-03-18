@@ -90,7 +90,8 @@ input[type=submit], .smallForm a{
 }
 input[type=submit]:hover, .smallForm a:hover{
 	background-color:#800000;
-	border:1px solid #800000;
+	border:1px
+	 solid #800000;
 }
 #upVoted input[type=submit], .helperMsg{
 	background-color:#00CC00;
