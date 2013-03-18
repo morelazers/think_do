@@ -68,7 +68,6 @@ function displaySingleTask($tID)
 
 function doTask($tID, $u)
 {
-	include 'functions_user.php';
 	if (strcmp($u['doingTasks'], '') == 0)
 	{
 		$sql = "UPDATE user SET doingTasks='".$tID."' WHERE userID = ".$u['userID'];

@@ -2,6 +2,7 @@
 
 include 'header.php';
 include 'functions_task.php';
+include 'functions_user.php';
 
 ?>
 
@@ -45,7 +46,6 @@ include 'functions_task.php';
 	                    }
 	                    echo '</form>';
 	                }
-
 	                displaySingleTask($taskID);
 				}
 
