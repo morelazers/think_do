@@ -17,8 +17,13 @@
         postComment($parent);
     }
     elseif(isset($_POST['upvote'])){
+        if(userHasVoted($idea, $_SESSION['usr'])==false){
+           incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
+        }
+        else{
+           decrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
+        }
         
-        incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
     }
     elseif(isset($_POST['joinTeam'])){
         joinIdeaTeam($idea, $_SESSION['usr'], $con);
@@ -39,11 +44,15 @@
                             echo '<div style="float:right;"><form method="post" action="'; 
                             echo $PHP_SELF; 
                             echo '">
-                            <input type="submit" name="upvote" value="Upvote this idea">
+                            <input type="submit" name="upvote" value="Upvote">
                             </form></div>';
                         }
                         else{
-                            echo "<p class='upVoted'>You've already upvoted this idea!</p>";
+                            echo '<form method="post" action="'; 
+                            echo $PHP_SELF; 
+                            echo '">
+                            <input type="submit" name="upVoted" value="Upvoted">
+                            </form>';
                         }
                         $ideaMember = userMemberStatus($idea, $_SESSION['usr'], $con);
                         if($ideaMember == 0){
