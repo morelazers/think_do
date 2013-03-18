@@ -16,16 +16,16 @@
     {
         postComment($parent);
     }
-    elseif(isset($_POST['upvote'])){
-        if(userHasVoted($idea, $_SESSION['usr'])==false){
-           incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
-        }
-        else{
-           decrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
-        }
-        
+    elseif(isset($_POST['upvote']))
+    {
+        incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
     }
-    elseif(isset($_POST['joinTeam'])){
+    elseif(isset($_POST['upVoted']))
+    {
+        decrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
+    }
+    elseif(isset($_POST['joinTeam']))
+    {
         joinIdeaTeam($idea, $_SESSION['usr'], $con);
         $idea = getIdea();
     }

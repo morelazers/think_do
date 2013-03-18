@@ -127,21 +127,8 @@ function incrementIdeaUpvotes($i, &$u, $c)
 function decrementIdeaUpvotes($i, &$u, $c)
 {
 	$i['upVotes']--;
-	//var_dump($i);
 	$sql = "UPDATE idea SET upVotes = ".$i['upVotes']." WHERE ideaID =".$i['ideaID'];
-	//var_dump($sql);
 	mysql_query($sql, $c) or die(mysql_error());
-	/*if($u['ideasVotedFor'] == '')
-	{
-		$sql = "UPDATE user SET ideasVotedFor = ".$i['ideaID']." WHERE userID = ".$u['userID'];
-		$u['ideasVotedFor'] = $i['ideaID'];
-		
-	}
-	else
-	{
-		$sql = "UPDATE user SET ideasVotedFor = '".$u['ideasVotedFor'].",".$i['ideaID']."' WHERE userID = ".$u['userID'];
-		$u['ideasVotedFor'] = $u['ideasVotedFor'] . ',' . $i['ideaID'];
-	}*/
 	$sql = "SELECT ideasVotedFor FROM user WHERE userID = ".$u['userID'];
 	$res = mysql_query($sql) or die(mysql_error());
 	$ideasString = mysql_fetch_array($res);
@@ -157,8 +144,7 @@ function decrementIdeaUpvotes($i, &$u, $c)
 	$ideasString = implode(',', $ideasArray);
 	$sql = "UPDATE user SET ideasVotedFor = '".$ideasString."' WHERE userID = ".$u['userID'];
 	$u['ideasVotedFor'] = $ideasString;
-
-	//var_dump($sql);
+	
 	mysql_query($sql, $c) or die(mysql_error());
 }
 
