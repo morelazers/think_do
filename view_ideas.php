@@ -51,7 +51,7 @@
                             echo '<form method="post" action="'; 
                             echo $PHP_SELF; 
                             echo '">
-                            <input type="submit" name="upVoted" value="Upvoted">
+                            <input class="upVoted" type="submit" name="upVoted" value="Upvoted">
                             </form>';
                         }
                         $ideaMember = userMemberStatus($idea, $_SESSION['usr'], $con);
