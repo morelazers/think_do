@@ -196,7 +196,7 @@ function userMemberStatus($i, $u, $c){
 function showIdea($i)
 {
 	//Output project information with appropriate markup
-	echo '<h2>'.$i['ideaName'].'</h2><br>';
+	echo '<h2>'.$i['ideaName'].'</h2>';
 	echo '<p>'.$i['description'].'</p><br>';
 }
 
@@ -204,7 +204,7 @@ function showSidebarContent($i)
 {
 	echo '<h2>Skills Needed:</h2>';
 	echo '<p>'.$i['skillsRequired'].'</p><br>';
-	echo '<h3>Idea Tags:</h3><br>';
+	echo '<h3>Idea Tags:</h3>';
 	echo '<p>'.getInterestsAsStrings($i['interests']).'</p>';	
 }
 
