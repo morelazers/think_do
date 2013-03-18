@@ -27,6 +27,10 @@ include 'functions_user.php';
 					{
 						markTaskAsComplete($taskID, $_SESSION['usr']);
 					}
+					else if(isset($_POST['notComplete']))
+					{
+						markTaskAsNotComplete($taskID);
+					}
 					$_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
 					
 					/* this needs to be in the sidebarrrrrrrrrrrrrrrrrr */
@@ -43,7 +47,7 @@ include 'functions_user.php';
 	                    else
 	                    {
 	                    	echo 'name="undoTask" value="I can\'t do this task anymore!"><br>';
-	                    	if(!taskIsComplete($taskID))
+	                    	if(taskIsComplete($taskID) == 0)
 	                    	{
 	                    		echo '<input type="submit" name="markAsComplete" value="I\'ve completed this task!"><br>';
 	                    	}
@@ -53,8 +57,7 @@ include 'functions_user.php';
 	                    	}
 	                    	
 	                    	/* 
-                    		need to make the markascomplete button disappear after it's been pressed, also preferably have some visual indicator both on the todolist and here 
-                    	    the function taskIsComplete($taskID) will tell you if it's complete or not
+                    		need some visual indicator both on the todolist and here to show whether the task is complete or not
 	                    	*/
 	                    }
 	                    echo '</form>';

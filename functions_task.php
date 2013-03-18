@@ -10,6 +10,12 @@ function createTask($i, $n, $d, $og, $dline, $u, $c)
 	$tasks = getIdeaTasks($i);
 }
 
+function getTaskData($tID)
+{
+	$sql = "SELECT * FROM tasks WHERE taskID=".$tID;
+	$res = mysql_query($sql) or die(mysql_error());
+	return mysql_fetch_array($res);
+}
 
 function getIdeaTasks($i)
 {
@@ -103,6 +109,12 @@ function undoTask($taskID, $u)
 function markTaskAsComplete($tID, $u)
 {
 	$sql = "UPDATE tasks SET complete=1 WHERE taskID=".$tID;
+	mysql_query($sql) or die(mysql_error());
+}
+
+function markTaskAsNotComplete($tID, $u)
+{
+	$sql = "UPDATE tasks SET complete=0 WHERE taskID=".$tID;
 	mysql_query($sql) or die(mysql_error());
 }
 
