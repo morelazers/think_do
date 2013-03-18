@@ -47,13 +47,13 @@ include 'functions_user.php';
 	                    else
 	                    {
 	                    	echo 'name="undoTask" value="I can\'t do this task anymore!"><br>';
-	                    	if(taskIsComplete($taskID) == 0)
+	                    	if(taskIsComplete($taskID) == 1)
 	                    	{
-	                    		echo '<input type="submit" name="markAsComplete" value="I\'ve completed this task!"><br>';
+	                    		echo '<input type="submit" name="notComplete" value="This task is not complete yet!"><br>';
 	                    	}
 	                    	else
 	                    	{
-	                    		echo '<input type="submit" name="notComplete" value="This task is not complete yet!"><br>';
+	                    		echo '<input type="submit" name="markAsComplete" value="I\'ve completed this task!"><br>';
 	                    	}
 	                    	
 	                    	/* 
