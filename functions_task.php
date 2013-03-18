@@ -85,7 +85,7 @@ function undoTask($taskID, $u)
 {
 	$taskArray = explode(',', $u['doingTasks']);
 	$i = 0;
-	for($i; $i < count($taskArray); $i++)
+	for($i; $i <= count($taskArray); $i++)
 	{
 		if($taskArray[$i] == $taskID)
 		{
@@ -108,14 +108,15 @@ function markTaskAsComplete($tID, $u)
 function userIsDoingTask($tID, $u)
 {
 	$taskList = explode(',', $u['doingTasks']);
-	if(in_array($tID, $taskList))
+	$i = 0;
+	for($i; $i <= count($taskList); $i++)
 	{
-		return 1;
+		if($taskList[$i] == $tID)
+		{
+			return 1;
+		}
 	}
-	else
-	{
-		return 0;
-	}
+	return 0;
 }
 
 
