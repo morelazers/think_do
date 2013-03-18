@@ -93,7 +93,8 @@ input[type=submit]:hover, .smallForm a:hover{
 	border:1px
 	 solid #800000;
 }
-#upVoted input[type=submit], .helperMsg{
+
+#upVoted, .helperMsg{
 	background-color:#00CC00;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
@@ -107,7 +108,8 @@ input[type=submit]:hover, .smallForm a:hover{
 	padding:6px 24px;
 	text-decoration:none;
 }
-#upVoted input[type=submit]:hover, .helperMsg:hover{
+
+#upVoted:hover, .helperMsg:hover{
 	background-color:#00A300;
 	border:1px solid #00A300;
 }
