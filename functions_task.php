@@ -35,6 +35,10 @@ function displayTasks(&$t)
 		{
 			echo '<td>No deadline has been specified for this task.</td>';
 		}
+		if($curTask['ongoing'] == 1)
+		{
+			echo '<br><td>This task is ongoing!</td>';
+		}
 		echo '</tr>';
 		$count++;
 	}
