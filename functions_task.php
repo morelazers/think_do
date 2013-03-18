@@ -45,6 +45,27 @@ function displayTasks(&$t)
 	}
 }
 
+function displaySingleTask($tID)
+{
+	$sql = "SELECT * FROM tasks WHERE taskID =" . $tID;
+	$res = mysql_query($sql) or die(mysql_error());
+	//Get project data for the project from the database
+	$task = mysql_fetch_array($res);
+	//var_dump($task);
+	
+	if ($task == null)
+	{
+   		header('Location: error_page.php');
+   		//echo 'help';
+    }
+	else
+	{
+		echo '<h2>'.$task['taskName'].'</h2><br>';
+		echo '<h3>Task Description:</h3><br>';
+		echo '<p>'.$task['taskDescription'].'</p><br>';
+	}
+}
+
 function doTask($tID)
 {
 	include 'functions_user.php';
