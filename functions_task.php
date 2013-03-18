@@ -85,7 +85,7 @@ function doTask($tID)
 function userIsDoingTask($tID, $u)
 {
 	$taskList = explode(',', $u['doingTasks']);
-	if(in_array($tID, $taskList)
+	if(in_array($tID, $taskList))
 	{
 		return 1;
 	}
