@@ -66,20 +66,42 @@ function displaySingleTask($tID)
 	}
 }
 
-function doTask($tID)
+function doTask($tID, $u)
 {
 	include 'functions_user.php';
-	$u = $_SESSION['usr'];
 	if (strcmp($u['doingTasks'], '') == 0)
 	{
 		$sql = "UPDATE user SET doingTasks='".$tID."' WHERE userID = ".$u['userID'];
 	}
 	else
 	{
-		$sql = "UPDATE user SET doingTasks='".$u['doingTasks'].','.$tID."' WHERE userID = ".$u['userID'];
+		$sql = "UPDATE user SET doingTasks='".$u['doingTasks'].",".$tID."' WHERE userID = ".$u['userID'];
 	}
 	mysql_query($sql) or die(mysql_error());
 	$_SESSION['usr'] = getUserData($con, $u['username']);
+}
+
+function undoTask($taskID, $u)
+{
+	$taskArray = explode(',', $u['doingTasks']);
+	$i = 0;
+	for($i; $i <= count($taskArray); $i++)
+	{
+		if(strcmp($taskArray[$i], $taskID) == 0)
+		{
+			$taskArray[$i] = null;
+		}
+	}
+	$taskList = implode(',', $taskArray);
+	$sql = "UPDATE user SET doingTasks='".$taskList."' WHERE userID=".$u['userID'];
+	mysql_query($sql) or die(mysql_error());
+	$_SESSION['usr'] = getUserData($con, $u['username']);
+}
+
+function markTaskAsComplete($tID, $u)
+{
+	$sql = "UPDATE tasks SET complete=1 WHERE taskID=".$tID;
+	mysql_query($sql) or die(mysql_error());
 }
 
 function userIsDoingTask($tID, $u)

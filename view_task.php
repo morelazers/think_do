@@ -16,7 +16,15 @@ include 'functions_task.php';
 
 					if(isset($_POST['doTask']))
 					{
-						doTask($taskID);
+						doTask($taskID, $_SESSION['usr']);
+					}
+					else if(isset($_POST['undoTask']))
+					{
+						undoTask($taskID, $_SESSION['usr']);
+					}
+					else if(isset($_POST['markAsComplete']))
+					{
+						markTaskAsComplete($taskID, $_SESSION['usr']);
 					}
 					
 					/* this needs to be in the sidebarrrrrrrrrrrrrrrrrr */
@@ -33,8 +41,7 @@ include 'functions_task.php';
 	                    else
 	                    {
 	                    	echo 'name="undoTask" value="I can\'t do this task anymore!"><br>
-	                    	<input type="submit" name="markAsComplete" value="I\'ve completed this task!">';
-
+	                    	<input type="submit" name="markAsComplete" value="I\'ve completed this task!"><br>';
 	                    }
 	                    echo '</form>';
 	                }
