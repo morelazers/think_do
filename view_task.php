@@ -44,6 +44,7 @@ include 'functions_user.php';
 	                    {
 	                    	echo 'name="undoTask" value="I can\'t do this task anymore!"><br>
 	                    	<input type="submit" name="markAsComplete" value="I\'ve completed this task!"><br>';
+	                    	/* need to make the markascomplete button disappear after it's been pressed, also preferably have some visual indicator both on the todolist and here */
 	                    }
 	                    echo '</form>';
 	                }
