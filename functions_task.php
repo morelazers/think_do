@@ -82,5 +82,18 @@ function doTask($tID)
 	$_SESSION['usr'] = getUserData($con, $u['username']);
 }
 
+function userIsDoingTask($tID, $u)
+{
+	$taskList = explode(',', $u['doingTasks']);
+	if(in_array($tID, $taskList)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
 
 ?>

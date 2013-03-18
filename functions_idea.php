@@ -187,8 +187,8 @@ function userMemberStatus($i, $u, $c){
 	}
 	
 	return 0;
-	
 }
+
 /**
  *  Function to output the data from the idea to the page
  *  @param idea $i assosciative array containing the fields fom thr idea table

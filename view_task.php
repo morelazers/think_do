@@ -25,8 +25,18 @@ include 'functions_task.php';
 	                    echo '<form method="post" action="'; 
 	                    echo $PHP_SELF; 
 	                    echo '">
-	                    <input type="submit" name="doTask" value="I\'ll help do this task!">
-	                    </form>';
+	                    <input type="submit" ';
+	                    if(!userIsDoingTask($taskID, $_SESSION['usr']))
+	                    {
+	                    	echo 'name="doTask" value="I\'ll help do this task!">';
+	                    }
+	                    else
+	                    {
+	                    	echo 'name="undoTask" value="I can\'t do this task anymore!"><br>
+	                    	<input type="submit" name="markAsComplete" value="I\'ve completed this task!">';
+
+	                    }
+	                    echo '</form>';
 	                }
 
 	                displaySingleTask($taskID);
