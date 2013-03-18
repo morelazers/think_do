@@ -77,7 +77,6 @@ function doTask($tID, $u)
 		$sql = "UPDATE user SET doingTasks='".$u['doingTasks'].",".$tID."' WHERE userID = ".$u['userID'];
 	}
 	mysql_query($sql) or die(mysql_error());
-	$_SESSION['usr'] = getUserData($con, $u['username']);
 }
 
 function undoTask($taskID, $u)
@@ -95,7 +94,6 @@ function undoTask($taskID, $u)
 	$taskList = implode(',', $taskArray);
 	$sql = "UPDATE user SET doingTasks='".$taskList."' WHERE userID=".$u['userID'];
 	mysql_query($sql) or die(mysql_error());
-	$_SESSION['usr'] = getUserData($con, $u['username']);
 }
 
 function markTaskAsComplete($tID, $u)

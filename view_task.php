@@ -27,6 +27,7 @@ include 'functions_user.php';
 					{
 						markTaskAsComplete($taskID, $_SESSION['usr']);
 					}
+					$_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
 					
 					/* this needs to be in the sidebarrrrrrrrrrrrrrrrrr */
 					if($ideaMember == 0)
