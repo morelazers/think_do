@@ -1,11 +1,11 @@
 <?php
 
 
-function createTask($i, $n, $d, $dline, $u, $c)
+function createTask($i, $n, $d, $og, $dline, $u, $c)
 {
 	$now = date("Y-m-d H:i:s");
-	$sql = "INSERT INTO tasks (ideaID, taskName, username, taskDescription, complete, deadline, dateCreated)
-	VALUES ('".$i['ideaID']."', '".$n."', '".$u['username']."', '".$d."', 0, '".$dline."', '".$now."')";
+	$sql = "INSERT INTO tasks (ideaID, taskName, username, taskDescription, ongoing, complete, deadline, dateCreated)
+	VALUES ('".$i['ideaID']."', '".$n."', '".$u['username']."', '".$d."', ".$og.", 0, '".$dline."', '".$now."')";
 	mysql_query($sql, $c) or die(mysql_error());
 	$tasks = getIdeaTasks($i);
 }
@@ -100,6 +100,21 @@ function markTaskAsComplete($tID, $u)
 {
 	$sql = "UPDATE tasks SET complete=1 WHERE taskID=".$tID;
 	mysql_query($sql) or die(mysql_error());
+}
+
+function taskIsComplete($tID)
+{
+	$sql = "SELECT complete FROM tasks WHERE taskID=".$tID;
+	$res = mysql_query($sql) or die(mysql_error());
+	$compl = mysql_fetch_array($res);
+	if($compl)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 function userIsDoingTask($tID, $u)

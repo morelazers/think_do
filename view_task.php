@@ -42,9 +42,20 @@ include 'functions_user.php';
 	                    }
 	                    else
 	                    {
-	                    	echo 'name="undoTask" value="I can\'t do this task anymore!"><br>
-	                    	<input type="submit" name="markAsComplete" value="I\'ve completed this task!"><br>';
-	                    	/* need to make the markascomplete button disappear after it's been pressed, also preferably have some visual indicator both on the todolist and here */
+	                    	echo 'name="undoTask" value="I can\'t do this task anymore!"><br>';
+	                    	if(!taskIsComplete($taskID))
+	                    	{
+	                    		echo '<input type="submit" name="markAsComplete" value="I\'ve completed this task!"><br>';
+	                    	}
+	                    	else
+	                    	{
+	                    		echo '<input type="submit" name="notComplete" value="This task is not complete yet!"><br>';
+	                    	}
+	                    	
+	                    	/* 
+                    		need to make the markascomplete button disappear after it's been pressed, also preferably have some visual indicator both on the todolist and here 
+                    	    the function taskIsComplete($taskID) will tell you if it's complete or not
+	                    	*/
 	                    }
 	                    echo '</form>';
 	                }

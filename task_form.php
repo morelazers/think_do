@@ -5,15 +5,24 @@
 $tName = $_POST['taskName'];
 $tDesc = $_POST['taskDesc'];
 $tDeadline = $_POST['taskDeadline'];
+$tOngoing = $_POST['ongoing'];
 
 if(isset($_POST['submitTask']))
 {
-	if(isset($tName) && isset($tDesc))
+	if(isset($tName) && isset($tDesc) && isset($tOngoing))
 	{
 		$tName = mysql_real_escape_string($tName);
 		$tDesc = mysql_real_escape_string($tDesc);
+        if(strcmp($tOngoing, "ongoing") == 0)
+        {
+            $taskIsOngoing = 1;
+        }
+        else
+        {
+            $taskIsOngoing = 0;
+        }
 
-		createTask($idea, $tName, $tDesc, $tDeadline, $_SESSION['usr'], $con);
+		createTask($idea, $tName, $tDesc, $taskIsOngoing, $tDeadline, $_SESSION['usr'], $con);
 
         $_POST['taskName'] = null;
         $_POST['taskDesc'] = null;
@@ -66,8 +75,27 @@ function showTaskForm()
         <label for="taskDeadline">Does this need to be done by a particular date?</label><br>
         <input type="date" name="taskDeadline" id="taskDeadline" value="';
         echo $_POST['taskDeadline'];
-        echo '"><br>
-        <input type="submit" name="submitTask" value="Submit">
+        echo '"><br>';
+        if(array_key_exists("ongoing", $_POST))
+        {
+            if(strcmp($_POST['ongoing'], "ongoing") == 0)
+            {
+                echo '<input type="radio" name="ongoing" id="ongoingRB" value="ongoing" checked="checked">Ongoing task
+                <input type="radio" name="ongoing" id="ongoingRB" value="single">Single task<br>';
+            }
+            else
+            {
+                echo '<input type="radio" name="ongoing" id="ongoingRB" value="ongoing">Ongoing task
+                <input type="radio" name="ongoing" id="ongoingRB" value="single" checked="checked">Single task<br>';
+            }
+        }
+        else
+        {
+            echo '<input type="radio" name="ongoing" id="ongoingRB" value="ongoing">Ongoing task
+            <input type="radio" name="ongoing" id="ongoingRB" value="single">Single task<br>';
+        }
+        
+        echo '<input type="submit" name="submitTask" value="Submit">
         </form>';
    /* }*/
 }
