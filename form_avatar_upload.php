@@ -4,6 +4,8 @@ $u = $_SESSION['usr'];
 if(isset($_POST['submit']))
 {
 	
+	//mkdir('www/test',0777,true);
+	
 	$allowedExts = array("jpg", "jpeg", "gif", "png");
 	$extension = end(explode(".", $_FILES["file"]["name"]));
 	if ((($_FILES["file"]["type"] == "image/gif")
@@ -18,10 +20,17 @@ if(isset($_POST['submit']))
 			echo "Error: " . $_FILES["file"]["error"] . "<br>";
 		}
 		else
-		{			
+		{
+			//echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+			//echo "Type: " . $_FILES["file"]["type"] . "<br>";
+			//echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+			
 			$dirToStoreIn = "/var/www/upload/".$u['username']."/";
 			
 			$dirExists = is_dir($dirToStoreIn);
+			//var_dump($dirExists);
+			
+			//echo dirname( __FILE__ );
 			
 			if(!$dirExists)
 			{
@@ -30,8 +39,13 @@ if(isset($_POST['submit']))
 			   		echo 'Error creating directory!';
 			   		die();
 			   	}
+			   	//var_dump($success);
 			}
 			
+			//echo "Stored in: " . $_FILES["file"]["tmp_name"];
+
+			//$_FILES["file"]["name"] = "avatar.jpg";
+	
 			if (file_exists($dirToStoreIn . $_FILES["file"]["name"]))
 	      	{
 	      		echo $_FILES["file"]["name"] . " already exists. ";
@@ -44,15 +58,20 @@ if(isset($_POST['submit']))
 			    {
 			   		$sqlDir = "/upload/".$u['username']."/".basename($_FILES["file"]["name"]);
 			   		$sql = "UPDATE user SET avatarLocation = '".$sqlDir."' WHERE userID =".$u['userID'];
+			   		//var_dump($sql);
 			   		mysql_query($sql, $con) or die(mysql_error());
 			   		echo 'Upload successful!';
+			   		//$_SESSION['usr'] = getUserData($con, $u['username']);
 			    }
 			    else
 			    {
 			   		echo 'Error moving the file to the correct directory!';
 			   		die();
 			    }
-		    }
+			   
+			    //$dirToStoreIn = "upload/".$u['username'];
+			    //echo "Stored in: " . $dirToStoreIn;
+		      }
 		}
 	}
 	else

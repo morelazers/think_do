@@ -29,6 +29,16 @@ $eKey = 'TOPSECRET';
 	}
  }
 
+/*function getUserAvatar()
+{
+    $u = $_SESSION['usr'];
+    $sql = "SELECT avatarLocation FROM user WHERE userID = ".$u['userID'];
+    $res = mysql_query($sql) or die(mysql_error());
+    $avatarLocation = mysql_fetch_array($res);
+    $u['avatar'] = $avatarLocation['fileLocation'];
+    $_SESSION['usr'] = $u;
+}*/
+
 
 /**
  *  MySQL function to verify that the entered password is correct during a login attempt
@@ -41,12 +51,20 @@ function checkPass($c, $text, $user)
     global $eKey;
     $salt = md5($eKey);
     $decPass = (sha1($salt.$text));
+    /*
+    $sql = "SELECT password FROM user WHERE username = '" . $user['username'] . "'";
+    $resultRow = mysql_query($sql, $c);
+    $pass = mysql_fetch_assoc($resultRow);
+    var_dump($pass);
+    var_dump($decPass);
     */
     /*
     *   Replaced '==' comparison with strcmp() and surrounded the args with trim()
     *   to ensure an accurate comparison
     *   -Nathan
     */
+    //var_dump($user);
+    //var_dump($decPass);
     if (strcmp(trim($user['password']), trim($decPass)) == 0)
     {
         return true;
@@ -189,6 +207,8 @@ function displayProfile($u)
 
     foreach($likedIdeasArray as $val)
     {
+        //$val = "'".$val."'";
+        //$SQLArrayString[] = $val;
         $i++;
         if($i == ($ideasCount))
         {

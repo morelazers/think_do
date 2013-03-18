@@ -57,7 +57,9 @@ if (isset($_SESSION['usr']))
         }
     }
     if (isset($_POST["submitAboutMe"]))
-    { 
+    {
+        /*if (profileInputIsComplete())
+        { */  
         if(strcmp($interests, '') != 0)
         {
         	$IDinterests = getInterestIDs($interests, $con);	
@@ -73,6 +75,7 @@ if (isset($_SESSION['usr']))
         getAllInterests($con);
         $_SESSION['usr'] = getUserData($con, $currentUser['username']);
         $currentUser = $_SESSION['usr'];
+        /*}*/
     }
 
     echo '
@@ -123,10 +126,12 @@ function passInputIsComplete()
         }
         if (empty($emptyFields))
         {
+        	//echo "complete password input";
 		    return true;
         }
         else
         {
+        	//echo "incomplete password input";
 		    return false;
         }
 }
@@ -144,11 +149,13 @@ function profileInputIsComplete()
     }
     if (empty($emptyFields))
     {
+    	//echo "complete profile input";
 	    return true;
 	
     }
     else
     {
+    	//echo "incomplete profile input";
 	    return false;
     }
 }
@@ -173,7 +180,9 @@ function showPassForm()
 
 function showAboutMeForm($u)
 {	
+    //var_dump($u['interests']);
     $interestsToDisplay = getInterestsAsStrings($u['interests']);
+    //var_dump($interestsToDisplay);
 	echo '<form method="post" action="'; 
     echo $PHP_SELF; 
     echo '">

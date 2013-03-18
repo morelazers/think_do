@@ -29,7 +29,9 @@
 function getHomepageIdeas($c)
 {
 	$sql = "SELECT * FROM idea WHERE isOpen = 1 ORDER BY upVotes DESC LIMIT 10";
+	//var_dump($sql);
 	$res = mysql_query($sql, $c) or die(mysql_error());
+	//var_dump($res);
 	if($res != null)
 	{
 		outputIdeas($res);
@@ -103,7 +105,9 @@ function getIdeaData($id, $c)
 function incrementIdeaUpvotes($i, &$u, $c)
 {
 	$i['upVotes']++;
+	//var_dump($i);
 	$sql = "UPDATE idea SET upVotes = ".$i['upVotes']." WHERE ideaID =".$i['ideaID'];
+	//var_dump($sql);
 	mysql_query($sql, $c) or die(mysql_error());
 	if($u['ideasVotedFor'] == '')
 	{
@@ -116,6 +120,7 @@ function incrementIdeaUpvotes($i, &$u, $c)
 		$sql = "UPDATE user SET ideasVotedFor = '".$u['ideasVotedFor'].",".$i['ideaID']."' WHERE userID = ".$u['userID'];
 		$u['ideasVotedFor'] = $u['ideasVotedFor'] . ',' . $i['ideaID'];
 	}
+	//var_dump($sql);
 	mysql_query($sql, $c) or die(mysql_error());
 }
 
