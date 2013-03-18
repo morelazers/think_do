@@ -60,7 +60,7 @@ getAllInterests($con);
 				}
 				else
 				{
-					echo '<a id="clicker">Login</a></br>
+					echo '<div id="clicker">Login</div></br>
                 				<a href="register.php">Register</a></br>';
 				}
 				
