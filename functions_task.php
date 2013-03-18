@@ -70,7 +70,7 @@ function doTask($tID)
 {
 	include 'functions_user.php';
 	$u = $_SESSION['usr'];
-	if (isset($u['doingTasks']))
+	if (strcmp($u['doingTasks'], '') == 0)
 	{
 		$sql = "UPDATE user SET doingTasks='".$tID."' WHERE userID = ".$u['userID'];
 	}
