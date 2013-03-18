@@ -85,11 +85,12 @@ function undoTask($taskID, $u)
 {
 	$taskArray = explode(',', $u['doingTasks']);
 	$i = 0;
-	for($i; $i <= count($taskArray); $i++)
+	for($i; $i < count($taskArray); $i++)
 	{
-		if(strcmp($taskArray[$i], $taskID) == 0)
+		if($taskArray[$i] == $taskID)
 		{
 			$taskArray[$i] = null;
+			break;
 		}
 	}
 	$taskList = implode(',', $taskArray);
