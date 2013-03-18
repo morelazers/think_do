@@ -19,7 +19,7 @@ getAllInterests($con);
 
 	<link rel="stylesheet" type="text/css" href="css/jquerycss/jquery-ui-1.10.1.custom.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery.tagit.css">
-	<link href="modalPopLite.css" rel="stylesheet" type="text/css" />
+	<link href="modalPopLite1.3.1/modalPopLite.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="modalPopLite.min.js"></script>
 <!--
 	<script type="text/javascript">
