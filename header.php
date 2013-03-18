@@ -19,7 +19,13 @@ getAllInterests($con);
 
 	<link rel="stylesheet" type="text/css" href="css/jquerycss/jquery-ui-1.10.1.custom.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery.tagit.css">
-
+	<link href="modalPopLite.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="modalPopLite.min.js"></script>
+	<script type="text/javascript">
+		$(function () {
+		    $("#popup-wrapper").modalPopLite({ openButton: "#clicker", closeButton: "#close-btn"});
+		});
+	</script>
 	<script language="javascript" type="text/javascript">
 		var dateObject=new Date();
 	</script>
@@ -54,7 +60,7 @@ getAllInterests($con);
 				}
 				else
 				{
-					echo '<a href="login.php">Login</a></br>
+					echo '<a id="clicker" href="#">PLEZADEPLEZ</a>
                 				<a href="register.php">Register</a></br>';
 				}
 				
@@ -85,5 +91,7 @@ getAllInterests($con);
 
 	echo '</div>
 </div>
-<div class="main">';
+<div class="main">
+<div id="popup-wrapper" style="background-color: #ccc;">I am a popup box. Content can be anything.
+<a id="close-btn" href="#">Close</a></div>';
 ?>
