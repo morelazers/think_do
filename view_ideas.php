@@ -48,11 +48,11 @@
                             </form></div>';
                         }
                         else{
-                            echo '<form method="post" action="'; 
+                            echo '<div style="float:right;"><form method="post" action="'; 
                             echo $PHP_SELF; 
                             echo '">
-                            <input class="upVoted" type="submit" name="upVoted" value="Upvoted">
-                            </form>';
+                            <input id="upVoted" type="submit" name="upVoted" value="Upvoted">
+                            </form></div>';
                         }
                         $ideaMember = userMemberStatus($idea, $_SESSION['usr'], $con);
                         if($ideaMember == 0){
