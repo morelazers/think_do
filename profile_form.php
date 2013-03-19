@@ -69,7 +69,6 @@ if (isset($_SESSION['usr']))
         $IDinterests = mysql_real_escape_string($IDinterests);
         $skills = mysql_real_escape_string($skills);
 
-        var_dump($IDinterests);
         
         updateProfileInfo($con, $aboutMe, $IDinterests, $skills);
         getAllInterests($con);
