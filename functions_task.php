@@ -123,8 +123,7 @@ function taskIsComplete($tID)
 	$sql = "SELECT complete FROM tasks WHERE taskID=".$tID;
 	$res = mysql_query($sql) or die(mysql_error());
 	$compl = mysql_fetch_array($res);
-	var_dump($compl);
-	if($compl)
+	if(strcmp($compl['complete'], '1') == 0)
 	{
 		return true;
 	}
