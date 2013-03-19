@@ -56,7 +56,7 @@ function showGatheringForm()
     echo $_POST['gatheringTime'];
     echo '"><br>
     <input type="submit" name="submitGathering" value="Submit">
-    </form>';
+    </form><br><br>';
 }
 
 /**

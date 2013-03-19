@@ -112,7 +112,7 @@ function showTaskForm()
         }
         
         echo '<input type="submit" name="submitTask" value="Submit">
-        </form>';
+        </form><br><br>';
    /* }*/
 }
 
