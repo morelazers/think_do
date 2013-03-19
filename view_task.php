@@ -42,19 +42,19 @@ echo
 	                <input type="submit" ';
 	                if(!userIsDoingTask($taskID, $_SESSION['usr']))
 	                {
-	                	echo 'name="doTask" value="I\'ll help do this task!">';
+	                	echo 'name="doTask" value="I\'ll help do this!">';
 	                }
 	                else
 	                {
-	                	echo 'name="undoTask" value="I can\'t do this task anymore!"><br>';
+	                	echo 'name="undoTask" value="I can\'t do this!"><br>';
 	                	echo '<input type="submit" ';
 	                	if(!taskIsComplete($taskID))
 	                	{
-	                		echo 'name="markAsComplete" value="I\'ve completed this task!"><br>';
+	                		echo 'name="markAsComplete" value="I\'ve completed this!"><br>';
 	                	}
 	                	else
 	                	{
-	                		echo 'name="notComplete" value="This task is not complete yet!"><br>';
+	                		echo 'name="notComplete" value="This isn\'t complete yet!"><br>';
 	                	}
 	                	
 	                	/* 
