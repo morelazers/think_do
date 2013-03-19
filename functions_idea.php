@@ -134,7 +134,7 @@ function decrementIdeaUpvotes($i, &$u, $c)
 	$ideasString = mysql_fetch_array($res);
 
 	var_dump($ideasString);
-	
+
 	$ideasArray = explode(',', $ideasString['ideasVotedFor']);
 	$count = 0;
 
@@ -145,6 +145,7 @@ function decrementIdeaUpvotes($i, &$u, $c)
 		if(strcmp($ideasArray[$count], $i['$ideaID']) == 0)
 		{
 			$ideasArray[$count] = null;
+			break;
 		}
 	}
 
