@@ -98,7 +98,7 @@ function undoTask($taskID, $u)
 	$taskArray = explode(',', $u['doingTasks']);
 	$newTaskArray = array();
 	$i = 0;
-	for($i; $i <= count($taskArray); $i++)
+	for($i; $i < count($taskArray); $i++)
 	{
 		if($taskArray[$i] == $taskID)
 		{
