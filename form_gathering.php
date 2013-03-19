@@ -17,8 +17,7 @@ if(isset($_POST['submitGathering']))
 }
 
 $gatherings = getIdeaGatherings($idea);
-displayGatherings($gatherings);
-showGatheringForm();
+//displayGatherings($gatherings);
 
 function showGatheringForm()
 {

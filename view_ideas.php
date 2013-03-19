@@ -103,20 +103,23 @@
                         <div id="tabs-2">
                     ';
                         //$tasks = getIdeaTasks($idea);
-                        //displayTasks($tasks);
                         if(currentUserIsIdeaMod($idea))
                         {
                             include 'task_form.php';
                         }
+                        displayTasks($tasks);
+                        showTaskForm();
                     echo '
                         </div>
                         <div id="tabs-3">
                     ';
-                        //displayGatherings($gatherings);
+                        
                         if(currentUserIsIdeaMod($idea))
                         {
                             include 'form_gathering.php';
                         }
+                        displayGatherings($gatherings);
+                        showGatheringForm();
                     echo '
                         </div>
                     </div>            
