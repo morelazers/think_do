@@ -96,6 +96,7 @@ function doTask($tID, $u)
 function undoTask($taskID, $u)
 {
 	$taskArray = explode(',', $u['doingTasks']);
+	$newTaskArray = array();
 	$i = 0;
 	for($i; $i <= count($taskArray); $i++)
 	{
@@ -103,8 +104,12 @@ function undoTask($taskID, $u)
 		{
 			$taskArray[$i] = null;
 		}
+		else
+		{
+			$newTaskArray[] = $taskArray[$i];
+		}
 	}
-	$taskList = implode(',', $taskArray);
+	$taskList = implode(',', $newTaskArray);
 	$sql = "UPDATE user SET doingTasks='".$taskList."' WHERE userID=".$u['userID'];
 	mysql_query($sql) or die(mysql_error());
 }

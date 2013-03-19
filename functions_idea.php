@@ -138,6 +138,8 @@ function decrementIdeaUpvotes($i, &$u, $c)
 	var_dump($i['ideaID']);
 	$id = $i['ideaID'];
 
+	$newUpvoteArray = array();
+
 	for($count; $count <= count($ideasArray); $count++)
 	{
 
@@ -148,13 +150,17 @@ function decrementIdeaUpvotes($i, &$u, $c)
 		{
 			echo 'found the array value!';
 			$ideasArray[$count] = null;
-			break;
+			//break;
+		}
+		else
+		{
+			$newUpvoteArray[] = $ideasArray[$count];
 		}
 	}
 
-	var_dump($ideasArray);
+	var_dump($newUpvoteArray);
 
-	$ideasString = implode(',', $ideasArray);
+	$ideasString = implode(',', $newUpvoteArray);
 
 	var_dump($ideasString);
 
