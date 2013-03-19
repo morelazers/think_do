@@ -42,7 +42,7 @@ if(isset($_POST['submitTask']))
 }
 elseif(isset($_POST['createTask']))
 {
-    showGatheringForm();
+    showTaskForm();
     $createTaskClicked = 1;
 }
 
@@ -53,7 +53,7 @@ showTaskForm();
 if(!$createTaskClicked)
 {
     echo 
-    '<form method="post" action="#tabs-3">
+    '<form method="post" action="#tabs-2">
     <input type="submit" name="createTask" value="Create a task!">
     </form><br><br>';
 }
