@@ -2,6 +2,8 @@
 
 //include 'connect.php';
 
+$createTaskClicked = 0;
+
 $tName = $_POST['taskName'];
 $tDesc = $_POST['taskDesc'];
 $tDeadline = $_POST['taskDeadline'];
@@ -38,10 +40,24 @@ if(isset($_POST['submitTask']))
         //unset($_SESSION['taskToModify']);
 	}
 }
+elseif(isset($_POST['createTask']))
+{
+    showGatheringForm();
+    $createTaskClicked = 1;
+}
 
 $tasks = getIdeaTasks($idea);
 showTaskForm();
 //displayTasks($tasks);
+
+if(!$createTaskClicked)
+{
+    echo 
+    '<form method="post" action="#tabs-3">
+    <input type="submit" name="createTask" value="Create a task!">
+    </form><br><br>';
+}
+
 
 function showTaskForm()
 {

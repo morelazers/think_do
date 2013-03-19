@@ -4,7 +4,7 @@
  *  Needs some JQuery tabs up in here 
  */
 
-$clicked = 0;
+$propGathClicked = 0;
 
 if(isset($_POST['submitGathering']))
 {
@@ -20,14 +20,14 @@ if(isset($_POST['submitGathering']))
 elseif(isset($_POST['createGathering']))
 {
     showGatheringForm();
-    $clicked = 1;
+    $propGathClicked = 1;
 }
 
 $gatherings = getIdeaGatherings($idea);
 //showGatheringForm();
 //displayGatherings($gatherings);
 
-if(!$clicked)
+if(!$propGathClicked)
 {
     echo 
     '<form method="post" action="#tabs-3">
