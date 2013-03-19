@@ -144,11 +144,12 @@ function decrementIdeaUpvotes($i, &$u, $c)
 
 	for($count; $count < count($ideasArray); $count++)
 	{
-		
+
 		var_dump($ideasArray[$count]);
 
 		if(strcmp($ideasArray[$count], $i['$ideaID']) == 0)
 		{
+			echo 'found the array value!';
 			$ideasArray[$count] = null;
 			break;
 		}
