@@ -132,6 +132,7 @@ function decrementIdeaUpvotes($i, &$u, $c)
 	$sql = "SELECT ideasVotedFor FROM user WHERE userID = ".$u['userID'];
 	$res = mysql_query($sql) or die(mysql_error());
 	$ideasString = mysql_fetch_array($res);
+	var_dump($ideasString);
 	$ideasArray = explode(',', $ideasString);
 	$count = 0;
 	var_dump($ideasArray);
