@@ -133,7 +133,7 @@ function decrementIdeaUpvotes($i, &$u, $c)
 	$res = mysql_query($sql) or die(mysql_error());
 	$ideasString = mysql_fetch_array($res);
 	var_dump($ideasString);
-	$ideasArray = explode(',', $ideasString);
+	$ideasArray = explode(',', $ideasString['ideasVotedFor']);
 	$count = 0;
 	var_dump($ideasArray);
 	for($count; $count <= count($ideasArray); $count++)
