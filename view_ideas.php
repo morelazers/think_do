@@ -108,7 +108,6 @@
                             include 'task_form.php';
                         }
                         displayTasks($tasks);
-                        showTaskForm();
                     echo '
                         </div>
                         <div id="tabs-3">
@@ -117,9 +116,10 @@
                         if(currentUserIsIdeaMod($idea))
                         {
                             include 'form_gathering.php';
+
                         }
                         displayGatherings($gatherings);
-                        showGatheringForm();
+
                     echo '
                         </div>
                     </div>            

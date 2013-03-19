@@ -40,6 +40,7 @@ if(isset($_POST['submitTask']))
 }
 
 $tasks = getIdeaTasks($idea);
+showTaskForm();
 //displayTasks($tasks);
 
 function showTaskForm()
