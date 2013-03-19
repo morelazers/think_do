@@ -45,6 +45,10 @@ function displayTasks(&$t)
 		{
 			echo '<br><td>This task is ongoing!</td>';
 		}
+		if(strcmp($curTask['complete'], '1') == 0)
+		{
+			/* task is complete, needs a visual indicator here */
+		}
 		echo '</tr>';
 		$count++;
 	}

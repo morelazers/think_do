@@ -116,7 +116,6 @@
                         if(currentUserIsIdeaMod($idea))
                         {
                             include 'form_gathering.php';
-
                         }
                         displayGatherings($gatherings);
 

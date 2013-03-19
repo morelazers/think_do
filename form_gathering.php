@@ -15,10 +15,19 @@ if(isset($_POST['submitGathering']))
         $_POST['gatheringTime'] = null;
 	}
 }
+elseif(isset($_POST['createGathering']))
+{
+    showGatheringForm();
+}
 
 $gatherings = getIdeaGatherings($idea);
-showGatheringForm();
+//showGatheringForm();
 //displayGatherings($gatherings);
+
+echo 
+'<form method="post" action="#tabs-3">
+<input type="submit" name="createGathering" value="Propose a gathering!">
+</form><br><br>';
 
 function showGatheringForm()
 {
