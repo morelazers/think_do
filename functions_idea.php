@@ -143,7 +143,7 @@ function decrementIdeaUpvotes($i, &$u, $c)
 		var_dump($ideasArray[$count]);
 
 		/* for some reason this if never returns true, it's busted */
-		if(strcmp($ideasArray[$count], $i['$ideaID']) == 0)
+		if($ideasArray[$count] == $i['$ideaID'])
 		{
 			echo 'found the array value!';
 			$ideasArray[$count] = null;
