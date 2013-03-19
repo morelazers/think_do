@@ -47,7 +47,7 @@ elseif(isset($_POST['createTask']))
 }
 
 $tasks = getIdeaTasks($idea);
-showTaskForm();
+//showTaskForm();
 //displayTasks($tasks);
 
 if(!$createTaskClicked)
