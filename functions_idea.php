@@ -140,8 +140,13 @@ function decrementIdeaUpvotes($i, &$u, $c)
 
 	var_dump($ideasArray);
 
+	var_dump($i['ideaID']);
+
 	for($count; $count < count($ideasArray); $count++)
 	{
+		
+		var_dump($ideasArray[$count]);
+
 		if(strcmp($ideasArray[$count], $i['$ideaID']) == 0)
 		{
 			$ideasArray[$count] = null;
