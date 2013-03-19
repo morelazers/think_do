@@ -132,10 +132,14 @@ function decrementIdeaUpvotes($i, &$u, $c)
 	$sql = "SELECT ideasVotedFor FROM user WHERE userID = ".$u['userID'];
 	$res = mysql_query($sql) or die(mysql_error());
 	$ideasString = mysql_fetch_array($res);
+
 	var_dump($ideasString);
+	
 	$ideasArray = explode(',', $ideasString['ideasVotedFor']);
 	$count = 0;
+
 	var_dump($ideasArray);
+
 	for($count; $count <= count($ideasArray); $count++)
 	{
 		if(strcmp($ideasArray[$count], $i['$ideaID']) == 0)
@@ -143,7 +147,13 @@ function decrementIdeaUpvotes($i, &$u, $c)
 			$ideasArray[$count] = null;
 		}
 	}
+
+	var_dump($ideasArray);
+
 	$ideasString = implode(',', $ideasArray);
+
+	var_dump($ideasString);
+
 	$sql = "UPDATE user SET ideasVotedFor = '".$ideasString."' WHERE userID = ".$u['userID'];
 	$u['ideasVotedFor'] = $ideasString;
 	
