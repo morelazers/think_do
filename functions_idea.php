@@ -136,7 +136,10 @@ function decrementIdeaUpvotes($i, &$u, $c)
 	$count = 0;
 
 	var_dump($i['ideaID']);
+	echo '<br>';
 	$id = $i['ideaID'];
+	var_dump(count($ideasArray));
+	echo '<br>';
 
 	$newUpvoteArray = array();
 
@@ -144,6 +147,7 @@ function decrementIdeaUpvotes($i, &$u, $c)
 	{
 
 		var_dump($ideasArray[$count]);
+		echo '<br>';
 
 		/* for some reason this if never returns true, it's busted. i've tried using strcmp. */
 		if($ideasArray[$count] == $id)
@@ -159,10 +163,12 @@ function decrementIdeaUpvotes($i, &$u, $c)
 	}
 
 	var_dump($newUpvoteArray);
+	echo '<br>';
 
 	$ideasString = implode(',', $newUpvoteArray);
 
 	var_dump($ideasString);
+	echo '<br>';
 
 	$sql = "UPDATE user SET ideasVotedFor = '".$ideasString."' WHERE userID = ".$u['userID'];
 	$u['ideasVotedFor'] = $ideasString;
