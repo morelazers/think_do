@@ -179,7 +179,7 @@ function userIsNotTaken($u, $c)
 */
 function displayProfile($u)
 {
-    include 'functions_idea.php';
+    /*include 'functions_idea.php';*/
     echo '<h2>'.$u['username'].'</h2><br>';
     echo '<h3>About Me:</h3><br>';
     echo '<p>'.$u['aboutme'].'</p><br>';
