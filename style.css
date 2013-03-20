@@ -144,8 +144,17 @@ input[type=submit] #upVoted:hover, .helperMsg:hover{
 }
 
 .userImg{
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
 	float:right; 
-	padding-left:10px
+	width: 70px;
+	height: 70px;
+	border color: #660000 #993333 #993333;
+	border-radius: 2px 2px 2px 2px;
+	border-style: solid;
+	border-width: 1px;
 }
 
 
