@@ -183,10 +183,6 @@ function displayProfile($u)
     echo '<h2>'.$u['username'].'</h2><br>';
     echo '<h3>About Me:</h3><br>';
     echo '<p>'.$u['aboutme'].'</p><br>';
-    echo '<h3>Skills:</h3><br>';
-    echo '<p>'.$u['skills'].'</p><br>';
-    echo '<h3>Interests:</h3><br>';
-    echo '<p>'.getInterestsAsStrings($u['interests']).'</p><br>';
     echo "<h3>Ideas I've Shared:</h3><br>";
     $sql = "SELECT * FROM idea WHERE createdBy = '".$u['username']."'";
     $res = mysql_query($sql);
@@ -229,6 +225,14 @@ function displayProfile($u)
         echo '<h2><a href="./view_ideas.php?pid='.$idea['ideaID'].'">'.$idea['ideaName'].'</a></h2></br>';
     }*/
 
+}
+
+function displaySkillsAndInterests($u)
+{
+    echo '<h3>Skills:</h3><br>';
+    echo '<p>'.$u['skills'].'</p><br>';
+    echo '<h3>Interests:</h3><br>';
+    echo '<p>'.getInterestsAsStrings($u['interests']).'</p><br>';
 }
 
 ?>

@@ -7,6 +7,7 @@
     <div class="clear"></div>
         <div id="post-container">
             <div class="sidebar">
+                <?php displaySkillsAndInterests($_SESSION['usr']) ?>
             </div>
           <div class="mainRight">
             <?php include 'view_profile.php'; ?>
