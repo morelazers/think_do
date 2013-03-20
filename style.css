@@ -153,9 +153,11 @@ input[type=submit] #upVoted:hover, .helperMsg:hover{
 	border-top: 1px solid #961414;	
 	border-right: 1px solid #BB1919;
 	border-bottom: 1px solid #BB1919;
-	border-left: 1px solid #BB1919;	
+	border-left: 1px solid #BB1919;
+	background-color: #BB1919;	
 	border-style: solid;
 	border-width: 1px;
+	background-color:ff;
 	float:right; 
 	width: 70px;
 	height: 70px;
