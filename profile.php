@@ -8,7 +8,7 @@
         <div id="post-container">
             <div class="sidebar">
             </div>
-          <div class="post">
+          <div class="mainRight">
             <?php include 'view_profile.php'; ?>
             </div>
         </div>

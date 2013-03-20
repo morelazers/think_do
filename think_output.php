@@ -9,7 +9,7 @@ include 'functions_idea.php';
         <div id="post-container">
         	<div class="sidebar">
           	</div>
-          <div class="post">
+          <div class="mainRight">
                 <?php think($con); ?>
             </div>
         </div>
