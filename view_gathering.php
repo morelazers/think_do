@@ -19,7 +19,7 @@ if(isset($_POST['attendGath']))
 {
 	markAsAttending($gathID);
 }
-elseif(isset($_POST['canelAttend']))
+elseif(isset($_POST['cancelAttend']))
 {
 	markAsNotAttending($gathID);
 }
@@ -30,6 +30,7 @@ elseif(isset($_POST['canelAttend']))
     <div id="post-container">
     	<div class="sidebar">
     		<?php
+    		
     		var_dump($gathID);
     		showGathSidebarContent();
 
