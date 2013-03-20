@@ -30,7 +30,7 @@ elseif(isset($_POST['canelAttend']))
     <div id="post-container">
     	<div class="sidebar">
     		<?php
-
+    		var_dump($gathID);
     		showGathSidebarContent();
 
     		?>
@@ -48,6 +48,7 @@ elseif(isset($_POST['canelAttend']))
     </div>
 </div>
 <?php
+
 include 'footer.php';
 
 ?>

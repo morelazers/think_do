@@ -77,6 +77,7 @@ function userIsAttendingGathering()
 
 function showGathSidebarContent()
 {
+	echo 'trolololol';
 	if(!$userIsAttendingGathering())
 	{
 		echo '<form method="post" action="'; echo $PHP_SELF; echo '">
