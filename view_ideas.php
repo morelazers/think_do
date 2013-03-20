@@ -16,23 +16,19 @@
     if(isset($_POST['submitComment']))
     {
         postComment($parent);
-        $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
     }
     elseif(isset($_POST['upvote']))
     {
         incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
-        $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
     }
     elseif(isset($_POST['upVoted']))
     {
         decrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
-        $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
     }
     elseif(isset($_POST['joinTeam']))
     {
         joinIdeaTeam($idea, $_SESSION['usr'], $con);
         $idea = getIdea();
-        $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
     }
     
 
@@ -46,6 +42,7 @@
             <div class="post">
                 <div class="sidebar">';
                     if(isset($_SESSION['usr'])){
+                        $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
                         if(userHasVoted($idea, $_SESSION['usr'])==false){
                             echo '<div style="float:right;"><form method="post" action="'; 
                             echo $PHP_SELF; 
