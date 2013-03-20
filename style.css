@@ -148,13 +148,14 @@ input[type=submit] #upVoted:hover, .helperMsg:hover{
 	-moz-border-left-colors: none;
 	-moz-border-right-colors: none;
 	-moz-border-top-colors: none;
+	border color: #660000 #993333 #993333;
+	border-radius: 2px 2px 2px 2px;
+	border-right: 1px solid #993333;
+	border-style: solid;
+	border-width: 1px;
 	float:right; 
 	width: 70px;
 	height: 70px;
-	border color: #660000 #993333 #993333;
-	border-radius: 2px 2px 2px 2px;
-	border-style: solid;
-	border-width: 1px;
 }
 
 
