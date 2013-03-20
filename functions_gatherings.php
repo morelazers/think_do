@@ -8,8 +8,6 @@ function createGathering($i)
 		$time = $_POST['gatheringTime'];
 		$sql = "INSERT INTO gatherings (gathDescription, gathLocation, gathDate, gathTime, proposedBy, forIdea)
 		VALUES ('".$gDesc."', '".$gLoc."', '".$date."', '".$time."', ".$_SESSION['usr']['userID'].", ".$i['ideaID'].")";
-		var_dump($sql);
-		var_dump($i);
 		mysql_query($sql) or die(mysql_error());
 }
 
