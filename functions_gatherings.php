@@ -43,7 +43,7 @@ function displayGatherings(&$g)
 function showGathering($gID)
 {
 	//var_dump($gathID);
-	$sql = "SELECT * FROM gatherings WHERE gathID =" . $gathID;
+	$sql = "SELECT * FROM gatherings WHERE gathID =" . $gID;
 	$res = mysql_query($sql) or die(mysql_error());
 	//Get project data for the project from the database
 	$gath = mysql_fetch_array($res);
@@ -62,20 +62,20 @@ function showGathering($gID)
 	}
 }
 
-function userIsAttendingGathering()
+function userIsAttendingGathering($gID)
 {
 	$u = $_SESSION['usr'];
 	$gathsArray = explode(',', $u['gathsAttending']);
-	if(in_array($gathID, $gathsArray))
+	if(in_array($gID, $gathsArray))
 	{
 		return true;
 	}
 	return false;
 }
 
-function showGathSidebarContent()
+function showGathSidebarContent($gID)
 {
-	if(!userIsAttendingGathering())
+	if(!userIsAttendingGathering($gID))
 	{
 		echo '<form method="post" action="'; echo $PHP_SELF; echo '">
 		<input type="submit" name="attendGath" value="I\'m going!">

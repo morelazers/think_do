@@ -31,7 +31,7 @@ elseif(isset($_POST['cancelAttend']))
     	<div class="sidebar">
     		<?php
 
-    		showGathSidebarContent();
+    		showGathSidebarContent($gathID);
 
     		?>
     	</div>
