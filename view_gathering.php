@@ -18,10 +18,12 @@ if(array_key_exists("pid", $_GET))
 if(isset($_POST['attendGath']))
 {
 	markAsAttending($gathID);
+	$_SESSION['usr'] = getUserData($con, $u['username']);
 }
 elseif(isset($_POST['cancelAttend']))
 {
 	markAsNotAttending($gathID);
+	$_SESSION['usr'] = getUserData($con, $u['username']);
 }
 
 ?>

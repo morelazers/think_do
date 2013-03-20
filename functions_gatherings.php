@@ -75,17 +75,20 @@ function userIsAttendingGathering($gID)
 
 function showGathSidebarContent($gID)
 {
-	if(!userIsAttendingGathering($gID))
+	if(isset($_SESSION['usr']))
 	{
-		echo '<form method="post" action="'; echo $PHP_SELF; echo '">
-		<input type="submit" name="attendGath" value="I\'m going!">
-	    </form><br><br>';
-	}
-	else
-	{
-		echo '<form method="post" action="'; echo $PHP_SELF; echo '">
-		<input type="submit" name="cancelAttend" value="I\'m not going!">
-	    </form><br><br>';
+		if(!userIsAttendingGathering($gID))
+		{
+			echo '<form method="post" action="'; echo $PHP_SELF; echo '">
+			<input type="submit" name="attendGath" value="I\'m going!">
+		    </form><br><br>';
+		}
+		else
+		{
+			echo '<form method="post" action="'; echo $PHP_SELF; echo '">
+			<input type="submit" name="cancelAttend" value="I\'m not going!">
+		    </form><br><br>';
+		}
 	}
 }
 
@@ -101,7 +104,6 @@ function markAsAttending($gathID)
 		$sql = "UPDATE user SET gathsAttending='".$gathID."' WHERE userID=".$u['userID'];
 	}
 	mysql_query($sql) or die(mysql_error());
-	$_SESSION['usr'] = getUserData($con, $u['username']);
 }
 
 function markAsNotAttending($gathID)
@@ -124,7 +126,6 @@ function markAsNotAttending($gathID)
 	$gathList = implode(',', $newgathArray);
 	$sql = "UPDATE user SET gathsAttending='".$gathList."' WHERE userID=".$u['userID'];
 	mysql_query($sql) or die(mysql_error());
-	$_SESSION['usr'] = getUserData($con, $u['username']);
 }
 
 ?>
