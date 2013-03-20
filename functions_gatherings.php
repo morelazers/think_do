@@ -64,10 +64,8 @@ function showGathering($gID)
 
 function userIsAttendingGathering()
 {
-	var_dump($gathID);
 	$u = $_SESSION['usr'];
 	$gathsArray = explode(',', $u['gathsAttending']);
-	var_dump($gathsArray);
 	if(in_array($gathID, $gathsArray))
 	{
 		return true;
@@ -77,8 +75,7 @@ function userIsAttendingGathering()
 
 function showGathSidebarContent()
 {
-	echo 'trolololol';
-	if(!$userIsAttendingGathering())
+	if(!userIsAttendingGathering())
 	{
 		echo '<form method="post" action="'; echo $PHP_SELF; echo '">
 		<input type="submit" name="attendGath" value="I\'m going!">

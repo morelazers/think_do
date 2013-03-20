@@ -30,8 +30,7 @@ elseif(isset($_POST['cancelAttend']))
     <div id="post-container">
     	<div class="sidebar">
     		<?php
-    		
-    		var_dump($gathID);
+
     		showGathSidebarContent();
 
     		?>
