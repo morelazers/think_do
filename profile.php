@@ -6,9 +6,9 @@
 ?>
     <div class="clear"></div>
         <div id="post-container">
-          <div class="post">
             <div class="sidebar">
             </div>
+          <div class="post">
             <?php include 'view_profile.php'; ?>
             </div>
         </div>
