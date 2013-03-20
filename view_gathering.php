@@ -7,6 +7,8 @@ include 'header.php';
 <div class="clear"></div>
     <div id="post-container">
 		<div class="post">
+			<div class="sidebar">
+			</div>
 			<?php
 				/*
 				 *	We don't even really need to run an SQL query here if we use some JQuery
