@@ -29,6 +29,7 @@
         joinIdeaTeam($idea, $_SESSION['usr'], $con);
         $idea = getIdea();
     }
+    $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
 
     echo '<script>
 	$(function(){
