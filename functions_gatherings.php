@@ -106,7 +106,7 @@ function markAsAttending($gathID)
 	mysql_query($sql) or die(mysql_error());
 }
 
-function markAsNotAttending($gathID)
+function markAsNotAttending($gID)
 {
 	$u = $_SESSION['usr'];
 	$gathArray = explode(',', $u['gathsAttending']);
@@ -114,7 +114,7 @@ function markAsNotAttending($gathID)
 	$i = 0;
 	for($i; $i < count($gathArray); $i++)
 	{
-		if($gathArray[$i] == $taskID)
+		if($gathArray[$i] == $gID)
 		{
 			$gathArray[$i] = null;
 		}
