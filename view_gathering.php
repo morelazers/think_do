@@ -9,8 +9,6 @@ include 'header.php';
     	<div class="sidebar">
     	</div>
 		<div class="mainRight">
-			
-			</div>
 			<?php
 				/*
 				 *	We don't even really need to run an SQL query here if we use some JQuery
