@@ -9,10 +9,10 @@ if(array_key_exists("pid", $_GET))
 {
 	$gathID = $_GET["pid"];
 }
-else
+/*else
 {
 	header("Location: error_page.php");
-}
+}*/
 
 
 if(isset($_POST['attendGath']))

@@ -64,7 +64,10 @@ function showGathering($gID)
 
 function userIsAttendingGathering()
 {
-	$gathsArray = explode(',', $_SESSION['usr']['gathsAttending']);
+	$u = $_SESSION['usr'];
+	$gathsArray = explode(',', $u['gathsAttending']);
+	var_dump($gathsArray);
+	var_dump($gathID);
 	if(in_array($gathID, $gathsArray))
 	{
 		return true;
