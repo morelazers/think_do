@@ -40,6 +40,28 @@ function displayGatherings(&$g)
 	}
 }
 
+function showGathering($gID)
+{
+	//var_dump($gathID);
+	$sql = "SELECT * FROM gatherings WHERE gathID =" . $gathID;
+	$res = mysql_query($sql) or die(mysql_error());
+	//Get project data for the project from the database
+	$gath = mysql_fetch_array($res);
+	//var_dump($task);
+	
+	if ($gath == null)
+	{
+   		header('Location: error_page.php');
+   		//echo 'help';
+    }
+	else
+	{
+		echo '<h2>'.$gath['gathLocation'].'</h2><br>';
+		echo '<h3>Motive:</h3><br>';
+		echo '<p>'.$gath['gathDescription'].'</p><br>';
+	}
+}
+
 function userIsAttendingGathering()
 {
 	$gathsArray = explode(',', $_SESSION['usr']['gathsAttending']);
@@ -64,7 +86,6 @@ function showGathSidebarContent()
 		<input type="submit" name="cancelAttend" value="I\'m not going!">
 	    </form><br><br>';
 	}
-	
 }
 
 function markAsAttending($gathID)
@@ -85,7 +106,7 @@ function markAsAttending($gathID)
 function markAsNotAttending($gathID)
 {
 	$u = $_SESSION['usr'];
-	$gathArray = explode(',', $u['doingTasks']);
+	$gathArray = explode(',', $u['gathsAttending']);
 	$newgathArray = array();
 	$i = 0;
 	for($i; $i < count($gathArray); $i++)
