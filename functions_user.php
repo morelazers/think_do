@@ -190,10 +190,11 @@ function displayProfile($u)
     echo "<h3>Ideas I've Shared:</h3><br>";
     $sql = "SELECT * FROM idea WHERE createdBy = '".$u['username']."'";
     $res = mysql_query($sql);
-    while($idea = mysql_fetch_array($res))
+    outputIdeas($res);
+    /*while($idea = mysql_fetch_array($res))
     {
         echo '<h2><a href="./view_ideas.php?pid='.$idea['ideaID'].'">'.$idea['ideaName'].'</a></h2></br>';
-    }
+    }*/
     echo "<h3>Ideas I've Liked:</h3><br>";
 
 
@@ -221,11 +222,12 @@ function displayProfile($u)
     }
 
     $res = mysql_query($sql) or die(mysql_error());
+    outputIdeas($res);
 
-    while($idea = mysql_fetch_array($res))
+    /*while($idea = mysql_fetch_array($res))
     {
         echo '<h2><a href="./view_ideas.php?pid='.$idea['ideaID'].'">'.$idea['ideaName'].'</a></h2></br>';
-    }
+    }*/
 
 }
 
