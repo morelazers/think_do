@@ -31,42 +31,44 @@ if(array_key_exists("pid", $_GET))
 echo 
 '<div class="clear"></div>
     <div id="post-container">
-		<div class="post">
-			<div class="sidebar">';
+    	<div class="sidebar">';
 
-				if($ideaMember == 0)
-				{
-	                echo '<form method="post" action="'; 
-	                echo $PHP_SELF; 
-	                echo '">
-	                <input type="submit" ';
-	                if(!userIsDoingTask($taskID, $_SESSION['usr']))
-	                {
-	                	echo 'name="doTask" value="I\'ll help do this!">';
-	                }
-	                else
-	                {
-	                	echo 'name="undoTask" value="I can\'t do this!"><br>';
-	                	echo '<input type="submit" ';
-	                	if(!taskIsComplete($taskID))
-	                	{
-	                		echo 'name="markAsComplete" value="I\'ve completed this!"><br>';
-	                	}
-	                	else
-	                	{
-	                		echo 'name="notComplete" value="This isn\'t complete yet!"><br>';
-	                	}
-	                	
-	                	/* 
-	            		need some visual indicator both on the todolist and here to show whether the task is complete or not
-	                	*/
-	                }
-	                echo '</form>';
-	            }
+		    if($ideaMember == 0)
+			{
+		        echo '<form method="post" action="'; 
+		        echo $PHP_SELF; 
+		        echo '">
+		        <input type="submit" ';
+		        if(!userIsDoingTask($taskID, $_SESSION['usr']))
+		        {
+		        	echo 'name="doTask" value="I\'ll help do this!">';
+		        }
+		        else
+		        {
+		        	echo 'name="undoTask" value="I can\'t do this!"><br>';
+		        	echo '<input type="submit" ';
+		        	if(!taskIsComplete($taskID))
+		        	{
+		        		echo 'name="markAsComplete" value="I\'ve completed this!"><br>';
+		        	}
+		        	else
+		        	{
+		        		echo 'name="notComplete" value="This isn\'t complete yet!"><br>';
+		        	}
+		        	
+		        	/* 
+		    		need some visual indicator both on the todolist and here to show whether the task is complete or not
+		        	*/
+		        }
+		        echo '</form>';
+		    }
 
-			echo 
-			'</div>';
-    displaySingleTask($taskID);
+		echo '</div>
+		<div class="mainRight">';
+			
+		displaySingleTask($taskID);
+
+		echo '</div>';
 }
 
 			echo '

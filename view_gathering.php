@@ -6,8 +6,10 @@ include 'header.php';
 
 <div class="clear"></div>
     <div id="post-container">
-		<div class="post">
-			<div class="sidebar">
+    	<div class="sidebar">
+    	</div>
+		<div class="mainRight">
+			
 			</div>
 			<?php
 				/*
