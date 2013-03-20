@@ -85,7 +85,6 @@
                         <div id="tabs-1">
                     ';
                     
-                   
                     showIdea($idea);
                     echo '<br><hr>';
                     getComments($con);

@@ -40,6 +40,33 @@ function displayGatherings(&$g)
 	}
 }
 
+function userIsAttendingGathering()
+{
+	$gathsArray = explode(',', $_SESSION['usr']['gathsAttending']);
+	if(in_array($gathID, $gathsArray))
+	{
+		return true;
+	}
+	return false;
+}
+
+function showGathSidebarContent()
+{
+	if(!$userIsAttendingGathering())
+	{
+		echo '<form method="post" action="'; echo $PHP_SELF; echo '">
+		<input type="submit" name="attendGath" value="I\'m going!">
+	    </form><br><br>';
+	}
+	else
+	{
+		echo '<form method="post" action="'; echo $PHP_SELF; echo '">
+		<input type="submit" name="cancelAttend" value="I\'m not going!">
+	    </form><br><br>';
+	}
+	
+}
+
 function markAsAttending($gathID)
 {
 	$u = $_SESSION['usr'];
@@ -51,6 +78,29 @@ function markAsAttending($gathID)
 	{
 		$sql = "UPDATE user SET gathsAttending='".$gathID."' WHERE userID=".$u['userID'];
 	}
+	mysql_query($sql) or die(mysql_error());
+	$_SESSION['usr'] = getUserData($con, $u['username']);
+}
+
+function markAsNotAttending($gathID)
+{
+	$u = $_SESSION['usr'];
+	$gathArray = explode(',', $u['doingTasks']);
+	$newgathArray = array();
+	$i = 0;
+	for($i; $i < count($gathArray); $i++)
+	{
+		if($gathArray[$i] == $taskID)
+		{
+			$gathArray[$i] = null;
+		}
+		else
+		{
+			$newgathArray[] = $gathArray[$i];
+		}
+	}
+	$gathList = implode(',', $newgathArray);
+	$sql = "UPDATE user SET gathsAttending='".$gathList."' WHERE userID=".$u['userID'];
 	mysql_query($sql) or die(mysql_error());
 	$_SESSION['usr'] = getUserData($con, $u['username']);
 }
