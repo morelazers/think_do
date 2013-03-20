@@ -16,21 +16,25 @@
     if(isset($_POST['submitComment']))
     {
         postComment($parent);
+        $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
     }
     elseif(isset($_POST['upvote']))
     {
         incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
+        $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
     }
     elseif(isset($_POST['upVoted']))
     {
         decrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
+        $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
     }
     elseif(isset($_POST['joinTeam']))
     {
         joinIdeaTeam($idea, $_SESSION['usr'], $con);
         $idea = getIdea();
+        $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
     }
-    $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
+    
 
     echo '<script>
 	$(function(){

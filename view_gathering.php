@@ -37,7 +37,6 @@ include 'header.php';
 						echo '<p>'.$gath['gathDescription'].'</p><br>';
 					}
 				}
-
 			?>
         </div>
     </div>
