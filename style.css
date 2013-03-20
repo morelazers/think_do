@@ -150,7 +150,10 @@ input[type=submit] #upVoted:hover, .helperMsg:hover{
 	-moz-border-top-colors: none;
 	border color: #660000 #993333 #993333;
 	border-radius: 2px 2px 2px 2px;
+	border-top: 1px solid #660000;	
 	border-right: 1px solid #993333;
+	border-bottom: 1px solid #993333;
+	border-left: 1px solid #993333;	
 	border-style: solid;
 	border-width: 1px;
 	float:right; 
