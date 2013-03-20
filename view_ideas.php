@@ -9,6 +9,7 @@
     include 'functions_task.php';
     include 'functions_input.php';
     include 'functions_gatherings.php';
+    include 'functions_user.php';
     $idea = getIdea();
     $tasks = getIdeaTasks($idea);
     $gatherings = getIdeaGatherings($idea);
