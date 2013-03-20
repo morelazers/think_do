@@ -6,6 +6,8 @@
     <div class="clear"></div>
         <div id="post-container">
           <div class="post">
+            <div class="sidebar">
+            </div>
             <?php include 'view_profile.php'; ?>
             </div>
         </div>
