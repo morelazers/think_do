@@ -72,6 +72,9 @@
                             echo "<p class='modMsg'>You're an idea mod</p>";
                         }
                     }
+                    else{
+                        echo 'Please <a href="login.php">log-in</a> to vote and show your interest on this idea';
+                    }
                     showSidebarContent($idea);
                 echo'</div>
                 <div class="mainRight">';
