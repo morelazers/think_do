@@ -80,7 +80,8 @@ getAllInterests($con);
 	<div class="insideNav">
         	<li><a href="index.php"><b>Home</b></br><div style="font-size:10px">think.do</div></a></li>
     		<li><a href="submit_idea.php"><b>Share</b></br><div style="font-size:10px">your ideas</div></a></li>
-		<li><a href="list_ideas.php"><b>Discover</b></br><div style="font-size:10px">great ideas</div></a></li>';
+		<li><a href="list_ideas.php"><b>Discover</b></br><div style="font-size:10px">great ideas</div></a></li>
+		<li><a href="think_output.php"><img src="images/thinknav.png" /></a>';
 
 		//Getting rid of the search bar for now, because it doesn't work
 		/* <div style="float:right;" class = "search"><form><input type="text" id="search" name="search" value="Search..."></form></div> */
