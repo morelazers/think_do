@@ -74,10 +74,12 @@ body{
 	width:120px;
 }
 
-.h3{
+.h3 {
 	font-size:14px;
 	color:#B30000;
 	font-weight: bold;
+	padding:0px;
+	margin:0px;
 }
 
 
