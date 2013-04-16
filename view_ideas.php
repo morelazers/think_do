@@ -73,7 +73,7 @@
                         }
                     }
                     else{
-                        echo "<div class=smallForm>You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can share an idea!
+                        echo "<div class=smallerForm>You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can share an idea!
 Don't worry, it will take you less than a minute!
   </div>";
                     }
