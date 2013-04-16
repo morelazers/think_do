@@ -42,7 +42,7 @@
             <div class="post">
                 <div class="sidebar">';
                     echo '<img src="';
-                    echo getIdeaAvatar();
+                    getIdeaAvatar();
                     echo '"/>';
                     if(isset($_SESSION['usr'])){
                         $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
