@@ -13,7 +13,15 @@ include 'functions_idea.php';
         		:)
           	</div>
           <div class="mainRight">
-                <?php think($con); ?>
+             <?php 
+                if(isset($_SESSION['usr'])) 
+                {
+                     think($con);
+                }
+               else{
+                    header("Location: login.php");
+               }
+               ?>
             </div>
         </div>
     </div>
