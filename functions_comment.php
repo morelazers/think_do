@@ -13,11 +13,12 @@
 
 		while(($commentArray = mysql_fetch_array($comments)) != null)
     	{
+			$user = mysql_query("SELECT * FROM user WHERE username ='" . $commentArray['username'] . "'");
+			$userArray = mysql_fetch_array($user);
     		echo '<table border = "0" width="100%">';
-       		echo '<tr><td>' . $commentArray['upVotes'] . '</td>';
-       		echo '<td>' . $commentArray['username'] . '</td>';
-       		echo '<td>' . $commentArray['datePosted'] . '</td></tr>';
-       		echo '<tr><td colspan = "3">' . $commentArray['content'] . '</td></tr>';
+       		echo '<tr><td><img width="50px" height="50px" src="' . $userArray['avatarLocation'] . '"/></td>';
+       		echo '<td><h2>' . $commentArray['username'] . '</h2></td></tr>';
+       		echo '<tr><td colspan = "2">' . $commentArray['content'] . '</td></tr>';
        		echo '</table>';
 		}
 	}
