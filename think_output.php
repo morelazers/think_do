@@ -8,7 +8,9 @@ include 'functions_idea.php';
 <div class="clear"></div>
         <div id="post-container">
         	<div class="sidebar">
-        		We've handpicked these ideas for you based on your interests!
+        		<h2>Think</h2></br>
+                The think button finds ideas we think you'll like based upon your interests!</br></br>
+                Update your interests <a href="modify_profile.php">here</a> to discover more great ideas!
         		<br>
         		:)
           	</div>
