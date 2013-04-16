@@ -19,8 +19,9 @@ body{
 .navbar{
 	width:100%;
 	background-color:#800000;
-	height:50px;
-	font-size:14px;
+	height:40px;
+	font-size:16px;
+	font-weight:bold;
 }
 
 .insideNav{
