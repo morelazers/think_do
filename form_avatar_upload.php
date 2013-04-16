@@ -12,7 +12,7 @@ if(isset($_POST['submit']))
 	|| ($_FILES["file"]["type"] == "image/jpeg")
 	|| ($_FILES["file"]["type"] == "image/png")
 	|| ($_FILES["file"]["type"] == "image/pjpeg"))
-	&& ($_FILES["file"]["size"] < 20000)
+	&& ($_FILES["file"]["size"] < 2000000)
 	&& in_array($extension, $allowedExts))
 	{
 		if ($_FILES["file"]["error"] > 0)
@@ -86,7 +86,7 @@ function showUploadForm()
 {
 	echo '<form action="#tabs-2" method="post"
 	enctype="multipart/form-data">
-	<label for="file">Upload an avatar!: (must be less than 20kb)</label><br>
+	<label for="file">Upload an avatar!: (must be less than 2MB)</label><br>
 	<input type="file" name="file" class="normalButton" id="file"><br>
 	<input type="submit" name="submit" class="normalButton" value="Submit">
 	</form>';
