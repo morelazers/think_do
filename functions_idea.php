@@ -31,7 +31,7 @@ function getIdeaAvatar($i)
 	$userArray = mysql_fetch_array($user);
 	//echo $userArray['avatarLocation'];
 	var_dump($i['createdBy']);
-	var_dump($userArray['avatarLocation']);
+	var_dump($userArray);
 }
 
 function getHomepageIdeas($c)
