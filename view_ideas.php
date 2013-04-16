@@ -73,7 +73,9 @@
                         }
                     }
                     else{
-                        echo 'Please <a href="login.php">log-in</a> to vote and show your interest on this idea';
+                        echo "<div class=smallForm>You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can share an idea!
+Don't worry, it will take you less than a minute!
+  </div>";
                     }
                     showSidebarContent($idea);
                 echo'</div>
