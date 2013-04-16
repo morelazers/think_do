@@ -17,7 +17,7 @@
 			$userArray = mysql_fetch_array($user);
 			echo '<div style="padding-top:10px;float:left; width:600px">';
        		echo '<div style="float:left"><img width="50px" height="50px" src="' . $userArray['avatarLocation'] . '"/></div>';
-       		echo '<div style="float:right"><h2>' . $commentArray['username'] . '</h2></br>';
+       		echo '<div style="float:right; width:500px;"><h2>' . $commentArray['username'] . '</h2></br>';
        		echo  $commentArray['content'] . '</div>';
        		echo '</div>';
 		}
