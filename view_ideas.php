@@ -41,9 +41,7 @@
         <div id="post-container">
             <div class="post">
                 <div class="sidebar">';
-                    echo '<img src="';
                     getIdeaAvatar($idea);
-                    echo '"/>';
                     if(isset($_SESSION['usr'])){
                         $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
                         if(userHasVoted($idea, $_SESSION['usr'])==false){
