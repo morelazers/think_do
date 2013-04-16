@@ -47,6 +47,7 @@ function outputIdeas(&$ideas)
 		$iName = $ideasArray['ideaName'];
 		$createdBy = $ideasArray['createdBy'];
 		$dateCreated = $ideasArray['dateCreated'];
+		$dateCreated = date("m/d/y g:i A", $dateCreated);
 		$iID = $ideasArray['ideaID'];
 		$iVotes = $ideasArray['upVotes'];
 		echo '<div class="idea">';
