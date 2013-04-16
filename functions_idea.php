@@ -49,13 +49,12 @@ function outputIdeas(&$ideas)
 		$dateCreated = $ideasArray['dateCreated'];
 		var_dump($dateCreated);
 		$dateCreated = date("d m Y", $dateCreated);
-		var_dump($dateCreated);
 		$iID = $ideasArray['ideaID'];
 		$iVotes = $ideasArray['upVotes'];
 		echo '<div class="idea">';
 		echo '<div class="ideaVotes">' .$iVotes. '</div>';
 		echo '<div class="ideaText"><h2><a href="./view_ideas.php?pid='.$iID.'">'.$iName.'</a></h2></br>';
-		echo 'Shared by: ' .$createdBy. ' on: ' .$dateCreated. '</div>';
+		echo 'Shared by: ' .$createdBy. ' on: ' . '</div>';
 		echo '</div>';
 		$count++;
 	}
