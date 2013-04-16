@@ -17,8 +17,8 @@
 			$userArray = mysql_fetch_array($user);
     		echo '<table border = "0" width="100%">';
        		echo '<tr><td rowspan = 1 width="60px"><img width="50px" height="50px" src="' . $userArray['avatarLocation'] . '"/></td>';
-       		echo '<td><h2>' . $commentArray['username'] . '</h2></td></tr>';
-       		echo '<tr><td colspan = "1">' . $commentArray['content'] . '</td></tr>';
+       		echo '<td><h2>' . $commentArray['username'] . '</h2></td>';
+       		echo '<td><td colspan = "1">' . $commentArray['content'] . '</td></tr>';
        		echo '</table>';
 		}
 	}
