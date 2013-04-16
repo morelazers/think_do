@@ -15,7 +15,7 @@
     	{
 			$user = mysql_query("SELECT * FROM user WHERE username ='" . $commentArray['username'] . "'");
 			$userArray = mysql_fetch_array($user);
-			echo '<div style="width:100%">';
+			echo '<div style="width:600px">';
        		echo '<div style="float:left"><img width="50px" height="50px" src="' . $userArray['avatarLocation'] . '"/></div>';
        		echo '<div style="float:right"><h2>' . $commentArray['username'] . '</h2></br>';
        		echo  $commentArray['content'] . '</div>';
