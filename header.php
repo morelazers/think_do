@@ -79,8 +79,8 @@ getAllInterests($con);
 <div class="navbar">
 	<div class="insideNav">
         	<li><a href="index.php">Home</a></li>
-    		<li><a href="submit_idea.php">Share an Idea</a></li>
-		<li><a href="list_ideas.php">View a List of Ideas</a></li>';
+    		<li><a href="submit_idea.php">Share</br><div style="font-size:8px">your ideas</div></a></li>
+		<li><a href="list_ideas.php">Discover</br><div style="font-size:8px">great ideas</div></a></li>';
 
 		//Getting rid of the search bar for now, because it doesn't work
 		/* <div style="float:right;" class = "search"><form><input type="text" id="search" name="search" value="Search..."></form></div> */
