@@ -25,6 +25,12 @@
 	}
 }
 
+function getIdeaAvatar()
+{
+	$user = mysql_query("SELECT * FROM user WHERE username =" . $idea['createdBy']);
+	$userArray = mysql_fetch_array($user);
+	return $userArray['avatarLocation'];
+}
 
 function getHomepageIdeas($c)
 {
