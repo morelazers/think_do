@@ -27,7 +27,7 @@
 
 function getIdeaAvatar($i)
 {
-	$user = mysql_query("SELECT * FROM user WHERE username =" . $i['createdBy']);
+	$user = mysql_query("SELECT * FROM user WHERE username ='" . $i['createdBy'] . "'");
 	$userArray = mysql_fetch_array($user);
 	//echo $userArray['avatarLocation'];
 	var_dump($i['createdBy']);
