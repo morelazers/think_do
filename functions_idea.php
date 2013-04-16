@@ -232,7 +232,7 @@ function showSidebarContent($i)
 {
 	echo '<h2>Skills Needed:</h2>';
 	echo '<p>'.$i['skillsRequired'].'</p><br>';
-	echo '<h3>Idea Tags:</h3>';
+	echo '<h2>Related Interests:</h3>';
 	echo '<p>'.getInterestsAsStrings($i['interests']).'</p>';	
 }
 

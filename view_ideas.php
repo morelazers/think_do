@@ -62,11 +62,11 @@
                             echo '<form method="post" action="'; 
                             echo $PHP_SELF; 
                             echo '">
-                            <input type="submit" name="joinTeam" value="Help Out!">
+                            <input type="submit" name="joinTeam" value="I\'m Interested!">
                             </form>';
                         }
                         elseif($ideaMember == 1){
-                            echo "<p class='helperMsg'>You are helping this idea!</p>";
+                            echo "<p class='helperMsg'>You are already interested in this idea</p>";
                         }
                         else{
                             echo "<p class='modMsg'>You are an idea moderator</p>";
