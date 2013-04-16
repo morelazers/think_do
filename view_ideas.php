@@ -54,7 +54,7 @@
                             echo '<div style="float:right;"><form method="post" action="'; 
                             echo $PHP_SELF; 
                             echo '">
-                            <input type="submit" name="upVoted" value="Upvoted" id="upVoted">
+                            <input type="submit" name="upVoted" value="Undo" id="upVoted">
                             </form></div>';
                         }
                         $ideaMember = userMemberStatus($idea, $_SESSION['usr'], $con);
@@ -62,14 +62,14 @@
                             echo '<form method="post" action="'; 
                             echo $PHP_SELF; 
                             echo '">
-                            <input type="submit" name="joinTeam" value="I\'m Interested!">
+                            <input type="submit" name="joinTeam" value="Show Interest">
                             </form>';
                         }
                         elseif($ideaMember == 1){
-                            echo "<p class='helperMsg'>You are already interested in this idea</p>";
+                            echo "<p class='helperMsg'>Interested</p>";
                         }
                         else{
-                            echo "<p class='modMsg'>You are an idea moderator</p>";
+                            echo "<p class='modMsg'>You're an idea mod</p>";
                         }
                     }
                     showSidebarContent($idea);
