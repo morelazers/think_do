@@ -29,8 +29,9 @@ function getIdeaAvatar()
 {
 	$user = mysql_query("SELECT * FROM user WHERE username =" . $idea['createdBy']);
 	$userArray = mysql_fetch_array($user);
-	echo $userArray['avatarLocation'];
-	echo "OK";
+	//echo $userArray['avatarLocation'];
+	var_dump($idea['createdBy']);
+	var_dump($userArray['avatarLocation']);
 }
 
 function getHomepageIdeas($c)
