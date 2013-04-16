@@ -34,7 +34,7 @@ include 'functions_idea.php'; ?>
 	</div>
 	
 		<div class="mainRight">
-			<h2>Top Ten Ideas</h2>
+			<img src="images/top.png" /></br>
 			<?php getHomepageIdeas($con); ?>
 		</div>			
 	</div>	

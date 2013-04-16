@@ -78,7 +78,7 @@ getAllInterests($con);
 
 <div class="navbar">
 	<div class="insideNav">
-        	<li><a href="index.php"><b>Home</b></a></li>
+        	<li><a href="index.php"><b>Home</b></br><div style="font-size:10px">think.do</div></a></li>
     		<li><a href="submit_idea.php"><b>Share</b></br><div style="font-size:10px">your ideas</div></a></li>
 		<li><a href="list_ideas.php"><b>Discover</b></br><div style="font-size:10px">great ideas</div></a></li>';
 
