@@ -25,12 +25,12 @@
 	}
 }
 
-function getIdeaAvatar()
+function getIdeaAvatar($i)
 {
-	$user = mysql_query("SELECT * FROM user WHERE username =" . $idea['createdBy']);
+	$user = mysql_query("SELECT * FROM user WHERE username =" . $i['createdBy']);
 	$userArray = mysql_fetch_array($user);
 	//echo $userArray['avatarLocation'];
-	var_dump($idea['createdBy']);
+	var_dump($i['createdBy']);
 	var_dump($userArray['avatarLocation']);
 }
 
