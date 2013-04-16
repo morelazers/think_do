@@ -29,8 +29,8 @@ function getIdeaAvatar($i)
 {
 	$user = mysql_query("SELECT * FROM user WHERE username ='" . $i['createdBy'] . "'");
 	$userArray = mysql_fetch_array($user);
-	echo "<h1>Shared by: ". $i['createdBy']. "</h1></br>" 
-	.'<img width="50px" height="50px" src="' . $userArray['avatarLocation'] . '"/></br></br>';
+	echo '<div style="float:left; padding-right:5px;"><img width="70px" height="70px" src="' . $userArray['avatarLocation'] . '"/></div>' 
+	. '<div style="float:right;"><h2>Shared by: </h2><h1>'. $i['createdBy']. "</h1></div></br>" ;
 } 
 
 function getHomepageIdeas($c)
