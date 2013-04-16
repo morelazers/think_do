@@ -19,7 +19,8 @@ body{
 .navbar{
 	width:100%;
 	background-color:#800000;
-	height:30px;
+	height:50px;
+	font-size:14px;
 }
 
 .insideNav{
@@ -32,7 +33,6 @@ body{
 
 .navbar a{
 	color:#FFFFFF;
-	font-size:14px;
 	text-decoration:none;
 }
 
