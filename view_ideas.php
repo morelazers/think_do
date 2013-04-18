@@ -45,7 +45,7 @@
                     if(isset($_SESSION['usr'])){
                         $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
                         if(userHasVoted($idea, $_SESSION['usr'])==false){
-                            echo '<div style="float:right;"><form method="post" action="'; 
+                            echo '<div style="float:left; padding-top:20px;"><form method="post" action="'; 
                             echo $PHP_SELF; 
                             echo '">
                             <input type="submit" name="upvote" value="Upvote">
