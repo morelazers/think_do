@@ -66,9 +66,7 @@ function outputIdeas(&$ideas)
 	}
 	if($count == 0)
 	{
-		echo '<h2>There seem to be no ideas that suit your interests,
-		<br>
-		try updating them to include a few more areas, or share an idea of your own!</h2>';
+		echo '<h2>There seem to be no ideas here!</h2>';
 	}
 
 }
