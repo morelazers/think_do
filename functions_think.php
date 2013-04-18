@@ -54,7 +54,7 @@ function think($c)
             $i++;
             if($i == ($interestCount))
             {
-                   $sql = $sql . "LIKE '%".$val."%')";
+                   $sql = $sql . "LIKE '%".$val."%') ORDER BY upVotes DESC";
             }
             else
             {
