@@ -52,7 +52,7 @@
                             </form></div>';
                         }
                         else{
-                            echo '<div style="float:right;"><form method="post" action="'; 
+                            echo '<div style="float:left; padding-top:20px;"><form method="post" action="'; 
                             echo $PHP_SELF; 
                             echo '">
                             <input type="submit" name="upVoted" value="Undo" id="upVoted">
