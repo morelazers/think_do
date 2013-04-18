@@ -66,7 +66,7 @@ function outputIdeas(&$ideas)
 	}
 	if($count == 0)
 	{
-		echo '<h2>There seem to be no ideas here!</h2>';
+		echo '<h2>There seem to be no ideas here!<br><br></h2>';
 	}
 
 }
