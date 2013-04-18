@@ -49,14 +49,14 @@
                             echo $PHP_SELF; 
                             echo '">
                             <input type="submit" name="upvote" value="Upvote">
-                            </form></div>';
+                            </form></div><br>';
                         }
                         else{
                             echo '<div style="float:left;"><form method="post" action="'; 
                             echo $PHP_SELF; 
                             echo '">
                             <input type="submit" name="upVoted" value="Undo" id="upVoted">
-                            </form></div>';
+                            </form></div><br>';
                         }
                         $ideaMember = userMemberStatus($idea, $_SESSION['usr'], $con);
                         if($ideaMember == 0){
