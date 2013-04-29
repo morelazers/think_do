@@ -27,7 +27,7 @@ function checkForNewMessages()
 
 function getAllMessages()
 {
-	$sql = "SELECT * FROM messages WHERE toUser='".$_SESSION['usr']."'";
+	$sql = "SELECT * FROM messages WHERE toUser='".$_SESSION['usr']['username']."'";
 	$res = mysql_query($sql) or die(mysql_error());
 	var_dump($sql);
 	return $res;
