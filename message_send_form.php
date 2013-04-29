@@ -20,6 +20,9 @@ else
 	header("Location: login.php");
 }
 
+
+showForm();
+
 if(isset($_POST['submit']))
 {
 	//echo "trying to send your message<br>";
@@ -41,7 +44,6 @@ if(isset($_POST['submit']))
 	}
 }
 
-showForm();
 
 function showForm() 
 {

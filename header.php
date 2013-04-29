@@ -49,9 +49,9 @@ getAllInterests($con);
 				{
 					$u = $_SESSION['usr'];
 					$n = $u['username'];
-					checkForNewMessages();
+					$newMsgCount = checkForNewMessages();
 					echo '<a href="profile.php">'.$n.'</a></br>
-						<a href="messages.php">Messages</a></br>
+						<a href="messages.php">Messages ('.$newMsgCount.')</a></br>
 						<a href="modify_profile.php">Modify profile</a></br>
 						<a href="logout.php">Logout</a>';
 				}
