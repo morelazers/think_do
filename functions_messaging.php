@@ -11,7 +11,7 @@ function sendMessage($toUser, $subject, $message)
 function checkForNewMessages()
 {
 	$count = 0;
-	$sql = "SELECT * FROM messages WHERE toUser='".$_SESSION['usr']."' AND msgRead=0";
+	$sql = "SELECT * FROM messages WHERE toUser='".$_SESSION['usr']['username']."' AND msgRead=0";
 	$res = mysql_query($sql) or die(mysql_error());
 	$count = 0;
 	while($newMsgs = mysql_fetch_array($res))
