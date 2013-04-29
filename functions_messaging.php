@@ -2,8 +2,9 @@
 
 function sendMessage($toUser, $subject, $message)
 {
-	$sql = "INSERT INTO messages (fromUser, toUser, subject, content) 
-	VALUES ('".$_SESSION['usr']['username']."', '".$toUser."', '".$subject."', '".$content."')";
+	$now = date("Y-m-d H:i:s");
+	$sql = "INSERT INTO messages (fromUser, toUser, subject, content, msgDate) 
+	VALUES ('".$_SESSION['usr']['username']."', '".$toUser."', '".$subject."', '".$message."', '".$now."')";
 	mysql_query($sql) or die(mysql_error());
 }
 
