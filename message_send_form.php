@@ -1,8 +1,8 @@
 <?php
 
 include "connect.php";
-include "functions_input";
-include "functions_messaging";
+include "functions_input.php";
+include "functions_messaging.php";
 
 
 session_start();
