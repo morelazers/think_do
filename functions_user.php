@@ -168,7 +168,7 @@ function userIsNotTaken($u, $c)
     }
     else
     {
-        echo 'Username is already taken!';
+        //echo 'Username is already taken!';
         return false;
     }
 }
