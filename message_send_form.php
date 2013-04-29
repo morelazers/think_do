@@ -31,7 +31,8 @@ if(isset($_POST['submit']))
 			//echo "sending message!<br>";
 			//var_dump($msgContent);
 			sendMessage($recipient, $msgSubject, $msgContent);
-			//echo "message sent!<br>";
+			echo "Message sent!<br>";
+
 		}
 	}
 }
