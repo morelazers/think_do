@@ -2,7 +2,7 @@
 
 include "connect.php";
 include "functions_input.php";
-include "functions_messaging.php";
+//include "functions_messaging.php";
 
 
 session_start();
