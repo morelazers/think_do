@@ -50,7 +50,7 @@ function displayMessages($resultSet)
 		echo $subject."<br>";
 		echo $content."<br>";
 		echo $date."<br>";
-		$sql = "UPDATE TABLE messages SET msgRead=1 WHERE messageID=".$msgArray['messageID'];
+		$sql = "UPDATE messages SET msgRead=1 WHERE messageID=".$msgArray['messageID'];
 		mysql_query($sql) or die(mysql_error()); 
 		$count++;
 	}
