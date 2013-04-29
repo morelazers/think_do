@@ -34,6 +34,10 @@ if(isset($_POST['submit']))
 			echo "Message sent!<br>";
 
 		}
+		else
+		{
+			echo "That user does not exist!";
+		}
 	}
 }
 
