@@ -34,30 +34,27 @@ function getAllMessages()
 
 function displayMessages($resultSet)
 {
-	while(mysql_fetch_array($resultSet))
+	$count = 0;
+	//Create a table and output the messages
+	while($msgArray = mysql_fetch_array($resultSet))
 	{
-		$count = 0;
-		//Create a table and output the messages
-		while($msgArray = mysql_fetch_array($resultSet))
-		{
-			$from = $msgArray['fromUser'];
-			$subject = $msgArray['subject'];
-			$content = $msgArray['content'];
-			$dateSent = $msgArray['msgDate'];
-			$dateSent = date("d m Y", $dateCreated);
-			$read = $msgArray['msgRead'];
-			echo $from."<br>";
-			echo $subject."<br>";
-			echo $content."<br>";
-			echo $date."<br>";
-			$sql = "UPDATE TABLE messages SET msgRead=1 WHERE messageID=".$msgArray['messageID'];
-			mysql_query($sql) or die(mysql_error()); 
-			$count++;
-		}
-		if($count == 0)
-		{
-			echo '<h2>There seem to be no messages here!<br><br></h2>';
-		}
+		$from = $msgArray['fromUser'];
+		$subject = $msgArray['subject'];
+		$content = $msgArray['content'];
+		$dateSent = $msgArray['msgDate'];
+		$dateSent = date("d m Y", $dateCreated);
+		$read = $msgArray['msgRead'];
+		echo $from."<br>";
+		echo $subject."<br>";
+		echo $content."<br>";
+		echo $date."<br>";
+		$sql = "UPDATE TABLE messages SET msgRead=1 WHERE messageID=".$msgArray['messageID'];
+		mysql_query($sql) or die(mysql_error()); 
+		$count++;
+	}
+	if($count == 0)
+	{
+		echo '<h2>There seem to be no messages here!<br><br></h2>';
 	}
 }
 
