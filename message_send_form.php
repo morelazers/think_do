@@ -21,11 +21,15 @@ else
 
 if(isset($_POST['submit']))
 {
+	echo "trying to send your message<br>";
 	if(inputIsComplete())
 	{
+		echo "complete input<br>";
 		if(userIsNotTaken($recipient, $con) == false)
 		{
+			echo "sending message!<br>";
 			sendMessage($recipient, $msgSubject, $msgContent);
+			echo "message sent!<br>";
 		}
 	}
 }
