@@ -2,6 +2,7 @@
 
 include "connect.php";
 include "functions_input.php";
+include "functions_user.php";
 //include "functions_messaging.php";
 
 
