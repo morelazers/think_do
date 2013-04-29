@@ -13,15 +13,12 @@ function checkForNewMessages()
 	$count = 0;
 	$sql = "SELECT * FROM messages WHERE toUser='".$_SESSION['usr']."' AND msgRead=0";
 	$res = mysql_query($sql) or die(mysql_error());
-	$newMsgs = mysql_fetch_array($res);
-	if($newMsgs != NULL)
+	$count = 0;
+	while($newMsgs = mysql_fetch_array($res))
 	{
-		$count = 1;
-		while(mysql_fetch_array($res))
-		{
-			$count++;
-		}
+		$count++;
 	}
+	
 	return $count;
 }
 
