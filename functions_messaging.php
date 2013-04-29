@@ -29,7 +29,7 @@ function getAllMessages()
 {
 	$sql = "SELECT * FROM messages WHERE toUser='".$_SESSION['usr']['username']."'";
 	$res = mysql_query($sql) or die(mysql_error());
-	var_dump($sql);
+	//var_dump($sql);
 	return $res;
 }
 
@@ -39,7 +39,7 @@ function displayMessages($resultSet)
 	//Create a table and output the messages
 	while($msgArray = mysql_fetch_array($resultSet))
 	{
-		var_dump($msgArray);
+		//var_dump($msgArray);
 		$from = $msgArray['fromUser'];
 		$subject = $msgArray['subject'];
 		$content = $msgArray['content'];
