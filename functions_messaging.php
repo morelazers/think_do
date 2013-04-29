@@ -3,8 +3,8 @@
 function sendMessage($toUser, $subject, $message)
 {
 	$now = date("Y-m-d H:i:s");
-	$sql = "INSERT INTO messages (fromUser, toUser, subject, content, msgDate) 
-	VALUES ('".$_SESSION['usr']['username']."', '".$toUser."', '".$subject."', '".$message."', '".$now."')";
+	$sql = "INSERT INTO messages (fromUser, toUser, subject, content, msgDate, msgRead) 
+	VALUES ('".$_SESSION['usr']['username']."', '".$toUser."', '".$subject."', '".$message."', '".$now."', 0)";
 	mysql_query($sql) or die(mysql_error());
 }
 
@@ -36,7 +36,28 @@ function displayMessages($resultSet)
 {
 	while(mysql_fetch_array($resultSet))
 	{
-		//display messages
+		$count = 0;
+		//Create a table and output the messages
+		while($msgArray = mysql_fetch_array($resultSet))
+		{
+			$from = $msgArray['fromUser'];
+			$subject = $msgArray['subject'];
+			$content = $msgArray['content'];
+			$dateSent = $msgArray['msgDate'];
+			$dateSent = date("d m Y", $dateCreated);
+			$read = $msgArray['msgRead'];
+			echo $from."<br>";
+			echo $subject."<br>";
+			echo $content."<br>";
+			echo $date."<br>";
+			$sql = "UPDATE TABLE messages SET msgRead=1 WHERE messageID=".$msgArray['messageID'];
+			mysql_query($sql) or die(mysql_error()); 
+			$count++;
+		}
+		if($count == 0)
+		{
+			echo '<h2>There seem to be no messages here!<br><br></h2>';
+		}
 	}
 }
 

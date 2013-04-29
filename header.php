@@ -52,7 +52,6 @@ getAllInterests($con);
 					checkForNewMessages();
 					echo '<a href="profile.php">'.$n.'</a></br>
 						<a href="modify_profile.php">Modify profile</a></br>
-						<a href="message_send.php">Send a Message</a></br>
 						<a href="logout.php">Logout</a>';
 				}
 				else
