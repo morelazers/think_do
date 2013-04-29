@@ -48,6 +48,7 @@ getAllInterests($con);
 				{
 					$u = $_SESSION['usr'];
 					$n = $u['username'];
+					checkForNewMessages();
 					echo '<a href="profile.php">'.$n.'</a></br>
 						<a href="modify_profile.php">Modify profile</a></br>
 						<a href="message_send.php">Send a Message</a></br>
