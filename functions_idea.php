@@ -90,7 +90,8 @@ function updateIdeaInfo($i, $ID)
     {
         $iOpen = 0;
     }
-    $sql = "UPDATE idea SET description ='".$iDesc."', 
+    $sql = "UPDATE idea SET ideaName = '".$iName."', 
+    description ='".$iDesc."', 
     skillsRequired ='".$iSkills."', 
     interests ='".$interestIDs."', 
     isOpen='".$iOpen."' 
