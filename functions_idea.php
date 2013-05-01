@@ -264,7 +264,7 @@ function showIdeaForm($i)
     echo $i["description"]; 
     echo '</textarea><br>
     <label for="skillsRequired"><h2>Desirable Skills</h2></label>
-    <input type="text" name="iSkills" id="skillsRequired" title="What skills are you looking for?" value="';
+    <input type="text" name="skillsRequired" id="skillsRequired" title="What skills are you looking for?" value="';
     echo $i["skillsRequired"];
     echo '"><br><div class="ui-helper-clearfix">
     <label for="interests"><h2>Interests:</h2></label>
