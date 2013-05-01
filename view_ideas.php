@@ -54,7 +54,7 @@
     window.onload = function() 
     {
         document.getElementById("ideaForm").style.display="none";
-        
+
         document.getElementById("editButton").onclick = function()
         {
             document.getElementById("ideaName").style.display="none";
@@ -127,7 +127,7 @@
                     {
                         //echo '<br><a id="editLink" href="">Edit</a><br>'; 
                         echo '<br><input type="button" value="Edit" id="editButton">';
-                        showIdeaForm();
+                        showIdeaForm($idea);
                     }
 
                     echo '<hr>';
