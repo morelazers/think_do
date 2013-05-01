@@ -53,14 +53,14 @@
 
     window.onload = function() 
     {
-        document.getElementById("smallForm").style.display="none";
+        document.getElementById("ideaForm").style.display="none";
     }
 
     document.getElementById("editButton").onclick = function()
     {
         document.getElementById("ideaName").style.display="none";
         document.getElementById("ideaDescription").style.display="none";
-        document.getElementById("smallForm").style.display="block";
+        document.getElementById("ideaForm").style.display="block";
         
         return false;
     }
