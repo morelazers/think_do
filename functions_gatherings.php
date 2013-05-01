@@ -3,7 +3,7 @@
 
 function getGatheringData($ID)
 {
-	$sql = "SELECT * FROM gatherings WHERE gethID=".$ID;
+	$sql = "SELECT * FROM gatherings WHERE gathID=".$ID;
 	$res = mysql_query($sql) or die(mysql_error());
 	return mysql_fetch_array($res);
 }
@@ -144,6 +144,15 @@ function updateGathering($gath, $ID)
 	$time = $gath['gatheringTime'];
 	$sql = "UPDATE gatherings SET gathDescription='".$gath['']."', gathLocation='".$gath['']."', gathDate='".$gath['']."', gathTime='".$gath['']."' WHERE gathID=".$ID;
 	mysql_query($sql) or die(mysql_error());
+}
+
+function currentUserIsGatheringProposer($u, $g)
+{
+	if(strcmp($u['username'], $g['proposedBy']) == 0)
+	{
+		return true;
+	}
+	return false;
 }
 
 
