@@ -60,12 +60,11 @@
     {
         document.getElementById("ideaName").style.display="none";
         document.getElementById("ideaDescription").style.display="none";
-        document.getElementsByName("ideaForm").style.display;';
+        document.getElementsByName("ideaForm").style.display="inline";';
         $editing = true;
         echo 'return false;
     }
    
-
 	</script>
     <div class="clear"></div>
         <div id="post-container">
