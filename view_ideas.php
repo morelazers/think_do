@@ -32,10 +32,28 @@
     }
     
 
+    /* This will hide anything with <p1> HTML tag. 
+     * Need to change the <h2> and <p> idea HTML tags to something unique
+     *  function hideIdea()
+     *  {
+     *      document.getElementById("p1").style.display="none";
+     *  }
+     *
+     */
+
     echo '<script>
 	$(function(){
 		$( "#tabs" ).tabs();
 	});
+
+    var a = document.getElementById("editLink");
+
+    a.onclick = function()
+    {
+        document.getElementById("h4")style.display="none";
+        return false;
+    }
+
 	</script>
     <div class="clear"></div>
         <div id="post-container">
@@ -71,6 +89,10 @@
                         }
                         else{
                             echo "<p class='modMsg'>You're an idea mod</p>";
+                            if(currentUserIsIdeaCreator($_SESSION['usr'], $idea)
+                            {
+                                echo '<a id="editLink" href="#">Edit</a><br>'; 
+                            }
                         }
                     }
                     else{

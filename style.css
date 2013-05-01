@@ -238,6 +238,14 @@ h2{
 	margin:0px;
 }
 
+h4{
+	color:#B30000;
+	font-family:"Century Gothic";
+	font-size:20px;
+	padding:0px;
+	margin:0px;
+}
+
 #loginform form input[type=text], #loginform form input[type=password] {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     font-size: 13px;

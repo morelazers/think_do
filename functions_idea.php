@@ -224,6 +224,20 @@ function userMemberStatus($i, $u, $c){
 }
 
 /**
+ *	Function to check whether the current user is the creator of the idea
+ *	@param $u - the current user
+ *	@param $i - the current idea
+ */
+function currentUserIsIdeaCreator($u, $i)
+{
+	if(strcmp($u['username'], $i['createdBy']) == 0)
+	{
+		return true;
+	}
+	return false;
+}
+
+/**
  *  Function to output the data from the idea to the page
  *  @param idea $i assosciative array containing the fields fom thr idea table
  */
