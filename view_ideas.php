@@ -30,6 +30,12 @@
         joinIdeaTeam($idea, $_SESSION['usr'], $con);
         $idea = getIdea();
     }
+    elseif(isset($_POST['submit']))
+    {
+        $sql = "UPDATE idea SET description ='".$iDesc."', skillsRequired = '".$iSkills."', interests = '".$iInterests."' WHERE ideaID = ".$idea['ideaID'];
+        mysql_query($sql) or die(mysql_error());
+    }
+    
     
 
     /* This will hide anything with <p1> HTML tag. 
@@ -60,7 +66,7 @@
             document.getElementById("ideaName").style.display="none";
             document.getElementById("ideaDescription").style.display="none";
             document.getElementById("ideaForm").style.display="block";
-            
+            var editing = "true";
             return false;
         }
     }

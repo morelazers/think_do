@@ -117,14 +117,7 @@ echo '<div class="sidebar">
             //$sql = "SELECT ideaID FROM idea WHERE "
         }
     }
-    if($editing)
-    {
-    	showIdeaForm($idea);
-    }
-    else
-    {
-    	showIdeaForm($_POST);
-    }
+    showIdeaForm($_POST);
 }
 else
 {
