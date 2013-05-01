@@ -299,7 +299,7 @@ function showIdeaForm($i)
       	echo '<input type="radio" name="iPrivacy" id="privacy" value="public" checked="checked">Public
         <input type="radio" name="iPrivacy" id="privacy" value="private">Private';
 	}
-	echo '<br><input type="submit" name="submit" class="normalButton" value="Submit"></form></div></div>';
+	echo '<br><input type="submit" name="submit" class="normalButton" value="Submit"></form></div>';
 }
 
 ?>
