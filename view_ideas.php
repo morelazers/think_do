@@ -11,6 +11,7 @@
     include 'functions_gatherings.php';
     include 'functions_user.php';
 
+    $idea = getIdea();
     if(isset($_POST['submit']))
     {
         if (inputIsComplete())
