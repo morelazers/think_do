@@ -43,7 +43,7 @@
     {
         var a = document.getElementById("editLink");
     }
-     *
+     *$editing = true;
      */
 
     echo '<script>
@@ -53,16 +53,16 @@
 
     window.onload = function() 
     {
-        document.getElementsByName("ideaForm").style.display="none";
+        document.getElementsByName("smallForm").style.display="none";
     }
 
     function hideIdeaDetails()
     {
         document.getElementById("ideaName").style.display="none";
         document.getElementById("ideaDescription").style.display="none";
-        document.getElementsByName("ideaForm").style.display="inline";';
-        $editing = true;
-        echo 'return false;
+        document.getElementById("smallForm").style.display="block";
+        
+        return false;
     }
    
 	</script>
