@@ -71,6 +71,10 @@ elseif(isset($_POST['cancelAttend']))
 				showGatheringForm($gath);
 				echo '<br><input type="button" value="Edit" id="editButton">';
 			}
+			else
+			{
+				echo 'wat';
+			}
 				
 			?>
         </div>
