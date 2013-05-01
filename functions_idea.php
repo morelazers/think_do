@@ -244,7 +244,7 @@ function currentUserIsIdeaCreator($u, $i)
 function showIdea($i)
 {
 	//Output project information with appropriate markup
-	echo '<h2>'.$i['ideaName'].'</h2>';
+	echo '<h4>'.$i['ideaName'].'</h4>';
 	echo '<p>'.$i['description'].'</p><br>';
 }
 
