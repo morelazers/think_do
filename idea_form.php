@@ -91,8 +91,11 @@ echo ' 	<div class="sidebar">
 			{
 				$sql = "UPDATE idea SET description ='".$iDesc."', skillsRequired = '".$iSkills."', interests = '".$iInterests."' WHERE ideaID = ".$idea['ideaID'];
 			}
-            $sql="INSERT INTO idea (createdBy, ideaName, description, skillsRequired, interests, isOpen, dateCreated, moderators) 
+			else
+			{
+				$sql="INSERT INTO idea (createdBy, ideaName, description, skillsRequired, interests, isOpen, dateCreated, moderators) 
             		VALUES ('".$uName."', '".$iName."', '".$iDesc."', '".$iSkills."', '".$interestIDs."', '".$iOpen."', '".$iDate."', '".$uID."' )";
+			}
             
             //If error durying query execution report error
             if (!mysql_query($sql, $con))
