@@ -7,14 +7,15 @@ $createTaskClicked = 0;
 
 if(isset($_POST['submitTask']))
 {
-	if(isset($tName) && isset($tDesc) && isset($tOngoing))
+	if(isset($_POST['taskName']) && isset($_POST['taskDescription']) && isset($_POST['ongoing']))
 	{
         echo 'Trying to create task<br>';
 		createTask($idea, $_POST, $_SESSION['usr']);
 
         $_POST['taskName'] = null;
-        $_POST['taskDesc'] = null;
-        $_POST['taskDeadline'] = null;
+        $_POST['taskDescription'] = null;
+        $_POST['deadline'] = null;
+        $_POST['ongoing'] = null;
 
        /* header("Location: #tabs-2");*/
 

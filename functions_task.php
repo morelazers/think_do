@@ -184,7 +184,7 @@ function showTaskForm($t)
     <input type="text" name="taskDescription" id="taskDescription" value="';
     echo $t['taskDescription'];
     echo '"><br>
-    <label for="deadline">Does this need to be done by a particular date?</label><br>
+    <label for="deadline">Does this need to be done by a particular date? (Optional)</label><br>
     <input type="date" name="deadline" id="deadline" value="';
     echo $t['deadline'];
     echo '"><br>';
