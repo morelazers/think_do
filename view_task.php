@@ -4,9 +4,34 @@ include 'header.php';
 include 'functions_task.php';
 include 'functions_user.php';
 
+echo '<script language="javascript" type="text/javascript">
+window.onload = function() 
+{
+    document.getElementById("taskForm").style.display="none";
+
+    document.getElementById("editButton").onclick = function()
+    {
+        document.getElementById("taskName").style.display="none";
+        document.getElementById("taskDescriptionHeading").style.display="none";
+        document.getElementById("taskDescription").style.display="none";
+        document.getElementById("taskForm").style.display="block";
+        return false;
+    }
+}
+</script>';
+
+
 if(array_key_exists("pid", $_GET))
 {
 	$taskID = $_GET["pid"];
+	$task = getTaskData($taskID);
+	if(isset($_POST['submit']))
+	{
+	    if (inputIsComplete())
+	    {
+	        updateTaskInfo($_POST, $taskID);
+	    }
+	}
 
 	if(isset($_POST['doTask']))
 	{
@@ -67,6 +92,12 @@ echo
 		<div class="mainRight">';
 			
 		displaySingleTask($taskID);
+		$task = getTaskData($taskID);
+        if(currentUserIsTaskCreator($_SESSION['usr'], $task))
+		{
+			showTaskForm($task);
+			echo '<br><input type="button" value="Edit" id="editButton">';
+		}
 
 		echo '</div>';
 }

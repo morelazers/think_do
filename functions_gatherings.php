@@ -1,5 +1,13 @@
 <?php
 
+
+function getGatheringData($ID)
+{
+	$sql = "SELECT * FROM gatherings WHERE gethID=".$ID;
+	$res = mysql_query($sql) or die(mysql_error());
+	return mysql_fetch_array($res);
+}
+
 function createGathering($i)
 {
 		$gDesc = mysql_real_escape_string($_POST['gatheringDescription']);
@@ -56,9 +64,9 @@ function showGathering($gID)
     }
 	else
 	{
-		echo '<h2>'.$gath['gathLocation'].'</h2><br>';
-		echo '<h3>Motive:</h3><br>';
-		echo '<p>'.$gath['gathDescription'].'</p><br>';
+		echo '<h2 id="gathLocation">'.$gath['gathLocation'].'</h2><br>';
+		echo '<h3 id="motiveHeading">Motive:</h3><br>';
+		echo '<p id="motive">'.$gath['gathDescription'].'</p><br>';
 	}
 }
 
@@ -126,6 +134,30 @@ function markAsNotAttending($gID)
 	$gathList = implode(',', $newgathArray);
 	$sql = "UPDATE user SET gathsAttending='".$gathList."' WHERE userID=".$u['userID'];
 	mysql_query($sql) or die(mysql_error());
+}
+
+
+function showGatheringForm($g)
+{
+	echo '<div id="gathForm"><form method="post" action="#tabs-3">
+    <label for="gatheringDescription">What should the gathering accomplish?</label><br>
+    <input type="text" name="gatheringDescription" id="gatheringDescription" value="';
+    echo $g['gatheringDescription'];
+    echo '"><br>
+	<label for="gatheringLocation">Where will it be?</label><br>
+    <input type="text" name="gatheringLocation" id="gatheringLocation" value="';
+    echo $g['gatheringLocation'];
+    echo '"><br>
+	<label for="gatheringDate">On which date?</label><br>
+    <input type="date" name="gatheringDate" id="gatheringDate" value="';
+    echo $g['gatheringDate'];
+    echo '"><br>
+    <label for="gatheringTime">At what time?</label><br>
+    <input type="time" name="gatheringTime" id="gatheringTime" value="';
+    echo $g['gatheringTime'];
+    echo '"><br>
+    <input type="submit" name="submitGathering" value="Submit">
+    </form></div><br><br>';
 }
 
 ?>

@@ -42,7 +42,7 @@ if(isset($_POST['submitTask']))
 }
 elseif(isset($_POST['createTask']))
 {
-    showTaskForm();
+    showTaskForm($_POST);
     $createTaskClicked = 1;
 }
 
@@ -56,64 +56,6 @@ if(!$createTaskClicked)
     '<form method="post" action="#tabs-2">
     <input type="submit" name="createTask" value="Create a task!">
     </form><br><br>';
-}
-
-
-function showTaskForm()
-{
-/*    if(isset($_SESSION['taskToModify']))
-    {
-        echo '<form method="post" action="'; 
-        echo $PHP_SELF; 
-        echo '">
-        <label for="taskName">Give the task a title:</label><br>
-        <input type="text" name="taskName" id="taskName" value="';
-        echo $_SESSION['taskToModify']['taskName'];
-        echo '"><br>
-        <label for="taskDesc">What needs to be done?</label><br>
-        <input type="text" name="taskDesc" id="taskDesc" value="';
-        echo $_SESSION['taskToModify']['taskDescription'];
-        echo '"><br>
-        <input type="submit" name="submitTask" value="Submit">
-        </form>';
-    }
-    else
-    {*/
-        echo '<form method="post" action="#tabs-2">
-        <label for="taskName">Give the task a title:</label><br>
-        <input type="text" name="taskName" id="taskName" value="';
-        echo $_POST['taskName'];
-        echo '"><br>
-        <label for="taskDesc">What needs to be done?</label><br>
-        <input type="text" name="taskDesc" id="taskDesc" value="';
-        echo $_POST['taskDesc'];
-        echo '"><br>
-        <label for="taskDeadline">Does this need to be done by a particular date?</label><br>
-        <input type="date" name="taskDeadline" id="taskDeadline" value="';
-        echo $_POST['taskDeadline'];
-        echo '"><br>';
-        if(array_key_exists("ongoing", $_POST))
-        {
-            if(strcmp($_POST['ongoing'], "ongoing") == 0)
-            {
-                echo '<input type="radio" name="ongoing" id="ongoingRB" value="ongoing" checked="checked">Ongoing task
-                <input type="radio" name="ongoing" id="ongoingRB" value="single">Single task<br>';
-            }
-            else
-            {
-                echo '<input type="radio" name="ongoing" id="ongoingRB" value="ongoing">Ongoing task
-                <input type="radio" name="ongoing" id="ongoingRB" value="single" checked="checked">Single task<br>';
-            }
-        }
-        else
-        {
-            echo '<input type="radio" name="ongoing" id="ongoingRB" value="ongoing">Ongoing task
-            <input type="radio" name="ongoing" id="ongoingRB" value="single">Single task<br>';
-        }
-        
-        echo '<input type="submit" name="submitTask" value="Submit">
-        </form><br><br>';
-   /* }*/
 }
 
 /**

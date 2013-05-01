@@ -71,7 +71,6 @@
             document.getElementById("ideaName").style.display="none";
             document.getElementById("ideaDescription").style.display="none";
             document.getElementById("ideaForm").style.display="block";
-            var editing = "true";
             return false;
         }
     }

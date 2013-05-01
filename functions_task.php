@@ -10,6 +10,12 @@ function createTask($i, $n, $d, $og, $dline, $u, $c)
 	$tasks = getIdeaTasks($i);
 }
 
+function updateTaskInfo($t, $ID)
+{
+	$sql = "UPDATE tasks SET taskName='".$t['taskName']."', taskDescription='".$t['taskDescription']."', ongoing=".$t['ongoing'].", deadline='".$t['deadline']."' WHERE taskID=".$taskID;
+	mysql_query($sql) or die(mysql_error());
+}
+
 function getTaskData($tID)
 {
 	$sql = "SELECT * FROM tasks WHERE taskID=".$tID;
@@ -74,9 +80,9 @@ function displaySingleTask($tID)
     }
 	else
 	{
-		echo '<h2>'.$task['taskName'].'</h2><br>';
-		echo '<h3>Task Description:</h3><br>';
-		echo '<p>'.$task['taskDescription'].'</p><br>';
+		echo '<h2 id="taskName">'.$task['taskName'].'</h2><br>';
+		echo '<h3 id="taskDescriptionHeading">Task Description:</h3><br>';
+		echo '<p id="taskDescription">'.$task['taskDescription'].'</p><br>';
 	}
 }
 
@@ -153,6 +159,55 @@ function userIsDoingTask($tID, $u)
 		}
 	}
 	return 0;
+}
+
+
+function showTaskForm($t)
+{
+    echo '<div id="taskForm"><form method="post" action="#tabs-2">
+    <label for="taskName">Give the task a title:</label><br>
+    <input type="text" name="taskName" id="taskName" value="';
+    echo $t['taskName'];
+    echo '"><br>
+    <label for="taskDescription">What needs to be done?</label><br>
+    <input type="text" name="taskDescription" id="taskDescription" value="';
+    echo $t['taskDescription'];
+    echo '"><br>
+    <label for="deadline">Does this need to be done by a particular date?</label><br>
+    <input type="date" name="deadline" id="deadline" value="';
+    echo $t['deadline'];
+    echo '"><br>';
+    if(array_key_exists("ongoing", $t))
+    {
+        if(strcmp($t['ongoing'], "ongoing") == 0)
+        {
+            echo '<input type="radio" name="ongoing" id="ongoingRB" value="ongoing" checked="checked">Ongoing task
+            <input type="radio" name="ongoing" id="ongoingRB" value="single">Single task<br>';
+        }
+        else
+        {
+            echo '<input type="radio" name="ongoing" id="ongoingRB" value="ongoing">Ongoing task
+            <input type="radio" name="ongoing" id="ongoingRB" value="single" checked="checked">Single task<br>';
+        }
+    }
+    else
+    {
+        echo '<input type="radio" name="ongoing" id="ongoingRB" value="ongoing">Ongoing task
+        <input type="radio" name="ongoing" id="ongoingRB" value="single">Single task<br>';
+    }
+    
+    echo '<input type="submit" name="submitTask" value="Submit">
+    </form></div><br><br>';
+}
+
+
+function currentUserIsTaskCreator($u, $t)
+{
+	if(strcmp($u['username'], $t['username']) == 0)
+	{
+		return true;
+	}
+	return false;
 }
 
 

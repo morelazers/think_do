@@ -4,6 +4,22 @@ include 'header.php';
 include 'functions_gatherings.php';
 include 'functions_user.php';
 
+echo '<script language="javascript" type="text/javascript">
+window.onload = function() 
+{
+    document.getElementById("gathForm").style.display="none";
+
+    document.getElementById("editButton").onclick = function()
+    {
+        document.getElementById("gathLocation").style.display="none";
+        document.getElementById("motiveHeading").style.display="none";
+        document.getElementById("motive").style.display="none";
+        document.getElementById("gathForm").style.display="block";
+        return false;
+    }
+}
+</script>';
+
 
 if(array_key_exists("pid", $_GET))
 {
@@ -43,7 +59,13 @@ elseif(isset($_POST['cancelAttend']))
 			 *	We don't even really need to run an SQL query here if we use some JQuery
 			 *	to have a drop down when the task is clicked
 			 */
-			showGathering($gathID);	
+			showGathering($gathID);
+			$gath = getGatheringData($gathID);
+			if(currentUserIsGatheringProposer($_SESSION['usr'], $gath))
+			{
+				showGatheringForm($gath);
+				echo '<br><input type="button" value="Edit" id="editButton">';
+			}
 				
 			?>
         </div>
