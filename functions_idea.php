@@ -73,16 +73,29 @@ function outputIdeas(&$ideas)
 
 /**
  *  MySQL function to change the information assosciated with an idea
- *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
- *	@param string $d the description of the idea
- *  @param string $i any assosciated interests, as comma-seperated indices
- *	@param string $s any useful skills, as comma-seperated indices
+ *	@param $i - the array of the idea to update the database with
  */
-function updateIdeaInfo($c, $i)
+function updateIdeaInfo($i)
 {
-	$sql = "UPDATE idea SET description ='".$i['description']."', skillsRequired = '".$i['skillsRequired']."', interests = '".$i['interests']."' WHERE ideaID = ".$i['ideaID'];
-    //LOOK HERE PLEASE
-	mysql_query($sql) or die(mysql_error());
+	$iName = mysql_real_escape_string($i["ideaName"]);
+    $iDesc = mysql_real_escape_string($i["description"]);
+    $iSkills = mysql_real_escape_string($i["skillsRequired"]);
+    $iInterests = mysql_real_escape_string($i["interests"]);
+    $interestIDs = getInterestIDs($iInterests, $con);
+    if($i["iPrivacy"]=="public")
+    {
+        $iOpen = 1;
+    }
+    else
+    {
+        $iOpen = 0;
+    }
+    $sql = "UPDATE idea SET description ='".$iDesc."', 
+    skillsRequired ='".$iSkills."', 
+    interests ='".$interestIDs."', 
+    isOpen='".$iOpen."' 
+    WHERE ideaID =".$idea['ideaID']."";
+    mysql_query($sql) or die(mysql_error());
 }
 
 /**
