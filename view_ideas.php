@@ -65,7 +65,10 @@
         }
     }
 
-    $(function2() {
+	</script>';
+
+    echo '<script language="javascript" type="text/javascript">
+    $(function() {
         var availableInterests = [
         ';
         $count = 0;
@@ -86,8 +89,8 @@
             removeConfirmation: true
         });
     });
-
-	</script>
+    
+    </script>
     <div class="clear"></div>
         <div id="post-container">
             <div class="post">
