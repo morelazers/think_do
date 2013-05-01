@@ -10,27 +10,8 @@
     include 'functions_input.php';
     include 'functions_gatherings.php';
     include 'functions_user.php';
-    $idea = getIdea();
-    $tasks = getIdeaTasks($idea);
-    $gatherings = getIdeaGatherings($idea);
-    if(isset($_POST['submitComment']))
-    {
-        postComment($parent);
-    }
-    elseif(isset($_POST['upvote']))
-    {
-        incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
-    }
-    elseif(isset($_POST['upVoted']))
-    {
-        decrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
-    }
-    elseif(isset($_POST['joinTeam']))
-    {
-        joinIdeaTeam($idea, $_SESSION['usr'], $con);
-        $idea = getIdea();
-    }
-    elseif(isset($_POST['submit']))
+
+    if(isset($_POST['submit']))
     {
         if (inputIsComplete())
         {
@@ -50,6 +31,27 @@
             $sql = "UPDATE idea SET description ='".$iDesc."', skillsRequired = '".$iSkills."', interests = '".$interestIDs."', isOpen=".$iOpen." WHERE ideaID = ".$idea['ideaID'];
             mysql_query($sql) or die(mysql_error());
         }
+    }
+    
+    $idea = getIdea();
+    $tasks = getIdeaTasks($idea);
+    $gatherings = getIdeaGatherings($idea);
+    if(isset($_POST['submitComment']))
+    {
+        postComment($parent);
+    }
+    elseif(isset($_POST['upvote']))
+    {
+        incrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
+    }
+    elseif(isset($_POST['upVoted']))
+    {
+        decrementIdeaUpvotes($idea,$_SESSION['usr'],$con);
+    }
+    elseif(isset($_POST['joinTeam']))
+    {
+        joinIdeaTeam($idea, $_SESSION['usr'], $con);
+        $idea = getIdea();
     }
     
     
