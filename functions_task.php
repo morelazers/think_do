@@ -5,7 +5,7 @@ function createTask($i, $task, $u)
 {
 	echo 'creating<br>';
 	$tName = mysql_real_escape_string($task['taskName']);
-	$tDesc = mysql_real_escape_string($task['taskDesc']);
+	$tDesc = mysql_real_escape_string($task['taskDescription']);
     if(strcmp($tOngoing, "ongoing") == 0)
     {
         $og = 1;
