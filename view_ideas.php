@@ -52,7 +52,9 @@
 
         a.onclick = function()
         {
-            document.getElementById("h4").style.display="none";
+            document.getElementById("ideaName").style.display="none";
+            document.getElementById("ideaDescription").style.display="none";
+            return false;
         }
     }
 
