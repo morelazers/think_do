@@ -30,6 +30,11 @@ if(array_key_exists("pid", $_GET))
 	header("Location: error_page.php");
 }*/
 
+if(isset($_POST['submitGathering']))
+{
+	updateGathering($_POST, $gathID);
+}
+
 
 if(isset($_POST['attendGath']))
 {

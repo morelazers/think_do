@@ -136,6 +136,16 @@ function markAsNotAttending($gID)
 	mysql_query($sql) or die(mysql_error());
 }
 
+function updateGathering($gath, $ID)
+{
+	$gDesc = mysql_real_escape_string($gath['gatheringDescription']);
+	$gLoc = mysql_real_escape_string($gath['gatheringLocation']);
+	$date = $gath['gatheringDate'];
+	$time = $gath['gatheringTime'];
+	$sql = "UPDATE gatherings SET gathDescription='".$gath['']."', gathLocation='".$gath['']."', gathDate='".$gath['']."', gathTime='".$gath['']."' WHERE gathID=".$ID;
+	mysql_query($sql) or die(mysql_error());
+}
+
 
 function showGatheringForm($g)
 {
