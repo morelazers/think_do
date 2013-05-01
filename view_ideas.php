@@ -31,8 +31,8 @@
             $sql = "UPDATE idea SET description ='".$iDesc."', 
             skillsRequired ='".$iSkills."', 
             interests ='".$interestIDs."', 
-            isOpen=".$iOpen." 
-            WHERE ideaID =".$idea['ideaID'];
+            isOpen='".$iOpen."' 
+            WHERE ideaID ='".$idea['ideaID']."'";
             mysql_query($sql) or die(mysql_error());
         }
     }
