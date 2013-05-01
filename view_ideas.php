@@ -50,7 +50,7 @@
 
     a.onclick = function()
     {
-        document.getElementById("h4")style.display="none";
+        document.getElementById("h4").style.display="none";
         return false;
     }
 
