@@ -8,12 +8,12 @@ function getGatheringData($ID)
 	return mysql_fetch_array($res);
 }
 
-function createGathering($i)
+function createGathering($i, $g)
 {
-		$gDesc = mysql_real_escape_string($_POST['gatheringDescription']);
-		$gLoc = mysql_real_escape_string($_POST['gatheringLocation']);
-		$date = $_POST['gatheringDate'];
-		$time = $_POST['gatheringTime'];
+		$gDesc = mysql_real_escape_string($g['gatheringDescription']);
+		$gLoc = mysql_real_escape_string($g['gatheringLocation']);
+		$date = $g['gatheringDate'];
+		$time = $g['gatheringTime'];
 		$sql = "INSERT INTO gatherings (gathDescription, gathLocation, gathDate, gathTime, proposedBy, forIdea)
 		VALUES ('".$gDesc."', '".$gLoc."', '".$date."', '".$time."', ".$_SESSION['usr']['userID'].", ".$i['ideaID'].")";
 		mysql_query($sql) or die(mysql_error());

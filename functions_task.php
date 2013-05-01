@@ -1,13 +1,23 @@
 <?php
 
 
-function createTask($i, $n, $d, $og, $dline, $u, $c)
+function createTask($i, $task, $u)
 {
 	echo 'creating<br>';
+	$tName = mysql_real_escape_string($task['taskName']);
+	$tDesc = mysql_real_escape_string($task['taskDesc']);
+    if(strcmp($tOngoing, "ongoing") == 0)
+    {
+        $og = 1;
+    }
+    else
+    {
+        $og = 0;
+    }
 	$now = date("Y-m-d H:i:s");
 	$sql = "INSERT INTO tasks (ideaID, taskName, username, taskDescription, ongoing, complete, deadline, dateCreated)
-	VALUES ('".$i['ideaID']."', '".$n."', '".$u['username']."', '".$d."', ".$og.", 0, '".$dline."', '".$now."')";
-	mysql_query($sql, $c) or die(mysql_error());
+	VALUES ('".$i['ideaID']."', '".$tName."', '".$u['username']."', '".$tDesc."', ".$og.", 0, '".$task['deadline']."', '".$now."')";
+	mysql_query($sql) or die(mysql_error());
 	$tasks = getIdeaTasks($i);
 }
 
