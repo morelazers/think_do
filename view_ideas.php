@@ -28,11 +28,15 @@
             {
                 $iOpen = 0;
             }
-            $sql = "UPDATE idea SET description ='".$iDesc."', skillsRequired = '".$iSkills."', interests = '".$interestIDs."', isOpen=".$iOpen." WHERE ideaID = ".$idea['ideaID'];
+            $sql = "UPDATE idea SET description ='".$iDesc."', 
+            skillsRequired ='".$iSkills."', 
+            interests ='".$interestIDs."', 
+            isOpen=".$iOpen." 
+            WHERE ideaID =".$idea['ideaID'];
             mysql_query($sql) or die(mysql_error());
         }
     }
-    
+
     $idea = getIdea();
     $tasks = getIdeaTasks($idea);
     $gatherings = getIdeaGatherings($idea);
