@@ -53,7 +53,6 @@
         a.onclick = function()
         {
             document.getElementById("h4").style.display="none";
-            return false;
         }
     }
 
@@ -94,7 +93,7 @@
                             echo "<p class='modMsg'>You're an idea mod</p>";
                             if(currentUserIsIdeaCreator($_SESSION['usr'], $idea))
                             {
-                                echo '<a id="editLink" href="#">Edit</a><br>'; 
+                                echo '<a id="editLink" href="">Edit</a><br>'; 
                             }
                         }
                     }
