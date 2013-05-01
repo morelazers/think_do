@@ -75,7 +75,7 @@ function outputIdeas(&$ideas)
  *  MySQL function to change the information assosciated with an idea
  *	@param $i - the array of the idea to update the database with
  */
-function updateIdeaInfo($i)
+function updateIdeaInfo($i, $ID)
 {
 	$iName = mysql_real_escape_string($i["ideaName"]);
     $iDesc = mysql_real_escape_string($i["description"]);
@@ -94,7 +94,7 @@ function updateIdeaInfo($i)
     skillsRequired ='".$iSkills."', 
     interests ='".$interestIDs."', 
     isOpen='".$iOpen."' 
-    WHERE ideaID =".$idea['ideaID']."";
+    WHERE ideaID =".$ID."";
     mysql_query($sql) or die(mysql_error());
 }
 

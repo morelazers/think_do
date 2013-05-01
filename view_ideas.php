@@ -16,7 +16,7 @@
     {
         if (inputIsComplete())
         {
-            updateIdeaInfo($_POST);
+            updateIdeaInfo($_POST, $idea['ideaID']);
         }
     }
 
