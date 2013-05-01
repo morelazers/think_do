@@ -62,7 +62,6 @@
         document.getElementById("ideaDescription").style.display="none";
         document.getElementsByName("ideaForm").style.display="inline";';
         $editing = true;
-        showIdeaForm();
         echo 'return false;
     }
    
