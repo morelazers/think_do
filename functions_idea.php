@@ -74,6 +74,7 @@ function outputIdeas(&$ideas)
 /**
  *  MySQL function to change the information assosciated with an idea
  *	@param $i - the array of the idea to update the database with
+ *  @param $ID - the ID of the idea that is being edited
  */
 function updateIdeaInfo($i, $ID)
 {
