@@ -46,12 +46,15 @@
 		$( "#tabs" ).tabs();
 	});
 
-    var a = document.getElementById("editLink");
-
-    a.onclick = function()
+    window.onload = function() 
     {
-        document.getElementById("h4").style.display="none";
-        return false;
+        var a = document.getElementById("editLink");
+
+        a.onclick = function()
+        {
+            document.getElementById("h4").style.display="none";
+            return false;
+        }
     }
 
 	</script>
@@ -89,7 +92,7 @@
                         }
                         else{
                             echo "<p class='modMsg'>You're an idea mod</p>";
-                            if(currentUserIsIdeaCreator($_SESSION['usr'], $idea)
+                            if(currentUserIsIdeaCreator($_SESSION['usr'], $idea))
                             {
                                 echo '<a id="editLink" href="#">Edit</a><br>'; 
                             }
