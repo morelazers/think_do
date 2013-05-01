@@ -65,8 +65,29 @@
         }
     }
 
-    
-   
+    <script language="javascript" type="text/javascript">
+    $(function() {
+        var availableInterests = [
+        ';
+        $count = 0;
+        foreach($GLOBALS['interestsArray'] as $val)
+        {
+            $count++;
+            echo '"' . $val . '"';
+            if ($count <= $GLOBALS['maxInterestArrayIndex'])
+            {
+                echo ', ';
+            }
+        }
+        echo '
+        ];
+        $( "#interests" ).tagit({
+            availableTags: availableInterests,
+            allowSpaces: true,
+            removeConfirmation: true
+        });
+    });
+
 	</script>
     <div class="clear"></div>
         <div id="post-container">
