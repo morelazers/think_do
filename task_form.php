@@ -9,6 +9,7 @@ if(isset($_POST['submitTask']))
 {
 	if(isset($tName) && isset($tDesc) && isset($tOngoing))
 	{
+        echo 'Trying to create task<br>';
 		createTask($idea, $_POST, $_SESSION['usr']);
 
         $_POST['taskName'] = null;
