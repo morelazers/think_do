@@ -31,21 +31,25 @@ echo ' 	<div class="sidebar">
 	$(function() {
 	    var availableInterests = [
 	    ';
-	   	foreach($GLOBALS['interests'] as $val){
-	   		echo '"' . $val . '"';
-	   		if ($val != "Zoology"){
-	   			echo ', ';
-	   		}
-	   	}
+	    $count = 0;
+	    foreach($GLOBALS['interestsArray'] as $val)
+	    {
+	        $count++;
+	        echo '"' . $val . '"';
+	        if ($count <= $GLOBALS['maxInterestArrayIndex'])
+	        {
+	            echo ', ';
+	        }
+	    }
 	    echo '
 	    ];
-		$( "#interests" ).tagit({
-			availableTags: availableInterests,
-			allowSpaces: true,
-			removeConfirmation: true
-		});
+	    $( "#interests" ).tagit({
+	        availableTags: availableInterests,
+	        allowSpaces: true,
+	        removeConfirmation: true
+	    });
 	});
- </script>';
+	</script>';
 
     error_reporting(0);
     /*if (isset($_SESSION['modIdea']))
