@@ -142,7 +142,7 @@ function updateGathering($gath, $ID)
 	$gLoc = mysql_real_escape_string($gath['gatheringLocation']);
 	$date = $gath['gatheringDate'];
 	$time = $gath['gatheringTime'];
-	$sql = "UPDATE gatherings SET gathDescription='".$gath['']."', gathLocation='".$gath['']."', gathDate='".$gath['']."', gathTime='".$gath['']."' WHERE gathID=".$ID;
+	$sql = "UPDATE gatherings SET gathDescription='".$gDesc."', gathLocation='".$gLoc."', gathDate='".$date."', gathTime='".$time."' WHERE gathID=".$ID;
 	mysql_query($sql) or die(mysql_error());
 }
 
