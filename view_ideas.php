@@ -18,6 +18,8 @@
             $iName = mysql_real_escape_string($_POST["ideaName"]);
             $iDesc = mysql_real_escape_string($_POST["description"]);
             $iSkills = mysql_real_escape_string($_POST["skillsRequired"]);
+            var_dump($iSkills);
+            var_dump($_POST['skillsRequired']);
             $iInterests = mysql_real_escape_string($_POST["interests"]);
             $interestIDs = getInterestIDs($iInterests, $con);
             if($_POST["iPrivacy"]=="public")
