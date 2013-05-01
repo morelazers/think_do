@@ -95,7 +95,7 @@
                             echo "<p class='modMsg'>You're an idea mod</p>";
                             if(currentUserIsIdeaCreator($_SESSION['usr'], $idea))
                             {
-                                echo '<a id="editLink" href="">Edit</a><br>'; 
+                                echo '<br><a id="editLink" href="">Edit</a><br>'; 
                             }
                         }
                     }
