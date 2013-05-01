@@ -62,6 +62,7 @@
         document.getElementById("ideaDescription").style.display="none";
         document.getElementsByName("ideaForm").style.display="inline";';
         $editing = true;
+        showIdeaForm();
         echo 'return false;
     }
    
@@ -126,7 +127,6 @@
                         //echo '<br><a id="editLink" href="">Edit</a><br>'; 
                         echo '<br><input type="button" onclick="hideIdeaDetails()"
                         value="Edit" name="editButton">';
-                        showIdeaForm();
                     }
 
                     echo '<hr>';
