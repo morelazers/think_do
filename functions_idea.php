@@ -254,7 +254,7 @@ function showSidebarContent($i)
 
 function showIdeaForm($i) 
 {
-    echo '<form method="post" name="ideaForm" action="'; echo $PHP_SELF; echo '">
+    echo '<div id="smallForm"><form method="post" name="ideaForm" action="'; echo $PHP_SELF; echo '">
     <label for="idea_title"><h2>Name it</h2></label>
     <input type="text" name="ideaName" id="idea_title" title="What&#39;s the name of your idea?" value="';
 	echo $i["ideaName"];
@@ -299,7 +299,7 @@ function showIdeaForm($i)
       	echo '<input type="radio" name="iPrivacy" id="privacy" value="public" checked="checked">Public
         <input type="radio" name="iPrivacy" id="privacy" value="private">Private';
 	}
-	echo '<br><input type="submit" name="submit" class="normalButton" value="Submit"></form></div>';
+	echo '<br><input type="submit" name="submit" class="normalButton" value="Submit"></form></div></div>';
 }
 
 ?>
