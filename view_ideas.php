@@ -126,7 +126,7 @@
                         //echo '<br><a id="editLink" href="">Edit</a><br>'; 
                         echo '<br><input type="button" onclick="hideIdeaDetails()"
                         value="Edit" name="editButton">';
-                        include 'idea_form.php';
+                        showIdeaForm();
                     }
 
                     echo '<hr>';
