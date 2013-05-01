@@ -24,8 +24,9 @@ if(isset($_POST['submitTask']))
         {
             $taskIsOngoing = 0;
         }
-
+        echo "creatingtask<br>";
 		createTask($idea, $tName, $tDesc, $taskIsOngoing, $tDeadline, $_SESSION['usr'], $con);
+        echo "createdtask<br>";
 
         $_POST['taskName'] = null;
         $_POST['taskDesc'] = null;
