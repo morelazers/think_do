@@ -10,7 +10,7 @@ if (isset($_SESSION['usr']))
 {
 
 
-echo ' 	<div class="sidebar">
+echo '<div class="sidebar">
 	
 	<h1>TOP TIPS</h1></br>
 	<b>Name it</b></br>
@@ -102,7 +102,7 @@ echo ' 	<div class="sidebar">
 			}
             
             //If error durying query execution report error
-            if (!mysql_query($sql, $con))
+            if(!mysql_query($sql, $con))
             {
                 echo 'failed to add record';
                 die('Error: ' . mysql_error());
@@ -136,7 +136,7 @@ else
 
 function showForm($i) 
 {
-    echo '<form method="post" action="'; echo $PHP_SELF; echo '">
+    echo '<form method="post" name="ideaForm" action="'; echo $PHP_SELF; echo '">
     <label for="idea_title"><h2>Name it</h2></label>
     <input type="text" name="ideaName" id="idea_title" title="What&#39;s the name of your idea?" value="';
 	echo $i["ideaName"];
