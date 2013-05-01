@@ -260,9 +260,9 @@ function showIdeaForm($i)
 	echo $i["ideaName"];
     echo '"><br>
     <label for="idea_desc"><h2>Describe it</h2></label>
-    <textarea rows="10" cols="30" name="description" id="idea_desc" title="How would you describe it?" value="';
+    <textarea rows="10" cols="30" name="description" id="idea_desc" title="How would you describe it?">';
     echo $i["description"]; 
-    echo '"></textarea><br>
+    echo '</textarea><br>
     <label for="skillsRequired"><h2>Desirable Skills</h2></label>
     <input type="text" name="iSkills" id="skillsRequired" title="What skills are you looking for?" value="';
     echo $i["skillsRequired"];
