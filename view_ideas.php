@@ -65,8 +65,7 @@
         }
     }
 
-    <script language="javascript" type="text/javascript">
-    $(function() {
+    $(function2() {
         var availableInterests = [
         ';
         $count = 0;
