@@ -15,7 +15,7 @@ function createGathering($i, $g)
 		$date = $g['gatheringDate'];
 		$time = $g['gatheringTime'];
 		$sql = "INSERT INTO gatherings (gathDescription, gathLocation, gathDate, gathTime, proposedBy, forIdea)
-		VALUES ('".$gDesc."', '".$gLoc."', '".$date."', '".$time."', ".$_SESSION['usr']['username'].", ".$i['ideaID'].")";
+		VALUES ('".$gDesc."', '".$gLoc."', '".$date."', '".$time."', '".$_SESSION['usr']['username']."', ".$i['ideaID'].")";
 		mysql_query($sql) or die(mysql_error());
 }
 
