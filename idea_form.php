@@ -48,14 +48,11 @@ echo ' 	<div class="sidebar">
  </script>';
 
     error_reporting(0);
-    if (isset($_SESSION['modIdea']))
+    /*if (isset($_SESSION['modIdea']))
 	{
 		showForm($_SESSION['modIdea']);
-	}
-	else
-	{
-		showForm($_POST);
-	}
+	}*/
+
     $ideaName = $_POST["ideaName"];
     $ideaDesc = $_POST["ideaDescription"];
     $skills = $_POST["iSkills"];
@@ -90,6 +87,10 @@ echo ' 	<div class="sidebar">
 		        $iOpen = 0;
 		    }
 			$interestIDs = getInterestIDs($iInterests, $con);
+			if($editing)
+			{
+				$sql = "UPDATE idea SET description ='".$iDesc."', skillsRequired = '".$iSkills."', interests = '".$iInterests."' WHERE ideaID = ".$idea['ideaID'];
+			}
             $sql="INSERT INTO idea (createdBy, ideaName, description, skillsRequired, interests, isOpen, dateCreated, moderators) 
             		VALUES ('".$uName."', '".$iName."', '".$iDesc."', '".$iSkills."', '".$interestIDs."', '".$iOpen."', '".$iDate."', '".$uID."' )";
             
@@ -107,6 +108,14 @@ echo ' 	<div class="sidebar">
             //echo 'Idea submitted!';
             //$sql = "SELECT ideaID FROM idea WHERE "
         }
+    }
+    if($editing)
+    {
+    	showForm($idea);
+    }
+    else
+    {
+    	showForm($_POST);
     }
 }
 else

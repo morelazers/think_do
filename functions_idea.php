@@ -78,15 +78,11 @@ function outputIdeas(&$ideas)
  *  @param string $i any assosciated interests, as comma-seperated indices
  *	@param string $s any useful skills, as comma-seperated indices
  */
-function updateIdeaInfo($c, $d, $i, $s)
+function updateIdeaInfo($c, $i)
 {
-	$sql = "UPDATE idea SET description ='".$d."', skillsRequired = '".$s."', interests = '".$i."'";
-    
-	if(!mysql_query($sql, $c))
-    {
-       	echo "could not update profile information";
-       	die('Error: ' . mysql_error());
-    }
+	$sql = "UPDATE idea SET description ='".$i['description']."', skillsRequired = '".$i['skillsRequired']."', interests = '".$i['interests']."' WHERE ideaID = ".$i['ideaID'];
+    //LOOK HERE PLEASE
+	mysql_query($sql) or die(mysql_error());
 }
 
 /**

@@ -38,6 +38,11 @@
      *  {
      *      document.getElementById("p1").style.display="none";
      *  }
+
+    window.onload = function() 
+    {
+        var a = document.getElementById("editLink");
+    }
      *
      */
 
@@ -46,17 +51,13 @@
 		$( "#tabs" ).tabs();
 	});
 
-    window.onload = function() 
+    function hideIdeaDetails()
     {
-        var a = document.getElementById("editLink");
-
-        a.onclick = function()
-        {
-            document.getElementById("ideaName").style.display="none";
-            document.getElementById("ideaDescription").style.display="none";
-            return false;
-        }
+        document.getElementById("ideaName").style.display="none";
+        document.getElementById("ideaDescription").style.display="none";
+        return false;
     }
+   
 
 	</script>
     <div class="clear"></div>
@@ -114,9 +115,16 @@
                     ';
                     
                     showIdea($idea);
+                    if(isset($_POST['editButton']))
+                    {
+                        $editing = true;
+                        include 'idea_form.php';
+                    }
                     if(currentUserIsIdeaCreator($_SESSION['usr'], $idea))
                     {
-                        echo '<br><a id="editLink" href="">Edit</a><br>'; 
+                        //echo '<br><a id="editLink" href="">Edit</a><br>'; 
+                        echo '<br><input type="button" onclick="hideIdeaDetails()"
+                        value="Edit" name="editButton">';
                     }
 
                     echo '<hr>';
