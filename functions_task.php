@@ -3,6 +3,7 @@
 
 function createTask($i, $n, $d, $og, $dline, $u, $c)
 {
+	echo 'creating<br>';
 	$now = date("Y-m-d H:i:s");
 	$sql = "INSERT INTO tasks (ideaID, taskName, username, taskDescription, ongoing, complete, deadline, dateCreated)
 	VALUES ('".$i['ideaID']."', '".$n."', '".$u['username']."', '".$d."', ".$og.", 0, '".$dline."', '".$now."')";

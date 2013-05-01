@@ -1,6 +1,7 @@
 <?php
 
 //include 'connect.php';
+/*include 'functions_task.php';*/
 
 $createTaskClicked = 0;
 
@@ -11,7 +12,6 @@ $tOngoing = $_POST['ongoing'];
 
 if(isset($_POST['submitTask']))
 {
-    var_dump($_POST['taskName']);
 	if(isset($tName) && isset($tDesc) && isset($tOngoing))
 	{
 		$tName = mysql_real_escape_string($tName);
