@@ -59,9 +59,9 @@ echo '<div class="sidebar">
 	}*/
 
     $ideaName = $_POST["ideaName"];
-    $ideaDesc = $_POST["ideaDescription"];
-    $skills = $_POST["iSkills"];
-    $interests = $_POST["iInterests"];
+    $ideaDesc = $_POST["description"];
+    $skills = $_POST["skillsRequired"];
+    $interests = $_POST["interests"];
     $emptyFields = array();
   
     //Attempt database connection

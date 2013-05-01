@@ -126,8 +126,9 @@
                     if(currentUserIsIdeaCreator($_SESSION['usr'], $idea))
                     {
                         //echo '<br><a id="editLink" href="">Edit</a><br>'; 
-                        echo '<br><input type="button" value="Edit" id="editButton">';
                         showIdeaForm($idea);
+                        echo '<br><input type="button" value="Edit" id="editButton">';
+                        
                     }
 
                     echo '<hr>';

@@ -260,16 +260,24 @@ function showIdeaForm($i)
 	echo $i["ideaName"];
     echo '"><br>
     <label for="idea_desc"><h2>Describe it</h2></label>
-    <textarea rows="10" cols="30" name="ideaDescription" id="idea_desc" title="How would you describe it?" value="';
-    echo $i["ideaDescription"]; 
+    <textarea rows="10" cols="30" name="description" id="idea_desc" title="How would you describe it?" value="';
+    echo $i["description"]; 
     echo '"></textarea><br>
-    <label for="skills"><h2>Desirable Skills</h2></label>
-    <input type="text" name="iSkills" id="skills" title="What skills are you looking for?" value="';
-    echo $i["iSkills"];
+    <label for="skillsRequired"><h2>Desirable Skills</h2></label>
+    <input type="text" name="iSkills" id="skillsRequired" title="What skills are you looking for?" value="';
+    echo $i["skillsRequired"];
     echo '"><br><div class="ui-helper-clearfix">
     <label for="interests"><h2>Interests:</h2></label>
-    <input type="text" name="iInterests" id="interests" title="What interests would you want people to have?" value="';
-    echo $i["iInterests"];
+    <input type="text" name="interests" id="interests" title="What interests would you want people to have?" value="';
+    if(isset($i['interests']))
+    {
+    	$interestsToDisplay = getInterestsAsStrings($i['interests']);
+    	echo $interestsToDisplay;
+    }
+    else
+    {
+    	echo $i["interests"];
+    }
     echo '"></div><label for="Privacy"><h2>Hide it?</h2></label>';
     if(array_key_exists("iPrivacy", $i))
     {
