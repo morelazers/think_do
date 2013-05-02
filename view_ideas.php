@@ -131,10 +131,8 @@
                 }
             }
         }
-        alert("attemptting to upvote!");
         ajaxRequest.open("GET", "upvoteComment.php?upCom="+id, true);
         ajaxRequest.send();
-        alert("should have upvoted!");
     }
     </script>
 
