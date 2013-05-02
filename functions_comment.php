@@ -43,7 +43,7 @@
 			{
 				
 			}
-			var id = '; echo $commentArray['commentID']
+			var id = '; echo $commentArray['commentID'];
 			var_dump($commentArray['commentID']); 
 			echo ';
 			ajaxRequest.open("GET", "upvoteComment.php?upCom="+id, true);
