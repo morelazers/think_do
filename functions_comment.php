@@ -8,7 +8,8 @@
 
  	echo '
  	<script>
-    function upvoteComment(str)
+
+ 	document.getElementById("upvoteCommentButton").onclick = function()
     {
         if (str=="")
         {
@@ -30,7 +31,7 @@
                 document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET","upvoteComment.php?upCom="+str,true);
+        xmlhttp.open("GET","upvoteComment.php?upCom="+'.$commentArray['commentID'].',true);
         xmlhttp.send();
     }
     </script>';
@@ -51,7 +52,7 @@
        		echo '<div style="float:left"><img width="50px" height="50px" src="' . $userArray['avatarLocation'] . '"/></div>';
        		echo '<div style="float:right; width:540px;"><h3>' . $commentArray['username'] . '</h3>';
        		echo  $commentArray['content'] . '</div>';
-       		echo '<br><input type="button" value="Upvote" id="upvoteButton" onclick="upvoteComment('.$commentArray['commentID'].')">';
+       		echo '<br><input type="button" value="Upvote" id="upvoteCommentButton">';
        		echo '</div>';
 		}
 	}
