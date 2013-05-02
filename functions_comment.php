@@ -9,27 +9,49 @@
  	echo '
  	<script>
 
- 	document.getElementById("upvoteCommentButton").onclick = function()
-    {
-        if (window.XMLHttpRequest)
-        {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp=new XMLHttpRequest();
-        }
-        else
-        {// code for IE6, IE5
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-                document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
-            }
-        }
-        xmlhttp.open("GET","upvoteComment.php?upCom="+'.$commentArray['commentID'].',true);
-        xmlhttp.send();
-    }
-    </script>';
+ 	<script language="javascript" type="text/javascript">
+	
+	function ajaxFunction()
+	{
+		var ajaxRequest;
+		try
+		{
+			ajaxRequest = new XMLHttpRequest();
+		} 
+		catch (e)
+		{
+			try
+			{
+				ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+			} 
+			catch (e) 
+			{
+				try
+				{
+					ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+				} 
+				catch (e)
+				{
+					alert("Your browser broke!");
+					return false;
+				}
+			}
+		}
+	}
+
+	ajaxRequest.onreadystatechange = function()
+	{
+		if(ajaxRequest.readyState == 4)
+		{
+			
+		}
+		var id = '; echo $commentArray['commentID']; echo ';
+		ajaxRequest.open("GET", "upvoteComment.php?upCom="+id, true);
+		ajaxRequest.send(null);
+	}
+
+
+	</script>';
 
 
 
@@ -43,6 +65,7 @@
     	{
 			$user = mysql_query("SELECT * FROM user WHERE username ='" . $commentArray['username'] . "'");
 			$userArray = mysql_fetch_array($user);
+			//echo '<div style="display:none", id="commentID">'.$commentArray['commentID'].'</div>';
 			echo '<div style="padding-top:20px;float:left; width:600px">';
        		echo '<div style="float:left"><img width="50px" height="50px" src="' . $userArray['avatarLocation'] . '"/></div>';
        		echo '<div style="float:right; width:540px;"><h3>' . $commentArray['username'] . '</h3>';
