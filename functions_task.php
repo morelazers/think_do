@@ -5,8 +5,7 @@ function createTask($i, $task, $u)
 {
 	$tName = mysql_real_escape_string($task['taskName']);
 	$tDesc = mysql_real_escape_string($task['taskDescription']);
-	var_dump($tDesc);
-    if(strcmp($tOngoing, "ongoing") == 0)
+    if(strcmp($task['ongoing'], "ongoing") == 0)
     {
         $og = 1;
     }
@@ -24,7 +23,15 @@ function createTask($i, $task, $u)
 function updateTaskInfo($t, $ID)
 {
 	/*var_dump($t['taskDescription']);*/
-	$sql = "UPDATE tasks SET taskName='".$t['taskName']."', taskDescription='".$t['taskDescription']."', ongoing=".$t['ongoing'].", deadline='".$t['deadline']."' WHERE taskID=".$ID;
+	if(strcmp($t['ongoing'], "ongoing") == 0)
+    {
+        $og = 1;
+    }
+    else
+    {
+        $og = 0;
+    }
+	$sql = "UPDATE tasks SET taskName='".$t['taskName']."', taskDescription='".$t['taskDescription']."', ongoing=".$og.", deadline='".$t['deadline']."' WHERE taskID=".$ID;
 	mysql_query($sql) or die(mysql_error());
 }
 
