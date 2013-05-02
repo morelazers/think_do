@@ -102,11 +102,12 @@
     
     </script>
 
-    
+
     <script language="javascript" type="text/javascript">
     
     function ajaxFunction(id)
     {
+        alert("function called!");
         var ajaxRequest;
         try
         {
@@ -131,7 +132,7 @@
                 }
             }
         }
-        
+        alert("attemptting to upvote!");
         ajaxRequest.open("GET", "upvoteComment.php?upCom="+id, true);
         ajaxRequest.send(null);
     }
