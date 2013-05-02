@@ -27,7 +27,7 @@ if(array_key_exists("pid", $_GET))
 	$task = getTaskData($taskID);
 	if(isset($_POST['submit']))
 	{
-	    if (inputIsComplete())
+	    if(isset($_POST['taskName']) && isset($_POST['taskDescription']) && isset($_POST['ongoing']))
 	    {
 	        updateTaskInfo($_POST, $taskID);
 	    }
