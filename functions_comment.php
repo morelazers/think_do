@@ -70,7 +70,7 @@
        		echo '<div style="float:left"><img width="50px" height="50px" src="' . $userArray['avatarLocation'] . '"/></div>';
        		echo '<div style="float:right; width:540px;"><h3>' . $commentArray['username'] . '</h3>';
        		echo  $commentArray['content'] . '</div>';
-       		echo '<br><input type="button" value="Upvote" id="upvoteCommentButton">';
+       		echo '<br><input type="button" value="Upvote" id="upvoteCommentButton" onclick="ajaxFunction()">';
        		echo '</div>';
 		}
 	}
