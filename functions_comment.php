@@ -37,17 +37,18 @@
 				}
 			}
 		}
-	}
-
-	ajaxRequest.onreadystatechange = function()
-	{
-		if(ajaxRequest.readyState == 4)
+		ajaxRequest.onreadystatechange = function()
 		{
-			
+			if(ajaxRequest.readyState == 4)
+			{
+				
+			}
+			var id = '; echo $commentArray['commentID']
+			var_dump($commentArray['commentID']); 
+			echo ';
+			ajaxRequest.open("GET", "upvoteComment.php?upCom="+id, true);
+			ajaxRequest.send(null);
 		}
-		var id = '; echo $commentArray['commentID']; echo ';
-		ajaxRequest.open("GET", "upvoteComment.php?upCom="+id, true);
-		ajaxRequest.send(null);
 	}
 
 
