@@ -33,23 +33,28 @@ if(array_key_exists("pid", $_GET))
 	    }
 	}
 
-	if(isset($_POST['doTask']))
+	if(isset($_SESSION['usr']))
 	{
-		doTask($taskID, $_SESSION['usr']);
+
+		if(isset($_POST['doTask']))
+		{
+			doTask($taskID, $_SESSION['usr']);
+		}
+		else if(isset($_POST['undoTask']))
+		{
+			undoTask($taskID, $_SESSION['usr']);
+		}
+		else if(isset($_POST['markAsComplete']))
+		{
+			markTaskAsComplete($taskID, $_SESSION['usr']);
+		}
+		else if(isset($_POST['notComplete']))
+		{
+			markTaskAsNotComplete($taskID);
+		}
+		$_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
 	}
-	else if(isset($_POST['undoTask']))
-	{
-		undoTask($taskID, $_SESSION['usr']);
-	}
-	else if(isset($_POST['markAsComplete']))
-	{
-		markTaskAsComplete($taskID, $_SESSION['usr']);
-	}
-	else if(isset($_POST['notComplete']))
-	{
-		markTaskAsNotComplete($taskID);
-	}
-	$_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
+	
 
 
 

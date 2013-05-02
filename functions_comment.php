@@ -48,7 +48,7 @@ function getCommentData($comid, $c)
 function incrementCommentUpvotes($com, $u, $c)
 {
 	$com['upVotes']++;
-	$sql = "UPDATE comments SET upVotes = ".$com['upVotes']." WHERE commentID =".$com['ideaID']."";
+	$sql = "UPDATE comments SET upVotes = ".$com['upVotes']." WHERE commentID =".$com['commentID'];
 	$result = mysql_query($sql, $c)
 	or die(mysql_error());
 	if($u['commentVotes'] == null)
