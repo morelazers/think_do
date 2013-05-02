@@ -7,8 +7,6 @@
  {
 
  	echo '
- 	<script>
-
  	<script language="javascript" type="text/javascript">
 	
 	function ajaxFunction()
@@ -44,14 +42,10 @@
 				
 			}
 		}
-		var id = '; echo $commentArray['commentID'];
-		var_dump($commentArray['commentID']); 
-		echo ';
+		var id = "'; echo $commentArray['commentID']; echo '";
 		ajaxRequest.open("GET", "upvoteComment.php?upCom="+id, true);
 		ajaxRequest.send(null);
 	}
-
-
 	</script>';
 
 
