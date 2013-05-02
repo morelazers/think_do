@@ -23,7 +23,7 @@ function createTask($i, $task, $u)
 
 function updateTaskInfo($t, $ID)
 {
-	var_dump($t['taskDescription']);
+	/*var_dump($t['taskDescription']);*/
 	$sql = "UPDATE tasks SET taskName='".$t['taskName']."', taskDescription='".$t['taskDescription']."', ongoing=".$t['ongoing'].", deadline='".$t['deadline']."' WHERE taskID=".$taskID;
 	mysql_query($sql) or die(mysql_error());
 }
