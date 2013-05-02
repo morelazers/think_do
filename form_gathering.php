@@ -11,10 +11,10 @@ if(isset($_POST['submitGathering']))
 	if(inputIsComplete())
 	{
         createGathering($idea, $_POST);
-        $_POST['gatheringDescription'] = null;
+        /*$_POST['gatheringDescription'] = null;
         $_POST['gatheringLocation'] = null;
         $_POST['gatheringDate'] = null;
-        $_POST['gatheringTime'] = null;
+        $_POST['gatheringTime'] = null;*/
 	}
 }
 elseif(isset($_POST['createGathering']))
