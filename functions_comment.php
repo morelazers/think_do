@@ -46,9 +46,9 @@
  */
 function getCommentData($comid)
 {
-	$sql = "SELECT * FROM comments WHERE commentID ='".$comid."'";
+	$sql = "SELECT * FROM comments WHERE commentID =".$comid;
 	$result = mysql_query($sql);
-  	$comment = mysql_fetch_assoc($result);
+  	$comment = mysql_fetch_array($result);
   	return $comment;
 }
 
@@ -61,15 +61,15 @@ function getCommentData($comid)
 function incrementCommentUpvotes($com, $u)
 {
 	$com['upVotes']++;
-	$sql = "UPDATE comments SET upVotes = ".$com['upVotes']." WHERE commentID =".$com['commentID'];
+	$sql = "UPDATE comments SET upVotes=".$com['upVotes']." WHERE commentID=".$com['commentID'];
 	$result = mysql_query($sql) or die(mysql_error());
 	if($u['commentVotes'] == null)
 	{
-		$sql = "UPDATE users SET commentVotes = ".$com['commentID']." WHERE userID=".$u['userID'];
+		$sql = "UPDATE user SET commentVotes=".$com['commentID']." WHERE userID=".$u['userID'];
 	}
 	else
 	{
-		$sql = "UPDATE users SET commentVotes = ".$u['commentVotes'].",".$com['commentID']." WHERE userID=".$u['userID'];
+		$sql = "UPDATE user SET commentVotes=".$u['commentVotes'].",".$com['commentID']." WHERE userID=".$u['userID'];
 	}
 	$result = mysql_query($sql) or die(mysql_error());
 }
