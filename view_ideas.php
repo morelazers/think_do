@@ -102,6 +102,41 @@
     
     </script>
 
+    
+    <script language="javascript" type="text/javascript">
+    
+    function ajaxFunction(id)
+    {
+        var ajaxRequest;
+        try
+        {
+            ajaxRequest = new XMLHttpRequest();
+        } 
+        catch (e)
+        {
+            try
+            {
+                ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+            } 
+            catch (e) 
+            {
+                try
+                {
+                    ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+                } 
+                catch (e)
+                {
+                    alert("Your browser broke!");
+                    return false;
+                }
+            }
+        }
+        
+        ajaxRequest.open("GET", "upvoteComment.php?upCom="+id, true);
+        ajaxRequest.send(null);
+    }
+    </script>
+
     <div class="clear"></div>
         <div id="post-container">
             <div class="post">
