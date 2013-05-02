@@ -5,6 +5,38 @@
  */
  function getComments()
  {
+
+ 	echo '
+ 	<script>
+    function upvoteComment(str)
+    {
+        if (str=="")
+        {
+            document.getElementById("txtHint").innerHTML="";
+            return;
+        } 
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET","upvoteComment.php?upCom="+str,true);
+        xmlhttp.send();
+    }
+    </script>';
+
+
+
 	//Check for 'pid' parameter in URL
 	if(array_key_exists("pid", $_GET))
 	{
@@ -19,6 +51,7 @@
        		echo '<div style="float:left"><img width="50px" height="50px" src="' . $userArray['avatarLocation'] . '"/></div>';
        		echo '<div style="float:right; width:540px;"><h3>' . $commentArray['username'] . '</h3>';
        		echo  $commentArray['content'] . '</div>';
+       		echo '<br><input type="button" value="Upvote" id="upvoteButton" onclick="upvoteComment('.$commentArray['commentID'].')">';
        		echo '</div>';
 		}
 	}
@@ -31,10 +64,10 @@
  *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
  *	@return an assosciative array containing all the fields from the comments table
  */
-function getCommentData($comid, $c)
+function getCommentData($comid)
 {
 	$sql = "SELECT * FROM comments WHERE commentID ='".$comid."'";
-	$result = mysql_query($sql, $c);
+	$result = mysql_query($sql);
   	$comment = mysql_fetch_assoc($result);
   	return $comment;
 }
@@ -45,11 +78,11 @@ function getCommentData($comid, $c)
  *	@param user $u the user that has incremented the upvotes, as returned by getUserData (should already be in the session variable $_SESSION['usr'])
  *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
  */
-function incrementCommentUpvotes($com, $u, $c)
+function incrementCommentUpvotes($com, $u)
 {
 	$com['upVotes']++;
 	$sql = "UPDATE comments SET upVotes = ".$com['upVotes']." WHERE commentID =".$com['commentID'];
-	$result = mysql_query($sql, $c)
+	$result = mysql_query($sql)
 	or die(mysql_error());
 	if($u['commentVotes'] == null)
 	{
@@ -59,7 +92,7 @@ function incrementCommentUpvotes($com, $u, $c)
 	{
 		$sql = "UPDATE users SET commentVotes = ".$u['commentVotes'].",".$com['commentID']."";
 	}
-	$result = mysql_query($sql, $c)
+	$result = mysql_query($sql)
 	or die(mysql_error());
 }
 

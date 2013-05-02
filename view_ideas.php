@@ -101,6 +101,40 @@
     });
     
     </script>
+
+
+    <script>
+    function upvoteComment(str)
+    {
+        if (str=="")
+        {
+            document.getElementById("txtHint").innerHTML="";
+            return;
+        } 
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET","upvoteComment.php?upCom="+str,true);
+        xmlhttp.send();
+    }
+    </script>
+
+
+
+
+
     <div class="clear"></div>
         <div id="post-container">
             <div class="post">
@@ -160,7 +194,7 @@
                     {
                         //echo '<br><a id="editLink" href="">Edit</a><br>'; 
                         showIdeaForm($idea);
-                        echo '<br><input type="button" value="Edit" id="editButton">';
+                        echo '<br><input type="button" value="Edit" id="editButton" onclick="upvoteComment()">';
                         
                     }
 

@@ -35,7 +35,6 @@ if(array_key_exists("pid", $_GET))
 
 	if(isset($_SESSION['usr']))
 	{
-
 		if(isset($_POST['doTask']))
 		{
 			doTask($taskID, $_SESSION['usr']);
