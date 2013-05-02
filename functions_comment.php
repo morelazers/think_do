@@ -29,7 +29,7 @@
 			//echo '<div style="display:none", id="commentID">'.$commentArray['commentID'].'</div>';
 			echo '<div style="padding-top:20px;float:left; width:600px">';
        		echo '<div style="float:left"><img width="50px" height="50px" src="' . $userArray['avatarLocation'] . '"/></div>';
-       		echo '<div style="float:right; width:540px;"><h3>' . $commentArray['username'] . '</h3>';
+       		echo '<div style="float:right; width:540px;"><h3>' . $commentArray['username'] .$commentArray['upVotes']. '</h3>';
        		echo  $commentArray['content'] . '</div>';
        		echo '<br><input type="button" value="Upvote" id="upvoteCommentButton" onclick="ajaxFunction('.$commentArray['commentID'].')">';
        		echo '</div>';
