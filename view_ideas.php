@@ -107,7 +107,6 @@
     
     function ajaxFunction(id)
     {
-        alert("function called!");
         var ajaxRequest;
         try
         {
