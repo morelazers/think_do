@@ -3,6 +3,8 @@
 include "connect.php";
 include "functions_comment.php";
 
+session_start();
+
 
 $upComID = $_GET['upCom'];
 
