@@ -11,11 +11,6 @@
 
  	document.getElementById("upvoteCommentButton").onclick = function()
     {
-        if (str=="")
-        {
-            document.getElementById("txtHint").innerHTML="";
-            return;
-        } 
         if (window.XMLHttpRequest)
         {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp=new XMLHttpRequest();
