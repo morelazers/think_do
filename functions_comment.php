@@ -62,18 +62,16 @@ function incrementCommentUpvotes($com, $u)
 {
 	$com['upVotes']++;
 	$sql = "UPDATE comments SET upVotes = ".$com['upVotes']." WHERE commentID =".$com['commentID'];
-	$result = mysql_query($sql)
-	or die(mysql_error());
+	$result = mysql_query($sql) or die(mysql_error());
 	if($u['commentVotes'] == null)
 	{
-		$sql = "UPDATE users SET commentVotes = ".$com['commentID']."";
+		$sql = "UPDATE users SET commentVotes = ".$com['commentID']." WHERE userID=".$u['userID'];
 	}
 	else
 	{
-		$sql = "UPDATE users SET commentVotes = ".$u['commentVotes'].",".$com['commentID']."";
+		$sql = "UPDATE users SET commentVotes = ".$u['commentVotes'].",".$com['commentID']." WHERE userID=".$u['userID'];
 	}
-	$result = mysql_query($sql)
-	or die(mysql_error());
+	$result = mysql_query($sql) or die(mysql_error());
 }
 
 
