@@ -134,6 +134,7 @@
         alert("attemptting to upvote!");
         ajaxRequest.open("GET", "upvoteComment.php?upCom="+id, true);
         ajaxRequest.send(null);
+        alert("should have upvoted!");
     }
     </script>
 
