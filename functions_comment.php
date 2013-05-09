@@ -1,5 +1,17 @@
 <?php
 
+function userHasVotedOnComment($c, $u){
+
+	if(strcmp($u['commentVotes'], $c['commentID']) == 0){
+    	return true;
+    }
+	$votedArray = explode(",", $u['commentVotes']);
+	if(in_array($c['commentID'], $votedArray)){
+		return true;
+	}
+	return false;
+}
+
  /**
  *  MySQL function for getting comments for an idea
 *
@@ -21,19 +33,44 @@
 	{
 		$ideaID = $_GET["pid"];
 		$comments = mysql_query("SELECT * FROM comments WHERE ideaID =" . $ideaID . " ORDER BY upVotes DESC");
-
+		echo '<div class="allComments">';
 		while(($commentArray = mysql_fetch_array($comments)) != null)
     	{
 			$user = mysql_query("SELECT * FROM user WHERE username ='" . $commentArray['username'] . "'");
 			$userArray = mysql_fetch_array($user);
-			//echo '<div style="display:none", id="commentID">'.$commentArray['commentID'].'</div>';
-			echo '<div style="padding-top:20px;float:left; width:600px">';
-       		echo '<div style="float:left"><img width="50px" height="50px" src="' . $userArray['avatarLocation'] . '"/></div>';
-       		echo '<div style="float:right; width:540px;"><h3>' . $commentArray['username'] .$commentArray['upVotes']. '</h3>';
+            
+			echo '<div class="commentContainer" id="'.$commentArray["commentID"].'">';
+            echo '<div id="voteContainer">';
+            echo '<div class="buttonContainer"><input type="button" id="upvoteOn" class="';
+            
+            if(userHasVotedOnComment($commentArray, $_SESSION['usr']))
+            {
+              	echo 'commentVote voted';
+            }
+            else
+            {
+            	echo 'commentVote';
+            }
+            
+            echo '" onclick="upvoteFunction('.$commentArray['commentID'].')" ';
+            
+            if(!isset($_SESSION['usr']))
+            {
+            	echo 'disabled';
+            }
+                       
+            echo '></div><div class="voteamount">'.$commentArray['upVotes'].'</div></div>';
+       		echo '<div class="commentAvatar"><img src="' . $userArray['avatarLocation'] . '"/></div>';
+               
+            //NEED TO CHANGE THIS SO THAT THE UPVOTE NUMBER IS UNDER THE UPVOTE BUTTON
+            //ALSO NEED TO GIVE IT IT'S OWN ID TAG SO THAT IT CAN BE MODIFIED
+               
+       		echo '<div class="commentText"><h3>' . $commentArray['username'] . '</h3>';
        		echo  $commentArray['content'] . '</div>';
-       		echo '<br><input type="button" value="Upvote" id="upvoteCommentButton" onclick="ajaxFunction('.$commentArray['commentID'].')">';
+       		echo '<br>';
        		echo '</div>';
 		}
+    echo' </div>';
 	}
 }
 
@@ -41,7 +78,6 @@
 /**
  *  MySQL function to get the data for a particular comment from the database
  *	@param int $comid the comment's ID
- *	@param MySQLConnection $c Connection to MySQL database, necessary to perform operations
  *	@return an assosciative array containing all the fields from the comments table
  */
 function getCommentData($comid)
@@ -62,18 +98,53 @@ function incrementCommentUpvotes($com, $u)
 {
 	$com['upVotes']++;
 	$sql = "UPDATE comments SET upVotes=".$com['upVotes']." WHERE commentID=".$com['commentID'];
-	$result = mysql_query($sql) or die(mysql_error());
-	echo '<br>first query done<br>';
-	if($u['commentVotes'] == null)
+	mysql_query($sql) or die(mysql_error());
+	if($u['commentVotes'] == '')
 	{
-		$sql = "UPDATE user SET commentVotes=".$com['commentID']." WHERE userID=".$u['userID'];
+		$sql = "UPDATE user SET commentVotes='".$com['commentID']."' WHERE userID=".$u['userID'];
 	}
 	else
 	{
-		$sql = "UPDATE user SET commentVotes=".$u['commentVotes'].",".$com['commentID']." WHERE userID=".$u['userID'];
+		$sql = "UPDATE user SET commentVotes='".$u['commentVotes'].",".$com['commentID']."' WHERE userID=".$u['userID'];
 	}
 	$result = mysql_query($sql) or die(mysql_error());
 }
+
+
+function decrementCommentUpvotes($com, $u)
+{
+	$com['upVotes']--;
+	$sql = "UPDATE comments SET upVotes = ".$com['upVotes']." WHERE commentID =".$com['commentID'];
+	mysql_query($sql) or die(mysql_error());
+	$sql = "SELECT commentVotes FROM user WHERE userID = ".$u['userID'];
+	$res = mysql_query($sql) or die(mysql_error());
+	$commentsString = mysql_fetch_array($res);
+	$commentsArray = explode(',', $commentsString['commentVotes']);
+    
+	$count = 0;
+
+	$id = $com['commentID'];
+
+	$newUpvoteArray = array();
+
+	for($count; $count < count($commentsArray); $count++)
+	{
+		if($commentsArray[$count] == $id)
+		{
+			$commentsArray[$count] = null;
+		}
+		else
+		{
+			$newUpvoteArray[] = $commentsArray[$count];
+		}
+	}
+	$commentsString = implode(',', $newUpvoteArray);
+
+	$sql = "UPDATE user SET commentVotes = '".$commentsString."' WHERE userID = ".$u['userID'];
+	mysql_query($sql) or die(mysql_error());
+}
+
+
 
 
 ?>

@@ -1,0 +1,36 @@
+body {
+		background-color: #D8D8D8;
+}
+table {
+		border: none;
+        float: left;
+}
+td {
+		border: none;
+}
+.Box :hover {
+		width: 245px;
+        height: 245px;
+        position: static;
+}
+#sidebar {
+		border: 2px outset #101010;
+        border-radius: 10px;
+        background-color: white;
+        height: 97%;
+        width: 300px;
+        right: 0px;
+        position: fixed;
+        text-align: center;
+}
+#sidebarheader {
+		font-family: Helvetica;
+}
+.Box {
+		width: 250px;
+        height: 250px;
+        background-color: #C8C8C8;
+        border: 2px outset #E6E6E6l;
+        border-radius: 10px;
+        display: inline-block;
+}

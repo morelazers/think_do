@@ -29,8 +29,8 @@ function getIdeaAvatar($i)
 {
 	$user = mysql_query("SELECT * FROM user WHERE username ='" . $i['createdBy'] . "'");
 	$userArray = mysql_fetch_array($user);
-	echo '<div style="float:left; padding-right:5px;"><img width="70px" height="70px" src="' . $userArray['avatarLocation'] . '"/></div>' 
-	. '<div style="float:right;width:165px; height:80px; overflow:hidden"><h2>Shared by: </h2><h1>'. $i['createdBy']. "</h1></div>" ;
+	echo '<div class="ideaAvatar"><img src="' . $userArray['avatarLocation'] . '"/></div>' 
+	. '<div class="ideaCreatorHead"><h2>Shared by: </h2><h1>'. $i['createdBy']. "</h1></div>" ;
 } 
 
 function getHomepageIdeas($c)
@@ -47,27 +47,30 @@ function getHomepageIdeas($c)
 
 function outputIdeas(&$ideas)
 {
-	$count = 0;
-	//Create a table and output the project creator, created date and project name to table. The project name is linked to the project page
-	while($ideasArray = mysql_fetch_array($ideas))
-	{
-		$iName = $ideasArray['ideaName'];
-		$createdBy = $ideasArray['createdBy'];
-		$dateCreated = $ideasArray['dateCreated'];
-		$dateCreated = date("d m Y", $dateCreated);
-		$iID = $ideasArray['ideaID'];
-		$iVotes = $ideasArray['upVotes'];
-		echo '<div class="idea">';
-		echo '<div class="ideaVotes">' .$iVotes. '</div>';
-		echo '<div class="ideaText"><h2><a href="./view_ideas.php?pid='.$iID.'">'.$iName.'</a></h2></br>';
-		echo 'Shared by: ' .$createdBy. '</div>';
-		echo '</div>';
-		$count++;
-	}
-	if($count == 0)
-	{
-		echo '<h2>There seem to be no ideas here!<br><br></h2>';
-	}
+	if($ideas != null)
+    {
+        $count = 0;
+        //Create a table and output the project creator, created date and project name to table. The project name is linked to the project page
+        while($ideasArray = mysql_fetch_array($ideas))
+        {
+            $iName = $ideasArray['ideaName'];
+            $createdBy = $ideasArray['createdBy'];
+            $dateCreated = $ideasArray['dateCreated'];
+            $dateCreated = date("d m Y", $dateCreated);
+            $iID = $ideasArray['ideaID'];
+            $iVotes = $ideasArray['upVotes'];
+            echo '<div class="idea">';
+            echo '<div class="ideaVotes">' .$iVotes. '</div>';
+            echo '<div class="ideaText"><h2><a href="./view_ideas.php?pid='.$iID.'">'.$iName.'</a></h2></br>';
+            echo 'Shared by: ' .$createdBy. '</div>';
+            echo '</div>';
+            $count++;
+        }
+   }
+   if($ideas == null or $count == 0)
+   {
+     	echo '<h2>There seem to be no ideas here!<br><br></h2>';
+   }
 
 }
 

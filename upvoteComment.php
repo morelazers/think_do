@@ -1,17 +1,24 @@
 <?php
 
-include "connect.php";
-include "functions_comment.php";
-
 session_start();
 
+include "connect.php";
+include "functions_comment.php";
+include "functions_user.php";
 
-$upComID = $_GET['upCom'];
+$comID = $_GET['com'];
 
-/*var_dump($upComID);*/
+$comment = getCommentData($comID);
 
-$commentToUpvote = getCommentData($upComID);
+if(userHasVotedOnComment($comment, $_SESSION['usr']))
+{
+	decrementCommentUpvotes($comment, $_SESSION['usr']);
+}
+else
+{
+	incrementCommentUpvotes($comment, $_SESSION['usr']);
+}
 
-incrementCommentUpvotes($commentToUpvote, $_SESSION['usr']);
+$_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
 
 ?>

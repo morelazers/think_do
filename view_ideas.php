@@ -10,7 +10,30 @@
     include 'functions_input.php';
     include 'functions_gatherings.php';
     include 'functions_user.php';
-
+    
+	echo '
+    <script>
+    $(document).ready(function(){
+      $(".commentVote").click(function(){
+            $(this).toggleClass("voted");
+            
+            
+            commentID = parseInt($(this).parent().parent().parent().attr("id"),10);
+            voteNumber = parseInt($(this).parent().parent().text(),10);
+            
+            if($(this).hasClass("commentVote voted")){
+            	newVoteNumber = voteNumber+1;
+            }
+            else{
+            	newVoteNumber = voteNumber-1;
+            }
+                            
+            $("#" + commentID).find(".voteamount").text(""+newVoteNumber);
+      });
+    });
+    </script>
+    ';
+    
     $idea = getIdea();
     if(isset($_POST['submit']))
     {
@@ -105,7 +128,7 @@
 
     <script language="javascript" type="text/javascript">
     
-    function ajaxFunction(id)
+    function upvoteFunction(id)
     {
         var ajaxRequest;
         try
@@ -131,7 +154,7 @@
                 }
             }
         }
-        ajaxRequest.open("GET", "upvoteComment.php?upCom="+id, true);
+        ajaxRequest.open("GET", "upvoteComment.php?com="+id, true);
         ajaxRequest.send();
     }
     </script>
@@ -144,14 +167,14 @@
                     if(isset($_SESSION['usr'])){
                         $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
                         if(userHasVoted($idea, $_SESSION['usr'])==false){
-                            echo '<div style="float:left; width:100%;"><form method="post" action="'; 
+                            echo '<div class="ideaUpvoteContainer"><form method="post" action="'; 
                             echo $PHP_SELF; 
                             echo '">
                             <input type="submit" name="upvote" value="Upvote">
                             </form></div>';
                         }
                         else{
-                            echo '<div style="float:left; width:100%;"><form method="post" action="'; 
+                            echo '<div class="ideaUpvoteContainer"><form method="post" action="'; 
                             echo $PHP_SELF; 
                             echo '">
                             <input type="submit" name="upVoted" value="Undo" id="upVoted">
@@ -208,7 +231,7 @@
                     else
                     {
                         echo "<h2>Oops!</h2></br>
-                            You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can post a comment!
+                            You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can post or vote on a comment!
                            <br>
                            But don't worry, it will take you less than a minute!
                            <br>";

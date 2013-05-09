@@ -3,45 +3,15 @@
 *  @author: Tom Nash
 */
     error_reporting(0);
-    showForm();
-    $desiredName = $_POST["dUsername"];
-    $pass = $_POST["dPassword"];
-    $secondPass = $_POST["rPassword"];
-    $emailAddress = $_POST["email"];
-    
     include 'connect.php';
-	include 'functions_user.php';
-	include 'functions_input.php';
-    
-    if (isset($_POST["submit"]))
-    {
-        if (inputIsComplete())
-        {
-            //echo 'complete input';
-            if (isValidInput($_POST["dUsername"]))
-            {
-                if (userIsNotTaken($desiredName, $con))
-                {
-                	insertIntoDB($con, $desiredName, $emailAddress, $pass);
-                	$currentUser = getUserData($con, $desiredName);
-                	$_SESSION['usr'] = $currentUser;
-                	header('Location: index.php');
-                	
-                    //$password = encryptPassword($_POST['dPassword']);
-                    //$username = $_POST['dUsername'];
-                    //insertIntoDB($con, $username, $password, $emailAddress);
-				}
-            }
-		}	
-    }
-    else
-    {
-        
-    }
+  include 'functions_user.php';
+  include 'functions_input.php';
+
+    showForm();
     
     function showForm() 
     {
-        echo '<form width="300px" method="post" action="'; echo $PHP_SELF; echo '">
+        echo '<form width="300px" method="post" action="register_verify.php">
               <label for="desired_username">Your desired username:</label><br>
               <input type="text" name="dUsername" id="desired_username" value="';
               echo $_POST["dUsername"];
@@ -52,12 +22,11 @@
               <input type="password" name="rPassword" id="retyped_pass" value=""><br>
               <label for="email_address">Your email address:</label><br>
               <input type="text" name="email" id="email_address" value="';
-			  echo $_POST["email"];
+        echo $_POST["email"];
               echo '"><br>
               <input type="submit" name="submit" value="Submit">
               </form>';
     }
-	
 
 
 /**
@@ -84,50 +53,4 @@
         return false;
     }
 }*/
-    
-    /*
-    *
-    * Validates the user input by first stripping any invalid punctuation values from
-    * the desired username, if there are none, the script checks for matching passwords
-    *
-    *
-    */
-    function isValidInput($unameInput)
-    {
-        
-        $unameValid = preg_replace("/[^a-zA-Z 0-9_.-]+/", " ", $unameInput);
-        
-        if ($unameInput == $unameValid)
-        {
-            $maxUnameLength = 30;
-            
-            function checkPassword()
-            {
-                return ($_POST["dPassword"] == $_POST["rPassword"]);
-            }
-            
-            function isValidLength($uname, $maxLen)
-            {
-                return (strlen($uname) < (int)$maxLen);
-            }
-            
-            if (!checkPassword())
-            {
-                echo 'Passwords do not match!';
-            }
-            else if (isValidLength($unameInput, $maxUnameLength))
-            {
-                return true;
-                echo 'valid input';
-            }
-            else
-            {
-                echo 'Username must not be more than 30 characters!</br>';
-            }
-        }
-        else
-        {
-            echo 'Username must be a combination of letters and numbers only!';
-        }
-    }
 ?> 

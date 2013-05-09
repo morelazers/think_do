@@ -5,7 +5,9 @@
 
 include 'header.php';
 include 'functions_idea.php'; ?>
-	
+    <script type="text/javascript">
+      $('.default').toggleClass('clicked');
+    </script>
 	<div class="sidebar">	
 	<h1>Newest Ideas</h1>
 	Here are the newest ideas.</br> 

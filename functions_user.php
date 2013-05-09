@@ -17,16 +17,16 @@ $eKey = 'TOPSECRET';
     //Get the row with the user's data
     $user = mysql_fetch_array($resultRow);
 
-	//If there is no user with the inputted name in the database
-	if ($user == null)
+  //If there is no user with the inputted name in the database
+  if ($user == null)
     {
-    	//echo 'no user';
-       	return false;
+      //echo 'no user';
+         return false;
     }
-	else
-	{
-		return $user;
-	}
+  else
+  {
+    return $user;
+  }
  }
 
 /*function getUserAvatar()
@@ -143,11 +143,9 @@ function insertIntoDB($c, $u, $e, $p)
     }
     else
     {
-        echo 'You are registered!<br>Please login';
         emailNewUser($e);
         //header('Location: index.php');
     }
-    mysql_close($con);
 }
 
 /**
@@ -177,20 +175,15 @@ function userIsNotTaken($u, $c)
 *   Function to display the profile of the user passed into it
 *   @param array $u the array of the user's data
 */
-function displayProfile($u)
+function displayProfile($u, $c)
 {
-    /*include 'functions_idea.php';*/
     echo '<h2>'.$u['username'].'</h2><br>';
     echo '<h3>About Me:</h3><br>';
     echo '<p>'.$u['aboutme'].'</p><br>';
     echo "<h3>Ideas I've Shared:</h3><br>";
-    $sql = "SELECT * FROM idea WHERE createdBy = '".$u['username']."'";
-    $res = mysql_query($sql);
+    $sql = "SELECT * FROM idea WHERE isOpen = 1 AND createdBy = '".$u['username']."'";
+    $res = mysql_query($sql, $c);
     outputIdeas($res);
-    /*while($idea = mysql_fetch_array($res))
-    {
-        echo '<h2><a href="./view_ideas.php?pid='.$idea['ideaID'].'">'.$idea['ideaName'].'</a></h2></br>';
-    }*/
     echo "<h3>Ideas I've Liked:</h3><br>";
 
 
@@ -199,8 +192,15 @@ function displayProfile($u)
 
     $ideasCount = count($likedIdeasArray);
     $i = 0;
+    //var_dump($ideasCount);
+    if($ideasCount == 1)
+    {
+    	$null = null;
+  		outputIdeas($null);
+        return 0;
+    }
 
-    $sql = "SELECT * FROM idea WHERE ideaID ";
+    $sql = "SELECT * FROM idea WHERE isOpen = 1 AND ideaID ";
 
     foreach($likedIdeasArray as $val)
     {
@@ -229,10 +229,13 @@ function displayProfile($u)
 
 function displaySkillsAndInterests($u)
 {
+    $interests = getInterestsAsStrings($u['interests']);
     echo '<h3>Skills:</h3><br>';
     echo '<p>'.$u['skills'].'</p><br>';
     echo '<h3>Interests:</h3><br>';
-    echo '<p>'.getInterestsAsStrings($u['interests']).'</p><br>';
+    echo '<p>';
+    echo $interests;
+    echo '</p><br>';
 }
 
 ?>

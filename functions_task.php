@@ -56,7 +56,7 @@ function displayTasks(&$t)
 	{
 		echo '<tr>';
 		echo '<td><h2><a href="./view_task.php?pid='.$curTask['taskID'].'">'.$curTask['taskName'].'</a></h2></td>';
-		echo '<td>Created by: '.$curTask['username'].' </td>';
+		echo '<td><p>Created by: '.$curTask['username'].' </td>';
 		echo '<td>On: '.$curTask['dateCreated'].' </td>';
 		if(isset($curTask['deadline']) && strcmp($curTask['deadline'], '0000-00-00') != 0)
 		{
@@ -145,7 +145,7 @@ function markTaskAsComplete($tID, $u)
 	mysql_query($sql) or die(mysql_error());
 }
 
-function markTaskAsNotComplete($tID, $u)
+function markTaskAsNotComplete($tID)
 {
 	$sql = "UPDATE tasks SET complete=0 WHERE taskID=".$tID;
 	mysql_query($sql) or die(mysql_error());

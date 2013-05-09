@@ -1,11 +1,11 @@
 <?php 
 session_start();
 echo'<script>
-	$(function(){
-		$( "#tabs" ).tabs({
+  $(function(){
+    $( "#tabs" ).tabs({
             
         });
-	});
+  });
 </script>
 <script language="javascript" type="text/javascript">
 $(function() {
@@ -62,7 +62,7 @@ if (isset($_SESSION['usr']))
         { */  
         if(strcmp($interests, '') != 0)
         {
-        	$IDinterests = getInterestIDs($interests, $con);	
+          $IDinterests = getInterestIDs($interests, $con);  
         }
         
         $aboutMe = mysql_real_escape_string($aboutMe);
@@ -101,99 +101,103 @@ if (isset($_SESSION['usr']))
 }
 else
 {
-    header('Location: login.php');
+    echo "<h2>Oops!</h2></br>
+      You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can use this!
+      <br>
+      But don't worry, it will take you less than a minute!
+      <br>";
 }
-	
-		
-	
-	
+  
+    
+  
+  
     /**
-	*	This function declares an empty array then adds each empty _POST value
-	*	to the array. The function then checks to see if the array is empty at
-	*	the end, returning true if it is, false if has any values in it.
-	*/
+  *  This function declares an empty array then adds each empty _POST value
+  *  to the array. The function then checks to see if the array is empty at
+  *  the end, returning true if it is, false if has any values in it.
+  */
 function passInputIsComplete()
 {  
-	$emptyFields = array();
-	$fields = array($_POST["oldPass"], $_POST["newPass"], $_POST["newPass2"]);
+  $emptyFields = array();
+  $fields = array($_POST["oldPass"], $_POST["newPass"], $_POST["newPass2"]);
         foreach ($fields as $value)
         {
-		if (empty($value))
-           	{
-                	array_push($emptyFields, $value);
-            	}
+    if (empty($value))
+             {
+                  array_push($emptyFields, $value);
+              }
         }
         if (empty($emptyFields))
         {
-        	//echo "complete password input";
-		    return true;
+          //echo "complete password input";
+        return true;
         }
         else
         {
-        	//echo "incomplete password input";
-		    return false;
+          //echo "incomplete password input";
+        return false;
         }
 }
 
 function profileInputIsComplete()
 {  
-	$emptyFields = array();
-	$fields = array($_POST["aboutMe"], $_POST["interests"], $_POST["skills"]);
+  $emptyFields = array();
+  $fields = array($_POST["aboutMe"], $_POST["interests"], $_POST["skills"]);
     foreach ($fields as $value)
     {
-	if (empty($value))
-       	{ 
-            	array_push($emptyFields, $value);
+  if (empty($value))
+         { 
+              array_push($emptyFields, $value);
         }
     }
     if (empty($emptyFields))
     {
-    	//echo "complete profile input";
-	    return true;
-	
+      //echo "complete profile input";
+      return true;
+  
     }
     else
     {
-    	//echo "incomplete profile input";
-	    return false;
+      //echo "incomplete profile input";
+      return false;
     }
 }
 
 
     
-	/**
-	*	This function is responsible for outputting the login form to the page
-	*/
+  /**
+  *  This function is responsible for outputting the login form to the page
+  */
 function showPassForm() 
 {
-	echo '<form method="post" action="#tabs-3">
+  echo '<form method="post" action="#tabs-3">
         <label for="old_password">Old password:</label><br>
         <input type="password" name="oldPass" id="old_password" value=""><br>
-	<label for="new_password">New password:</label><br>
+  <label for="new_password">New password:</label><br>
         <input type="password" name="newPass" id="new_password" value=""><br>
-	<label for="new_password2">Retype new password:</label><br>
+  <label for="new_password2">Retype new password:</label><br>
         <input type="password" name="newPass2" id="new_password2" value=""><br>
         <input type="submit" name="submitPass" class="normalButton" value="Change">
         </form>';
 }
 
 function showAboutMeForm($u)
-{	
+{  
     //var_dump($u['interests']);
     $interestsToDisplay = getInterestsAsStrings($u['interests']);
     //var_dump($interestsToDisplay);
-	echo '<form method="post" action="'; 
+  echo '<form method="post" action="'; 
     echo $PHP_SELF; 
     echo '">
     <label for="aboutMe">Describe yourself:</label><br>
     <textarea rows="10" cols="30" name="aboutMe" id="aboutMe">';
     echo $u['aboutme'];
     echo '</textarea><br>
-	<label for="interests">What are you interested in?</label><br>
+  <label for="interests">What are you interested in?</label><br>
     <input type="text" name="interests" id="interests" value="';
     echo $interestsToDisplay;
     echo '"><br>
-	<label for="skills">What skills do you have?</label><br>
+  <label for="skills">What skills do you have?</label><br>
     <input type="text" name="skills" id="skills" value="';
     echo $u['skills'];
     echo '"><br>

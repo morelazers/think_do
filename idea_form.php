@@ -72,8 +72,7 @@ echo '<div class="sidebar">
 
     if (isset($_POST["submit"]))
     {
-    	//If no fields are empty, add to database
-        if (inputIsComplete())
+    	if (inputIsComplete())
         {
             $iName = mysql_real_escape_string($ideaName);
             $iDesc = mysql_real_escape_string($ideaDesc);
@@ -81,7 +80,7 @@ echo '<div class="sidebar">
 		    $iInterests = mysql_real_escape_string($interests);
 		    $iDate = date("Y-m-d H:i:s");
 		    $u = $_SESSION['usr'];
-		    $uName = $u['username'];
+		    $uName = mysql_real_escape_string($u['username']);
 		    $uID = $u['userID'];
 		    if($_POST["iPrivacy"]=="public")
 		    {
@@ -93,22 +92,20 @@ echo '<div class="sidebar">
 		    }
 			$interestIDs = getInterestIDs($iInterests, $con);
 
-			$sql="INSERT INTO idea (createdBy, ideaName, description, skillsRequired, interests, isOpen, dateCreated, moderators) 
-            	VALUES ('".$uName."', '".$iName."', '".$iDesc."', '".$iSkills."', '".$interestIDs."', '".$iOpen."', '".$iDate."', '".$uID."' )";
+			$sql="INSERT INTO idea 
+            (createdBy, ideaName, description, skillsRequired, 
+            interests, isOpen, dateCreated, moderators) 
+            VALUES 
+            ('".$uName."', '".$iName."', '".$iDesc."', 
+            '".$iSkills."', '".$interestIDs."', '".$iOpen."', 
+            '".$iDate."', '".$uID."' )";
            
             //If error durying query execution report error
             if(!mysql_query($sql, $con))
             {
-                echo 'failed to add record';
+                echo 'Something is broken on our end. We\'ll fix it soon, promise.';
                 die('Error: ' . mysql_error());
             }
-            else
-            {
-            	header('Location: index.php');
-            }
-            //mysql_close($con);
-            //echo 'Idea submitted!';
-            //$sql = "SELECT ideaID FROM idea WHERE "
         }
     }
     showIdeaForm($_POST);

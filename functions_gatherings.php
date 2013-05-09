@@ -34,11 +34,13 @@ function displayGatherings(&$g)
 	while ($curGath = mysql_fetch_array($g))
 	{
 		//var_dump($curGath);
+        
 		echo '<tr>';
 		echo '<td><h2><a href="./view_gathering.php?pid='.$curGath['gathID'].'">'.$curGath['gathLocation'].'</a></h2></td>';
-		echo '<td>Proposed Date: '.$curGath['gathDate'].' </td>';
-		echo '<td>Proposed Time: '.$curGath['gathTime'].' </td>';
-		echo '</tr>';
+		echo '<td><p>Proposed Date: '.$curGath['gathDate'].' </td>';
+		echo '<td>Proposed Time: '.$curGath['gathTime'].' </p></td>';
+        echo '</tr>';
+
 		$count++;
 	}
 	
