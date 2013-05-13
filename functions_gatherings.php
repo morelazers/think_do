@@ -1,6 +1,8 @@
 <?php
 
-
+/*
+* gets the data for a gathering given its ID
+*/
 function getGatheringData($ID)
 {
 	$sql = "SELECT * FROM gatherings WHERE gathID=".$ID;
@@ -8,6 +10,9 @@ function getGatheringData($ID)
 	return mysql_fetch_array($res);
 }
 
+/*
+* adds a gathering to the database, given the idea and the gathering array
+*/
 function createGathering($i, $g)
 {
 		$gDesc = mysql_real_escape_string($g['gatheringDescription']);
@@ -19,7 +24,9 @@ function createGathering($i, $g)
 		mysql_query($sql) or die(mysql_error());
 }
 
-
+/*
+* gets all the gatherings for the given idea
+*/
 function getIdeaGatherings($i)
 {
 	$sql = "SELECT * FROM gatherings WHERE forIdea = ".$i['ideaID'];
@@ -28,18 +35,34 @@ function getIdeaGatherings($i)
 	return $res;
 }
 
+/*
+* displays all the gatherings for a given idea
+*/
 function displayGatherings(&$g)
 {
 	$count = 0;
 	while ($curGath = mysql_fetch_array($g))
 	{
 		//var_dump($curGath);
-        
-		echo '<tr>';
-		echo '<td><h2><a href="./view_gathering.php?pid='.$curGath['gathID'].'">'.$curGath['gathLocation'].'</a></h2></td>';
-		echo '<td><p>Proposed Date: '.$curGath['gathDate'].' </td>';
-		echo '<td>Proposed Time: '.$curGath['gathTime'].' </p></td>';
-        echo '</tr>';
+        echo '<a href="javascript:animatedcollapse.toggle(\'gath'.$count.'\')">';
+		echo '<div class="gath">';
+		echo '<div class="gathLocation">'.$curGath['gathLocation'].'</div>';
+
+		//<a href="./view_gathering.php?pid='.$curGath['gathID'].'"></a>
+		echo '</div>';
+		echo '</a>';
+
+		echo '
+        <div id="gath'.$count.'" class="gathDropdown" style="display:none">
+        <p><br>'.$curGath['gathDescription'].'<br></p>
+        </div>
+        ';
+
+		echo '<div class="gathDate"><td><p>Proposed Date: '.$curGath['gathDate'].' </td>';
+		echo '<td>Proposed Time: '.$curGath['gathTime'].' </p></td></div>';
+
+
+        echo "<script> animatedcollapse.addDiv('gath".$count."') </script>";
 
 		$count++;
 	}
@@ -48,8 +71,13 @@ function displayGatherings(&$g)
 	{
 		echo '<h2>No gatherings have been proposed for this idea yet!</h2>';
 	}
+
+	echo "<script> animatedcollapse.init() </script>";
 }
 
+/*
+* show a single gathering given its ID
+*/
 function showGathering($gID)
 {
 	//var_dump($gathID);
@@ -72,6 +100,9 @@ function showGathering($gID)
 	}
 }
 
+/*
+* returns true if the current user is attending the gathering with the given ID, otherwise returns false
+*/
 function userIsAttendingGathering($gID)
 {
 	$u = $_SESSION['usr'];
@@ -83,6 +114,9 @@ function userIsAttendingGathering($gID)
 	return false;
 }
 
+/*
+* shows the contents of the sidebar for the gathering with given ID
+*/
 function showGathSidebarContent($gID)
 {
 	if(isset($_SESSION['usr']))
@@ -102,6 +136,9 @@ function showGathSidebarContent($gID)
 	}
 }
 
+/*
+* marks the gathering with given ID as being attended by the current user
+*/
 function markAsAttending($gathID)
 {
 	$u = $_SESSION['usr'];
@@ -116,6 +153,9 @@ function markAsAttending($gathID)
 	mysql_query($sql) or die(mysql_error());
 }
 
+/*
+* marks the gathering with given ID as no longer being attended by the current user
+*/
 function markAsNotAttending($gID)
 {
 	$u = $_SESSION['usr'];
@@ -138,6 +178,9 @@ function markAsNotAttending($gID)
 	mysql_query($sql) or die(mysql_error());
 }
 
+/*
+* updates the information for the current gathering
+*/
 function updateGathering($gath, $ID)
 {
 	$gDesc = mysql_real_escape_string($gath['gathDescription']);
@@ -148,6 +191,9 @@ function updateGathering($gath, $ID)
 	mysql_query($sql) or die(mysql_error());
 }
 
+/*
+* returns true if the given user is the poster of the given gathering
+*/
 function currentUserIsGatheringProposer($u, $g)
 {
 
@@ -158,7 +204,9 @@ function currentUserIsGatheringProposer($u, $g)
 	return false;
 }
 
-
+/*
+* shows the form with data from the given array
+*/
 function showGatheringForm($g)
 {
 	echo '<div id="gathForm"><form method="post" action="#tabs-3">

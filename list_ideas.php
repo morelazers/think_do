@@ -35,8 +35,12 @@ include 'functions_idea.php'; ?>
 		}
 	}
 	?>
+    <div id="footer">
+      <p><a href="about.php">About</a> &copy; Think.do 2013</p>
+    </div>
 	</div>
 	<div class="mainRight">
+    <h2>New Ideas!</h2><br>
             <?php getIdeas(); ?>
     </div>
 

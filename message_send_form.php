@@ -3,10 +3,13 @@
 include "connect.php";
 include "functions_input.php";
 include "functions_user.php";
-//include "functions_messaging.php";
 
 
 session_start();
+
+if(array_key_exists("user", $_GET)){
+	$_POST['recipient'] = $_GET['user'];
+}
 
 if (isset($_SESSION['usr']))
 {
@@ -15,26 +18,18 @@ if (isset($_SESSION['usr']))
 	$msgContent = mysql_real_escape_string($_POST["msgContent"]);
 	$emptyFields = array();
 }
-else
-{
-	header("Location: login.php");
-}
-
-
-showForm();
 
 if(isset($_POST['submit']))
 {
-	//echo "trying to send your message<br>";
 	if(inputIsComplete())
 	{
-		//echo "complete input<br>";
 		if(userIsNotTaken($recipient, $con) == false)
 		{
-			//echo "sending message!<br>";
-			//var_dump($msgContent);
 			sendMessage($recipient, $msgSubject, $msgContent);
-			echo "Message sent!<br>";
+            $_POST["recipient"] = "";
+            $_POST["msgSubject"] = "";
+            $_POST["msgContent"] = "";
+            echo 'Message sent!';
 		}
 		else
 		{
@@ -43,6 +38,7 @@ if(isset($_POST['submit']))
 	}
 }
 
+showForm();
 
 function showForm() 
 {
@@ -56,10 +52,10 @@ function showForm()
 	echo $_POST["msgSubject"];
     echo '"><br>
     <label for="msg_content"><h2>Your message:</h2></label>
-    <textarea rows="10" cols="30" name="msgContent" id="msg_content" value="';
+    <textarea rows="10" cols="30" name="msgContent" id="msg_content">';
     echo $_POST["msgContent"]; 
-    echo '"></textarea><br>
-	<br><input type="submit" name="submit" class="normalButton" value="Send"></form></div>';
+    echo '</textarea><br>
+	<br><input type="submit" name="submit" class="normalButton" value="Send"></form>';
 }
 
 ?>

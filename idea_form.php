@@ -23,7 +23,10 @@ echo '<div class="sidebar">
 	Help us help you! People with similar interests are automatically matched to your idea!</br></br>
 	<b>Hide it?</b></br>
 	Decide wether or not you want to reveal your idea to the whole world. Public ideas are displayed on think.do and will appear in search results.</br></br>
-	</div>
+    <div id="footer">
+    <p><a href="about.php">About</a> &copy; Think.do 2013</p>
+    </div>
+    </div>
 	
 	
 	<div class="mainRight">
@@ -117,29 +120,5 @@ else
   But don't worry, it will take you less than a minute!</h3>
   </div>";
 }
-
-/**
-*  Function to check if the inputs from a $_POST form are all filled in
-*/
-/*function inputIsComplete()
-{
-    //Add all empty fields to an array
-    foreach ($_POST as $value)
-    {
-        if (empty($value))
-        {
-            array_push($emptyFields, $value);
-        }
-    }
-    if (empty($emptyFields))
-    { 
-        return true;
-    }
-    else
-    {
-        echo 'All forms must be filled in!';
-        return false;
-    }
-}*/
 
 ?> 

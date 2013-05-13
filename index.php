@@ -31,10 +31,13 @@ include 'functions_idea.php'; ?>
 		}
 	}
 	?>
+      <div id="footer">
+        <p><a href="about.php">About</a> &copy; Think.do 2013</p>
+      </div>
 	</div>
 	
 		<div class="mainRight">
-			</br><img src="images/top.png" /></br></br>
+			</br><img src="images/top.png" /></br></br> 
 			<?php getHomepageIdeas($con); ?>
 		</div>			
 	</div>	

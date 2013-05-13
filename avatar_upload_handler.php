@@ -72,9 +72,6 @@
 			   		echo '<div class="ftpError">Error moving the file to the correct directory!</div>';
 			   		die();
 			    }
-			   
-			    //$dirToStoreIn = "upload/".$u['username'];
-			    //echo "Stored in: " . $dirToStoreIn;
 		      }
 		}
 	}

@@ -3,8 +3,6 @@
 //include 'connect.php';
 /*include 'functions_task.php';*/
 
-$createTaskClicked = 0;
-
 if(isset($_POST['submitTask']))
 {
 	if(isset($_POST['taskName']) && isset($_POST['taskDescription']) && isset($_POST['ongoing']))
@@ -26,23 +24,17 @@ if(isset($_POST['submitTask']))
         //unset($_SESSION['taskToModify']);
 	}
 }
-elseif(isset($_POST['createTask']))
-{
-    showTaskForm($_POST);
-    $createTaskClicked = 1;
-}
+
+echo '<input type="button" class="createTaskButton" value="Create a Task">';
+
+showTaskForm($_POST);
 
 $tasks = getIdeaTasks($idea);
 //showTaskForm();
 //displayTasks($tasks);
 
-if(!$createTaskClicked)
-{
-    echo 
-    '<form method="post" action="#tabs-2">
-    <input type="submit" name="createTask" value="Create a task!">
-    </form><br><br>';
-}
+
+
 
 /**
 *  Function to check if the inputs from a $_POST form are all filled in

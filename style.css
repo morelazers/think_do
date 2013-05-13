@@ -82,7 +82,7 @@ h3 {
 	margin:0px;
 }
 
-input[type=submit], .smallForm a, .smallerForm a{
+input[type=submit], .smallForm a, .smallerForm a, .showInterest{
 	background-color:#b30000;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
@@ -96,6 +96,7 @@ input[type=submit], .smallForm a, .smallerForm a{
 	padding:6px 24px;
 	text-decoration:none;
 }
+
 input[type=submit]:hover, .smallForm a:hover, .smallerForm a:hover{
 	background-color:#800000;
 	border:1px
@@ -117,9 +118,60 @@ input[type=submit] #upVoted, .helperMsg{
 	text-decoration:none;
 }
 
-input[type=submit] #upVoted:hover, .helperMsg:hover{
-	background-color:#00A300;
-	border:1px solid #00A300;
+.ideaVote, .messageButton{
+	background-color:#b30000;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #b30000;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+}
+
+.editButton, .createTaskButton, .proposeGatheringButton{
+	float:right;
+	background-color:#b30000;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #b30000;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+}
+
+.editButton:hover, .showInterest:hover, .messageButton:hover{
+	background-color:#8F0000;
+	border:1px solid #8F0000;
+}
+
+.ideaVote.voted, .showInterest.interested {
+	background-color: #00A300;
+    border: 1px solid #00A300;
+}
+
+.ideaVote.voted:hover, .showInterest.interested:hover {
+	background-color: #008200;
+    border: 1px solid #008200;
+}
+
+.ideaVote:hover, .createTaskButton:hover, .proposeGatheringButton:hover{
+	background-color:#8F0000;
+	border:1px solid #8F0000;
+}
+
+.helperMsg:hover{
+	background-color: #00A300;
+    border: 1px solid #00A300;
 }
 
 .modMsg{
@@ -148,7 +200,6 @@ input[type=submit] #upVoted:hover, .helperMsg:hover{
 .mainRight a{
 	color:#B30000;
 	text-decoration:none;
-	font-size:12pt;
 }
 
 .mainRight p{
@@ -208,17 +259,35 @@ input[type=submit] #upVoted:hover, .helperMsg:hover{
 	padding-bottom:20px;
 }
 
-.footer{
-	width:100%;
-	position:absolute;
-	bottom:0px;
-	height:auto;
-	background-color:#B30000;
+#footer{
+	width: 239px;
+	position: absolute;
+	bottom: 0px;
+	height: 50px;
+	border-top: 1px solid gray;
+	color: gray;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#footer a{
+	text-decoration: none;
+	color: gray;
+	display: inline;
+	margin-right: 15px;
+}
+
+#footer p{
+	display: inline;
+	position: absolute;
+	left: 0px;
+	color: gray;
+
 }
 
 .sidebar h1,h2{
 	color:#FFFFFF;
-	font-family:"Century Gothic";
+	font-family:"Tahoma";
 	font-size:20px;
 	padding:0px;
 	margin:0px;
@@ -232,7 +301,7 @@ input[type=submit] #upVoted:hover, .helperMsg:hover{
 
 h1{
 	color:#B30000;
-	font-family:"Century Gothic";
+	font-family:"Tahoma";
 	font-size:28px;
 	padding:0px;
 	margin:0px;
@@ -240,7 +309,7 @@ h1{
 
 h2{
 	color:#B30000;
-	font-family:"Century Gothic";
+	font-family:"Tahoma";
 	font-size:20px;
 	padding:0px;
 	margin:0px;
@@ -248,7 +317,7 @@ h2{
 
 h4{
 	color:#B30000;
-	font-family:"Century Gothic";
+	font-family:"Tahoma";
 	font-size:20px;
 	padding:0px;
 	margin:0px;
@@ -462,7 +531,7 @@ input[type=text], textarea, input[type=password] {
       height: 17px;
       border: none;
       float: left;
-      background-position: 0px 0px;
+      background-position: 0px 0px; 	
     } 
     
     .commentVote.voted {
@@ -474,3 +543,18 @@ input[type=text], textarea, input[type=password] {
       float: left;
       background-position: 0px 18px;
 	}
+
+	.taskTitle, .gathLocation{
+		margin-bottom:5px;
+		font: normal verdana,arial,helvetica,sans-serif;
+		font-size: 14px;
+		font-weight: bold;
+	}
+
+.idea-creator{
+	text-decoration: none;
+}
+
+#upvoteNumber{
+	float:left;
+}

@@ -14,17 +14,6 @@ function userHasVotedOnComment($c, $u){
 
  /**
  *  MySQL function for getting comments for an idea
-*
-*ajaxRequest.onreadystatechange = function()
-*		{
-*			if(ajaxRequest.readyState == 4)
-*			{
-*				
-*			}
-*		}
-*
-*
-* 
  */
  function getComments()
  {
@@ -52,7 +41,7 @@ function userHasVotedOnComment($c, $u){
             	echo 'commentVote';
             }
             
-            echo '" onclick="upvoteFunction('.$commentArray['commentID'].')" ';
+            echo '" onclick="upvoteCommentFunction('.$commentArray['commentID'].')" ';
             
             if(!isset($_SESSION['usr']))
             {
@@ -65,7 +54,7 @@ function userHasVotedOnComment($c, $u){
             //NEED TO CHANGE THIS SO THAT THE UPVOTE NUMBER IS UNDER THE UPVOTE BUTTON
             //ALSO NEED TO GIVE IT IT'S OWN ID TAG SO THAT IT CAN BE MODIFIED
                
-       		echo '<div class="commentText"><h3>' . $commentArray['username'] . '</h3>';
+       		echo '<div class="commentText"><h3><a href="./profile.php?user=' . $commentArray['username'] . '">' . $commentArray['username'] . '</a></h3>';
        		echo  $commentArray['content'] . '</div>';
        		echo '<br>';
        		echo '</div>';

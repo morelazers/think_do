@@ -1,6 +1,8 @@
 <?php
 
-
+/*
+* adds a task to the database given the idea, the task array and the current user
+*/
 function createTask($i, $task, $u)
 {
 	$tName = mysql_real_escape_string($task['taskName']);
@@ -20,6 +22,9 @@ function createTask($i, $task, $u)
 	$tasks = getIdeaTasks($i);
 }
 
+/*
+* updates the information for the task of given ID, with the data in the given array
+*/
 function updateTaskInfo($t, $ID)
 {
 	/*var_dump($t['taskDescription']);*/
@@ -35,6 +40,9 @@ function updateTaskInfo($t, $ID)
 	mysql_query($sql) or die(mysql_error());
 }
 
+/*
+* gets the data for a task given its ID
+*/
 function getTaskData($tID)
 {
 	$sql = "SELECT * FROM tasks WHERE taskID=".$tID;
@@ -42,6 +50,9 @@ function getTaskData($tID)
 	return mysql_fetch_array($res);
 }
 
+/*
+* gets all the tasks for the given idea
+*/
 function getIdeaTasks($i)
 {
 	$sql = "SELECT * FROM tasks WHERE ideaID = ".$i['ideaID'];
@@ -49,14 +60,34 @@ function getIdeaTasks($i)
 	return $res;
 }
 
+/*
+* displays the tasks from the given result set on the page
+*/
 function displayTasks(&$t)
 {
 	$count = 0;
 	while ($curTask = mysql_fetch_array($t))
 	{
-		echo '<tr>';
-		echo '<td><h2><a href="./view_task.php?pid='.$curTask['taskID'].'">'.$curTask['taskName'].'</a></h2></td>';
-		echo '<td><p>Created by: '.$curTask['username'].' </td>';
+		echo '
+		<a href="javascript:animatedcollapse.toggle(\'task'.$count.'\')">
+		<div class="task">
+		<div class="taskTitle">'.$curTask['taskName'].'</div>
+		<div class="taskCompleted">';
+		if (strcmp($curTask['complete'], '1') == 0){
+			echo"</div>";
+		}
+		else{
+			echo"</div>";
+		}
+		echo '</div></a>';
+
+		echo '<div id="task'.$count.'" class="taskDetailsDropdown" style="display:none">
+
+		<p><br>'.$curTask['taskDescription'].'</p><br>
+
+		</div>';
+
+		echo '<div><td><p>Created by: <a href="./profile.php?user='.$curTask['username'].'">'.$curTask['username'].'</a> </td>';
 		echo '<td>On: '.$curTask['dateCreated'].' </td>';
 		if(isset($curTask['deadline']) && strcmp($curTask['deadline'], '0000-00-00') != 0)
 		{
@@ -74,16 +105,22 @@ function displayTasks(&$t)
 		{
 			/* task is complete, needs a visual indicator here */
 		}
-		echo '</tr>';
+		echo '</p></div>';
+		echo "<script> animatedcollapse.addDiv('task".$count."') </script>";
 		$count++;
+		
 	}
 	
 	if($count == 0)
 	{
 		echo '<h2>No tasks have been posted for this idea yet!</h2>';
 	}
+	echo "<script> animatedcollapse.init() </script>";
 }
 
+/*
+* display the task of given ID
+*/
 function displaySingleTask($tID)
 {
 	$sql = "SELECT * FROM tasks WHERE taskID =" . $tID;

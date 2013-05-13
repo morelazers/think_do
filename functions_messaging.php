@@ -18,13 +18,12 @@ function checkForNewMessages()
 	{
 		$count++;
 	}
-	
 	return $count;
 }
 
 function getAllMessages()
 {
-	$sql = "SELECT * FROM messages WHERE toUser='".$_SESSION['usr']['username']."'";
+	$sql = "SELECT * FROM messages WHERE toUser='".$_SESSION['usr']['username']."' ORDER BY msgDate DESC";
 	$res = mysql_query($sql) or die(mysql_error());
 	//var_dump($sql);
 	return $res;
@@ -40,13 +39,15 @@ function displayMessages($resultSet)
 		$from = $msgArray['fromUser'];
 		$subject = $msgArray['subject'];
 		$content = $msgArray['content'];
+        //var_dump($msgArray['msgDate']);
 		$dateSent = $msgArray['msgDate'];
-		$dateSent = date("d m Y", $dateCreated);
+		//$dateSent = date("d m Y", $dateSent);
 		$read = $msgArray['msgRead'];
-		echo $from."<br>";
-		echo $subject."<br>";
-		echo $content."<br>";
-		echo $date."<br>";
+		echo "From: <a href='profile.php?user=".$from."'>".$from."</a><br>";
+		echo "Subject: ".$subject."<br><br>";
+		echo $content."<br><br>";
+		echo "Sent: ".$dateSent."<br>";
+        echo "<a href='message_send.php?user=".$from."'>Reply</a><br><br><br><br>";
 		$sql = "UPDATE messages SET msgRead=1 WHERE messageID=".$msgArray['messageID'];
 		mysql_query($sql) or die(mysql_error()); 
 		$count++;

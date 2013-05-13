@@ -32,6 +32,9 @@
 		}
 	}
 	?>
+            <div id="footer">
+              <p><a href="about.php">About</a> &copy; Think.do 2013</p>
+            </div>
 	</div>
 	
 		<div class="mainRight">

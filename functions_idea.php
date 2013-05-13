@@ -13,15 +13,21 @@
 		$idea = mysql_query("SELECT * FROM idea WHERE ideaID =" . $ideaID);
 		//Get project data for the project from the database
 		$ideaArray = mysql_fetch_array($idea);
-		
-		if ($ideaArray == null)
-    	{
-       		header('Location: error_page.php');
-	    }
-		else
-		{
-			return $ideaArray;
-		}
+		return $ideaArray;
+	}
+}
+
+function getIdeaFromID($id)
+{
+	$idea = mysql_query("SELECT * FROM idea WHERE ideaID =" . $id);
+	
+	if ($ideaArray == null)
+	{
+   		header('Location: error_page.php');
+    }
+	else
+	{
+		return $idea;
 	}
 }
 
@@ -30,7 +36,7 @@ function getIdeaAvatar($i)
 	$user = mysql_query("SELECT * FROM user WHERE username ='" . $i['createdBy'] . "'");
 	$userArray = mysql_fetch_array($user);
 	echo '<div class="ideaAvatar"><img src="' . $userArray['avatarLocation'] . '"/></div>' 
-	. '<div class="ideaCreatorHead"><h2>Shared by: </h2><h1>'. $i['createdBy']. "</h1></div>" ;
+	. '<div class="ideaCreatorHead"><h2>Shared by: </h2><h1><a class="idea-creator" href="./profile.php?user='. $i['createdBy']. '">'. $i['createdBy']. '</a></h1></div>' ;
 } 
 
 function getHomepageIdeas($c)
@@ -59,11 +65,25 @@ function outputIdeas(&$ideas)
             $dateCreated = date("d m Y", $dateCreated);
             $iID = $ideasArray['ideaID'];
             $iVotes = $ideasArray['upVotes'];
+
+            //echo '<a href="javascript:animatedcollapse.toggle('.$iID.')">';
+
             echo '<div class="idea">';
             echo '<div class="ideaVotes">' .$iVotes. '</div>';
-            echo '<div class="ideaText"><h2><a href="./view_ideas.php?pid='.$iID.'">'.$iName.'</a></h2></br>';
-            echo 'Shared by: ' .$createdBy. '</div>';
+            echo '<div class="ideaText"><h2><a href="./view_ideas.php?pid='.$iID.'">'.$iName.'</a></h2>';
+            echo 'Shared by: <a class="profile-link" href="./profile.php?user=' .$createdBy. '">'.$createdBy.'</a></div>';
+
             echo '</div>';
+            //echo '</a>';
+
+            /*echo '
+            <div id="'.$iID.'" class="ideaDropdown" style="display:none">
+            <p>'.$ideasArray['description'].'</p><br>
+            </div>
+            ';*/
+
+            //echo "<script> animatedcollapse.addDiv(".$iID.") </script>";
+
             $count++;
         }
    }
@@ -71,6 +91,8 @@ function outputIdeas(&$ideas)
    {
      	echo '<h2>There seem to be no ideas here!<br><br></h2>';
    }
+
+   //echo "<script> animatedcollapse.init() </script>";
 
 }
 
@@ -196,7 +218,41 @@ function decrementIdeaUpvotes($i, &$u, $c)
 	mysql_query($sql, $c) or die(mysql_error());
 }
 
+function removeInterestInIdea($i, $u, $c)
+{
+	$sql = "SELECT helpers FROM idea WHERE ideaID = ".$i['ideaID'];
+	$res = mysql_query($sql) or die(mysql_error());
+	$helpersRow = mysql_fetch_array($res);
+	$helpersArray = explode(',', $helpersRow['helpers']);
+	$count = 0;
+
+	$id = $u['userID'];
+
+	$newHelperArray = array();
+
+	for($count; $count < count($helpersArray); $count++)
+	{
+		if($helpersArray[$count] == $id)
+		{
+			$helpersArray[$count] = null;
+		}
+		else
+		{
+			$newHelperArray[] = $helpersArray[$count];
+		}
+	}
+
+	$helpersString = implode(',', $newHelperArray);
+
+	$sql = "UPDATE idea SET helpers = '".$helpersString."' WHERE ideaID = ".$i['ideaID'];
+	
+	mysql_query($sql, $c) or die(mysql_error());
+}
+
 function userHasVoted($i, $u){
+	if(strcmp($u['ideasVotedFor'], $i['ideaID'])==0){
+		return true;
+	}
 	$votedArray = explode(",", $u['ideasVotedFor']);
 	if(in_array($i['ideaID'], $votedArray)){
 		return true;

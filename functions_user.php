@@ -177,8 +177,7 @@ function userIsNotTaken($u, $c)
 */
 function displayProfile($u, $c)
 {
-    echo '<h2>'.$u['username'].'</h2><br>';
-    echo '<h3>About Me:</h3><br>';
+    echo '<br><h3>About Me:</h3><br>';
     echo '<p>'.$u['aboutme'].'</p><br>';
     echo "<h3>Ideas I've Shared:</h3><br>";
     $sql = "SELECT * FROM idea WHERE isOpen = 1 AND createdBy = '".$u['username']."'";

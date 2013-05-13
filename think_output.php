@@ -11,6 +11,9 @@ include 'functions_idea.php';
             <h1>Think</h1></br>
                 The think button finds ideas we think you'll like based upon your interests!</br></br>
                 Update your interests <a href="modify_profile.php">here</a> to discover more great ideas!
+              <div id="footer">
+                <p><a href="about.php">About</a> &copy; Think.do 2013</p>
+              </div>
             </div>
           <div class="mainRight">
              <?php 
