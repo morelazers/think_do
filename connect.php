@@ -1,8 +1,8 @@
 <?php
-    $con = mysql_connect("mysql.thinkshare.it","lazorsql","laz0rbe4mz");
+    $con = mysql_connect("scc230-4.lancs.ac.uk","root","comicsans");
     if (!$con)
     {
         die('<div class="mysqlConnectError">Could not connect: '.mysql_error().'</div>');
     }
-    mysql_select_db("lazors_dev", $con);
+    mysql_select_db("thinkdo", $con);
 ?>
