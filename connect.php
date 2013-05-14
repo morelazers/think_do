@@ -1,5 +1,5 @@
 <?php
-    $con = mysql_connect("scc230-4.lancs.ac.uk","root","comicsans");
+    $con = mysql_connect("localhost:3306","root","comicsans");
     if (!$con)
     {
         die('<div class="mysqlConnectError">Could not connect: '.mysql_error().'</div>');
