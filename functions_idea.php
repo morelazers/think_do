@@ -70,7 +70,7 @@ function outputIdeas(&$ideas)
 
             echo '<div class="idea">';
             echo '<div class="ideaVotes">' .$iVotes. '</div>';
-            echo '<div class="ideaText"><h2><a href="./view_ideas.php?pid='.$iID.'">'.$iName.'</a></h2>';
+            echo '<div class="ideaText"><h2><a href="./view_idea.php?pid='.$iID.'">'.$iName.'</a></h2>';
             echo 'Shared by: <a class="profile-link" href="./profile.php?user=' .$createdBy. '">'.$createdBy.'</a></div>';
 
             echo '</div>';
@@ -328,7 +328,7 @@ function showSidebarContent($i)
 
 function showIdeaForm($i) 
 {
-    echo '<div id ="ideaForm"><form method="post" name="ideaForm" action="'; echo $PHP_SELF; echo '">
+    echo '<div id ="ideaForm"><form method="post" name="ideaForm" action="handle_idea_form.php">
     <label for="idea_title"><h2>Name it</h2></label>
     <input type="text" name="ideaName" id="idea_title" title="What&#39;s the name of your idea?" value="';
 	echo $i["ideaName"];

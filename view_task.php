@@ -4,7 +4,9 @@ include 'header.php';
 include 'functions_task.php';
 include 'functions_user.php';
 
-echo '<script language="javascript" type="text/javascript">
+?>
+
+<script language="javascript" type="text/javascript">
 window.onload = function() 
 {
     document.getElementById("taskForm").style.display="none";
@@ -18,7 +20,9 @@ window.onload = function()
         return false;
     }
 }
-</script>';
+</script>
+
+<?php
 
 
 if(array_key_exists("pid", $_GET))
@@ -63,9 +67,9 @@ echo
       <div class="sidebar">';
 
       if(isset($_SESSION['usr']))
-    {
+        {
         if($ideaMember == 0)
-      {
+        {
             echo '<form method="post" action="'; 
             echo $PHP_SELF; 
             echo '">
@@ -96,11 +100,11 @@ echo
     }
     else
     {
-            echo "<h2>Oops!</h2></br>
-            You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can use this!
-            <br>
-            But don't worry, it will take you less than a minute!
-            <br>";
+        echo "<h2>Oops!</h2></br>
+        You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can use this!
+        <br>
+        But don't worry, it will take you less than a minute!
+        <br>";
     }
 
     echo '</div>

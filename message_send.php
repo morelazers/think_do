@@ -19,7 +19,7 @@
                 All of these fields need to be filled in before we can send your message.
             </div>
           <div class="mainRight">
-            <?php include 'message_send_form.php'; ?>
+            <?php include 'form_message_send.php'; ?>
             </div>
         </div>
     </div>

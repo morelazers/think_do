@@ -4,7 +4,7 @@
         <div class="clear"></div>
         <div id="post-container">
         <div class="post"><div class="smallForm">
-            <?php include 'login_form.php'; ?>
+            <?php include 'form_login.php'; ?>
             </div></div>
         </div>
     </div>

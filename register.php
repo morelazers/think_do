@@ -3,7 +3,7 @@
         <div id="post-container">
 			<div class="post">
 			<div class="smallForm">
-		        <?php include 'register_form.php'; ?></div>
+		        <?php include 'form_register.php'; ?></div>
             </div>
         </div>
     </div>

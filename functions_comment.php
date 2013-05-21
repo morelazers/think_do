@@ -51,9 +51,6 @@ function userHasVotedOnComment($c, $u){
             echo '></div><div class="voteamount">'.$commentArray['upVotes'].'</div></div>';
        		echo '<div class="commentAvatar"><img src="' . $userArray['avatarLocation'] . '"/></div>';
                
-            //NEED TO CHANGE THIS SO THAT THE UPVOTE NUMBER IS UNDER THE UPVOTE BUTTON
-            //ALSO NEED TO GIVE IT IT'S OWN ID TAG SO THAT IT CAN BE MODIFIED
-               
        		echo '<div class="commentText"><h3><a href="./profile.php?user=' . $commentArray['username'] . '">' . $commentArray['username'] . '</a></h3>';
        		echo  $commentArray['content'] . '</div>';
        		echo '<br>';
@@ -132,8 +129,5 @@ function decrementCommentUpvotes($com, $u)
 	$sql = "UPDATE user SET commentVotes = '".$commentsString."' WHERE userID = ".$u['userID'];
 	mysql_query($sql) or die(mysql_error());
 }
-
-
-
 
 ?>

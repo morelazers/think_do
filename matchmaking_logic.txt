@@ -1,5 +1,0 @@
-/*
- * The matchmaking function should compare the user's interests with the interests of the most popular
- * ideas (as shown by upvotes). It should find 10 ideas that match, and display them. The user should 
- * have the option to 'veto' this list of ideas and the site should display the 10 next-most popular.
- */

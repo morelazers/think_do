@@ -6,7 +6,7 @@ include 'header.php'; ?>
     <div class="clear"></div>
     	<div id="post-container">
 			<div class="post">
-		        <?php include 'idea_form.php'; ?>
+		        <?php include 'form_idea.php'; ?>
             </div>
         </div>
     </div>

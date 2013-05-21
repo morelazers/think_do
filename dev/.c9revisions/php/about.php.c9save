@@ -1,2 +1,0 @@
-{"ts":1358208573030,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
-{"contributors":[],"silentsave":true,"ts":1358209858661,"patch":[[{"diffs":[[1,"<?php include 'header.php'; ?>\n    <div class=\"clear\"></div>\n\t<div id=\"post-container\">\n\t\t<div class=\"post\">\n\t\t\t<p>We are an ideas-sharing website, designed to get you in touch with the people who are thinking about tomorrow</p>\n\t\t</div>\t\t\t\n\t</div>\t\n</div>\n<?php include 'footer.php'; ?>"]],"start1":0,"start2":0,"length1":0,"length2":287}]],"length":287,"saved":false}

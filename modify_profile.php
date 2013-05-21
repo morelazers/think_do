@@ -38,7 +38,7 @@
 	</div>
 	
 		<div class="mainRight">
-            <?php include 'profile_form.php'; ?>
+            <?php include 'form_profile.php'; ?>
             </div>
         </div>
     </div>
