@@ -11,7 +11,7 @@
     include 'functions_gatherings.php';
     include 'functions_user.php';
     
-	echo '
+	?>
 
 
 
@@ -110,8 +110,8 @@
 
     });
     </script>
-    ';
-
+    
+    <?php
     
     $idea = getIdea();
     if(isset($_POST['submit']))
@@ -151,8 +151,8 @@
     }
      *$editing = true;
      */
-
-    echo '<script>
+  ?>
+  <script>
 	$(function(){
 		$( "#tabs" ).tabs();
 	});
@@ -162,23 +162,23 @@
         document.getElementById("ideaForm").style.display="none";
     }
 
-	</script>';
+	</script>
 
-    echo '<script language="javascript" type="text/javascript">
+    <script language="javascript" type="text/javascript">
     $(function() {
         var availableInterests = [
-        ';
-        $count = 0;
-        foreach($GLOBALS['interestsArray'] as $val)
-        {
-            $count++;
-            echo '"' . $val . '"';
-            if ($count <= $GLOBALS['maxInterestArrayIndex'])
-            {
-                echo ', ';
-            }
-        }
-        echo '
+          <?php
+          $count = 0;
+          foreach($GLOBALS['interestsArray'] as $val)
+          {
+              $count++;
+              echo '"' . $val . '"';
+              if ($count <= $GLOBALS['maxInterestArrayIndex'])
+              {
+                  echo ', ';
+              }
+          }
+          ?>
         ];
         $( "#interests" ).tagit({
             availableTags: availableInterests,
@@ -269,23 +269,34 @@
     <div class="clear"></div>
         <div id="post-container">
             <div class="post">
-                <div class="sidebar">';
+                <div class="sidebar">
+                  <?php
                     getIdeaAvatar($idea);
                     if(isset($_SESSION['usr'])){
                         $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
                         if(userHasVoted($idea, $_SESSION['usr'])==false){
-                            echo '<div class="ideaUpvoteContainer">
-                            <div class="ideaVotes">'.$idea['upVotes'].'</div>
+                            ?>
+                            <div class="ideaUpvoteContainer">
+                            <div class="ideaVotes">'.
+                            
+                            <?php echo $idea['upVotes'] ?>
+                            
+                            </div>
                             <br>
                             <input type="button" class="ideaVote" value="Upvote" onclick="upvoteIdeaFunction('.$idea['ideaID'].')">
-                            </div>';
+                            </div>
+                          <?php
                         }
                         else{
-                            echo '<div class="ideaUpvoteContainer">
-                            <div class="ideaVotes">'.$idea['upVotes'].'</div>
+                            ?>
+                            <div class="ideaUpvoteContainer">
+                            <div class="ideaVotes">
+                            <?php echo $idea['upVotes'] ?>
+                            </div>
                             <br>
                             <input type="button" class="ideaVote voted" value="Undo" onclick="upvoteIdeaFunction('.$idea['ideaID'].')">
-                            </div>';
+                            </div>
+                          <?php
                         }
                         $ideaMember = userMemberStatus($idea, $_SESSION['usr'], $con);
                         if($ideaMember == 0){
@@ -299,20 +310,25 @@
                             ';
                         }
                         else{
-                            echo "<p class='modMsg'>You're an idea mod</p>";
+                            ?>   
+                           <p class='modMsg'>You're an idea mod</p>
+                            <?php
                         }
                     }
                     else{
-                        echo "<p><br><br><br><br><br><br>You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can show your interest and vote on this idea.
+                      ?>
+                        <p><br><br><br><br><br><br>You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can show your interest and vote on this idea.
                                 Don't worry, it will take you less than a minute!
-                             </p><br><br>";
+                             </p><br><br>
+                      <?php
                     }
                     showSidebarContent($idea);
-                echo'        <div id="footer">
-        	<p><a href="about.php">About</a> &copy; Think.do 2013</p>
-        </div></div>
-                <div class="mainRight">';
-                    echo '
+                    ?>
+                <div id="footer">
+        	         <p><a href="about.php">About</a> &copy; Think.do 2013</p>
+                </div>
+              </div>
+                <div class="mainRight">                   
                     <div id="tabs">
                         <ul>
                             <li><a href="#tabs-1">Description</a></li>
@@ -320,7 +336,7 @@
                             <li><a href="#tabs-3">Gatherings</a></li>
                         </ul>
                         <div id="tabs-1">
-                    ';
+                    <?php
                     if(currentUserIsIdeaCreator($_SESSION['usr'], $idea))
                     {
                         echo '<br><input type="button" class="editButton" value="Edit" id="editButton">';
@@ -337,26 +353,28 @@
                     }
                     else
                     {
-                        echo "<h2>Oops!</h2>
+                        ?>
+                        <h2>Oops!</h2>
                             You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can post or vote on a comment!
                            <br>
                            But don't worry, it will take you less than a minute!
-                           <br>";
+                           <br>
+                        <?php
                     }
-                    echo'
+                    ?>
                         </div>
                         <div id="tabs-2">
-                    ';
+                    <?php
                         //$tasks = getIdeaTasks($idea);
                         if(currentUserIsIdeaMod($idea))
                         {
                             include 'form_task.php';
                         }
                         displayTasks($tasks);
-                    echo '
+                    ?>
                         </div>
                         <div id="tabs-3">
-                    ';
+                    <?php
                         
                         if(currentUserIsIdeaMod($idea))
                         {
@@ -364,21 +382,24 @@
                         }
                         displayGatherings($gatherings);
 
-                    echo '
+                    ?>
                         </div>
                     </div>            
                 </div>
             </div>
-        </div>'; 
+        </div>
+        <?php 
 
 include 'footer.php'; 
 
 function showCommentForm()
 {
-    echo '<form method="post" action="'; echo $PHP_SELF; echo '">
+    ?>
+    <form method="post" action="<?php echo $PHP_SELF ?>">
     <label for="comment"><h2>Leave a comment:</h2></label><br>
     <input type="text" name="content" id="contentInput" width="60%" value="">
-    <br><input type="submit" name="submitComment" value="Submit"></form>';
+    <br><input type="submit" name="submitComment" value="Submit"></form>
+    <?php
 }
 
 function postComment($p)

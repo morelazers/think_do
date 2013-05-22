@@ -21,15 +21,19 @@
 		$u = $_SESSION['usr'];
 		if(isset($u['interests']))
 		{
-			echo '<a href="think_output.php"><img src="images/think.png"/></a><br>';
+		?>
+    <a href="think_output.php"><img src="images/think.png"/></a><br>
+    <?php
 		}
 		else
 		{
-			echo "<p>We've noticed you haven't filled out any interests in your profile yet!
+		?>
+    <p>We've noticed you haven't filled out any interests in your profile yet!
 			<br>
 			To get the best out of think.do we recommend that you edit your profile to include a few interests!
-			<br></p>";
-		}
+			<br></p>
+		<?php
+    }
 	}
 	?>
             <div id="footer">

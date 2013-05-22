@@ -14,24 +14,30 @@ include 'functions_idea.php'; ?>
 	<?php 
 	if(!isset($_SESSION['usr']))
 	{ 
-		echo "Why don't you <a href='login.php'>log in</a>/<a href='register.php'>register</a> and we'll recommend some ideas we think you'll be interested in!"; 
+		?>
+    Why don't you <a href='login.php'>log in</a>/<a href='register.php'>register</a> and we'll recommend some ideas we think you'll be interested in!
+    <?php 
 	}
 	?>
-	</br><?php
+	<br />
+  <?php
 	//include 'functions_think.php';
 	if(isset($_SESSION['usr']))
 	{
 		$u = $_SESSION['usr'];
 		if(isset($u['interests']))
 		{
-			echo '<a href="think_output.php"><img src="images/think.png"/></a><br>';
+		 ?>
+     <a href="think_output.php"><img src="images/think.png"/></a><br>
+     <?php
 		}
 		else
 		{
-			echo "<p>We've noticed you haven't filled out any interests in your profile yet!
-			<br>
+			?><p>We've noticed you haven't filled out any interests in your profile yet!
+			<br />
 			To get the best out of think.do we recommend that you edit your profile to include a few interests!
-			<br></p>";
+			<br /></p>
+			<?php
 		}
 	}
 	?>

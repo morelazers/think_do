@@ -4,7 +4,8 @@ include 'header.php';
 include 'functions_gatherings.php';
 include 'functions_user.php';
 
-echo '<script language="javascript" type="text/javascript">
+?>
+<script language="javascript" type="text/javascript">
 window.onload = function() 
 {
     document.getElementById("gathForm").style.display="none";
@@ -18,8 +19,9 @@ window.onload = function()
         return false;
     }
 }
-</script>';
+</script>
 
+<?php
 
 if(array_key_exists("pid", $_GET))
 {
@@ -72,7 +74,7 @@ elseif(isset($_POST['cancelAttend']))
 			if(currentUserIsGatheringProposer($_SESSION['usr'], $gath))
 			{
 				showGatheringForm($gath);
-				echo '<br><input type="button" value="Edit" id="editButton">';
+				echo '<br /><input type="button" value="Edit" id="editButton">';
 			}
 			else
 			{

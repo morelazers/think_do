@@ -57,14 +57,11 @@ if(array_key_exists("pid", $_GET))
     }
     $_SESSION['usr'] = getUserData($con, $_SESSION['usr']['username']);
   }
-  
-
-
-
-echo 
-'<div class="clear"></div>
+?>
+<div class="clear"></div>
     <div id="post-container">
-      <div class="sidebar">';
+      <div class="sidebar">
+      <?php
 
       if(isset($_SESSION['usr']))
         {
@@ -100,11 +97,13 @@ echo
     }
     else
     {
-        echo "<h2>Oops!</h2></br>
+       ?>
+       <h2>Oops!</h2><br />
         You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can use this!
         <br>
         But don't worry, it will take you less than a minute!
-        <br>";
+        <br>
+        <?php
     }
 
     echo '</div>

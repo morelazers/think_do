@@ -1,6 +1,7 @@
 <?php session_start();
 /**
 *  Author: Mingkit Wrong
+*  Edited by: Thomas Altmann 22.05.2013
 */
 
 if(($_SESSION['justLoggedIn']) == true)
@@ -13,7 +14,7 @@ include 'connect.php';
 include 'functions_think.php';
 include 'functions_messaging.php';
 getAllInterests($con);
- echo '
+?>
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -54,8 +55,8 @@ getAllInterests($con);
   <div class="insideHeader">
     <div class="logo"><a href="./"><img src="images/logo.jpg"/></a></div>
     <div class="user">
-      <div class="userText">';
-        
+      <div class="userText">
+        <?php
         if (isset($_SESSION['usr']))
         {
           $u = $_SESSION['usr'];
@@ -68,12 +69,14 @@ getAllInterests($con);
         }
         else
         {
-          echo '<a href="login.php">Login</a></br></br>
-                        <a href="register.php">Register</a></br>';
+         ?>
+         <a href="login.php">Login</a><br /><br />
+         <a href="register.php">Register</a><br />
+          <?php                      
         }
-        
-      echo '</div>';
-
+        ?>
+      </div>
+      <?php
       if(isset($_SESSION['usr']) && isset($_SESSION['usr']['avatarLocation']))
       {
         //$avLoc = $_SESSION['usr']['avatarLocation'];
@@ -82,9 +85,11 @@ getAllInterests($con);
       }
       else
       {
-        echo '<div class="userImg"><img src="images/avatar.jpg"/></div>';
+       ?>
+       <div class="userImg"><img src="images/avatar.jpg"/></div>
+       <?php
       }
-      echo '
+      ?>
     </div>
   </div>
 
@@ -92,16 +97,11 @@ getAllInterests($con);
 
 <div class="navbar">
   <div class="insideNav">
-          <li><a href="index.php"><b>Home</b></br><div style="font-size:10px">think.do</div></a></li>
-        <li><a href="submit_idea.php"><b>Share</b></br><div style="font-size:10px">your ideas</div></a></li>
-    <li><a href="list_ideas.php"><b>Discover</b></br><div style="font-size:10px">great ideas</div></a></li>
-    <li><a href="think_output.php"><img height="30px" width="60px" src="images/thinknav.png" /></a>';
+          <li><a href="index.php"><b>Home</b><br /><div style="font-size:10px">think.do</div></a></li>
+        <li><a href="submit_idea.php"><b>Share</b><br /><div style="font-size:10px">your ideas</div></a></li>
+    <li><a href="list_ideas.php"><b>Discover</b><br /><div style="font-size:10px">great ideas</div></a></li>
+    <li><a href="think_output.php"><img height="30px" width="60px" src="images/thinknav.png" /></a>
 
-    //Getting rid of the search bar for now, because it doesn't work
-    /* <div style="float:right;" class = "search"><form><input type="text" id="search" name="search" value="Search..."></form></div> */
-
-  echo '</div>
+ </div>
 </div>
 <div class="main">
-';
-?>

@@ -8,8 +8,8 @@ include 'functions_idea.php';
 <div class="clear"></div>
         <div id="post-container">
           <div class="sidebar">
-            <h1>Think</h1></br>
-                The think button finds ideas we think you'll like based upon your interests!</br></br>
+            <h1>Think</h1><br />
+                The think button finds ideas we think you'll like based upon your interests!<br /><br />
                 Update your interests <a href="modify_profile.php">here</a> to discover more great ideas!
               <div id="footer">
                 <p><a href="about.php">About</a> &copy; Think.do 2013</p>
@@ -22,12 +22,13 @@ include 'functions_idea.php';
                      think($con);
                 }
                else{
-                    echo "<h2>Oops!</h2></br>
+                   ?><h2>Oops!</h2><br />
                             You must first <a href='login.php'>login</a> or <a href='register.php'>register</a> before you can use this!
                            <br>
                            But don't worry, it will take you less than a minute!
-                           <br>";
-               }
+                           <br>
+                <?php                       
+                   }
                ?>
             </div>
         </div>

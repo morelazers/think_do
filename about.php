@@ -21,7 +21,7 @@ include 'header.php'; ?>
             of social activists - we want it all to start here.<br><br>
             <h2>How do we make sure your idea reaches the right people?</h2>
             We use a system of interests, much like you would find on 
-            <a href="http://www.stumbleupon.com/">StumbleUpon</a>; You simply fill out these 
+            <a href="http://www.stumbleupon.com/" target="_blank">StumbleUpon</a>; You simply fill out these 
             interests in your profile, and we find the best ideas that match them. We use 
             this system because let's face it, you're only going to take up a project 
             if you're interested in it. We have a pretty large list of interests already, 
